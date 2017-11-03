@@ -13,6 +13,8 @@ Error: This expression has type (~b: int) => int
   2 │ let y = x(~a=2) + 2;
 
   You're missing arguments: ~b: int
+
+  If this error is confusing, let us know! https://github.com/reasonml-community/error-message-improvement
 */
 
 let x = (a, b) => a + b;
@@ -30,6 +32,8 @@ Error: This expression has type (int) => int
   2 │ let y = x(2) + 2;
 
   You're missing arguments: int
+
+  If this error is confusing, let us know! https://github.com/reasonml-community/error-message-improvement
 */
 
 let x = (a, b, c, d) => a + b;
@@ -47,6 +51,8 @@ Error: This expression has type (int, 'a, 'b) => int
   2 │ let y = x(2) + 2;
 
   You're missing arguments: int, 'a, 'b
+
+  If this error is confusing, let us know! https://github.com/reasonml-community/error-message-improvement
 */
 
 let x = (a, ~b, ~c, ~d) => a + b;
@@ -64,6 +70,8 @@ Error: This expression has type (~b: int, ~c: 'a, ~d: 'b) => int
   2 │ let y = x(2) + 2;
 
   You're missing arguments: ~b: int, ~c: 'a, ~d: 'b
+
+  If this error is confusing, let us know! https://github.com/reasonml-community/error-message-improvement
 */
 
 let module Sub = {
@@ -85,4 +93,6 @@ Error: This expression has type ('a, 'b, 'c) => Sub.a
   5 │ let y = x(2).Sub.a;
 
   You're missing arguments: 'a, 'b, 'c
+
+  If this error is confusing, let us know! https://github.com/reasonml-community/error-message-improvement
 */

@@ -16,4 +16,6 @@ Error: This expression has type ((('a) => 'b, 'a, 'c) => 'b) [@bs]
   4 │ app(((x) => x + 1), 2);
 
   This is an uncurried bucklescript function. It must be applied with [@bs].
+
+  If this error is confusing, let us know! https://github.com/reasonml-community/error-message-improvement
 */

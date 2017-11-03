@@ -16,4 +16,6 @@ Error: This expression has type string but an expression was expected of type
     string
   But was expected to be:
     int
+
+  If this error is confusing, let us know! https://github.com/reasonml-community/error-message-improvement
 */

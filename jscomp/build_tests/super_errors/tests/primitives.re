@@ -19,6 +19,9 @@ Error: This expression has type float but an expression was expected of type
 
 You can convert a float to a int with int_of_float.
 If this is a literal, you want a number without a trailing dot (e.g. 20).
+
+
+  If this error is confusing, let us know! https://github.com/reasonml-community/error-message-improvement
 */
 
 /* got int, wanted string */
@@ -41,6 +44,9 @@ Error: This expression has type int but an expression was expected of type
     string
 
 You can convert a int to a string with string_of_int.
+
+
+  If this error is confusing, let us know! https://github.com/reasonml-community/error-message-improvement
 */
 
 /* Too many arguments */
@@ -61,6 +67,8 @@ Error: This function has type (int) => int
 
   This function has type (int) => int
   It only accepts 1 argument; here, it's called with more.
+
+  If this error is confusing, let us know! https://github.com/reasonml-community/error-message-improvement
 */
 
 /* Not a function */
@@ -81,6 +89,8 @@ Error: This expression has type int
 
   This expression has type int
   It is not a function.
+
+  If this error is confusing, let us know! https://github.com/reasonml-community/error-message-improvement
 */
 
 /* Not enough arguments */
@@ -100,6 +110,8 @@ Error: The constructor X expects 2 argument(s),
   3 │ X(10);
 
   This variant constructor, X, expects 2 arguments; here, we've only found 1.
+
+  If this error is confusing, let us know! https://github.com/reasonml-community/error-message-improvement
 */
 
 /* Wrong constructor argument */
@@ -125,6 +137,9 @@ Error: This expression has type int but an expression was expected of type
 
 You can convert a int to a float with float_of_int.
 If this is a literal, you want a number with a trailing dot (e.g. 20.).
+
+
+  If this error is confusing, let us know! https://github.com/reasonml-community/error-message-improvement
 */
 
 /* Wanted list(float), found list(int) */
@@ -156,4 +171,7 @@ Error: This expression has type list(int)
 
 You can convert a int to a float with float_of_int.
 If this is a literal, you want a number with a trailing dot (e.g. 20.).
+
+
+  If this error is confusing, let us know! https://github.com/reasonml-community/error-message-improvement
 */

@@ -17,4 +17,7 @@ Error: This expression has type float but an expression was expected of type
 
 You can convert a [1;33mfloat[0m to a [1;33mint[0m with [1;33mint_of_float[0m.
 If this is a literal, you want a number without a trailing dot (e.g. [1;33m20[0m).
+
+
+  If this error is confusing, let us know! https://github.com/reasonml-community/error-message-improvement
 */
