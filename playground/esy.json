@@ -1,0 +1,15 @@
+{
+  "name": "bsb-testbed",
+  "dependencies": {
+    "@opam/menhir": "*",
+    "@opam/reason": "*",
+    // "@opam/cppo": "*",
+    // "@opam/camlp4": "*",
+    "@opam/ocaml-migrate-parsetree": "1.1.0",
+    "@opam/js_of_ocaml": "*",
+    "ocaml": "4.02.3007"
+  },
+  "scripts": {
+    "js": "./build-playground-refmt.js"
+  }
+}

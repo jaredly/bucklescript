@@ -98,3 +98,8 @@ jscomp/build_tests/*/lib/
 *.so
 bin/ninja.exe
 tmp/
+playground/.build-playground
+playground/output
+playground/_esy
+playground/omp
+playground/esy.lock
