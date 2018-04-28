@@ -151,7 +151,7 @@ function build() {
             `belt_HashMapInt`,
             `belt_HashMapString`,
         ].map(x => `${x}.cmi:/static/cmis/${x}.cmi`).map(x => `--file ${x}`).join(` `)
-    e(`js_of_ocaml --disable share --toplevel +toplevel.js +weak.js ./polyfill.js ${tmp}/bs-play.byte ${includes} ${cmi_files} -o ${playground}/playground-refmt.js`)
+    e(`js_of_ocaml --pretty --disable share --toplevel +toplevel.js +weak.js ./polyfill.js ${tmp}/bs-play.byte ${includes} ${cmi_files} -o ${playground}/playground-refmt.js`)
 
     console.log(`🎉🎉 Compiler created!
 

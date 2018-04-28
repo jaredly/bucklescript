@@ -34,6 +34,8 @@ module Js = struct
     type obj
     external obj : (string * any) array -> obj = "caml_js_object"
   end
+  type 'a optdef = 'a
+  let undefined : 'a optdef = Unsafe.pure_js_expr "undefined"
   type (-'a, +'b) meth_callback
   type 'a callback = (unit, 'a) meth_callback
   external wrap_callback : ('a -> 'b) -> ('c, 'a -> 'b) meth_callback = "caml_js_wrap_callback"
@@ -65,12 +67,16 @@ let () =
   Clflags.unsafe_string := false;
   Clflags.record_event_when_debug := false
 
-let implementation ~use_super_errors prefix impl str  : Js.Unsafe.obj =
-  let modulename = "Test" in
+let implementation ?module_name ~use_super_errors prefix impl str  : Js.Unsafe.obj =
+  let modulename = match module_name with | None -> "Test" | Some name -> name in
+  let writeCmi = module_name != None in
   (* let env = !Toploop.toplevel_env in *)
   (* Compmisc.init_path false; *)
   (* let modulename = module_of_filename ppf sourcefile outputprefix in *)
-  (* Env.set_unit_name modulename; *)
+  begin match module_name with
+  | None -> ()
+  | Some name -> Env.set_unit_name name
+  end;
   Lam_compile_env.reset () ;
   let env = Compmisc.initial_env() in (* Question ?? *)
   let finalenv = ref Env.empty in
@@ -88,7 +94,10 @@ let implementation ~use_super_errors prefix impl str  : Js.Unsafe.obj =
     (if prefix then "[@@@bs.config{no_export}]\n#1 \"repl.ml\"\n"  ^ str else str ))
   |> !Ppx_entry.rewrite_implementation
   |> (fun x ->
+      (* We want the .cmi file to be written *)
+      if writeCmi then Clflags.dont_write_files := false else ();
       let (a,b,c,signature) = Typemod.type_implementation_more modulename modulename modulename env x in
+      if writeCmi then Clflags.dont_write_files := true else ();
       finalenv := c ;
       types_signature := signature;
       (a,b)
@@ -126,6 +135,7 @@ let implementation ~use_super_errors prefix impl str  : Js.Unsafe.obj =
           );
 
       | None ->
+        if writeCmi then raise e else ();
         Js.Unsafe.(obj [|
         "js_error_msg" , inject @@ Js.string (Printexc.to_string e)
         |])
@@ -133,8 +143,8 @@ let implementation ~use_super_errors prefix impl str  : Js.Unsafe.obj =
       end
 
 
-let compile impl ~use_super_errors =
-    implementation ~use_super_errors false impl
+let compile impl ?module_name ~use_super_errors =
+    implementation ?module_name ~use_super_errors false impl
 
 let shake_compile impl ~use_super_errors =
    implementation ~use_super_errors true impl
@@ -211,6 +221,21 @@ let make_compiler name impl =
                     Js.wrap_meth_callback
                       (fun _ code ->
                          (shake_compile reason_parse ~use_super_errors:true (Js.to_string code)));
+                    "configure_requires",
+                    inject @@
+                    Js.wrap_meth_callback
+                      (fun _ fallback map -> Js_name_of_module_id.browser_resolve_module := fun name ->
+                        let place = Js.Unsafe.get map name in
+                        if place != Js.undefined then
+                          (Js.to_string place)
+                        else
+                          (Js.to_string fallback) ^ String.uncapitalize name
+                      );
+                    "compile_module",
+                    inject @@
+                    Js.wrap_meth_callback
+                      (fun _ module_name code ->
+                         (compile reason_parse ~module_name:(Js.to_string module_name) ~use_super_errors:true (Js.to_string code)));
                     "version", Js.Unsafe.inject (Js.string (Bs_version.version));
                     "load_module",
                     inject @@
