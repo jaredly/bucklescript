@@ -1,487 +1,555 @@
+
+    
 <!doctype html>
-<html>
-<head>
-                 <link rel="stylesheet" href="../api_static/tomorrow-night.css">
-                 <link rel="stylesheet" href="../api_static/style.css" type="text/css">
-                 <script src="../api_static//highlight.pack.js"></script>
-                 <script src="../api_static//script.js"></script>
-                 <script>hljs.initHighlightingOnLoad();</script> 
-                 <meta charset="utf8">
-                 <link rel="previous" href="Dom_storage.html"><link rel="next" href="Js_array.html">
-                 <title> Js </title></head> 
-               <body>
-<nav class="module-index"><ul><li><a href="Belt.html">Belt</a></li>
-<li><a href="Belt_Array.html">Belt_Array</a></li>
-<li><a href="Belt_HashMap.html">Belt_HashMap</a></li>
-<li><a href="Belt_HashMapInt.html">Belt_HashMapInt</a></li>
-<li><a href="Belt_HashMapString.html">Belt_HashMapString</a></li>
-<li><a href="Belt_HashSet.html">Belt_HashSet</a></li>
-<li><a href="Belt_HashSetInt.html">Belt_HashSetInt</a></li>
-<li><a href="Belt_HashSetString.html">Belt_HashSetString</a></li>
-<li><a href="Belt_Id.html">Belt_Id</a></li>
-<li><a href="Belt_List.html">Belt_List</a></li>
-<li><a href="Belt_Map.html">Belt_Map</a></li>
-<li><a href="Belt_MapDict.html">Belt_MapDict</a></li>
-<li><a href="Belt_MapInt.html">Belt_MapInt</a></li>
-<li><a href="Belt_MapString.html">Belt_MapString</a></li>
-<li><a href="Belt_MutableMap.html">Belt_MutableMap</a></li>
-<li><a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a></li>
-<li><a href="Belt_MutableMapString.html">Belt_MutableMapString</a></li>
-<li><a href="Belt_MutableQueue.html">Belt_MutableQueue</a></li>
-<li><a href="Belt_MutableSet.html">Belt_MutableSet</a></li>
-<li><a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a></li>
-<li><a href="Belt_MutableSetString.html">Belt_MutableSetString</a></li>
-<li><a href="Belt_MutableStack.html">Belt_MutableStack</a></li>
-<li><a href="Belt_Option.html">Belt_Option</a></li>
-<li><a href="Belt_Range.html">Belt_Range</a></li>
-<li><a href="Belt_Set.html">Belt_Set</a></li>
-<li><a href="Belt_SetDict.html">Belt_SetDict</a></li>
-<li><a href="Belt_SetInt.html">Belt_SetInt</a></li>
-<li><a href="Belt_SetString.html">Belt_SetString</a></li>
-<li><a href="Belt_SortArray.html">Belt_SortArray</a></li>
-<li><a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a></li>
-<li><a href="Belt_SortArrayString.html">Belt_SortArrayString</a></li>
-<li><a href="Belt_internalAVLset.html">Belt_internalAVLset</a></li>
-<li><a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a></li>
-<li><a href="Belt_internalBuckets.html">Belt_internalBuckets</a></li>
-<li><a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a></li>
-<li><a href="Belt_internalMapInt.html">Belt_internalMapInt</a></li>
-<li><a href="Belt_internalMapString.html">Belt_internalMapString</a></li>
-<li><a href="Belt_internalMutableAVLMap.html">Belt_internalMutableAVLMap</a></li>
-<li><a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a></li>
-<li><a href="Belt_internalSetInt.html">Belt_internalSetInt</a></li>
-<li><a href="Belt_internalSetString.html">Belt_internalSetString</a></li>
-<li><a href="Dom.html">Dom</a></li>
-<li><a href="Dom_storage.html">Dom_storage</a></li>
-<li><a href="Js.html">Js</a></li>
-<li><a href="Js_array.html">Js_array</a></li>
-<li><a href="Js_boolean.html">Js_boolean</a></li>
-<li><a href="Js_cast.html">Js_cast</a></li>
-<li><a href="Js_console.html">Js_console</a></li>
-<li><a href="Js_date.html">Js_date</a></li>
-<li><a href="Js_dict.html">Js_dict</a></li>
-<li><a href="Js_exn.html">Js_exn</a></li>
-<li><a href="Js_float.html">Js_float</a></li>
-<li><a href="Js_global.html">Js_global</a></li>
-<li><a href="Js_int.html">Js_int</a></li>
-<li><a href="Js_int64.html">Js_int64</a></li>
-<li><a href="Js_internal.html">Js_internal</a></li>
-<li><a href="Js_json.html">Js_json</a></li>
-<li><a href="Js_list.html">Js_list</a></li>
-<li><a href="Js_mapperRt.html">Js_mapperRt</a></li>
-<li><a href="Js_math.html">Js_math</a></li>
-<li><a href="Js_nativeint.html">Js_nativeint</a></li>
-<li><a href="Js_null.html">Js_null</a></li>
-<li><a href="Js_null_undefined.html">Js_null_undefined</a></li>
-<li><a href="Js_obj.html">Js_obj</a></li>
-<li><a href="Js_option.html">Js_option</a></li>
-<li><a href="Js_primitive.html">Js_primitive</a></li>
-<li><a href="Js_promise.html">Js_promise</a></li>
-<li><a href="Js_re.html">Js_re</a></li>
-<li><a href="Js_result.html">Js_result</a></li>
-<li><a href="Js_string.html">Js_string</a></li>
-<li><a href="Js_typed_array.html">Js_typed_array</a></li>
-<li><a href="Js_types.html">Js_types</a></li>
-<li><a href="Js_undefined.html">Js_undefined</a></li>
-<li><a href="Js_unsafe.html">Js_unsafe</a></li>
-<li><a href="Js_vector.html">Js_vector</a></li>
-<li><a href="Node.html">Node</a></li>
-<li><a href="Node_buffer.html">Node_buffer</a></li>
-<li><a href="Node_child_process.html">Node_child_process</a></li>
-<li><a href="Node_fs.html">Node_fs</a></li>
-<li><a href="Node_module.html">Node_module</a></li>
-<li><a href="Node_path.html">Node_path</a></li>
-<li><a href="Node_process.html">Node_process</a></li></ul></nav>
-<div class="navbar"><a class="pre" href="Dom_storage.html" title="Dom_storage">Previous</a>
-&nbsp;<a class="up" href="index.html" title="Index">Up</a>
-&nbsp;<a class="post" href="Js_array.html" title="Js_array">Next</a>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Js</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
 </div>
-<h1>Module <a href="type_Js.html">Js</a></h1>
 
-<pre><span class="keyword">module</span> Js: <code class="code">sig</code> <a href="Js.html">..</a> <code class="code">end</code></pre><div class="info module top">
-                    <div class="not-examples">
-                    This library provides bindings and necessary support for JS FFI. 
-    It contains all bindings into <code class="code">Js</code> namespace.<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">        [| 1;2;3;4|]
-        |&gt; Js.Array.map (fun x -&gt; x + 1 )
-        |&gt; Js.Array.reduce (+) 0
-        |&gt; Js.log 
-    </code></pre>  </pre>
-                    </div>
-                    </div>
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#module-MapperRt" class='level-0 module'>MapperRt</a>
+<a href="#module-Internal" class='level-0 module'>Internal</a>
+<a href="#type-t" class='level-0 type'>t</a>
+<a href="#type-null" class='level-0 type'>null</a>
+<a href="#type-undefined" class='level-0 type'>undefined</a>
+<a href="#type-nullable" class='level-0 type'>nullable</a>
+<a href="#type-null_undefined" class='level-0 type'>null_undefined</a>
+<a href="#value-toOption" class='level-0 value'>toOption</a>
+<a href="#value-undefinedToOption" class='level-0 value'>undefinedToOption</a>
+<a href="#value-nullToOption" class='level-0 value'>nullToOption</a>
+<a href="#value-test" class='level-0 value'>test</a>
+<a href="#value-testAny" class='level-0 value'>testAny</a>
+<a href="#type-boolean" class='level-0 type'>boolean</a>
+<a href="#type-promise" class='level-0 type'>promise</a>
+<a href="#value-true_" class='level-0 value'>true_</a>
+<a href="#value-false_" class='level-0 value'>false_</a>
+<a href="#value-null" class='level-0 value'>null</a>
+<a href="#value-undefined" class='level-0 value'>undefined</a>
+<a href="#value-to_bool" class='level-0 value'>to_bool</a>
+<a href="#value-typeof" class='level-0 value'>typeof</a>
+<a href="#value-log" class='level-0 value'>log</a>
+<a href="#value-log2" class='level-0 value'>log2</a>
+<a href="#value-log3" class='level-0 value'>log3</a>
+<a href="#value-log4" class='level-0 value'>log4</a>
+<a href="#value-logMany" class='level-0 value'>logMany</a>
+<a href="#value-eqNull" class='level-0 value'>eqNull</a>
+<a href="#value-eqUndefined" class='level-0 value'>eqUndefined</a>
+<a href="#value-eqNullable" class='level-0 value'>eqNullable</a>
+<a href="#value-unsafe_lt" class='level-0 value'>unsafe_lt</a>
+<a href="#value-unsafe_le" class='level-0 value'>unsafe_le</a>
+<a href="#value-unsafe_gt" class='level-0 value'>unsafe_gt</a>
+<a href="#value-unsafe_ge" class='level-0 value'>unsafe_ge</a>
+<a href="#module-Null" class='level-0 module'>Null</a>
+<a href="#module-Undefined" class='level-0 module'>Undefined</a>
+<a href="#module-Nullable" class='level-0 module'>Nullable</a>
+<a href="#module-Null_undefined" class='level-0 module'>Null_undefined</a>
+<a href="#module-Exn" class='level-0 module'>Exn</a>
+<a href="#module-Array" class='level-0 module'>Array</a>
+<a href="#module-String" class='level-0 module'>String</a>
+<a href="#module-Boolean" class='level-0 module'>Boolean</a>
+<a href="#module-Re" class='level-0 module'>Re</a>
+<a href="#module-Promise" class='level-0 module'>Promise</a>
+<a href="#module-Date" class='level-0 module'>Date</a>
+<a href="#module-Dict" class='level-0 module'>Dict</a>
+<a href="#module-Global" class='level-0 module'>Global</a>
+<a href="#module-Json" class='level-0 module'>Json</a>
+<a href="#module-Math" class='level-0 module'>Math</a>
+<a href="#module-Obj" class='level-0 module'>Obj</a>
+<a href="#module-Typed_array" class='level-0 module'>Typed_array</a>
+<a href="#module-Types" class='level-0 module'>Types</a>
+<a href="#module-Float" class='level-0 module'>Float</a>
+<a href="#module-Int" class='level-0 module'>Int</a>
+<a href="#module-Option" class='level-0 module'>Option</a>
+<a href="#module-Result" class='level-0 module'>Result</a>
+<a href="#module-List" class='level-0 module'>List</a>
+<a href="#module-Vector" class='level-0 module'>Vector</a>
+<a href="#module-Console" class='level-0 module'>Console</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Js.html">Js</a>
+<a href="Arg.html">Arg</a>
+<a href="Array.html">Array</a>
+<a href="ArrayLabels.html">ArrayLabels</a>
+<a href="Bigarray.html">Bigarray</a>
+<a href="Buffer.html">Buffer</a>
+<a href="Bytes.html">Bytes</a>
+<a href="BytesLabels.html">BytesLabels</a>
+<a href="Callback.html">Callback</a>
+<a href="CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="CamlinternalMod.html">CamlinternalMod</a>
+<a href="CamlinternalOO.html">CamlinternalOO</a>
+<a href="Char.html">Char</a>
+<a href="Complex.html">Complex</a>
+<a href="Digest.html">Digest</a>
+<a href="Filename.html">Filename</a>
+<a href="Format.html">Format</a>
+<a href="Gc.html">Gc</a>
+<a href="Genlex.html">Genlex</a>
+<a href="Hashtbl.html">Hashtbl</a>
+<a href="Int32.html">Int32</a>
+<a href="Int64.html">Int64</a>
+<a href="Lazy.html">Lazy</a>
+<a href="Lexing.html">Lexing</a>
+<a href="List.html">List</a>
+<a href="ListLabels.html">ListLabels</a>
+<a href="Map.html">Map</a>
+<a href="Marshal.html">Marshal</a>
+<a href="MoreLabels.html">MoreLabels</a>
+<a href="Nativeint.html">Nativeint</a>
+<a href="Obj.html">Obj</a>
+<a href="Oo.html">Oo</a>
+<a href="Parsing.html">Parsing</a>
+<a href="Pervasives.html">Pervasives</a>
+<a href="Printexc.html">Printexc</a>
+<a href="Printf.html">Printf</a>
+<a href="Queue.html">Queue</a>
+<a href="Random.html">Random</a>
+<a href="Scanf.html">Scanf</a>
+<a href="Set.html">Set</a>
+<a href="Sort.html">Sort</a>
+<a href="Stack.html">Stack</a>
+<a href="Std_exit.html">Std_exit</a>
+<a href="StdLabels.html">StdLabels</a>
+<a href="Stream.html">Stream</a>
+<a href="String.html">String</a>
+<a href="StringLabels.html">StringLabels</a>
+<a href="Sys.html">Sys</a>
+<a href="Unix.html">Unix</a>
+<a href="UnixLabels.html">UnixLabels</a>
+<a href="Weak.html">Weak</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/runtime/js.mli" class="edit-link">Edit</a>
+    <p>This library provides bindings and necessary support for JS FFI. It contains all bindings into <code>Js</code> namespace.</p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='141' id='block-141'><code>[| 1;2;3;4|]
+|&gt; Js.Array.map (fun x -&gt; x + 1 )
+|&gt; Js.Array.reduce (+) 0
+|&gt; Js.log </code></pre>
+  
+  <script type='docre-source' data-block-id="141">#open Js
+[| 1;2;3;4|]
+|> Js.Array.map (fun x -> x + 1 )
+|> Js.Array.reduce (+) 0
+|> Js.log 
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 0-2:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='141-alt' id='block-141-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div><p>other items defined</p><div class='doc-item'><h4 class='item module'>module <a href="#module-MapperRt" id="module-MapperRt">MapperRt</a> : <a href="Js_mapperRt.html">Js_mapperRt</a></h4><div class='body module-body'><p>/*</p>
+</div></div>
 
-                  <hr width="100%">
-<div class="type-declaration">
-<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type">+'a</code> t</span> </pre>
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Internal" id="module-Internal">Internal</a> : Js_internal</h4><div class='body module-body'><p>/*</p>
+</div></div>
+
+<div class='doc-item'><p>Types for JS objects</p>
 </div>
-<div class="info ">
-                    <div class="not-examples">
-                    Js object type.<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">        let x : &lt; x : int ; y : int &gt; Js.t =
-            [%obj{ x = 1 ; y = 2}]
-    </code></pre>  </pre>
-                    </div>
-                    </div>
 
-                  
-<div class="type-declaration">
-<pre><span id="TYPEnull"><span class="keyword">type</span> <code class="type">+'a</code> null</span> </pre>
-</div>
-<div class="info ">
-                    <div class="not-examples">
-                    nullable, value of this type can be either <code class="code">null</code> or <code class="code">'a</code>
-    this type is the same as type <code class="code">t</code> in <a href="Js.Null.html"><code class="code">Js.Null</code></a><br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-t" id="type-t">t</a>('a)</h4>
 
-                  
-<div class="type-declaration">
-<pre><span id="TYPEundefined"><span class="keyword">type</span> <code class="type">+'a</code> undefined</span> </pre>
-</div>
-<div class="info ">
-                    <div class="not-examples">
-                    value of this type can be either <code class="code">undefined</code> or <code class="code">'a</code>
-    this type is the same as type <code class="code">t</code> in <a href="Js.Undefined.html"><code class="code">Js.Undefined</code></a><br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>Js object type.</p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='140' id='block-140'><code>let <span class='pattern-ident' data-type="Js.t(&lt; x : int; y : int &gt;)">x</span> : &lt; x : <span class='type-constructor'>int</span> ; y : <span class='type-constructor'>int</span> &gt; <span class='type-constructor'>Js.t</span> =
+    [%obj<span class='type-vbl'><span class='type-vbl'><span class='type-constructor'><span class='type-vbl'><span class='type-vbl'><span class='ident' data-type="(~x: int, ~y: int) => Js.t(&lt; x : int; y : int &gt;)">{ x = <span class='int' data-type="int">1</span> ; y = <span class='int' data-type="int">2</span>}</span></span></span></span></span></span>]</code></pre>
+  
+  <script type='docre-source' data-block-id="140">#open Js
+let x : < x : int ; y : int > Js.t =
+    [%obj{ x = 1 ; y = 2}]
+</script>
+  <div data-block-id='140' data-context="normal" data-block-syntax="ml" class='block-target'></div><script type='docre-bundle' data-block-id='140'>
+;(function() { // generated by pack.re
+let modules = {}
+let initializers = {
+    1: function(module, exports, require) {// Generated by BUCKLESCRIPT VERSION 2.2.3, PLEASE EDIT WITH CARE
+'use strict';
 
-                  
-<div class="type-declaration">
-<pre><span id="TYPEnullable"><span class="keyword">type</span> <code class="type">+'a</code> nullable</span> </pre>
-</div>
-<div class="info ">
-                    <div class="not-examples">
-                    value of this type can be <code class="code">undefined</code>, <code class="code">null</code> or <code class="code">'a</code>
-    this type is the same as type <code class="code">t</code> n <a href="Js.Null_undefined.html"><code class="code">Js.Null_undefined</code></a><br>
- 
-                    </div>
-                    
-                    </div>
 
-                  
-<div class="type-declaration">
-<pre><span id="TYPEnull_undefined"><span class="keyword">type</span> <code class="type">'a</code> null_undefined</span> = <code class="type">'a <a href="Js.html#TYPEnullable">nullable</a></code> </pre>
-</div>
-<div class="info ">
-                    <div class="not-examples">
-                    value of this type can be <code class="code">undefined</code>, <code class="code">null</code> or <code class="code">'a</code>
-    this type is the same as <code class="code">Js.Null_undefined.t</code><br>
- 
-                    </div>
-                    
-                    </div>
+var x = {
+  x: 1,
+  y: 2
+};
 
-                  
+exports.x = x;
+/* No side effect */
+//# sourceURL=./node_modules/.docre/Bucklescript__Js_CODE_BLOCK_140.re_ppx.js
+}
+};
+let nameMap = {
+  "./node_modules/.docre/Bucklescript__Js_CODE_BLOCK_140.re_ppx.js": 1
+}
+let require = (id) => {
+  if (!modules[id]) {
+    modules[id] = {exports: {}}
+    initializers[id](modules[id], modules[id].exports, require)
+  }
+  return modules[id].exports
+};
+  require(1)})();</script>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='140-alt' id='block-140-alt'><code>open Js;
 
-<pre><span id="VALtoOption"><span class="keyword">val</span> toOption</span> : <code class="type">'a <a href="Js.html#TYPEnullable">nullable</a> -> 'a option</code></pre>
-<pre><span id="VALundefinedToOption"><span class="keyword">val</span> undefinedToOption</span> : <code class="type">'a <a href="Js.html#TYPEundefined">undefined</a> -> 'a option</code></pre>
-<pre><span id="VALnullToOption"><span class="keyword">val</span> nullToOption</span> : <code class="type">'a <a href="Js.html#TYPEnull">null</a> -> 'a option</code></pre>
-<pre><span id="VALtest"><span class="keyword">val</span> test</span> : <code class="type">'a <a href="Js.html#TYPEnullable">nullable</a> -> bool</code></pre>
-<pre><span id="VALtestAny"><span class="keyword">val</span> testAny</span> : <code class="type">'a -> bool</code></pre><div class="info ">
-                    <div class="not-examples">
-                    The same as <a href="Js.html#VALtest"><code class="code">Js.test</code></a> except that it is more permissive on the types of input<br>
- 
-                    </div>
-                    
-                    </div>
+let <span class='pattern-ident' data-type="Js.t(&lt; x : int; y : int &gt;)">x</span>: <span class='type-constructor'>{
+  .
+  &quot;x&quot;: <span class='type-constructor'>int</span>,
+  &quot;y&quot;: <span class='type-constructor'>int</span>,
+}</span> = [%obj <span class='type-vbl'><span class='type-vbl'><span class='type-constructor'><span class='type-vbl'><span class='type-vbl'><span class='ident' data-type="(~x: int, ~y: int) => Js.t(&lt; x : int; y : int &gt;)">{x: <span class='int' data-type="int">1</span>, y: <span class='int' data-type="int">2</span>}</span></span></span></span></span></span>];</code></pre>
+  
+  <script type='docre-source' data-block-id="140-alt">open Js;
 
-                  <div class="type-declaration">
-<pre><span id="TYPEboolean"><span class="keyword">type</span> <code class="type"></code>boolean</span> = <code class="type">bool</code> </pre>
-</div>
-<div class="info ">
-                    <div class="not-examples">
-                    The value could be either  <a href="Js.html#VALtrue_"><code class="code">Js.true_</code></a> or <a href="Js.html#VALfalse_"><code class="code">Js.false_</code></a>.
-     Note in BuckleScript, <code class="code">boolean</code> has different representation from OCaml's <code class="code">bool</code>,
-     see conversion functions in <a href="Js.Boolean.html"><code class="code">Js.Boolean</code></a><br>
- 
-                    </div>
-                    
-                    </div>
+let x: {
+  .
+  "x": int,
+  "y": int,
+} = [%obj {x: 1, y: 2}];</script>
+  <div data-block-id='140-alt' data-context="normal" data-block-syntax="re" class='block-target'></div><script type='docre-bundle' data-block-id='140-alt'>
+;(function() { // generated by pack.re
+let modules = {}
+let initializers = {
+    1: function(module, exports, require) {// Generated by BUCKLESCRIPT VERSION 2.2.3, PLEASE EDIT WITH CARE
+'use strict';
 
-                  
-<div class="type-declaration">
-<pre><span id="TYPEpromise"><span class="keyword">type</span> <code class="type">(+'a, +'e)</code> promise</span> </pre>
-</div>
-<div class="info ">
-                    <div class="not-examples">
-                    <div class="warning">
-                              <span class="label">Deprecated.</span>
-                              please use <a href="Js.Promise.html"><code class="code">Js.Promise</code></a>
-                              </div>
-                            The promise type, defined here for interoperation across packages<br>
- 
-                    </div>
-                    
-                    </div>
 
-                  
+var x = {
+  x: 1,
+  y: 2
+};
 
-<pre><span id="VALtrue_"><span class="keyword">val</span> true_</span> : <code class="type">bool</code></pre>
-<pre><span id="VALfalse_"><span class="keyword">val</span> false_</span> : <code class="type">bool</code></pre>
-<pre><span id="VALnull"><span class="keyword">val</span> null</span> : <code class="type">'a <a href="Js.html#TYPEnull">null</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    The same as <code class="code">empty</code> in <a href="Js.Null.html"><code class="code">Js.Null</code></a> will be compiled as <code class="code">null</code><br>
- 
-                    </div>
-                    
-                    </div>
+exports.x = x;
+/* No side effect */
+//# sourceURL=./node_modules/.docre/Bucklescript__Js_CODE_BLOCK_140_alt.re_ppx.js
+}
+};
+let nameMap = {
+  "./node_modules/.docre/Bucklescript__Js_CODE_BLOCK_140_alt.re_ppx.js": 1
+}
+let require = (id) => {
+  if (!modules[id]) {
+    modules[id] = {exports: {}}
+    initializers[id](modules[id], modules[id].exports, require)
+  }
+  return modules[id].exports
+};
+  require(1)})();</script>
+</div></div></div>
 
-                  
-<pre><span id="VALundefined"><span class="keyword">val</span> undefined</span> : <code class="type">'a <a href="Js.html#TYPEundefined">undefined</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    The same as  <code class="code">empty</code> <a href="Js.Undefined.html"><code class="code">Js.Undefined</code></a> will be compiled as <code class="code">undefined</code><br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-null" id="type-null">null</a>('a)</h4>
 
-                  
-<pre><span id="VALto_bool"><span class="keyword">val</span> to_bool</span> : <code class="type">bool -> bool</code></pre><div class="info ">
-                    <div class="not-examples">
-                    convert Js boolean to OCaml bool<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>nullable, value of this type can be either <code>null</code> or <code>&#39;a</code> this type is the same as type <code>t</code> in Null</p>
+</div></div>
 
-                  
-<pre><span id="VALtypeof"><span class="keyword">val</span> typeof</span> : <code class="type">'a -> string</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">typeof x</code> will be compiled as <code class="code">typeof x</code> in JS 
-    Please consider functions in <a href="Js.Types.html"><code class="code">Js.Types</code></a> for a type safe way of reflection<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-undefined" id="type-undefined">undefined</a>('a)</h4>
 
-                  
-<pre><span id="VALlog"><span class="keyword">val</span> log</span> : <code class="type">'a -> unit</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">typeof x</code> will be compiled as <code class="code">typeof x</code> in JS<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>value of this type can be either <code>undefined</code> or <code>&#39;a</code> this type is the same as type <code>t</code> in Undefined</p>
+</div></div>
 
-                  
-<pre><span id="VALlog2"><span class="keyword">val</span> log2</span> : <code class="type">'a -> 'b -> unit</code></pre>
-<pre><span id="VALlog3"><span class="keyword">val</span> log3</span> : <code class="type">'a -> 'b -> 'c -> unit</code></pre>
-<pre><span id="VALlog4"><span class="keyword">val</span> log4</span> : <code class="type">'a -> 'b -> 'c -> 'd -> unit</code></pre><div class="info ">
-                    <div class="not-examples">
-                    A convenience function to log everything<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-nullable" id="type-nullable">nullable</a>('a)</h4>
 
-                  
-<pre><span id="VALlogMany"><span class="keyword">val</span> logMany</span> : <code class="type">'a array -> unit</code></pre><div class="info ">
-                    <div class="not-examples">
-                    A convenience function to log more than 4 arguments<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>value of this type can be <code>undefined</code>, <code>null</code> or <code>&#39;a</code> this type is the same as type <code>t</code> n Null_undefined</p>
+</div></div>
 
-                  
-<pre><span id="VALeqNull"><span class="keyword">val</span> eqNull</span> : <code class="type">'a -> 'a <a href="Js.html#TYPEnull">null</a> -> bool</code></pre>
-<pre><span id="VALeqUndefined"><span class="keyword">val</span> eqUndefined</span> : <code class="type">'a -> 'a <a href="Js.html#TYPEundefined">undefined</a> -> bool</code></pre>
-<pre><span id="VALeqNullable"><span class="keyword">val</span> eqNullable</span> : <code class="type">'a -> 'a <a href="Js.html#TYPEnullable">nullable</a> -> bool</code></pre>
-<pre><span id="VALunsafe_lt"><span class="keyword">val</span> unsafe_lt</span> : <code class="type">'a -> 'a -> bool</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">unsafe_lt a b</code> will be compiled as <code class="code">a &lt; b</code>.
-    It is marked as unsafe, since it is impossible 
-    to give a proper semantics for comparision which applies to any type<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-null_undefined" id="type-null_undefined">null_undefined</a>('a) = <a href="#type-nullable">nullable</a>('a)</h4>
 
-                  
-<pre><span id="VALunsafe_le"><span class="keyword">val</span> unsafe_le</span> : <code class="type">'a -> 'a -> bool</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">unsafe_le a b</code> will be compiled as <code class="code">a &lt;= b</code>. 
-    See also <a href="Js.html#VALunsafe_lt"><code class="code">Js.unsafe_lt</code></a><br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body body-empty'></div></div>
 
-                  
-<pre><span id="VALunsafe_gt"><span class="keyword">val</span> unsafe_gt</span> : <code class="type">'a -> 'a -> bool</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">unsafe_gt a b</code> will be compiled as <code class="code">a &gt; b</code>. 
-     See also <a href="Js.html#VALunsafe_lt"><code class="code">Js.unsafe_lt</code></a><br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-toOption" id="value-toOption">toOption</a>: <a href="#type-nullable">nullable</a>('a) => option('a)</h4>
 
-                  
-<pre><span id="VALunsafe_ge"><span class="keyword">val</span> unsafe_ge</span> : <code class="type">'a -> 'a -> bool</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">unsafe_ge a b</code> will be compiled as <code class="code">a &gt;= b</code>.
-    See also <a href="Js.html#VALunsafe_lt"><code class="code">Js.unsafe_lt</code></a><br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body body-empty'></div></div>
 
-                  
-<pre><span class="keyword">module</span> <a href="Js.Null.html">Null</a>: <code class="type"><a href="Js_null.html">Js_null</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Provide utilities around <code class="code">'a null</code><br>
- 
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Js.Undefined.html">Undefined</a>: <code class="type"><a href="Js_undefined.html">Js_undefined</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Provide utilities around <a href="Js.html#VALundefined"><code class="code">Js.undefined</code></a><br>
- 
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Js.Nullable.html">Nullable</a>: <code class="type"><a href="Js_null_undefined.html">Js_null_undefined</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Provide utilities around <a href="Js.html#TYPEnull_undefined"><code class="code">Js.null_undefined</code></a><br>
- 
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Js.Null_undefined.html">Null_undefined</a>: <code class="type"><a href="Js_null_undefined.html">Js_null_undefined</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                     
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Js.Exn.html">Exn</a>: <code class="type"><a href="Js_exn.html">Js_exn</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Provide utilities for dealing with Js exceptions<br>
- 
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Js.Array.html">Array</a>: <code class="type"><a href="Js_array.html">Js_array</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Provide bindings to Js array<br>
- 
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Js.String.html">String</a>: <code class="type"><a href="Js_string.html">Js_string</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Provide bindings to JS string<br>
- 
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Js.Boolean.html">Boolean</a>: <code class="type"><a href="Js_boolean.html">Js_boolean</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Provide utilities for <a href="Js.html#TYPEboolean"><code class="code">Js.boolean</code></a><br>
- 
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Js.Re.html">Re</a>: <code class="type"><a href="Js_re.html">Js_re</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Provide bindings to Js regex expression<br>
- 
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Js.Promise.html">Promise</a>: <code class="type"><a href="Js_promise.html">Js_promise</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Provide bindings to JS promise<br>
- 
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Js.Date.html">Date</a>: <code class="type"><a href="Js_date.html">Js_date</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Provide bindings for JS Date<br>
- 
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Js.Dict.html">Dict</a>: <code class="type"><a href="Js_dict.html">Js_dict</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Provide utilities for JS dictionary object<br>
- 
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Js.Global.html">Global</a>: <code class="type"><a href="Js_global.html">Js_global</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Provide bindings to JS global functions in global namespace<br>
- 
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Js.Json.html">Json</a>: <code class="type"><a href="Js_json.html">Js_json</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Provide utilities for json<br>
- 
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Js.Math.html">Math</a>: <code class="type"><a href="Js_math.html">Js_math</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Provide bindings for JS <code class="code">Math</code> object<br>
- 
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Js.Obj.html">Obj</a>: <code class="type"><a href="Js_obj.html">Js_obj</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Provide utilities for <a href="Js.html#TYPEt"><code class="code">Js.t</code></a><br>
- 
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Js.Typed_array.html">Typed_array</a>: <code class="type"><a href="Js_typed_array.html">Js_typed_array</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Provide bindings for JS typed array<br>
- 
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Js.Types.html">Types</a>: <code class="type"><a href="Js_types.html">Js_types</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Provide utilities for manipulating JS types<br>
- 
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Js.Float.html">Float</a>: <code class="type"><a href="Js_float.html">Js_float</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Provide utilities for JS float<br>
- 
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Js.Int.html">Int</a>: <code class="type"><a href="Js_int.html">Js_int</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Provide utilities for int<br>
- 
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Js.Option.html">Option</a>: <code class="type"><a href="Js_option.html">Js_option</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Provide utilities for option<br>
- 
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Js.Result.html">Result</a>: <code class="type"><a href="Js_result.html">Js_result</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Define the interface for result<br>
- 
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Js.List.html">List</a>: <code class="type"><a href="Js_list.html">Js_list</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Provide utilities for list<br>
- 
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Js.Vector.html">Vector</a>: <code class="type"><a href="Js_vector.html">Js_vector</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                     
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Js.Console.html">Console</a>: <code class="type"><a href="Js_console.html">Js_console</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                     
-                </div>
-                </div> </body></html>
+<div class='doc-item'><h4 class='item'>let <a href="#value-undefinedToOption" id="value-undefinedToOption">undefinedToOption</a>: <a href="#type-undefined">undefined</a>('a) => option('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-nullToOption" id="value-nullToOption">nullToOption</a>: <a href="#type-null">null</a>('a) => option('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-test" id="value-test">test</a>: <a href="#type-nullable">nullable</a>('a) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-testAny" id="value-testAny">testAny</a>: 'a => bool</h4>
+
+<div class='body '><p>The same as test except that it is more permissive on the types of input</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-boolean" id="type-boolean">boolean</a></h4>
+
+<div class='body '><p>The value could be either true_ or false_. Note in BuckleScript, <code>boolean</code> has different representation from OCaml&#39;s <code>bool</code>, see conversion functions in Boolean</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-promise" id="type-promise">promise</a>('a, 'e)</h4>
+
+<div class='body '><p>The promise type, defined here for interoperation across packages</p>
+<p>Deprecated: <p>please use Promise</p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-true_" id="value-true_">true_</a>: <a href="#type-boolean">boolean</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-false_" id="value-false_">false_</a>: <a href="#type-boolean">boolean</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-null" id="value-null">null</a>: <a href="#type-null">null</a>('a)</h4>
+
+<div class='body '><p>The same as <code>empty</code> in Null will be compiled as <code>null</code></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-undefined" id="value-undefined">undefined</a>: <a href="#type-undefined">undefined</a>('a)</h4>
+
+<div class='body '><p>The same as <code>empty</code> Undefined will be compiled as <code>undefined</code></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-to_bool" id="value-to_bool">to_bool</a>: <a href="#type-boolean">boolean</a> => bool</h4>
+
+<div class='body '><p>convert Js boolean to OCaml bool</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-typeof" id="value-typeof">typeof</a>: 'a => string</h4>
+
+<div class='body '><p><code>typeof x</code> will be compiled as <code>typeof x</code> in JS Please consider functions in Types for a type safe way of reflection</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-log" id="value-log">log</a>: 'a => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-log2" id="value-log2">log2</a>: ('a, 'b) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-log3" id="value-log3">log3</a>: ('a, 'b, 'c) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-log4" id="value-log4">log4</a>: ('a, 'b, 'c, 'd) => unit</h4>
+
+<div class='body '><p>A convenience function to log everything</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-logMany" id="value-logMany">logMany</a>: array('a) => unit</h4>
+
+<div class='body '><p>A convenience function to log more than 4 arguments</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-eqNull" id="value-eqNull">eqNull</a>: ('a, <a href="#type-null">null</a>('a)) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-eqUndefined" id="value-eqUndefined">eqUndefined</a>: ('a, <a href="#type-undefined">undefined</a>('a)) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-eqNullable" id="value-eqNullable">eqNullable</a>: ('a, <a href="#type-nullable">nullable</a>('a)) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 id="operators">operators</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-unsafe_lt" id="value-unsafe_lt">unsafe_lt</a>: ('a, 'a) => bool</h4>
+
+<div class='body '><p><code>unsafe_lt a b</code> will be compiled as <code>a &lt; b</code>. It is marked as unsafe, since it is impossible to give a proper semantics for comparision which applies to any type</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-unsafe_le" id="value-unsafe_le">unsafe_le</a>: ('a, 'a) => bool</h4>
+
+<div class='body '><p><code>unsafe_lt a b</code> will be compiled as <code>a &lt; b</code>. It is marked as unsafe, since it is impossible to give a proper semantics for comparision which applies to any type</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-unsafe_gt" id="value-unsafe_gt">unsafe_gt</a>: ('a, 'a) => bool</h4>
+
+<div class='body '><p><code>unsafe_le a b</code> will be compiled as <code>a &lt;= b</code>. See also unsafe_lt</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-unsafe_ge" id="value-unsafe_ge">unsafe_ge</a>: ('a, 'a) => bool</h4>
+
+<div class='body '><p><code>unsafe_gt a b</code> will be compiled as <code>a &gt; b</code>. See also unsafe_lt</p>
+</div></div>
+
+<div class='doc-item'>failed to parse: File &quot;&quot;, line 0, characters 0-3:
+&#39;12&#39;: bad section level (2-4 allowed)</div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Null" id="module-Null">Null</a> : Js_null</h4><div class='body module-body'><p>Provide utilities around <code>&#39;a null</code></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Undefined" id="module-Undefined">Undefined</a> : Js_undefined</h4><div class='body module-body'><p>Provide utilities around undefined</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Nullable" id="module-Nullable">Nullable</a> : <a href="Js_null_undefined.html">Js_null_undefined</a></h4><div class='body module-body'><p>Provide utilities around undefined</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Null_undefined" id="module-Null_undefined">Null_undefined</a> : <a href="Js_null_undefined.html">Js_null_undefined</a></h4><div class='body module-body'><p>Provide utilities around null_undefined</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Exn" id="module-Exn">Exn</a> : Js_exn</h4><div class='body module-body'><p>Provide utilities for dealing with Js exceptions</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Array" id="module-Array">Array</a> : <a href="Js_array.html">Js_array</a></h4><div class='body module-body'><p>Provide bindings to Js array</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-String" id="module-String">String</a> : <a href="Js_string.html">Js_string</a></h4><div class='body module-body'><p>Provide bindings to Js array</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Boolean" id="module-Boolean">Boolean</a> : <a href="Js_boolean.html">Js_boolean</a></h4><div class='body module-body'><p>Provide bindings to JS string</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Re" id="module-Re">Re</a> : <a href="Js_re.html">Js_re</a></h4><div class='body module-body'><p>Provide bindings to Js regex expression</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Promise" id="module-Promise">Promise</a> : <a href="Js_promise.html">Js_promise</a></h4><div class='body module-body'><p>Provide bindings to JS promise</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Date" id="module-Date">Date</a> : <a href="Js_date.html">Js_date</a></h4><div class='body module-body'><p>Provide bindings for JS Date</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Dict" id="module-Dict">Dict</a> : <a href="Js_dict.html">Js_dict</a></h4><div class='body module-body'><p>Provide utilities for JS dictionary object</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Global" id="module-Global">Global</a> : <a href="Js_global.html">Js_global</a></h4><div class='body module-body'><p>Provide bindings to JS global functions in global namespace</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Json" id="module-Json">Json</a> : <a href="Js_json.html">Js_json</a></h4><div class='body module-body'><p>Provide utilities for json</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Math" id="module-Math">Math</a> : <a href="Js_math.html">Js_math</a></h4><div class='body module-body'><p>Provide bindings for JS <code>Math</code> object</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Obj" id="module-Obj">Obj</a> : <a href="Js_obj.html">Js_obj</a></h4><div class='body module-body'><p>Provide utilities for t</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Typed_array" id="module-Typed_array">Typed_array</a> : Js_typed_array</h4><div class='body module-body'><p>Provide bindings for JS typed array</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Types" id="module-Types">Types</a> : <a href="Js_types.html">Js_types</a></h4><div class='body module-body'><p>Provide utilities for manipulating JS types</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Float" id="module-Float">Float</a> : Js_float</h4><div class='body module-body'><p>Provide utilities for manipulating JS types</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Int" id="module-Int">Int</a> : Js_int</h4><div class='body module-body'><p>Provide utilities for JS float</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Option" id="module-Option">Option</a> : <a href="Js_option.html">Js_option</a></h4><div class='body module-body'><p>Provide utilities for option</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Result" id="module-Result">Result</a> : <a href="Js_result.html">Js_result</a></h4><div class='body module-body'><p>Define the interface for result</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-List" id="module-List">List</a> : <a href="Js_list.html">Js_list</a></h4><div class='body module-body'><p>Provide utilities for list</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Vector" id="module-Vector">Vector</a> : <a href="Js_vector.html">Js_vector</a></h4></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Console" id="module-Console">Console</a> : <a href="Js_console.html">Js_console</a></h4></div>
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

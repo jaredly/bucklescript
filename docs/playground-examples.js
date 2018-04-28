@@ -1,0 +1,1 @@
+window.examplesData = [{"title": "Belt.Map", "code": "open Belt.Map.Int;\nlet map = empty\n|. set(10, \"aweomse\")\n|. set(1, \"parties\")\n|. set(2, \"things\");\nswitch (get(map, 1)) {\n  | None => Js.log(\"nope\")\n  | Some(x) => Js.log(x)\n}"}]

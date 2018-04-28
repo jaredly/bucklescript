@@ -1,53 +1,1215 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>BuckleScript</title>
-    <meta charset="utf-8">
-    <style>
-        @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-        @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
-        @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
 
-        body { font-family: 'Droid Serif'; }
-        h1, h2, h3 {
-            font-family: 'Yanone Kaffeesatz';
-            font-weight: normal;
-        }
-        .remark-code, .remark-inline-code {
-            font-family: 'Ubuntu Mono';
-            font-size: 14px;
-        }
-
-        table {
-            width: 50%;
-        }
-        table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-            font-size: 10px;
-        }
-        th, td {
-            padding: 5px;
-        }
-        /*code {*/
-            /*font-size: 7px;*/
-        /*}*/
-    </style>
-    <link rel="stylesheet" type="text/css"
-          href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css">
-</head>
+    
+<!doctype html>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Haskell_meetup</title>
 <body>
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
-<script src="./remark.js">
-</script>
-<script>
-    var slideshow = remark.create({
-        sourceUrl : 'Haskell_meetup.md'
-    });
-//    $(document).ready(function(){
-//        $('#example').DataTable();
-//    })
-</script>
-</body>
-</html>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
+</div>
+
+    
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="./Buckle_meetup.html">Buckle_meetup</a>
+<a href="./Haskell_meetup.html">Haskell_meetup</a>
+<a href="./preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="./preview/reveal-js/css/theme/index.html">theme</a>
+<a href="./preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="./preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="./preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#ocaml--lt-3-javascript" class='level-1 header'>OCaml &lt;3 Javascript</a>
+<a href="#what--39-s-bucklescript" class='level-1 header'>What&#39;s <a href="https://github.com/bucklescript/bucklescript" target="_blank" rel="noopener nofollow" title="" class="external-link">BuckleScript</a></a>
+<a href="#why-target-js-platform" class='level-1 header'>Why target JS platform</a>
+<a href="#major-benefits-of-bucklescript" class='level-1 header'>Major Benefits of BuckleScript</a>
+<a href="#r--amp--b---reason--amp--bucklescript-" class='level-1 header'>R &amp; B ( Reason &amp; BuckleScript)</a>
+<a href="#a-small-example-of-bucklescript" class='level-1 header'>A small example of BuckleScript</a>
+<a href="#comparison-with-hand-written-js" class='level-1 header'>Comparison with hand-written JS</a>
+<a href="#finishes-before-others-warm-up" class='level-1 header'>Finishes before others warm up</a>
+<a href="#beyond-performance-" class='level-1 header'>Beyond performance:</a>
+<a href="#ffi-part-one--call-ocaml-from-javascript-for-free-" class='level-1 header'>FFI part one (Call OCaml from Javascript for free)</a>
+<a href="#ffi-part-two----calling-javascript-from-ocaml-" class='level-1 header'>FFI part two : (Calling Javascript from OCaml)</a>
+<a href="#ffi-highlights--native-uncurried-calling-convention-support" class='level-1 header'>FFI highlights: native uncurried calling convention support</a>
+<a href="#ffi-hightlights--built-in-this-callback-support" class='level-1 header'>FFI hightlights: built-in <em>this</em> callback support</a>
+<a href="#ffi-highlights--string-and-int-literal-type" class='level-1 header'>FFI highlights: String and int literal type</a>
+<a href="#ffi-highlights--type-safe-event-handlers" class='level-1 header'>FFI highlights: type-safe event handlers</a>
+<a href="#ffi-highlights--structural-typing-and-type-safe-json-literals" class='level-1 header'>FFI highlights: structural typing and type safe JSON literals</a>
+<a href="#demo--a-stand-alone-http-server" class='level-1 header'>Demo: A stand alone HTTP server</a>
+<a href="#optimizations" class='level-1 header'>Optimizations</a>
+<a href="#comparison-with--elm--purescript-and-ghcjs" class='level-1 header'>Comparison with  Elm, PureScript and GHCJS</a>
+<a href="#future-work" class='level-1 header'>Future work</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="../api/Js.html">Js</a>
+<a href="../api/Arg.html">Arg</a>
+<a href="../api/Array.html">Array</a>
+<a href="../api/ArrayLabels.html">ArrayLabels</a>
+<a href="../api/Bigarray.html">Bigarray</a>
+<a href="../api/Buffer.html">Buffer</a>
+<a href="../api/Bytes.html">Bytes</a>
+<a href="../api/BytesLabels.html">BytesLabels</a>
+<a href="../api/Callback.html">Callback</a>
+<a href="../api/CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="../api/CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="../api/CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="../api/CamlinternalMod.html">CamlinternalMod</a>
+<a href="../api/CamlinternalOO.html">CamlinternalOO</a>
+<a href="../api/Char.html">Char</a>
+<a href="../api/Complex.html">Complex</a>
+<a href="../api/Digest.html">Digest</a>
+<a href="../api/Filename.html">Filename</a>
+<a href="../api/Format.html">Format</a>
+<a href="../api/Gc.html">Gc</a>
+<a href="../api/Genlex.html">Genlex</a>
+<a href="../api/Hashtbl.html">Hashtbl</a>
+<a href="../api/Int32.html">Int32</a>
+<a href="../api/Int64.html">Int64</a>
+<a href="../api/Lazy.html">Lazy</a>
+<a href="../api/Lexing.html">Lexing</a>
+<a href="../api/List.html">List</a>
+<a href="../api/ListLabels.html">ListLabels</a>
+<a href="../api/Map.html">Map</a>
+<a href="../api/Marshal.html">Marshal</a>
+<a href="../api/MoreLabels.html">MoreLabels</a>
+<a href="../api/Nativeint.html">Nativeint</a>
+<a href="../api/Obj.html">Obj</a>
+<a href="../api/Oo.html">Oo</a>
+<a href="../api/Parsing.html">Parsing</a>
+<a href="../api/Pervasives.html">Pervasives</a>
+<a href="../api/Printexc.html">Printexc</a>
+<a href="../api/Printf.html">Printf</a>
+<a href="../api/Queue.html">Queue</a>
+<a href="../api/Random.html">Random</a>
+<a href="../api/Scanf.html">Scanf</a>
+<a href="../api/Set.html">Set</a>
+<a href="../api/Sort.html">Sort</a>
+<a href="../api/Stack.html">Stack</a>
+<a href="../api/Std_exit.html">Std_exit</a>
+<a href="../api/StdLabels.html">StdLabels</a>
+<a href="../api/Stream.html">Stream</a>
+<a href="../api/String.html">String</a>
+<a href="../api/StringLabels.html">StringLabels</a>
+<a href="../api/Sys.html">Sys</a>
+<a href="../api/Unix.html">Unix</a>
+<a href="../api/UnixLabels.html">UnixLabels</a>
+<a href="../api/Weak.html">Weak</a>
+<a href="../api/Belt.html">Belt</a>
+<a href="../api/Belt_Array.html">Belt_Array</a>
+<a href="../api/Belt_HashMap.html">Belt_HashMap</a>
+<a href="../api/Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="../api/Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="../api/Belt_HashSet.html">Belt_HashSet</a>
+<a href="../api/Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="../api/Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="../api/Belt_Id.html">Belt_Id</a>
+<a href="../api/Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="../api/Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="../api/Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="../api/Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="../api/Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="../api/Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="../api/Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="../api/Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="../api/Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="../api/Belt_List.html">Belt_List</a>
+<a href="../api/Belt_Map.html">Belt_Map</a>
+<a href="../api/Belt_MapDict.html">Belt_MapDict</a>
+<a href="../api/Belt_MapInt.html">Belt_MapInt</a>
+<a href="../api/Belt_MapString.html">Belt_MapString</a>
+<a href="../api/Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="../api/Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="../api/Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="../api/Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="../api/Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="../api/Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="../api/Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="../api/Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="../api/Belt_Option.html">Belt_Option</a>
+<a href="../api/Belt_Range.html">Belt_Range</a>
+<a href="../api/Belt_Set.html">Belt_Set</a>
+<a href="../api/Belt_SetDict.html">Belt_SetDict</a>
+<a href="../api/Belt_SetInt.html">Belt_SetInt</a>
+<a href="../api/Belt_SetString.html">Belt_SetString</a>
+<a href="../api/Belt_SortArray.html">Belt_SortArray</a>
+<a href="../api/Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="../api/Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="../api/Dom.html">Dom</a>
+<a href="../api/Dom_storage.html">Dom_storage</a>
+<a href="../api/Js_array.html">Js_array</a>
+<a href="../api/Js_boolean.html">Js_boolean</a>
+<a href="../api/Js_cast.html">Js_cast</a>
+<a href="../api/Js_console.html">Js_console</a>
+<a href="../api/Js_date.html">Js_date</a>
+<a href="../api/Js_dict.html">Js_dict</a>
+<a href="../api/Js_global.html">Js_global</a>
+<a href="../api/Js_json.html">Js_json</a>
+<a href="../api/Js_list.html">Js_list</a>
+<a href="../api/Js_mapperRt.html">Js_mapperRt</a>
+<a href="../api/Js_math.html">Js_math</a>
+<a href="../api/Js_null_undefined.html">Js_null_undefined</a>
+<a href="../api/Js_obj.html">Js_obj</a>
+<a href="../api/Js_option.html">Js_option</a>
+<a href="../api/Js_promise.html">Js_promise</a>
+<a href="../api/Js_re.html">Js_re</a>
+<a href="../api/Js_result.html">Js_result</a>
+<a href="../api/Js_string.html">Js_string</a>
+<a href="../api/Js_types.html">Js_types</a>
+<a href="../api/Js_vector.html">Js_vector</a>
+<a href="../api/Node.html">Node</a>
+<a href="../api/Node_buffer.html">Node_buffer</a>
+<a href="../api/Node_child_process.html">Node_child_process</a>
+<a href="../api/Node_fs.html">Node_fs</a>
+<a href="../api/Node_module.html">Node_module</a>
+<a href="../api/Node_path.html">Node_path</a>
+<a href="../api/Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/docs/slides/Haskell_meetup.md" class="edit-link">Edit</a>
+    <p>class: center, middle</p>
+<a href="#ocaml--lt-3-javascript" id="ocaml--lt-3-javascript"><h1>OCaml &lt;3 Javascript</h1></a>
+
+<p><img style='width: 550px;' alt='Drawing' title='OCamlscript' src='images/Slide3.PNG' /></p>
+<p>Hongbo Zhang@Bloomberg</p>
+<p>July 27, 2016</p>
+<p><hr/></p>
+<a href="#what--39-s-bucklescript" id="what--39-s-bucklescript"><h1>What&#39;s <a href="https://github.com/bucklescript/bucklescript" target="_blank" rel="noopener nofollow" title="" class="external-link">BuckleScript</a></h1></a>
+
+<ul><li>Readable JavaScript backend for OCaml</li><li><em>module to module</em> compiler</li><li><em>Seamless integration</em> with existing JS libraries</li><li>Works with multiple front-end: vanilla OCaml and <a href="https://facebook.github.io/reason/" target="_blank" rel="noopener nofollow" title="" class="external-link">Reason</a></li></ul>
+
+<p><hr/></p>
+<a href="#why-target-js-platform" id="why-target-js-platform"><h1>Why target JS platform</h1></a>
+
+<ul><li>JS is the only language of the browser</li><li>JS is everywhere (Electron for Desktop App, NodeJS on server
+ side,  IoT etc)</li><li>JS is where people are (npm: <a href="http://www.modulecounts.com/" target="_blank" rel="noopener nofollow" title="" class="external-link">largest package manager 2 years ago</a>)</li><li>WebAssembly will make it more capable</li></ul>
+
+<p><hr/></p>
+<a href="#major-benefits-of-bucklescript" id="major-benefits-of-bucklescript"><h1>Major Benefits of BuckleScript</h1></a>
+
+<ul><li>It&#39;s OCaml, not a new language (30 years distilled research in PL and amazing effort of compiler engineering)<ul><li>Native backends: AMD64, IA32, PowerPC, ARM, SPARC</li><li>Language based OS: Mirage Unikernel (acquired by Docker)</li><li>Battle tested: Used for trading in volumes of billions of
+ dollars per day</li></ul></li><li>BuckleScript backend :<ul><li>Great performance with regard to both compile-time and runtime</li><li><em>Expressive</em> and <em>efficient</em> FFI</li><li>Small size (small runtime: <em>linked only when needed like int64 support</em>)</li><li>Module to module separate compilation, support various module systems: Google module/ AMDJS and CommonJS</li></ul></li></ul>
+
+<p><hr/></p>
+<a href="#r--amp--b---reason--amp--bucklescript-" id="r--amp--b---reason--amp--bucklescript-"><h1>R &amp; B ( Reason &amp; BuckleScript)</h1></a>
+
+<ul><li><p>Growing support to make OCaml more JavaScript friendly</p>
+</li><li><p>Reason is a new interface to OCaml created by the same people who
+ created ReactJS, ReactNative</p>
+</li><li><p>It provides a Javascript like syntax and toolchain for editing, building, and sharing code</p>
+</li><li><p><a href="http://bucklescript.github.io/bucklescript/reason-demo/" target="_blank" rel="noopener nofollow" title="" class="external-link">It works with BuckleScript nicely</a></p>
+</li></ul>
+
+<p><hr/></p>
+<a href="#a-small-example-of-bucklescript" id="a-small-example-of-bucklescript"><h1>A small example of BuckleScript</h1></a>
+
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='25' id='block-25'><code>let <span class='pattern-ident' data-type="unit => 'a">test</span> <span class='pattern-constructor' data-type="unit">()</span> =
+  let <span class='pattern-ident' data-type="'a">m</span> = <span class='ident' data-type="'a => Pervasives.ref('a)">ref</span> IntMap.empty in
+  let count = 1000000 in
+  for i = 0 to count do
+    m := IntMap.add i i !m
+  done;
+  for j = 0 to count  do
+    ignore (IntMap.find j !m )
+  done;;
+test()</code></pre>
+  
+  <script type='docre-source' data-block-id="25">let test () =
+  let m = ref IntMap.empty in
+  let count = 1000000 in
+  for i = 0 to count do
+    m := IntMap.add i i !m
+  done;
+  for j = 0 to count  do
+    ignore (IntMap.find j !m )
+  done;;
+test()</script>
+  <div class='type-error'>Type Error:
+File &quot;&quot;, line 2, characters 14-26:
+Error: Unbound module IntMap</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='25-alt' id='block-25-alt'><code>let <span class='pattern-ident' data-type="unit => 'a">test</span> = <span class='pattern-constructor' data-type="unit">()</span> =&gt; {
+  let <span class='pattern-ident' data-type="'a">m</span> = <span class='ident' data-type="'a => Pervasives.ref('a)">ref</span>(IntMap.empty);
+  let count = 1000000;
+  for (i in 0 to count) {
+    m := IntMap.add(i, i, m^);
+  };
+  for (j in 0 to count) {
+    ignore(IntMap.find(j, m^));
+  };
+};
+
+test();</code></pre>
+  
+  <script type='docre-source' data-block-id="25-alt">let test = () => {
+  let m = ref(IntMap.empty);
+  let count = 1000000;
+  for (i in 0 to count) {
+    m := IntMap.add(i, i, m^);
+  };
+  for (j in 0 to count) {
+    ignore(IntMap.find(j, m^));
+  };
+};
+
+test();</script>
+  <div class='type-error'>Type Error:
+File &quot;&quot;, line 2, characters 14-26:
+Error: Unbound module IntMap</div>
+</div><p><code>Generated code</code></p>
+<pre class='js'><code class='js'>
+&quot;use strict&quot;;
+var Int_map=require(&quot;./int_map.js&quot;);
+
+function test() {
+  var m = /* Empty */0;
+  for(var i = 0; i &lt;= 1000000; ++i){
+    m = add(i, i, m);
+  }
+  for(var j = 0; j &lt;= 1000000; ++j){
+    find(j, m);
+  }
+  return /* () */0;
+}
+
+test(/* () */0);</code></pre>
+
+<p><hr/></p>
+<a href="#comparison-with-hand-written-js" id="comparison-with-hand-written-js"><h1>Comparison with hand-written JS</h1></a>
+
+<pre class='js'><code class='js'>// Immutable map from  immutablejs library
+
+&#39;use strict&#39;;
+var Immutable = require(&#39;immutable&#39;);
+var Map = Immutable.Map;
+var m = new Map();
+function test(){
+    var count  = 1000000
+    for(var i = 0; i &lt; count; ++i){
+        m = m.set(i, i );
+    }
+    for(var j = 0; j &lt; count ; ++j){
+        m.get(j)
+    } }
+test ()</code></pre>
+
+<p>Runtime performance of identical functionality:</p>
+<p>| Technology   |  Time(ms) | Code Size  |
+|--------------|----------| -----------|
+| OCaml with Javascript Backend   |1186ms (Google Closure bundler: simple mode) |   1 KB |
+| Handwritten  Javascript  |3415ms |  55.3 KBytes|</p>
+<p><hr/></p>
+<a href="#finishes-before-others-warm-up" id="finishes-before-others-warm-up"><h1>Finishes before others warm up</h1></a>
+
+<ul><li>A truly fast compiler (cold startup)</li></ul>
+
+<p> <img style='width: 450px;' alt='Drawing' title='OCamlscript' src='images/compile-time.PNG' /></p>
+<ul><li>A micro benchmark vs TypeScript<ul><li>one file defines 500 fib functions</li><li>one file calls those 500 fib functions
+ <div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='21' id='block-21'><code>             BS: 0m0.063s
+             TS: 0m1.427s
+   </code></pre>
+  
+  
+  
+</div><div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='21-alt' id='block-21-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></li></ul></li><li>Even worse for whole program compilation transpilers</li></ul>
+
+<p><hr/></p>
+<a href="#beyond-performance-" id="beyond-performance-"><h1>Beyond performance:</h1></a>
+
+<blockquote><p> Expressive and efficient FFI is the major design goal</p>
+</blockquote>
+
+<p><hr/></p>
+<a href="#ffi-part-one--call-ocaml-from-javascript-for-free-" id="ffi-part-one--call-ocaml-from-javascript-for-free-"><h1>FFI part one (Call OCaml from Javascript for free)</h1></a>
+
+<ul><li><p>OCaml signatures are respected (no extra work to do)</p>
+</li><li><p>Basic data types are closely matched (Array -&gt; Array, Tuple -&gt; Array, etc)</p>
+</li><li><p>BuckleScript can also emit <code>.d.ts</code> files for TypeScript compiler (<em>experimental</em>)</p>
+</li><li><p><a href="https://www.npmjs.com/package/bs-platform" target="_blank" rel="noopener nofollow" title="" class="external-link">Publish and consume npm packages out of box</a></p>
+</li><li><p><a href="http://caml.inria.fr/pub/docs/manual-ocaml/stdlib.html" target="_blank" rel="noopener nofollow" title="" class="external-link">OCaml standard library consumed by Javascript developers</a></p>
+</li><li><p><a href="https://tonicdev.com/npm/bs-platform" target="_blank" rel="noopener nofollow" title="" class="external-link">Demo</a></p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='9' id='block-9'><code>var Array <span class='operator' data-type="('a, 'a) => bool">=</span> require(&quot;bs-platform/lib/js/array&quot;)
+var String <span class='operator' data-type="('a, 'a) => bool">=</span> require(&quot;bs-platform/lib/js/string&quot;)
+String.concat(&quot;,&quot;,Array.to_list([&quot;hello&quot;,&quot;bucklescript&quot;]))</code></pre>
+  
+  <script type='docre-source' data-block-id="9">var Array = require("bs-platform/lib/js/array")
+var String = require("bs-platform/lib/js/string")
+String.concat(",",Array.to_list(["hello","bucklescript"]))</script>
+  <div class='type-error'>Type Error:
+File &quot;&quot;, line 1, characters 0-3:
+Error: Unbound value var</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='9-alt' id='block-9-alt'><code>var(Array)
+<span class='operator' data-type="('a, 'a) => bool">==</span> require(&quot;bs-platform/lib/js/array&quot;, var, String) <span class='operator' data-type="('a, 'a) => bool">==</span> require(
+                                                          &quot;bs-platform/lib/js/string&quot;,
+                                                          String.concat,
+                                                          (
+                                                            &quot;,&quot;,
+                                                            Array.to_list([
+                                                              (
+                                                                &quot;hello&quot;,
+                                                                &quot;bucklescript&quot;,
+                                                              ),
+                                                            ]),
+                                                          ),
+                                                        );</code></pre>
+  
+  <script type='docre-source' data-block-id="9-alt">var(Array)
+== require("bs-platform/lib/js/array", var, String) == require(
+                                                          "bs-platform/lib/js/string",
+                                                          String.concat,
+                                                          (
+                                                            ",",
+                                                            Array.to_list([
+                                                              (
+                                                                "hello",
+                                                                "bucklescript",
+                                                              ),
+                                                            ]),
+                                                          ),
+                                                        );</script>
+  <div class='type-error'>Type Error:
+File &quot;&quot;, line 1, characters 0-3:
+Error: Unbound value var</div>
+</div></li></ul>
+
+<p><hr/></p>
+<a href="#ffi-part-two----calling-javascript-from-ocaml-" id="ffi-part-two----calling-javascript-from-ocaml-"><h1>FFI part two : (Calling Javascript from OCaml)</h1></a>
+
+<p>Like typescript, users must write <em>type declarations</em> for existing
+JavaScript Libraries.</p>
+<ul><li><em>extensible</em> language by extension points and attributes.<ul><li>Not re-inventing a new language, still OCaml</li></ul></li><li><em>expressive</em> type system to model different  paradigms in Javascript<ul><li>Structural typing (model JavaScript Objects)</li><li>Polymorphic variants (model Event handler)</li><li>Label and optional arguments (model JSON configuration)</li></ul></li></ul>
+
+<div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='19' id='block-19'><code>external val_name : types_to_js_object_or_function</code></pre>
+  
+  
+  
+</div><div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='19-alt' id='block-19-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div><ul><li><em>external</em> function type declarations</li><li><em>external</em> object signature</li></ul>
+
+<p><hr/>A dummy example:</p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='18' id='block-18'><code>external exp : <span class='type-constructor'>float</span> -&gt; <span class='type-constructor'>float</span> = &quot;Math.exp&quot; [@@bs.val]
+let <span class='pattern-ident' data-type="float">v</span> = <span class='ident' data-type="float => float">exp</span> <span class='float' data-type="float">3.</span></code></pre>
+  
+  <script type='docre-source' data-block-id="18">external exp : float -> float = "Math.exp" [@@bs.val]
+let v = exp 3.</script>
+  <div data-block-id='18' data-context="normal" data-block-syntax="ml" class='block-target'></div><script type='docre-bundle' data-block-id='18'>
+;(function() { // generated by pack.re
+let modules = {}
+let initializers = {
+    1: function(module, exports, require) {// Generated by BUCKLESCRIPT VERSION 2.2.3, PLEASE EDIT WITH CARE
+'use strict';
+
+
+var v = Math.exp(3);
+
+exports.v = v;
+/* v Not a pure module */
+//# sourceURL=./node_modules/.docre/Bucklescript__Haskell_meetup_md_CODE_BLOCK_18.re_ppx.js
+}
+};
+let nameMap = {
+  "./node_modules/.docre/Bucklescript__Haskell_meetup_md_CODE_BLOCK_18.re_ppx.js": 1
+}
+let require = (id) => {
+  if (!modules[id]) {
+    modules[id] = {exports: {}}
+    initializers[id](modules[id], modules[id].exports, require)
+  }
+  return modules[id].exports
+};
+  require(1)})();</script>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='18-alt' id='block-18-alt'><code>[@bs.val] external exp : <span class='type-constructor'>float</span> =&gt; <span class='type-constructor'>float</span> = &quot;Math.exp&quot;;
+
+let <span class='pattern-ident' data-type="float">v</span> = <span class='ident' data-type="float => float">exp</span>(<span class='float' data-type="float">3.</span>);</code></pre>
+  
+  <script type='docre-source' data-block-id="18-alt">[@bs.val] external exp : float => float = "Math.exp";
+
+let v = exp(3.);</script>
+  <div data-block-id='18-alt' data-context="normal" data-block-syntax="re" class='block-target'></div><script type='docre-bundle' data-block-id='18-alt'>
+;(function() { // generated by pack.re
+let modules = {}
+let initializers = {
+    1: function(module, exports, require) {// Generated by BUCKLESCRIPT VERSION 2.2.3, PLEASE EDIT WITH CARE
+'use strict';
+
+
+var v = Math.exp(3);
+
+exports.v = v;
+/* v Not a pure module */
+//# sourceURL=./node_modules/.docre/Bucklescript__Haskell_meetup_md_CODE_BLOCK_18_alt.re_ppx.js
+}
+};
+let nameMap = {
+  "./node_modules/.docre/Bucklescript__Haskell_meetup_md_CODE_BLOCK_18_alt.re_ppx.js": 1
+}
+let require = (id) => {
+  if (!modules[id]) {
+    modules[id] = {exports: {}}
+    initializers[id](modules[id], modules[id].exports, require)
+  }
+  return modules[id].exports
+};
+  require(1)})();</script>
+</div><p><hr/></p>
+<a href="#ffi-highlights--native-uncurried-calling-convention-support" id="ffi-highlights--native-uncurried-calling-convention-support"><h1>FFI highlights: native uncurried calling convention support</h1></a>
+
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='17' id='block-17'><code>let f = fun [@bs] x y -&gt; x + y
+
+let u = f 1 2 [@bs]
+let u = f 1  (* compile error *)
+let u = f 1 2 3 (* compile error *)
+
+val f : int -&gt; int -&gt; int [@bs]</code></pre>
+  
+  <script type='docre-source' data-block-id="17">let f = fun [@bs] x y -> x + y
+
+let u = f 1 2 [@bs]
+let u = f 1  (* compile error *)
+let u = f 1 2 3 (* compile error *)
+
+val f : int -> int -> int [@bs]</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 7, characters 0-3:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='17-alt' id='block-17-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div><p><code>Generated code</code></p>
+<pre class='js'><code class='js'>function f(x,y){
+  return x + y;
+}
+f (1,2)</code></pre><p><hr/></p>
+<a href="#ffi-hightlights--built-in-this-callback-support" id="ffi-hightlights--built-in-this-callback-support"><h1>FFI hightlights: built-in <em>this</em> callback support</h1></a>
+
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='16' id='block-16'><code>let f = fun [@bs.this] o x y -&gt; body
+val f : &#39;o -&gt; &#39;x -&gt; &#39;y -&gt; &#39;body [@bs.this]</code></pre>
+  
+  <script type='docre-source' data-block-id="16">let f = fun [@bs.this] o x y -> body
+val f : 'o -> 'x -> 'y -> 'body [@bs.this]</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 0-3:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='16-alt' id='block-16-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div>
+
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='15' id='block-15'><code>external array_map_this :
+  <span class='type-vbl'>&#39;a</span> <span class='type-constructor'>array</span> -&gt; (<span class='type-constructor'><span class='type-vbl'>&#39;obj</span> -&gt; <span class='type-vbl'>&#39;a</span> -&gt; <span class='type-constructor'>int</span> -&gt; <span class='type-vbl'>&#39;b</span></span> [@bs.this]) -&gt; <span class='type-vbl'>&#39;obj</span> -&gt; <span class='type-vbl'>&#39;b</span> <span class='type-constructor'>array</span>
+    = &quot;map&quot;  [@@bs.send]
+let <span class='pattern-ident' data-type="array((array(int), int, int))">v</span> =
+  let <span class='pattern-ident' data-type="array(int)">arr</span> = [|<span class='int' data-type="int">1</span>;<span class='int' data-type="int">2</span>;<span class='int' data-type="int">3</span>|] in
+  <span class='ident' data-type="(
+  array(int),
+  Js.Internal.meth_callback(
+    [ `Arity_3 of int array * int * int ],
+    (array(int), int, int)
+  ),
+  array(int)
+) => array((array(int), int, int))">array_map_this</span> <span class='ident' data-type="array(int)">arr</span> <span class='ident' data-type="(array(int), int, int) => (
+  array(int),
+  int,
+  int
+) => Js.Internal.meth_callback(
+  [ `Arity_3 of int array * int * int ],
+  (array(int), int, int)
+)">(fun [@bs.this] <span class='pattern-ident' data-type="array(int)">o</span> <span class='pattern-ident' data-type="int">v</span> <span class='pattern-ident' data-type="int">i</span> -&gt; (<span class='ident' data-type="array(int)">o</span>,<span class='ident' data-type="int">v</span>,<span class='ident' data-type="int">i</span>))</span> <span class='ident' data-type="array(int)">arr</span></code></pre>
+  
+  <script type='docre-source' data-block-id="15">external array_map_this :
+  'a array -> ('obj -> 'a -> int -> 'b [@bs.this]) -> 'obj -> 'b array
+    = "map"  [@@bs.send]
+let v =
+  let arr = [|1;2;3|] in
+  array_map_this arr (fun [@bs.this] o v i -> (o,v,i)) arr</script>
+  <div data-block-id='15' data-context="normal" data-block-syntax="ml" class='block-target'></div><script type='docre-bundle' data-block-id='15'>
+;(function() { // generated by pack.re
+let modules = {}
+let initializers = {
+    1: function(module, exports, require) {// Generated by BUCKLESCRIPT VERSION 2.2.3, PLEASE EDIT WITH CARE
+'use strict';
+
+
+var arr = /* int array */[
+  1,
+  2,
+  3
+];
+
+var v = arr.map((function (v, i) {
+        var o = this ;
+        return /* tuple */[
+                o,
+                v,
+                i
+              ];
+      }), arr);
+
+exports.v = v;
+/* v Not a pure module */
+//# sourceURL=./node_modules/.docre/Bucklescript__Haskell_meetup_md_CODE_BLOCK_15.re_ppx.js
+}
+};
+let nameMap = {
+  "./node_modules/.docre/Bucklescript__Haskell_meetup_md_CODE_BLOCK_15.re_ppx.js": 1
+}
+let require = (id) => {
+  if (!modules[id]) {
+    modules[id] = {exports: {}}
+    initializers[id](modules[id], modules[id].exports, require)
+  }
+  return modules[id].exports
+};
+  require(1)})();</script>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='15-alt' id='block-15-alt'><code>[@bs.send]
+external array_map_this :
+  (<span class='type-constructor'>array</span>(<span class='type-vbl'>&#39;a</span>), <span class='type-constructor'>[@bs.this] ((<span class='type-vbl'>&#39;obj</span>, <span class='type-vbl'>&#39;a</span>, <span class='type-constructor'>int</span>) =&gt; <span class='type-vbl'>&#39;b</span>)</span>, <span class='type-vbl'>&#39;obj</span>) =&gt; <span class='type-constructor'>array</span>(<span class='type-vbl'>&#39;b</span>) =
+  &quot;map&quot;;
+
+let <span class='pattern-ident' data-type="array((array(int), int, int))">v</span> = {
+  let <span class='pattern-ident' data-type="array(int)">arr</span> = [|<span class='int' data-type="int">1</span>, <span class='int' data-type="int">2</span>, <span class='int' data-type="int">3</span>|];
+  <span class='ident' data-type="(
+  array(int),
+  Js.Internal.meth_callback(
+    [ `Arity_3 of int array * int * int ],
+    (array(int), int, int)
+  ),
+  array(int)
+) => array((array(int), int, int))">array_map_this</span>(<span class='ident' data-type="array(int)">arr</span>, <span class='ident' data-type="(array(int), int, int) => (
+  array(int),
+  int,
+  int
+) => Js.Internal.meth_callback(
+  [ `Arity_3 of int array * int * int ],
+  (array(int), int, int)
+)">[@bs.this] ((<span class='pattern-ident' data-type="array(int)">o</span>, <span class='pattern-ident' data-type="int">v</span>, <span class='pattern-ident' data-type="int">i</span>) =&gt; (<span class='ident' data-type="array(int)">o</span>, <span class='ident' data-type="int">v</span>, <span class='ident' data-type="int">i</span>))</span>, <span class='ident' data-type="array(int)">arr</span>);
+};</code></pre>
+  
+  <script type='docre-source' data-block-id="15-alt">[@bs.send]
+external array_map_this :
+  (array('a), [@bs.this] (('obj, 'a, int) => 'b), 'obj) => array('b) =
+  "map";
+
+let v = {
+  let arr = [|1, 2, 3|];
+  array_map_this(arr, [@bs.this] ((o, v, i) => (o, v, i)), arr);
+};</script>
+  <div data-block-id='15-alt' data-context="normal" data-block-syntax="re" class='block-target'></div><script type='docre-bundle' data-block-id='15-alt'>
+;(function() { // generated by pack.re
+let modules = {}
+let initializers = {
+    1: function(module, exports, require) {// Generated by BUCKLESCRIPT VERSION 2.2.3, PLEASE EDIT WITH CARE
+'use strict';
+
+
+var arr = /* int array */[
+  1,
+  2,
+  3
+];
+
+var v = arr.map((function (v, i) {
+        var o = this ;
+        return /* tuple */[
+                o,
+                v,
+                i
+              ];
+      }), arr);
+
+exports.v = v;
+/* v Not a pure module */
+//# sourceURL=./node_modules/.docre/Bucklescript__Haskell_meetup_md_CODE_BLOCK_15_alt.re_ppx.js
+}
+};
+let nameMap = {
+  "./node_modules/.docre/Bucklescript__Haskell_meetup_md_CODE_BLOCK_15_alt.re_ppx.js": 1
+}
+let require = (id) => {
+  if (!modules[id]) {
+    modules[id] = {exports: {}}
+    initializers[id](modules[id], modules[id].exports, require)
+  }
+  return modules[id].exports
+};
+  require(1)})();</script>
+</div>
+
+<p><hr/></p>
+<a href="#ffi-highlights--string-and-int-literal-type" id="ffi-highlights--string-and-int-literal-type"><h1>FFI highlights: String and int literal type</h1></a>
+
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='14' id='block-14'><code>external readFileSync :
+  name:<span class='type-constructor'>string</span> -&gt;
+  ([`utf8 | `ascii] [@bs.string]) -&gt;
+  <span class='type-constructor'>string</span> = &quot;&quot;
+  [@@bs.module &quot;fs&quot;]
+
+let <span class='pattern-ident' data-type="string">content</span> = <span class='ident' data-type="(~name: string, [ `utf8 | `ascii ]) => string">readFileSync</span> `utf8  ~name:<span class='string' data-type="string">&quot;file.txt&quot;</span></code></pre>
+  
+  <script type='docre-source' data-block-id="14">external readFileSync :
+  name:string ->
+  ([`utf8 | `ascii] [@bs.string]) ->
+  string = ""
+  [@@bs.module "fs"]
+
+let content = readFileSync `utf8  ~name:"file.txt"</script>
+  <div data-block-id='14' data-context="normal" data-block-syntax="ml" class='block-target'></div><script type='docre-bundle' data-block-id='14'>
+;(function() { // generated by pack.re
+let modules = {}
+let initializers = {
+    1: function(module, exports, require) {// Generated by BUCKLESCRIPT VERSION 2.2.3, PLEASE EDIT WITH CARE
+'use strict';
+
+var Fs = alert('Shimmed node builtin fs');
+
+var content = Fs.readFileSync("file.txt", "utf8");
+
+exports.content = content;
+/* content Not a pure module */
+//# sourceURL=./node_modules/.docre/Bucklescript__Haskell_meetup_md_CODE_BLOCK_14.re_ppx.js
+}
+};
+let nameMap = {
+  "./node_modules/.docre/Bucklescript__Haskell_meetup_md_CODE_BLOCK_14.re_ppx.js": 1
+}
+let require = (id) => {
+  if (!modules[id]) {
+    modules[id] = {exports: {}}
+    initializers[id](modules[id], modules[id].exports, require)
+  }
+  return modules[id].exports
+};
+  require(1)})();</script>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='14-alt' id='block-14-alt'><code>[@bs.module &quot;fs&quot;]
+external readFileSync :
+  (~name: <span class='type-constructor'>string</span>, [@bs.string] [ | `utf8 | `ascii]) =&gt; <span class='type-constructor'>string</span> =
+  &quot;&quot;;
+
+let <span class='pattern-ident' data-type="string">content</span> = <span class='ident' data-type="(~name: string, [ `utf8 | `ascii ]) => string">readFileSync</span>(`utf8, ~name=<span class='string' data-type="string">&quot;file.txt&quot;</span>);</code></pre>
+  
+  <script type='docre-source' data-block-id="14-alt">[@bs.module "fs"]
+external readFileSync :
+  (~name: string, [@bs.string] [ | `utf8 | `ascii]) => string =
+  "";
+
+let content = readFileSync(`utf8, ~name="file.txt");</script>
+  <div data-block-id='14-alt' data-context="normal" data-block-syntax="re" class='block-target'></div><script type='docre-bundle' data-block-id='14-alt'>
+;(function() { // generated by pack.re
+let modules = {}
+let initializers = {
+    1: function(module, exports, require) {// Generated by BUCKLESCRIPT VERSION 2.2.3, PLEASE EDIT WITH CARE
+'use strict';
+
+var Fs = alert('Shimmed node builtin fs');
+
+var content = Fs.readFileSync("file.txt", "utf8");
+
+exports.content = content;
+/* content Not a pure module */
+//# sourceURL=./node_modules/.docre/Bucklescript__Haskell_meetup_md_CODE_BLOCK_14_alt.re_ppx.js
+}
+};
+let nameMap = {
+  "./node_modules/.docre/Bucklescript__Haskell_meetup_md_CODE_BLOCK_14_alt.re_ppx.js": 1
+}
+let require = (id) => {
+  if (!modules[id]) {
+    modules[id] = {exports: {}}
+    initializers[id](modules[id], modules[id].exports, require)
+  }
+  return modules[id].exports
+};
+  require(1)})();</script>
+</div><p><hr/></p>
+<a href="#ffi-highlights--type-safe-event-handlers" id="ffi-highlights--type-safe-event-handlers"><h1>FFI highlights: type-safe event handlers</h1></a>
+
+<p>Typescript binding:</p>
+<pre class='ts'><code class='ts'>interface readline {
+  on : (event:string, callback: Function)
+}</code></pre>
+
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='13' id='block-13'><code>type readline
+external on : <span class='type-constructor'>readline</span> -&gt;
+  ([ `line of <span class='type-constructor'>string</span> -&gt; <span class='type-constructor'>unit</span>  (* can be customized [@bs.as &quot;another_name&quot;]*)
+   | `close of <span class='type-constructor'>unit</span> -&gt; <span class='type-constructor'>unit</span> ]
+     [@bs.string]) -&gt;  <span class='type-constructor'>unit</span> = &quot;&quot; [@@bs.send]
+
+let <span class='pattern-ident' data-type="readline => unit">register</span> <span class='pattern-ident' data-type="readline">readline</span> =
+  <span class='ident' data-type="(
+  readline,
+  [ `close of unit -&gt; unit | `line of string -&gt; unit ]
+) => unit">on</span> <span class='ident' data-type="readline">readline</span> (`line begin fun <span class='pattern-ident' data-type="string">s</span> -&gt; <span class='ident' data-type="string => unit">prerr_endline</span> <span class='ident' data-type="string">s</span> end);
+  <span class='ident' data-type="(
+  readline,
+  [ `close of unit -&gt; unit | `line of string -&gt; unit ]
+) => unit">on</span> <span class='ident' data-type="readline">readline</span> (`close begin fun <span class='pattern-constructor' data-type="unit">()</span> -&gt; <span class='ident' data-type="string => unit">prerr_endline</span> <span class='string' data-type="string">&quot;finished&quot;</span> end);
+  <span class='ident' data-type="string => unit">print_endline</span> <span class='string' data-type="string">&quot;done&quot;</span></code></pre>
+  
+  <script type='docre-source' data-block-id="13">type readline
+external on : readline ->
+  ([ `line of string -> unit  (* can be customized [@bs.as "another_name"]*)
+   | `close of unit -> unit ]
+     [@bs.string]) ->  unit = "" [@@bs.send]
+
+let register readline =
+  on readline (`line begin fun s -> prerr_endline s end);
+  on readline (`close begin fun () -> prerr_endline "finished" end);
+  print_endline "done"</script>
+  <div data-block-id='13' data-context="normal" data-block-syntax="ml" class='block-target'></div><script type='docre-bundle' data-block-id='13'>
+;(function() { // generated by pack.re
+let modules = {}
+let initializers = {
+    1: function(module, exports, require) {// Generated by BUCKLESCRIPT VERSION 2.2.3, PLEASE EDIT WITH CARE
+'use strict';
+
+
+function register(readline) {
+  readline.on("line", (function (s) {
+          console.error(s);
+          return /* () */0;
+        }));
+  readline.on("close", (function () {
+          console.error("finished");
+          return /* () */0;
+        }));
+  console.log("done");
+  return /* () */0;
+}
+
+exports.register = register;
+/* No side effect */
+//# sourceURL=./node_modules/.docre/Bucklescript__Haskell_meetup_md_CODE_BLOCK_13.re_ppx.js
+}
+};
+let nameMap = {
+  "./node_modules/.docre/Bucklescript__Haskell_meetup_md_CODE_BLOCK_13.re_ppx.js": 1
+}
+let require = (id) => {
+  if (!modules[id]) {
+    modules[id] = {exports: {}}
+    initializers[id](modules[id], modules[id].exports, require)
+  }
+  return modules[id].exports
+};
+  require(1)})();</script>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='13-alt' id='block-13-alt'><code>type readline;
+
+[@bs.send]
+external on :
+  (
+    <span class='type-constructor'>readline</span>,
+    [@bs.string] [
+      | `line(<span class='type-constructor'>string</span> =&gt; <span class='type-constructor'>unit</span>) /* can be customized [@bs.as &quot;another_name&quot;]*/
+      | `close /* can be customized [@bs.as &quot;another_name&quot;]*/(<span class='type-constructor'>unit</span> =&gt; <span class='type-constructor'>unit</span>)
+    ]
+  ) =&gt;
+  <span class='type-constructor'>unit</span> =
+  &quot;&quot;;
+
+let <span class='pattern-ident' data-type="readline => unit">register</span> = <span class='pattern-ident' data-type="readline">readline</span> =&gt; {
+  <span class='ident' data-type="(
+  readline,
+  [ `close of unit -&gt; unit | `line of string -&gt; unit ]
+) => unit">on</span>(<span class='ident' data-type="readline">readline</span>, `line(<span class='pattern-ident' data-type="string">s</span> =&gt; <span class='ident' data-type="string => unit">prerr_endline</span>(<span class='ident' data-type="string">s</span>)));
+  <span class='ident' data-type="(
+  readline,
+  [ `close of unit -&gt; unit | `line of string -&gt; unit ]
+) => unit">on</span>(<span class='ident' data-type="readline">readline</span>, `close(<span class='pattern-constructor' data-type="unit">()</span> =&gt; <span class='ident' data-type="string => unit">prerr_endline</span>(<span class='string' data-type="string">&quot;finished&quot;</span>)));
+  <span class='ident' data-type="string => unit">print_endline</span>(<span class='string' data-type="string">&quot;done&quot;</span>);
+};</code></pre>
+  
+  <script type='docre-source' data-block-id="13-alt">type readline;
+
+[@bs.send]
+external on :
+  (
+    readline,
+    [@bs.string] [
+      | `line(string => unit) /* can be customized [@bs.as "another_name"]*/
+      | `close /* can be customized [@bs.as "another_name"]*/(unit => unit)
+    ]
+  ) =>
+  unit =
+  "";
+
+let register = readline => {
+  on(readline, `line(s => prerr_endline(s)));
+  on(readline, `close(() => prerr_endline("finished")));
+  print_endline("done");
+};</script>
+  <div data-block-id='13-alt' data-context="normal" data-block-syntax="re" class='block-target'></div><script type='docre-bundle' data-block-id='13-alt'>
+;(function() { // generated by pack.re
+let modules = {}
+let initializers = {
+    1: function(module, exports, require) {// Generated by BUCKLESCRIPT VERSION 2.2.3, PLEASE EDIT WITH CARE
+'use strict';
+
+
+function register(readline) {
+  readline.on("line", (function (s) {
+          console.error(s);
+          return /* () */0;
+        }));
+  readline.on("close", (function () {
+          console.error("finished");
+          return /* () */0;
+        }));
+  console.log("done");
+  return /* () */0;
+}
+
+exports.register = register;
+/* No side effect */
+//# sourceURL=./node_modules/.docre/Bucklescript__Haskell_meetup_md_CODE_BLOCK_13_alt.re_ppx.js
+}
+};
+let nameMap = {
+  "./node_modules/.docre/Bucklescript__Haskell_meetup_md_CODE_BLOCK_13_alt.re_ppx.js": 1
+}
+let require = (id) => {
+  if (!modules[id]) {
+    modules[id] = {exports: {}}
+    initializers[id](modules[id], modules[id].exports, require)
+  }
+  return modules[id].exports
+};
+  require(1)})();</script>
+</div>
+
+<p><hr/></p>
+<a href="#ffi-highlights--structural-typing-and-type-safe-json-literals" id="ffi-highlights--structural-typing-and-type-safe-json-literals"><h1>FFI highlights: structural typing and type safe JSON literals</h1></a>
+
+<ul><li>In BuckleScript, <code>##</code> is used as method dispatch</li></ul>
+
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='12' id='block-12'><code>let f obj = obj##height + obj##width
+val f : [%bs.obj: &lt; height : int ; width : int ; .. &gt; ] -&gt; int
+let a = f [%bs.obj { height = 3; width = 32}] (* compiles *)
+let b = f [%bs.obj {height = 3 ; width  = 32; unused = 3 }] (* compiles *)</code></pre>
+  
+  <script type='docre-source' data-block-id="12">let f obj = obj##height + obj##width
+val f : [%bs.obj: < height : int ; width : int ; .. > ] -> int
+let a = f [%bs.obj { height = 3; width = 32}] (* compiles *)
+let b = f [%bs.obj {height = 3 ; width  = 32; unused = 3 }] (* compiles *)</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 0-3:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='12-alt' id='block-12-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div><ul><li>class type, subtyping, and inhertiance are also supported in FFI</li></ul>
+
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='11' id='block-11'><code>class type title = object
+  method title : <span class='type-constructor'>string</span>
+  end [@bs]
+
+class type widget = object
+   inherit title
+   end [@bs]
+
+let <span class='pattern-ident' data-type="widget => title">f</span> (x : <span class='type-constructor'>widget</span> )  = (<span class='ident' data-type="title">x</span> :&gt; <span class='type-constructor'>title</span>)</code></pre>
+  
+  <script type='docre-source' data-block-id="11">class type title = object
+  method title : string
+  end [@bs]
+
+class type widget = object
+   inherit title
+   end [@bs]
+
+let f (x : widget )  = (x :> title)</script>
+  <div data-block-id='11' data-context="normal" data-block-syntax="ml" class='block-target'></div><script type='docre-bundle' data-block-id='11'>
+;(function() { // generated by pack.re
+let modules = {}
+let initializers = {
+    1: function(module, exports, require) {// Generated by BUCKLESCRIPT VERSION 2.2.3, PLEASE EDIT WITH CARE
+'use strict';
+
+
+function f(x) {
+  return x;
+}
+
+exports.f = f;
+/* No side effect */
+//# sourceURL=./node_modules/.docre/Bucklescript__Haskell_meetup_md_CODE_BLOCK_11.re_ppx.js
+}
+};
+let nameMap = {
+  "./node_modules/.docre/Bucklescript__Haskell_meetup_md_CODE_BLOCK_11.re_ppx.js": 1
+}
+let require = (id) => {
+  if (!modules[id]) {
+    modules[id] = {exports: {}}
+    initializers[id](modules[id], modules[id].exports, require)
+  }
+  return modules[id].exports
+};
+  require(1)})();</script>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='11-alt' id='block-11-alt'><code>class type title =
+  [@bs]
+  {
+    pub title: <span class='type-constructor'>string</span>
+  };
+
+class type widget =
+  [@bs]
+  {
+    inherit title
+  };
+
+let <span class='pattern-ident' data-type="widget => title">f</span> = (x: <span class='type-constructor'>widget</span>) =&gt; (<span class='ident' data-type="title">x</span> :&gt; <span class='type-constructor'>title</span>);</code></pre>
+  
+  <script type='docre-source' data-block-id="11-alt">class type title =
+  [@bs]
+  {
+    pub title: string
+  };
+
+class type widget =
+  [@bs]
+  {
+    inherit title
+  };
+
+let f = (x: widget) => (x :> title);</script>
+  <div data-block-id='11-alt' data-context="normal" data-block-syntax="re" class='block-target'></div><script type='docre-bundle' data-block-id='11-alt'>
+;(function() { // generated by pack.re
+let modules = {}
+let initializers = {
+    1: function(module, exports, require) {// Generated by BUCKLESCRIPT VERSION 2.2.3, PLEASE EDIT WITH CARE
+'use strict';
+
+
+function f(x) {
+  return x;
+}
+
+exports.f = f;
+/* No side effect */
+//# sourceURL=./node_modules/.docre/Bucklescript__Haskell_meetup_md_CODE_BLOCK_11_alt.re_ppx.js
+}
+};
+let nameMap = {
+  "./node_modules/.docre/Bucklescript__Haskell_meetup_md_CODE_BLOCK_11_alt.re_ppx.js": 1
+}
+let require = (id) => {
+  if (!modules[id]) {
+    modules[id] = {exports: {}}
+    initializers[id](modules[id], modules[id].exports, require)
+  }
+  return modules[id].exports
+};
+  require(1)})();</script>
+</div>
+
+<p><hr/></p>
+<a href="#demo--a-stand-alone-http-server" id="demo--a-stand-alone-http-server"><h1>Demo: A stand alone HTTP server</h1></a>
+
+<p>https://github.com/bucklescript/bucklescript-addons/tree/master/examples/node-http-server</p>
+<p><hr/></p>
+<a href="#optimizations" id="optimizations"><h1>Optimizations</h1></a>
+
+<ul><li>Code motion, Purity analysis, Cross module inliner, Constant folding/propogation, Strength reduction, escape analysis etc</li><li>Examples: optimized curry calling convention</li></ul>
+
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='10' id='block-10'><code>  let <span class='pattern-ident' data-type="(int, int, int) => int">f</span> <span class='pattern-ident' data-type="int">x</span> <span class='pattern-ident' data-type="int">y</span> <span class='pattern-ident' data-type="int">z</span> = <span class='ident' data-type="int">x</span> <span class='operator' data-type="(int, int) => int">+</span> <span class='ident' data-type="int">y</span> <span class='operator' data-type="(int, int) => int">+</span> <span class='ident' data-type="int">z</span>
+  let <span class='pattern-ident' data-type="int">a</span> = <span class='ident' data-type="(int, int, int) => int">f</span> <span class='int' data-type="int">1</span> <span class='int' data-type="int">2</span> <span class='int' data-type="int">3</span>
+  let <span class='pattern-ident' data-type="int => int">b</span> = <span class='ident' data-type="(int, int, int) => int">f</span> <span class='int' data-type="int">1</span> <span class='int' data-type="int">2</span>
+  </code></pre>
+  
+  <script type='docre-source' data-block-id="10">  let f x y z = x + y + z
+  let a = f 1 2 3
+  let b = f 1 2
+  </script>
+  <div data-block-id='10' data-context="normal" data-block-syntax="ml" class='block-target'></div><script type='docre-bundle' data-block-id='10'>
+;(function() { // generated by pack.re
+let modules = {}
+let initializers = {
+    1: function(module, exports, require) {// Generated by BUCKLESCRIPT VERSION 2.2.3, PLEASE EDIT WITH CARE
+'use strict';
+
+
+function f(x, y, z) {
+  return (x + y | 0) + z | 0;
+}
+
+function b(param) {
+  return f(1, 2, param);
+}
+
+var a = 6;
+
+exports.f = f;
+exports.a = a;
+exports.b = b;
+/* No side effect */
+//# sourceURL=./node_modules/.docre/Bucklescript__Haskell_meetup_md_CODE_BLOCK_10.re_ppx.js
+}
+};
+let nameMap = {
+  "./node_modules/.docre/Bucklescript__Haskell_meetup_md_CODE_BLOCK_10.re_ppx.js": 1
+}
+let require = (id) => {
+  if (!modules[id]) {
+    modules[id] = {exports: {}}
+    initializers[id](modules[id], modules[id].exports, require)
+  }
+  return modules[id].exports
+};
+  require(1)})();</script>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='10-alt' id='block-10-alt'><code>let <span class='pattern-ident' data-type="(int, int, int) => int">f</span> = (<span class='pattern-ident' data-type="int">x</span>, <span class='pattern-ident' data-type="int">y</span>, <span class='pattern-ident' data-type="int">z</span>) =&gt; <span class='ident' data-type="int">x</span> <span class='operator' data-type="(int, int) => int">+</span> <span class='ident' data-type="int">y</span> <span class='operator' data-type="(int, int) => int">+</span> <span class='ident' data-type="int">z</span>;
+
+let <span class='pattern-ident' data-type="int">a</span> = <span class='ident' data-type="(int, int, int) => int">f</span>(<span class='int' data-type="int">1</span>, <span class='int' data-type="int">2</span>, <span class='int' data-type="int">3</span>);
+
+let <span class='pattern-ident' data-type="int => int">b</span> = <span class='ident' data-type="(int, int, int) => int">f</span>(<span class='int' data-type="int">1</span>, <span class='int' data-type="int">2</span>);</code></pre>
+  
+  <script type='docre-source' data-block-id="10-alt">let f = (x, y, z) => x + y + z;
+
+let a = f(1, 2, 3);
+
+let b = f(1, 2);</script>
+  <div data-block-id='10-alt' data-context="normal" data-block-syntax="re" class='block-target'></div><script type='docre-bundle' data-block-id='10-alt'>
+;(function() { // generated by pack.re
+let modules = {}
+let initializers = {
+    1: function(module, exports, require) {// Generated by BUCKLESCRIPT VERSION 2.2.3, PLEASE EDIT WITH CARE
+'use strict';
+
+
+function f(x, y, z) {
+  return (x + y | 0) + z | 0;
+}
+
+function b(param) {
+  return f(1, 2, param);
+}
+
+var a = 6;
+
+exports.f = f;
+exports.a = a;
+exports.b = b;
+/* No side effect */
+//# sourceURL=./node_modules/.docre/Bucklescript__Haskell_meetup_md_CODE_BLOCK_10_alt.re_ppx.js
+}
+};
+let nameMap = {
+  "./node_modules/.docre/Bucklescript__Haskell_meetup_md_CODE_BLOCK_10_alt.re_ppx.js": 1
+}
+let require = (id) => {
+  if (!modules[id]) {
+    modules[id] = {exports: {}}
+    initializers[id](modules[id], modules[id].exports, require)
+  }
+  return modules[id].exports
+};
+  require(1)})();</script>
+</div><p> <code>Compilation used in PureScript</code></p>
+<pre class='js'><code class='js'>  function f(x){
+    return function (y){
+     return function (z){
+      return x + y + z
+     }
+    }
+  }
+  var a = f (1) (2) (3)
+  var b = f (1) (2)
+  </code></pre><p> <code>Optimized  in BuckleScript(cross modules arities infererence)</code></p>
+<pre class='js'><code class='js'>  function f(x,y,z) {return x + y + z}
+  var a = f(1,2,3)
+  var b = function(z){return f(1,2,z)}
+  </code></pre>
+
+<p><hr/></p>
+<a href="#comparison-with--elm--purescript-and-ghcjs" id="comparison-with--elm--purescript-and-ghcjs"><h1>Comparison with  Elm, PureScript and GHCJS</h1></a>
+
+<ul><li>Elm/PureScript:<ul><li>Both generate readable code and support structural types</li><li>PuresScript is pure, while OCaml allows both imperative style and
+ OO style and also OO FFI</li><li>BuckleScript have <em>different backends</em> and frontends</li></ul></li><li>GHCJS<ul><li>Compile vanilla Haskell into JS<ul><li>Whole program compiler</li><li>Monolithic Javascript</li><li>Semantics mismatch</li></ul></li><li>All great features of Haskell</li><li>Large size, unreadable code, slow compile</li></ul></li></ul>
+
+<p><hr/></p>
+<a href="#future-work" id="future-work"><h1>Future work</h1></a>
+
+<ul><li>Reaches 1.0 soon!</li><li>Testing</li><li>Bindings to existing JS libraries (using typescript compiler API or
+ Flow type checker  (also written in OCaml))</li><li>Better integration with Reason and its tool chain</li><li>Documentation and tutorials</li><li>More Optimizations</li></ul>
+
+<p>Follow me for the latest development on BuckleScript
+ twitter @bobzhang1988</p>
+
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

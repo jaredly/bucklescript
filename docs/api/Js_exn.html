@@ -1,152 +1,228 @@
+
+    
 <!doctype html>
-<html>
-<head>
-                 <link rel="stylesheet" href="../api_static/tomorrow-night.css">
-                 <link rel="stylesheet" href="../api_static/style.css" type="text/css">
-                 <script src="../api_static//highlight.pack.js"></script>
-                 <script src="../api_static//script.js"></script>
-                 <script>hljs.initHighlightingOnLoad();</script> 
-                 <meta charset="utf8">
-                 <link rel="previous" href="Js_dict.html"><link rel="next" href="Js_float.html">
-                 <title> Js_exn </title></head> 
-               <body>
-<nav class="module-index"><ul><li><a href="Belt.html">Belt</a></li>
-<li><a href="Belt_Array.html">Belt_Array</a></li>
-<li><a href="Belt_HashMap.html">Belt_HashMap</a></li>
-<li><a href="Belt_HashMapInt.html">Belt_HashMapInt</a></li>
-<li><a href="Belt_HashMapString.html">Belt_HashMapString</a></li>
-<li><a href="Belt_HashSet.html">Belt_HashSet</a></li>
-<li><a href="Belt_HashSetInt.html">Belt_HashSetInt</a></li>
-<li><a href="Belt_HashSetString.html">Belt_HashSetString</a></li>
-<li><a href="Belt_Id.html">Belt_Id</a></li>
-<li><a href="Belt_List.html">Belt_List</a></li>
-<li><a href="Belt_Map.html">Belt_Map</a></li>
-<li><a href="Belt_MapDict.html">Belt_MapDict</a></li>
-<li><a href="Belt_MapInt.html">Belt_MapInt</a></li>
-<li><a href="Belt_MapString.html">Belt_MapString</a></li>
-<li><a href="Belt_MutableMap.html">Belt_MutableMap</a></li>
-<li><a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a></li>
-<li><a href="Belt_MutableMapString.html">Belt_MutableMapString</a></li>
-<li><a href="Belt_MutableQueue.html">Belt_MutableQueue</a></li>
-<li><a href="Belt_MutableSet.html">Belt_MutableSet</a></li>
-<li><a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a></li>
-<li><a href="Belt_MutableSetString.html">Belt_MutableSetString</a></li>
-<li><a href="Belt_MutableStack.html">Belt_MutableStack</a></li>
-<li><a href="Belt_Option.html">Belt_Option</a></li>
-<li><a href="Belt_Range.html">Belt_Range</a></li>
-<li><a href="Belt_Set.html">Belt_Set</a></li>
-<li><a href="Belt_SetDict.html">Belt_SetDict</a></li>
-<li><a href="Belt_SetInt.html">Belt_SetInt</a></li>
-<li><a href="Belt_SetString.html">Belt_SetString</a></li>
-<li><a href="Belt_SortArray.html">Belt_SortArray</a></li>
-<li><a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a></li>
-<li><a href="Belt_SortArrayString.html">Belt_SortArrayString</a></li>
-<li><a href="Belt_internalAVLset.html">Belt_internalAVLset</a></li>
-<li><a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a></li>
-<li><a href="Belt_internalBuckets.html">Belt_internalBuckets</a></li>
-<li><a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a></li>
-<li><a href="Belt_internalMapInt.html">Belt_internalMapInt</a></li>
-<li><a href="Belt_internalMapString.html">Belt_internalMapString</a></li>
-<li><a href="Belt_internalMutableAVLMap.html">Belt_internalMutableAVLMap</a></li>
-<li><a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a></li>
-<li><a href="Belt_internalSetInt.html">Belt_internalSetInt</a></li>
-<li><a href="Belt_internalSetString.html">Belt_internalSetString</a></li>
-<li><a href="Dom.html">Dom</a></li>
-<li><a href="Dom_storage.html">Dom_storage</a></li>
-<li><a href="Js.html">Js</a></li>
-<li><a href="Js_array.html">Js_array</a></li>
-<li><a href="Js_boolean.html">Js_boolean</a></li>
-<li><a href="Js_cast.html">Js_cast</a></li>
-<li><a href="Js_console.html">Js_console</a></li>
-<li><a href="Js_date.html">Js_date</a></li>
-<li><a href="Js_dict.html">Js_dict</a></li>
-<li><a href="Js_exn.html">Js_exn</a></li>
-<li><a href="Js_float.html">Js_float</a></li>
-<li><a href="Js_global.html">Js_global</a></li>
-<li><a href="Js_int.html">Js_int</a></li>
-<li><a href="Js_int64.html">Js_int64</a></li>
-<li><a href="Js_internal.html">Js_internal</a></li>
-<li><a href="Js_json.html">Js_json</a></li>
-<li><a href="Js_list.html">Js_list</a></li>
-<li><a href="Js_mapperRt.html">Js_mapperRt</a></li>
-<li><a href="Js_math.html">Js_math</a></li>
-<li><a href="Js_nativeint.html">Js_nativeint</a></li>
-<li><a href="Js_null.html">Js_null</a></li>
-<li><a href="Js_null_undefined.html">Js_null_undefined</a></li>
-<li><a href="Js_obj.html">Js_obj</a></li>
-<li><a href="Js_option.html">Js_option</a></li>
-<li><a href="Js_primitive.html">Js_primitive</a></li>
-<li><a href="Js_promise.html">Js_promise</a></li>
-<li><a href="Js_re.html">Js_re</a></li>
-<li><a href="Js_result.html">Js_result</a></li>
-<li><a href="Js_string.html">Js_string</a></li>
-<li><a href="Js_typed_array.html">Js_typed_array</a></li>
-<li><a href="Js_types.html">Js_types</a></li>
-<li><a href="Js_undefined.html">Js_undefined</a></li>
-<li><a href="Js_unsafe.html">Js_unsafe</a></li>
-<li><a href="Js_vector.html">Js_vector</a></li>
-<li><a href="Node.html">Node</a></li>
-<li><a href="Node_buffer.html">Node_buffer</a></li>
-<li><a href="Node_child_process.html">Node_child_process</a></li>
-<li><a href="Node_fs.html">Node_fs</a></li>
-<li><a href="Node_module.html">Node_module</a></li>
-<li><a href="Node_path.html">Node_path</a></li>
-<li><a href="Node_process.html">Node_process</a></li></ul></nav>
-<div class="navbar"><a class="pre" href="Js_dict.html" title="Js_dict">Previous</a>
-&nbsp;<a class="up" href="index.html" title="Index">Up</a>
-&nbsp;<a class="post" href="Js_float.html" title="Js_float">Next</a>
-</div>
-<h1>Module <a href="type_Js_exn.html">Js_exn</a></h1>
-
-<pre><span class="keyword">module</span> Js_exn: <code class="code">sig</code> <a href="Js_exn.html">..</a> <code class="code">end</code></pre><div class="info module top">
-                    <div class="not-examples">
-                    Used by the compiler internally<br>
- 
-                    </div>
-                    
-                    </div>
-
-                  <hr width="100%">
-<div class="type-declaration">
-<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Js_exn</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
 </div>
 
-<pre><code><span class="keyword">type</span> <code class="type"></code>exn += private </code></pre><table class="typetable">
-<tr>
-<td align="left" valign="top" >
-<code><span class="keyword">|</span></code></td>
-<td align="left" valign="top" >
-<code><span id="EXTENSIONError">Error</span> <span class="keyword">of</span> <code class="type"><a href="Js_exn.html#TYPEt">t</a></code></code></td>
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#Js_exn" class='level-1 header'>Js_exn</a>
+<a href="#type-t" class='level-2 type'>t</a>
+<a href="#value-stack" class='level-2 value'>stack</a>
+<a href="#value-message" class='level-2 value'>message</a>
+<a href="#value-name" class='level-2 value'>name</a>
+<a href="#value-fileName" class='level-2 value'>fileName</a>
+<a href="#value-internalToOCamlException" class='level-2 value'>internalToOCamlException</a>
+<a href="#value-raiseError" class='level-2 value'>raiseError</a>
+<a href="#value-raiseEvalError" class='level-2 value'>raiseEvalError</a>
+<a href="#value-raiseRangeError" class='level-2 value'>raiseRangeError</a>
+<a href="#value-raiseReferenceError" class='level-2 value'>raiseReferenceError</a>
+<a href="#value-raiseSyntaxError" class='level-2 value'>raiseSyntaxError</a>
+<a href="#value-raiseTypeError" class='level-2 value'>raiseTypeError</a>
+<a href="#value-raiseUriError" class='level-2 value'>raiseUriError</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Block.html">Block</a>
+<a href="Bs_obj.html">Bs_obj</a>
+<a href="Bs_string.html">Bs_string</a>
+<a href="Caml_array.html">Caml_array</a>
+<a href="Caml_backtrace.html">Caml_backtrace</a>
+<a href="Caml_basic.html">Caml_basic</a>
+<a href="Caml_builtin_exceptions.html">Caml_builtin_exceptions</a>
+<a href="Caml_bytes.html">Caml_bytes</a>
+<a href="Caml_exceptions.html">Caml_exceptions</a>
+<a href="Caml_float.html">Caml_float</a>
+<a href="Caml_format.html">Caml_format</a>
+<a href="Caml_gc.html">Caml_gc</a>
+<a href="Caml_hash.html">Caml_hash</a>
+<a href="Caml_int32.html">Caml_int32</a>
+<a href="Caml_int64.html">Caml_int64</a>
+<a href="Caml_io.html">Caml_io</a>
+<a href="Caml_lexer.html">Caml_lexer</a>
+<a href="Caml_md5.html">Caml_md5</a>
+<a href="Caml_missing_polyfill.html">Caml_missing_polyfill</a>
+<a href="Caml_module.html">Caml_module</a>
+<a href="Caml_obj.html">Caml_obj</a>
+<a href="Caml_oo.html">Caml_oo</a>
+<a href="Caml_oo_curry.html">Caml_oo_curry</a>
+<a href="Caml_parser.html">Caml_parser</a>
+<a href="Caml_primitive.html">Caml_primitive</a>
+<a href="Caml_queue.html">Caml_queue</a>
+<a href="Caml_string.html">Caml_string</a>
+<a href="Caml_sys.html">Caml_sys</a>
+<a href="Caml_utils.html">Caml_utils</a>
+<a href="Caml_weak.html">Caml_weak</a>
+<a href="Curry.html">Curry</a>
+<a href="Js.html">Js</a>
+<a href="Js_exn.html">Js_exn</a>
+<a href="Js_float.html">Js_float</a>
+<a href="Js_int.html">Js_int</a>
+<a href="Js_int64.html">Js_int64</a>
+<a href="Js_internal.html">Js_internal</a>
+<a href="Js_nativeint.html">Js_nativeint</a>
+<a href="Js_null.html">Js_null</a>
+<a href="Js_primitive.html">Js_primitive</a>
+<a href="Js_typed_array.html">Js_typed_array</a>
+<a href="Js_undefined.html">Js_undefined</a>
+<a href="Js_unsafe.html">Js_unsafe</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/runtime/js_exn.ml" class="edit-link">Edit</a>
+    <a href="#Js_exn" id="Js_exn"><h1>Js_exn</h1></a>
 
-</tr></table>
+<p><span class='missing'>This module does not have a toplevel documentation block.</span></p>
+<div class='doc-item'><h4 class='item'>type <a href="#type-t" id="type-t">t</a></h4>
 
+<div class='body body-empty'></div></div>
 
+<div class='doc-item'><h4 class='item'>let <a href="#value-stack" id="value-stack">stack</a>: <a href="#type-t">t</a> => option(string)</h4>
 
-<pre><span id="VALstack"><span class="keyword">val</span> stack</span> : <code class="type"><a href="Js_exn.html#TYPEt">t</a> -> string option</code></pre>
-<pre><span id="VALmessage"><span class="keyword">val</span> message</span> : <code class="type"><a href="Js_exn.html#TYPEt">t</a> -> string option</code></pre>
-<pre><span id="VALname"><span class="keyword">val</span> name</span> : <code class="type"><a href="Js_exn.html#TYPEt">t</a> -> string option</code></pre>
-<pre><span id="VALfileName"><span class="keyword">val</span> fileName</span> : <code class="type"><a href="Js_exn.html#TYPEt">t</a> -> string option</code></pre>
-<pre><span id="VALinternalToOCamlException"><span class="keyword">val</span> internalToOCamlException</span> : <code class="type">Obj.t -> exn</code></pre><div class="info ">
-                    <div class="not-examples">
-                    Used by the compiler internally<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body body-empty'></div></div>
 
-                  
-<pre><span id="VALraiseError"><span class="keyword">val</span> raiseError</span> : <code class="type">string -> 'a</code></pre><div class="info ">
-                    <div class="not-examples">
-                    Raise Js exception Error object with stacktrace<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-message" id="value-message">message</a>: <a href="#type-t">t</a> => option(string)</h4>
 
-                  
-<pre><span id="VALraiseEvalError"><span class="keyword">val</span> raiseEvalError</span> : <code class="type">string -> 'a</code></pre>
-<pre><span id="VALraiseRangeError"><span class="keyword">val</span> raiseRangeError</span> : <code class="type">string -> 'a</code></pre>
-<pre><span id="VALraiseReferenceError"><span class="keyword">val</span> raiseReferenceError</span> : <code class="type">string -> 'a</code></pre>
-<pre><span id="VALraiseSyntaxError"><span class="keyword">val</span> raiseSyntaxError</span> : <code class="type">string -> 'a</code></pre>
-<pre><span id="VALraiseTypeError"><span class="keyword">val</span> raiseTypeError</span> : <code class="type">string -> 'a</code></pre>
-<pre><span id="VALraiseUriError"><span class="keyword">val</span> raiseUriError</span> : <code class="type">string -> 'a</code></pre></body></html>
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-name" id="value-name">name</a>: <a href="#type-t">t</a> => option(string)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fileName" id="value-fileName">fileName</a>: <a href="#type-t">t</a> => option(string)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-internalToOCamlException" id="value-internalToOCamlException">internalToOCamlException</a>: Obj.t => exn</h4>
+
+<div class='body '><p>Used by the compiler internally</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-raiseError" id="value-raiseError">raiseError</a>: string => 'a</h4>
+
+<div class='body '><p>Raise Js exception Error object with stacktrace</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-raiseEvalError" id="value-raiseEvalError">raiseEvalError</a>: string => 'a</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-raiseRangeError" id="value-raiseRangeError">raiseRangeError</a>: string => 'a</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-raiseReferenceError" id="value-raiseReferenceError">raiseReferenceError</a>: string => 'a</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-raiseSyntaxError" id="value-raiseSyntaxError">raiseSyntaxError</a>: string => 'a</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-raiseTypeError" id="value-raiseTypeError">raiseTypeError</a>: string => 'a</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-raiseUriError" id="value-raiseUriError">raiseUriError</a>: string => 'a</h4>
+
+<div class='body body-empty'></div></div>
+
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

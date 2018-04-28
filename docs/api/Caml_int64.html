@@ -1,0 +1,371 @@
+
+    
+<!doctype html>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Caml_int64</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
+</div>
+
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#type-t" class='level-0 type'>t</a>
+<a href="#value-min_int" class='level-0 value'>min_int</a>
+<a href="#value-max_int" class='level-0 value'>max_int</a>
+<a href="#value-one" class='level-0 value'>one</a>
+<a href="#value-zero" class='level-0 value'>zero</a>
+<a href="#value-not" class='level-0 value'>not</a>
+<a href="#value-of_int32" class='level-0 value'>of_int32</a>
+<a href="#value-to_int32" class='level-0 value'>to_int32</a>
+<a href="#value-add" class='level-0 value'>add</a>
+<a href="#value-neg" class='level-0 value'>neg</a>
+<a href="#value-sub" class='level-0 value'>sub</a>
+<a href="#value-lsl_" class='level-0 value'>lsl_</a>
+<a href="#value-lsr_" class='level-0 value'>lsr_</a>
+<a href="#value-asr_" class='level-0 value'>asr_</a>
+<a href="#value-is_zero" class='level-0 value'>is_zero</a>
+<a href="#value-mul" class='level-0 value'>mul</a>
+<a href="#value-xor" class='level-0 value'>xor</a>
+<a href="#value-or_" class='level-0 value'>or_</a>
+<a href="#value-and_" class='level-0 value'>and_</a>
+<a href="#value-swap" class='level-0 value'>swap</a>
+<a href="#type-comparison" class='level-0 type'>comparison</a>
+<a href="#value-ge" class='level-0 value'>ge</a>
+<a href="#value-eq" class='level-0 value'>eq</a>
+<a href="#value-neq" class='level-0 value'>neq</a>
+<a href="#value-lt" class='level-0 value'>lt</a>
+<a href="#value-gt" class='level-0 value'>gt</a>
+<a href="#value-le" class='level-0 value'>le</a>
+<a href="#value-equal_null" class='level-0 value'>equal_null</a>
+<a href="#value-equal_undefined" class='level-0 value'>equal_undefined</a>
+<a href="#value-equal_nullable" class='level-0 value'>equal_nullable</a>
+<a href="#value-min" class='level-0 value'>min</a>
+<a href="#value-max" class='level-0 value'>max</a>
+<a href="#value-to_float" class='level-0 value'>to_float</a>
+<a href="#value-of_float" class='level-0 value'>of_float</a>
+<a href="#value-div" class='level-0 value'>div</a>
+<a href="#value-mod_" class='level-0 value'>mod_</a>
+<a href="#value-div_mod" class='level-0 value'>div_mod</a>
+<a href="#value-compare" class='level-0 value'>compare</a>
+<a href="#value-to_hex" class='level-0 value'>to_hex</a>
+<a href="#value-discard_sign" class='level-0 value'>discard_sign</a>
+<a href="#value-float_of_bits" class='level-0 value'>float_of_bits</a>
+<a href="#value-bits_of_float" class='level-0 value'>bits_of_float</a>
+<a href="#value-get64" class='level-0 value'>get64</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Block.html">Block</a>
+<a href="Bs_obj.html">Bs_obj</a>
+<a href="Bs_string.html">Bs_string</a>
+<a href="Caml_array.html">Caml_array</a>
+<a href="Caml_backtrace.html">Caml_backtrace</a>
+<a href="Caml_basic.html">Caml_basic</a>
+<a href="Caml_builtin_exceptions.html">Caml_builtin_exceptions</a>
+<a href="Caml_bytes.html">Caml_bytes</a>
+<a href="Caml_exceptions.html">Caml_exceptions</a>
+<a href="Caml_float.html">Caml_float</a>
+<a href="Caml_format.html">Caml_format</a>
+<a href="Caml_gc.html">Caml_gc</a>
+<a href="Caml_hash.html">Caml_hash</a>
+<a href="Caml_int32.html">Caml_int32</a>
+<a href="Caml_int64.html">Caml_int64</a>
+<a href="Caml_io.html">Caml_io</a>
+<a href="Caml_lexer.html">Caml_lexer</a>
+<a href="Caml_md5.html">Caml_md5</a>
+<a href="Caml_missing_polyfill.html">Caml_missing_polyfill</a>
+<a href="Caml_module.html">Caml_module</a>
+<a href="Caml_obj.html">Caml_obj</a>
+<a href="Caml_oo.html">Caml_oo</a>
+<a href="Caml_oo_curry.html">Caml_oo_curry</a>
+<a href="Caml_parser.html">Caml_parser</a>
+<a href="Caml_primitive.html">Caml_primitive</a>
+<a href="Caml_queue.html">Caml_queue</a>
+<a href="Caml_string.html">Caml_string</a>
+<a href="Caml_sys.html">Caml_sys</a>
+<a href="Caml_utils.html">Caml_utils</a>
+<a href="Caml_weak.html">Caml_weak</a>
+<a href="Curry.html">Curry</a>
+<a href="Js.html">Js</a>
+<a href="Js_exn.html">Js_exn</a>
+<a href="Js_float.html">Js_float</a>
+<a href="Js_int.html">Js_int</a>
+<a href="Js_int64.html">Js_int64</a>
+<a href="Js_internal.html">Js_internal</a>
+<a href="Js_nativeint.html">Js_nativeint</a>
+<a href="Js_null.html">Js_null</a>
+<a href="Js_primitive.html">Js_primitive</a>
+<a href="Js_typed_array.html">Js_typed_array</a>
+<a href="Js_undefined.html">Js_undefined</a>
+<a href="Js_unsafe.html">Js_unsafe</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/runtime/caml_int64.ml" class="edit-link">Edit</a>
+    <p>other items defined</p><div class='doc-item'><h4 class='item'>type <a href="#type-t" id="type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-min_int" id="value-min_int">min_int</a>: <a href="#type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-max_int" id="value-max_int">max_int</a>: <a href="#type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-one" id="value-one">one</a>: <a href="#type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-zero" id="value-zero">zero</a>: <a href="#type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-not" id="value-not">not</a>: <a href="#type-t">t</a> => <a href="#type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-of_int32" id="value-of_int32">of_int32</a>: nativeint => <a href="#type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-to_int32" id="value-to_int32">to_int32</a>: <a href="#type-t">t</a> => nativeint</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-add" id="value-add">add</a>: (<a href="#type-t">t</a>, <a href="#type-t">t</a>) => <a href="#type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-neg" id="value-neg">neg</a>: <a href="#type-t">t</a> => <a href="#type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sub" id="value-sub">sub</a>: (<a href="#type-t">t</a>, <a href="#type-t">t</a>) => <a href="#type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-lsl_" id="value-lsl_">lsl_</a>: (<a href="#type-t">t</a>, int) => <a href="#type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-lsr_" id="value-lsr_">lsr_</a>: (<a href="#type-t">t</a>, int) => <a href="#type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-asr_" id="value-asr_">asr_</a>: (<a href="#type-t">t</a>, int) => <a href="#type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-is_zero" id="value-is_zero">is_zero</a>: <a href="#type-t">t</a> => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-mul" id="value-mul">mul</a>: (<a href="#type-t">t</a>, <a href="#type-t">t</a>) => <a href="#type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-xor" id="value-xor">xor</a>: (<a href="#type-t">t</a>, <a href="#type-t">t</a>) => <a href="#type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-or_" id="value-or_">or_</a>: (<a href="#type-t">t</a>, <a href="#type-t">t</a>) => <a href="#type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-and_" id="value-and_">and_</a>: (<a href="#type-t">t</a>, <a href="#type-t">t</a>) => <a href="#type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-swap" id="value-swap">swap</a>: <a href="#type-t">t</a> => <a href="#type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-comparison" id="type-comparison">comparison</a> = (<a href="#type-t">t</a>, <a href="#type-t">t</a>) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-ge" id="value-ge">ge</a>: <a href="#type-comparison">comparison</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-eq" id="value-eq">eq</a>: <a href="#type-comparison">comparison</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-neq" id="value-neq">neq</a>: <a href="#type-comparison">comparison</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-lt" id="value-lt">lt</a>: <a href="#type-comparison">comparison</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-gt" id="value-gt">gt</a>: <a href="#type-comparison">comparison</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-le" id="value-le">le</a>: <a href="#type-comparison">comparison</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-equal_null" id="value-equal_null">equal_null</a>: (<a href="#type-t">t</a>, <a href="Js.html#type-null" title="Js.null">null</a>(<a href="#type-t">t</a>)) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-equal_undefined" id="value-equal_undefined">equal_undefined</a>: (<a href="#type-t">t</a>, <a href="Js.html#type-undefined" title="Js.undefined">undefined</a>(<a href="#type-t">t</a>)) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-equal_nullable" id="value-equal_nullable">equal_nullable</a>: (<a href="#type-t">t</a>, <a href="Js.html#type-nullable" title="Js.nullable">nullable</a>(<a href="#type-t">t</a>)) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-min" id="value-min">min</a>: (<a href="#type-t">t</a>, <a href="#type-t">t</a>) => <a href="#type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-max" id="value-max">max</a>: (<a href="#type-t">t</a>, <a href="#type-t">t</a>) => <a href="#type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-to_float" id="value-to_float">to_float</a>: <a href="#type-t">t</a> => float</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-of_float" id="value-of_float">of_float</a>: float => <a href="#type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-div" id="value-div">div</a>: (<a href="#type-t">t</a>, <a href="#type-t">t</a>) => <a href="#type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-mod_" id="value-mod_">mod_</a>: (<a href="#type-t">t</a>, <a href="#type-t">t</a>) => <a href="#type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-div_mod" id="value-div_mod">div_mod</a>: (<a href="#type-t">t</a>, <a href="#type-t">t</a>) => (<a href="#type-t">t</a>, <a href="#type-t">t</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-compare" id="value-compare">compare</a>: (<a href="#type-t">t</a>, <a href="#type-t">t</a>) => int</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-to_hex" id="value-to_hex">to_hex</a>: <a href="#type-t">t</a> => string</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-discard_sign" id="value-discard_sign">discard_sign</a>: <a href="#type-t">t</a> => <a href="#type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-float_of_bits" id="value-float_of_bits">float_of_bits</a>: <a href="#type-t">t</a> => float</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-bits_of_float" id="value-bits_of_float">bits_of_float</a>: float => <a href="#type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-get64" id="value-get64">get64</a>: (string, int) => <a href="#type-t">t</a></h4>
+
+<div class='body body-empty'></div></div>
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

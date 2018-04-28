@@ -1,0 +1,314 @@
+
+    
+<!doctype html>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Gc</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
+</div>
+
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#type-stat" class='level-0 type'>stat</a>
+<a href="#type-control" class='level-0 type'>control</a>
+<a href="#value-stat" class='level-0 value'>stat</a>
+<a href="#value-quick_stat" class='level-0 value'>quick_stat</a>
+<a href="#value-counters" class='level-0 value'>counters</a>
+<a href="#value-get" class='level-0 value'>get</a>
+<a href="#value-set" class='level-0 value'>set</a>
+<a href="#value-minor" class='level-0 value'>minor</a>
+<a href="#value-major_slice" class='level-0 value'>major_slice</a>
+<a href="#value-major" class='level-0 value'>major</a>
+<a href="#value-full_major" class='level-0 value'>full_major</a>
+<a href="#value-compact" class='level-0 value'>compact</a>
+<a href="#value-print_stat" class='level-0 value'>print_stat</a>
+<a href="#value-allocated_bytes" class='level-0 value'>allocated_bytes</a>
+<a href="#value-finalise" class='level-0 value'>finalise</a>
+<a href="#value-finalise_release" class='level-0 value'>finalise_release</a>
+<a href="#type-alarm" class='level-0 type'>alarm</a>
+<a href="#value-create_alarm" class='level-0 value'>create_alarm</a>
+<a href="#value-delete_alarm" class='level-0 value'>delete_alarm</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Js.html">Js</a>
+<a href="Arg.html">Arg</a>
+<a href="Array.html">Array</a>
+<a href="ArrayLabels.html">ArrayLabels</a>
+<a href="Bigarray.html">Bigarray</a>
+<a href="Buffer.html">Buffer</a>
+<a href="Bytes.html">Bytes</a>
+<a href="BytesLabels.html">BytesLabels</a>
+<a href="Callback.html">Callback</a>
+<a href="CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="CamlinternalMod.html">CamlinternalMod</a>
+<a href="CamlinternalOO.html">CamlinternalOO</a>
+<a href="Char.html">Char</a>
+<a href="Complex.html">Complex</a>
+<a href="Digest.html">Digest</a>
+<a href="Filename.html">Filename</a>
+<a href="Format.html">Format</a>
+<a href="Gc.html">Gc</a>
+<a href="Genlex.html">Genlex</a>
+<a href="Hashtbl.html">Hashtbl</a>
+<a href="Int32.html">Int32</a>
+<a href="Int64.html">Int64</a>
+<a href="Lazy.html">Lazy</a>
+<a href="Lexing.html">Lexing</a>
+<a href="List.html">List</a>
+<a href="ListLabels.html">ListLabels</a>
+<a href="Map.html">Map</a>
+<a href="Marshal.html">Marshal</a>
+<a href="MoreLabels.html">MoreLabels</a>
+<a href="Nativeint.html">Nativeint</a>
+<a href="Obj.html">Obj</a>
+<a href="Oo.html">Oo</a>
+<a href="Parsing.html">Parsing</a>
+<a href="Pervasives.html">Pervasives</a>
+<a href="Printexc.html">Printexc</a>
+<a href="Printf.html">Printf</a>
+<a href="Queue.html">Queue</a>
+<a href="Random.html">Random</a>
+<a href="Scanf.html">Scanf</a>
+<a href="Set.html">Set</a>
+<a href="Sort.html">Sort</a>
+<a href="Stack.html">Stack</a>
+<a href="Std_exit.html">Std_exit</a>
+<a href="StdLabels.html">StdLabels</a>
+<a href="Stream.html">Stream</a>
+<a href="String.html">String</a>
+<a href="StringLabels.html">StringLabels</a>
+<a href="Sys.html">Sys</a>
+<a href="Unix.html">Unix</a>
+<a href="UnixLabels.html">UnixLabels</a>
+<a href="Weak.html">Weak</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/stdlib/gc.ml" class="edit-link">Edit</a>
+    <p>Memory management control and statistics; finalised values.</p>
+<p>other items defined</p><div class='doc-item'><h4 class='item'>type <a href="#type-stat" id="type-stat">stat</a> = {
+  minor_words: float,
+  promoted_words: float,
+  major_words: float,
+  minor_collections: int,
+  major_collections: int,
+  heap_words: int,
+  heap_chunks: int,
+  live_words: int,
+  live_blocks: int,
+  free_words: int,
+  free_blocks: int,
+  largest_free: int,
+  fragments: int,
+  compactions: int,
+  top_heap_words: int,
+  stack_size: int
+}</h4>
+
+<div class='body '><p>The memory management counters are returned in a <code>stat</code> record.</p>
+<p>The total amount of memory allocated by the program since it was started is (in words) <code>minor_words + major_words - promoted_words</code>. Multiply by the word size (4 on a 32-bit machine, 8 on a 64-bit machine) to get the number of bytes.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-control" id="type-control">control</a> = {
+  mut minor_heap_size: int,
+  mut major_heap_increment: int,
+  mut space_overhead: int,
+  mut verbose: int,
+  mut max_overhead: int,
+  mut stack_limit: int,
+  mut allocation_policy: int
+}</h4>
+
+<div class='body '><p>The GC parameters are given as a <code>control</code> record. Note that these parameters can also be initialised by setting the OCAMLRUNPARAM environment variable. See the documentation of <code>ocamlrun</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-stat" id="value-stat">stat</a>: unit => <a href="#type-stat">stat</a></h4>
+
+<div class='body '><p>Return the current values of the memory management counters in a <code>stat</code> record. This function examines every heap block to get the statistics.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-quick_stat" id="value-quick_stat">quick_stat</a>: unit => <a href="#type-stat">stat</a></h4>
+
+<div class='body '><p>Same as <code>stat</code> except that <code>live_words</code>, <code>live_blocks</code>, <code>free_words</code>, <code>free_blocks</code>, <code>largest_free</code>, and <code>fragments</code> are set to 0. This function is much faster than <code>stat</code> because it does not need to go through the heap.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-counters" id="value-counters">counters</a>: unit => (float, float, float)</h4>
+
+<div class='body '><p>Return <code>(minor_words, promoted_words, major_words)</code>. This function is as fast as <code>quick_stat</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-get" id="value-get">get</a>: unit => <a href="#type-control">control</a></h4>
+
+<div class='body '><p>Return the current values of the GC parameters in a <code>control</code> record.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-set" id="value-set">set</a>: <a href="#type-control">control</a> => unit</h4>
+
+<div class='body '><p><code>set r</code> changes the GC parameters according to the <code>control</code> record <code>r</code>. The normal usage is: <code>Gc.set { (Gc.get()) with Gc.verbose = 0x00d }</code></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-minor" id="value-minor">minor</a>: unit => unit</h4>
+
+<div class='body '><p>Trigger a minor collection.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-major_slice" id="value-major_slice">major_slice</a>: int => int</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-major" id="value-major">major</a>: unit => unit</h4>
+
+<div class='body '><p>Do a minor collection and finish the current major collection cycle.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-full_major" id="value-full_major">full_major</a>: unit => unit</h4>
+
+<div class='body '><p>Do a minor collection, finish the current major collection cycle, and perform a complete new cycle. This will collect all currently unreachable blocks.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-compact" id="value-compact">compact</a>: unit => unit</h4>
+
+<div class='body '><p>Perform a full major collection and compact the heap. Note that heap compaction is a lengthy operation.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-print_stat" id="value-print_stat">print_stat</a>: <a href="Pervasives.html#type-out_channel" title="Pervasives.out_channel">out_channel</a> => unit</h4>
+
+<div class='body '><p>Print the current values of the memory management counters (in human-readable form) into the channel argument.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-allocated_bytes" id="value-allocated_bytes">allocated_bytes</a>: unit => float</h4>
+
+<div class='body '><p>Return the total number of bytes allocated since the program was started. It is returned as a <code>float</code> to avoid overflow problems with <code>int</code> on 32-bit machines.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-finalise" id="value-finalise">finalise</a>: ('a => unit, 'a) => unit</h4>
+
+<div class='body '><p><code>finalise f v</code> registers <code>f</code> as a finalisation function for <code>v</code>. <code>v</code> must be heap-allocated. <code>f</code> will be called with <code>v</code> as argument at some point between the first time <code>v</code> becomes unreachable and the time <code>v</code> is collected by the GC. Several functions can be registered for the same value, or even several instances of the same function. Each instance will be called once (or never, if the program terminates before <code>v</code> becomes unreachable).</p>
+<p>The GC will call the finalisation functions in the order of deallocation. When several values become unreachable at the same time (i.e. during the same GC cycle), the finalisation functions will be called in the reverse order of the corresponding calls to <code>finalise</code>. If <code>finalise</code> is called in the same order as the values are allocated, that means each value is finalised before the values it depends upon. Of course, this becomes false if additional dependencies are introduced by assignments.</p>
+<p>In the presence of multiple OCaml threads it should be assumed that any particular finaliser may be executed in any of the threads.</p>
+<p>Anything reachable from the closure of finalisation functions is considered reachable, so the following code will not work as expected:</p>
+<ul><li><p><code> let v = ... in Gc.finalise (fun x -&gt; ... v ...) v </code></p>
+</li></ul><p>Instead you should make sure that <code>v</code> is not in the closure of the finalisation function by writing:</p>
+<ul><li><p><code> let f = fun x -&gt; ... ;; let v = ... in Gc.finalise f v </code></p>
+</li></ul><p>The <code>f</code> function can use all features of OCaml, including assignments that make the value reachable again. It can also loop forever (in this case, the other finalisation functions will not be called during the execution of f, unless it calls <code>finalise_release</code>). It can call <code>finalise</code> on <code>v</code> or other values to register other functions or even itself. It can raise an exception; in this case the exception will interrupt whatever the program was doing when the function was called.</p>
+<p><code>finalise</code> will raise <code>Invalid_argument</code> if <code>v</code> is not heap-allocated. Some examples of values that are not heap-allocated are integers, constant constructors, booleans, the empty array, the empty list, the unit value. The exact list of what is heap-allocated or not is implementation-dependent. Some constant values can be heap-allocated but never deallocated during the lifetime of the program, for example a list of integer constants; this is also implementation-dependent. You should also be aware that compiler optimisations may duplicate some immutable values, for example floating-point numbers when stored into arrays, so they can be finalised and collected while another copy is still in use by the program.</p>
+<p>The results of calling make, make, create, make, and ref are guaranteed to be heap-allocated and non-constant except when the length argument is <code>0</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-finalise_release" id="value-finalise_release">finalise_release</a>: unit => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-alarm" id="type-alarm">alarm</a></h4>
+
+<div class='body '><p>An alarm is a piece of data that calls a user function at the end of each major GC cycle. The following functions are provided to create and delete alarms.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-create_alarm" id="value-create_alarm">create_alarm</a>: unit => unit => <a href="#type-alarm">alarm</a></h4>
+
+<div class='body '><p><code>create_alarm f</code> will arrange for <code>f</code> to be called at the end of each major GC cycle, starting with the current cycle or the next one. A value of type <code>alarm</code> is returned that you can use to call <code>delete_alarm</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-delete_alarm" id="value-delete_alarm">delete_alarm</a>: <a href="#type-alarm">alarm</a> => unit</h4>
+
+<div class='body '><p><code>delete_alarm a</code> will stop the calls to the function associated to <code>a</code>. Calling <code>delete_alarm a</code> again has no effect.</p>
+</div></div>
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

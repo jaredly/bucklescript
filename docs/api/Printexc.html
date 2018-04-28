@@ -1,0 +1,377 @@
+
+    
+<!doctype html>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Printexc</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
+</div>
+
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#value-to_string" class='level-0 value'>to_string</a>
+<a href="#value-print" class='level-0 value'>print</a>
+<a href="#value-catch" class='level-0 value'>catch</a>
+<a href="#value-print_backtrace" class='level-0 value'>print_backtrace</a>
+<a href="#value-get_backtrace" class='level-0 value'>get_backtrace</a>
+<a href="#value-record_backtrace" class='level-0 value'>record_backtrace</a>
+<a href="#value-backtrace_status" class='level-0 value'>backtrace_status</a>
+<a href="#value-register_printer" class='level-0 value'>register_printer</a>
+<a href="#type-raw_backtrace" class='level-0 type'>raw_backtrace</a>
+<a href="#value-get_raw_backtrace" class='level-0 value'>get_raw_backtrace</a>
+<a href="#value-print_raw_backtrace" class='level-0 value'>print_raw_backtrace</a>
+<a href="#value-raw_backtrace_to_string" class='level-0 value'>raw_backtrace_to_string</a>
+<a href="#value-get_callstack" class='level-0 value'>get_callstack</a>
+<a href="#value-set_uncaught_exception_handler" class='level-0 value'>set_uncaught_exception_handler</a>
+<a href="#type-backtrace_slot" class='level-0 type'>backtrace_slot</a>
+<a href="#value-backtrace_slots" class='level-0 value'>backtrace_slots</a>
+<a href="#type-location" class='level-0 type'>location</a>
+<a href="#module-Slot" class='level-0 module'>Slot</a>
+<a href="#type-Slot.t" class='level-1 type'>t</a>
+<a href="#value-Slot.is_raise" class='level-1 value'>is_raise</a>
+<a href="#value-Slot.location" class='level-1 value'>location</a>
+<a href="#value-Slot.format" class='level-1 value'>format</a>
+<a href="#type-raw_backtrace_slot" class='level-0 type'>raw_backtrace_slot</a>
+<a href="#value-raw_backtrace_length" class='level-0 value'>raw_backtrace_length</a>
+<a href="#value-get_raw_backtrace_slot" class='level-0 value'>get_raw_backtrace_slot</a>
+<a href="#value-convert_raw_backtrace_slot" class='level-0 value'>convert_raw_backtrace_slot</a>
+<a href="#value-exn_slot_id" class='level-0 value'>exn_slot_id</a>
+<a href="#value-exn_slot_name" class='level-0 value'>exn_slot_name</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Js.html">Js</a>
+<a href="Arg.html">Arg</a>
+<a href="Array.html">Array</a>
+<a href="ArrayLabels.html">ArrayLabels</a>
+<a href="Bigarray.html">Bigarray</a>
+<a href="Buffer.html">Buffer</a>
+<a href="Bytes.html">Bytes</a>
+<a href="BytesLabels.html">BytesLabels</a>
+<a href="Callback.html">Callback</a>
+<a href="CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="CamlinternalMod.html">CamlinternalMod</a>
+<a href="CamlinternalOO.html">CamlinternalOO</a>
+<a href="Char.html">Char</a>
+<a href="Complex.html">Complex</a>
+<a href="Digest.html">Digest</a>
+<a href="Filename.html">Filename</a>
+<a href="Format.html">Format</a>
+<a href="Gc.html">Gc</a>
+<a href="Genlex.html">Genlex</a>
+<a href="Hashtbl.html">Hashtbl</a>
+<a href="Int32.html">Int32</a>
+<a href="Int64.html">Int64</a>
+<a href="Lazy.html">Lazy</a>
+<a href="Lexing.html">Lexing</a>
+<a href="List.html">List</a>
+<a href="ListLabels.html">ListLabels</a>
+<a href="Map.html">Map</a>
+<a href="Marshal.html">Marshal</a>
+<a href="MoreLabels.html">MoreLabels</a>
+<a href="Nativeint.html">Nativeint</a>
+<a href="Obj.html">Obj</a>
+<a href="Oo.html">Oo</a>
+<a href="Parsing.html">Parsing</a>
+<a href="Pervasives.html">Pervasives</a>
+<a href="Printexc.html">Printexc</a>
+<a href="Printf.html">Printf</a>
+<a href="Queue.html">Queue</a>
+<a href="Random.html">Random</a>
+<a href="Scanf.html">Scanf</a>
+<a href="Set.html">Set</a>
+<a href="Sort.html">Sort</a>
+<a href="Stack.html">Stack</a>
+<a href="Std_exit.html">Std_exit</a>
+<a href="StdLabels.html">StdLabels</a>
+<a href="Stream.html">Stream</a>
+<a href="String.html">String</a>
+<a href="StringLabels.html">StringLabels</a>
+<a href="Sys.html">Sys</a>
+<a href="Unix.html">Unix</a>
+<a href="UnixLabels.html">UnixLabels</a>
+<a href="Weak.html">Weak</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/stdlib/printexc.ml" class="edit-link">Edit</a>
+    <p>Facilities for printing exceptions and inspecting current call stack.</p>
+<p>other items defined</p><div class='doc-item'><h4 class='item'>let <a href="#value-to_string" id="value-to_string">to_string</a>: exn => string</h4>
+
+<div class='body '><p><code>Printexc.to_string e</code> returns a string representation of the exception <code>e</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-print" id="value-print">print</a>: ('a => 'b, 'a) => 'b</h4>
+
+<div class='body '><p><code>Printexc.print fn x</code> applies <code>fn</code> to <code>x</code> and returns the result. If the evaluation of <code>fn x</code> raises any exception, the name of the exception is printed on standard error output, and the exception is raised again. The typical use is to catch and report exceptions that escape a function application.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-catch" id="value-catch">catch</a>: ('a => 'b, 'a) => 'b</h4>
+
+<div class='body '><p><code>Printexc.catch fn x</code> is similar to print, but aborts the program with exit code 2 after printing the uncaught exception. This function is deprecated: the runtime system is now able to print uncaught exceptions as precisely as <code>Printexc.catch</code> does. Moreover, calling <code>Printexc.catch</code> makes it harder to track the location of the exception using the debugger or the stack backtrace facility. So, do not use <code>Printexc.catch</code> in new code.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-print_backtrace" id="value-print_backtrace">print_backtrace</a>: <a href="Pervasives.html#type-out_channel" title="Pervasives.out_channel">out_channel</a> => unit</h4>
+
+<div class='body '><p><code>Printexc.print_backtrace oc</code> prints an exception backtrace on the output channel <code>oc</code>. The backtrace lists the program locations where the most-recently raised exception was raised and where it was propagated through function calls.</p>
+Since: 3.11.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-get_backtrace" id="value-get_backtrace">get_backtrace</a>: unit => string</h4>
+
+<div class='body '><p><code>Printexc.get_backtrace ()</code> returns a string containing the same exception backtrace that <code>Printexc.print_backtrace</code> would print.</p>
+Since: 3.11.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-record_backtrace" id="value-record_backtrace">record_backtrace</a>: bool => unit</h4>
+
+<div class='body '><p><code>Printexc.record_backtrace b</code> turns recording of exception backtraces on (if <code>b = true</code>) or off (if <code>b = false</code>). Initially, backtraces are not recorded, unless the <code>b</code> flag is given to the program through the <code>OCAMLRUNPARAM</code> variable.</p>
+Since: 3.11.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-backtrace_status" id="value-backtrace_status">backtrace_status</a>: unit => bool</h4>
+
+<div class='body '><p><code>Printexc.backtrace_status()</code> returns <code>true</code> if exception backtraces are currently recorded, <code>false</code> if not.</p>
+Since: 3.11.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-register_printer" id="value-register_printer">register_printer</a>: exn => option(string) => unit</h4>
+
+<div class='body '><p><code>Printexc.register_printer fn</code> registers <code>fn</code> as an exception printer. The printer should return <code>None</code> or raise an exception if it does not know how to convert the passed exception, and <code>Some
+    s</code> with <code>s</code> the resulting string if it can convert the passed exception. Exceptions raised by the printer are ignored.</p>
+<p>When converting an exception into a string, the printers will be invoked in the reverse order of their registrations, until a printer returns a <code>Some s</code> value (if no such printer exists, the runtime will use a generic printer).</p>
+<p>When using this mechanism, one should be aware that an exception backtrace is attached to the thread that saw it raised, rather than to the exception itself. Practically, it means that the code related to <code>fn</code> should not use the backtrace if it has itself raised an exception before.</p>
+Since: 3.11.2</div></div>
+
+<div class='doc-item'><h4 id="Raw-backtraces">Raw backtraces</h4></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-raw_backtrace" id="type-raw_backtrace">raw_backtrace</a></h4>
+
+<div class='body '><p>The abstract type <code>raw_backtrace</code> stores a backtrace in a low-level format, instead of directly exposing them as string as the <code>get_backtrace()</code> function does.</p>
+<p>This allows delaying the formatting of backtraces to when they are actually printed, which may be useful if you record more backtraces than you print.</p>
+<p>Raw backtraces cannot be marshalled. If you need marshalling, you should use the array returned by the <code>backtrace_slots</code> function of the next section.</p>
+Since: 4.01.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-get_raw_backtrace" id="value-get_raw_backtrace">get_raw_backtrace</a>: unit => <a href="#type-raw_backtrace">raw_backtrace</a></h4>
+
+<div class='body '><p><code>Printexc.get_raw_backtrace ()</code> returns the same exception backtrace that <code>Printexc.print_backtrace</code> would print, but in a raw format.</p>
+Since: 4.01.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-print_raw_backtrace" id="value-print_raw_backtrace">print_raw_backtrace</a>: (
+  <a href="Pervasives.html#type-out_channel" title="Pervasives.out_channel">out_channel</a>,
+  <a href="#type-raw_backtrace">raw_backtrace</a>
+) => unit</h4>
+
+<div class='body '><p>Print a raw backtrace in the same format <code>Printexc.print_backtrace</code> uses.</p>
+Since: 4.01.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-raw_backtrace_to_string" id="value-raw_backtrace_to_string">raw_backtrace_to_string</a>: <a href="#type-raw_backtrace">raw_backtrace</a> => string</h4>
+
+<div class='body '><p>Return a string from a raw backtrace, in the same format <code>Printexc.get_backtrace</code> uses.</p>
+Since: 4.01.0</div></div>
+
+<div class='doc-item'><h4 id="Current-call-stack">Current call stack</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-get_callstack" id="value-get_callstack">get_callstack</a>: int => <a href="#type-raw_backtrace">raw_backtrace</a></h4>
+
+<div class='body '><p><code>Printexc.get_callstack n</code> returns a description of the top of the call stack on the current program point (for the current thread), with at most <code>n</code> entries. (Note: this function is not related to exceptions at all, despite being part of the <code>Printexc</code> module.)</p>
+Since: 4.01.0</div></div>
+
+<div class='doc-item'><h4 id="Uncaught-exceptions">Uncaught exceptions</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-set_uncaught_exception_handler" id="value-set_uncaught_exception_handler">set_uncaught_exception_handler</a>: (
+  exn,
+  <a href="#type-raw_backtrace">raw_backtrace</a>
+) => unit => unit</h4>
+
+<div class='body '><p><code>Printexc.set_uncaught_exception_handler fn</code> registers <code>fn</code> as the handler for uncaught exceptions. The default handler prints the exception and backtrace on standard error output.</p>
+<p>Note that when <code>fn</code> is called all the functions registered with at_exit have already been called. Because of this you must make sure any output channel <code>fn</code> writes on is flushed.</p>
+<p>Also note that exceptions raised by user code in the interactive toplevel are not passed to this function as they are caught by the toplevel itself.</p>
+<p>If <code>fn</code> raises an exception, both the exceptions passed to <code>fn</code> and raised by <code>fn</code> will be printed with their respective backtrace.</p>
+Since: 4.02.0</div></div>
+
+<div class='doc-item'><h4 id="Manipulation-of-backtrace-information">Manipulation of backtrace information</h4><p>Those function allow to traverse the slots of a raw backtrace, extract information from them in a programmer-friendly format.</p>
+</div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-backtrace_slot" id="type-backtrace_slot">backtrace_slot</a></h4>
+
+<div class='body '><p>The abstract type <code>backtrace_slot</code> represents a single slot of a backtrace.</p>
+Since: 4.02</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-backtrace_slots" id="value-backtrace_slots">backtrace_slots</a>: <a href="#type-raw_backtrace">raw_backtrace</a> => option(
+  array(<a href="#type-backtrace_slot">backtrace_slot</a>)
+)</h4>
+
+<div class='body '><p>Returns the slots of a raw backtrace, or <code>None</code> if none of them contain useful information.</p>
+<p>In the return array, the slot at index <code>0</code> corresponds to the most recent function call, raise, or primitive <code>get_backtrace</code> call in the trace.</p>
+<p>Some possible reasons for returning <code>None</code> are as follow:</p>
+<ul><li><p>none of the slots in the trace come from modules compiled with debug information (<code>-g</code>)</p>
+</li><li><p>the program is a bytecode program that has not been linked with debug information enabled (<code>ocamlc -g</code>)</p>
+</li></ul>Since: 4.02.0</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-location" id="type-location">location</a> = {
+  filename: string,
+  line_number: int,
+  start_char: int,
+  end_char: int
+}</h4>
+
+<div class='body '><p>The type of location information found in backtraces. <code>start_char</code> and <code>end_char</code> are positions relative to the beginning of the line.</p>
+Since: 4.02</div></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Slot" id="module-Slot">Slot</a></h4><div class='body module-body'><p><span class='missing'>This module does not have a toplevel documentation block.</span></p>
+<div class='doc-item'><h4 class='item'>type <a href="#type-Slot.t" id="type-Slot.t">t</a> = <a href="#type-backtrace_slot">backtrace_slot</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Slot.is_raise" id="value-Slot.is_raise">is_raise</a>: <a href="#type-Slot.t">t</a> => bool</h4>
+
+<div class='body '><p><code>is_raise slot</code> is <code>true</code> when <code>slot</code> refers to a raising point in the code, and <code>false</code> when it comes from a simple function call.</p>
+Since: 4.02</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Slot.location" id="value-Slot.location">location</a>: <a href="#type-Slot.t">t</a> => option(<a href="#type-location">location</a>)</h4>
+
+<div class='body '><p><code>location slot</code> returns the location information of the slot, if available, and <code>None</code> otherwise.</p>
+<p>Some possible reasons for failing to return a location are as follow:</p>
+<ul><li><p>the slot corresponds to a compiler-inserted raise</p>
+</li><li><p>the slot corresponds to a part of the program that has not been compiled with debug information (<code>-g</code>)</p>
+</li></ul>Since: 4.02</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Slot.format" id="value-Slot.format">format</a>: (int, <a href="#type-Slot.t">t</a>) => option(string)</h4>
+
+<div class='body '><p><code>format pos slot</code> returns the string representation of <code>slot</code> as <code>raw_backtrace_to_string</code> would format it, assuming it is the <code>pos</code>-th element of the backtrace: the <code>0</code>-th element is pretty-printed differently than the others.</p>
+<p>Whole-backtrace printing functions also skip some uninformative slots; in that case, <code>format pos slot</code> returns <code>None</code>.</p>
+Since: 4.02</div></div>
+</div></div>
+
+<div class='doc-item'><h4 id="Raw-backtrace-slots">Raw backtrace slots</h4></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-raw_backtrace_slot" id="type-raw_backtrace_slot">raw_backtrace_slot</a></h4>
+
+<div class='body '><p>This type allows direct access to raw backtrace slots, without any conversion in an OCaml-usable data-structure. Being process-specific, they must absolutely not be marshalled, and are unsafe to use for this reason (marshalling them may not fail, but un-marshalling and using the result will result in undefined behavior).</p>
+<p>Elements of this type can still be compared and hashed: when two elements are equal, then they represent the same source location (the converse is not necessarily true in presence of inlining, for example).</p>
+Since: 4.02.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-raw_backtrace_length" id="value-raw_backtrace_length">raw_backtrace_length</a>: <a href="#type-raw_backtrace">raw_backtrace</a> => int</h4>
+
+<div class='body '><p><code>raw_backtrace_length bckt</code> returns the number of slots in the backtrace <code>bckt</code>.</p>
+Since: 4.02</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-get_raw_backtrace_slot" id="value-get_raw_backtrace_slot">get_raw_backtrace_slot</a>: (
+  <a href="#type-raw_backtrace">raw_backtrace</a>,
+  int
+) => <a href="#type-raw_backtrace_slot">raw_backtrace_slot</a></h4>
+
+<div class='body '><p><code>get_slot bckt pos</code> returns the slot in position <code>pos</code> in the backtrace <code>bckt</code>.</p>
+Since: 4.02</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-convert_raw_backtrace_slot" id="value-convert_raw_backtrace_slot">convert_raw_backtrace_slot</a>: <a href="#type-raw_backtrace_slot">raw_backtrace_slot</a> => <a href="#type-backtrace_slot">backtrace_slot</a></h4>
+
+<div class='body '><p>Extracts the user-friendly <code>backtrace_slot</code> from a low-level <code>raw_backtrace_slot</code>.</p>
+Since: 4.02</div></div>
+
+<div class='doc-item'><h4 id="Exception-slots">Exception slots</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-exn_slot_id" id="value-exn_slot_id">exn_slot_id</a>: exn => int</h4>
+
+<div class='body '><p><code>Printexc.exn_slot_id</code> returns an integer which uniquely identifies the constructor used to create the exception value <code>exn</code> (in the current runtime).</p>
+Since: 4.02.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-exn_slot_name" id="value-exn_slot_name">exn_slot_name</a>: exn => string</h4>
+
+<div class='body '><p><code>Printexc.exn_slot_id exn</code> returns the internal name of the constructor used to create the exception value <code>exn</code>.</p>
+Since: 4.02.0</div></div>
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

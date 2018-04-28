@@ -1,270 +1,447 @@
+
+    
 <!doctype html>
-<html>
-<head>
-                 <link rel="stylesheet" href="../api_static/tomorrow-night.css">
-                 <link rel="stylesheet" href="../api_static/style.css" type="text/css">
-                 <script src="../api_static//highlight.pack.js"></script>
-                 <script src="../api_static//script.js"></script>
-                 <script>hljs.initHighlightingOnLoad();</script> 
-                 <meta charset="utf8">
-                 <link rel="previous" href="Belt_MutableMapInt.html"><link rel="next" href="Belt_MutableQueue.html">
-                 <title> Belt_MutableMapString </title></head> 
-               <body>
-<nav class="module-index"><ul><li><a href="Belt.html">Belt</a></li>
-<li><a href="Belt_Array.html">Belt_Array</a></li>
-<li><a href="Belt_HashMap.html">Belt_HashMap</a></li>
-<li><a href="Belt_HashMapInt.html">Belt_HashMapInt</a></li>
-<li><a href="Belt_HashMapString.html">Belt_HashMapString</a></li>
-<li><a href="Belt_HashSet.html">Belt_HashSet</a></li>
-<li><a href="Belt_HashSetInt.html">Belt_HashSetInt</a></li>
-<li><a href="Belt_HashSetString.html">Belt_HashSetString</a></li>
-<li><a href="Belt_Id.html">Belt_Id</a></li>
-<li><a href="Belt_List.html">Belt_List</a></li>
-<li><a href="Belt_Map.html">Belt_Map</a></li>
-<li><a href="Belt_MapDict.html">Belt_MapDict</a></li>
-<li><a href="Belt_MapInt.html">Belt_MapInt</a></li>
-<li><a href="Belt_MapString.html">Belt_MapString</a></li>
-<li><a href="Belt_MutableMap.html">Belt_MutableMap</a></li>
-<li><a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a></li>
-<li><a href="Belt_MutableMapString.html">Belt_MutableMapString</a></li>
-<li><a href="Belt_MutableQueue.html">Belt_MutableQueue</a></li>
-<li><a href="Belt_MutableSet.html">Belt_MutableSet</a></li>
-<li><a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a></li>
-<li><a href="Belt_MutableSetString.html">Belt_MutableSetString</a></li>
-<li><a href="Belt_MutableStack.html">Belt_MutableStack</a></li>
-<li><a href="Belt_Option.html">Belt_Option</a></li>
-<li><a href="Belt_Range.html">Belt_Range</a></li>
-<li><a href="Belt_Set.html">Belt_Set</a></li>
-<li><a href="Belt_SetDict.html">Belt_SetDict</a></li>
-<li><a href="Belt_SetInt.html">Belt_SetInt</a></li>
-<li><a href="Belt_SetString.html">Belt_SetString</a></li>
-<li><a href="Belt_SortArray.html">Belt_SortArray</a></li>
-<li><a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a></li>
-<li><a href="Belt_SortArrayString.html">Belt_SortArrayString</a></li>
-<li><a href="Belt_internalAVLset.html">Belt_internalAVLset</a></li>
-<li><a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a></li>
-<li><a href="Belt_internalBuckets.html">Belt_internalBuckets</a></li>
-<li><a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a></li>
-<li><a href="Belt_internalMapInt.html">Belt_internalMapInt</a></li>
-<li><a href="Belt_internalMapString.html">Belt_internalMapString</a></li>
-<li><a href="Belt_internalMutableAVLMap.html">Belt_internalMutableAVLMap</a></li>
-<li><a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a></li>
-<li><a href="Belt_internalSetInt.html">Belt_internalSetInt</a></li>
-<li><a href="Belt_internalSetString.html">Belt_internalSetString</a></li>
-<li><a href="Dom.html">Dom</a></li>
-<li><a href="Dom_storage.html">Dom_storage</a></li>
-<li><a href="Js.html">Js</a></li>
-<li><a href="Js_array.html">Js_array</a></li>
-<li><a href="Js_boolean.html">Js_boolean</a></li>
-<li><a href="Js_cast.html">Js_cast</a></li>
-<li><a href="Js_console.html">Js_console</a></li>
-<li><a href="Js_date.html">Js_date</a></li>
-<li><a href="Js_dict.html">Js_dict</a></li>
-<li><a href="Js_exn.html">Js_exn</a></li>
-<li><a href="Js_float.html">Js_float</a></li>
-<li><a href="Js_global.html">Js_global</a></li>
-<li><a href="Js_int.html">Js_int</a></li>
-<li><a href="Js_int64.html">Js_int64</a></li>
-<li><a href="Js_internal.html">Js_internal</a></li>
-<li><a href="Js_json.html">Js_json</a></li>
-<li><a href="Js_list.html">Js_list</a></li>
-<li><a href="Js_mapperRt.html">Js_mapperRt</a></li>
-<li><a href="Js_math.html">Js_math</a></li>
-<li><a href="Js_nativeint.html">Js_nativeint</a></li>
-<li><a href="Js_null.html">Js_null</a></li>
-<li><a href="Js_null_undefined.html">Js_null_undefined</a></li>
-<li><a href="Js_obj.html">Js_obj</a></li>
-<li><a href="Js_option.html">Js_option</a></li>
-<li><a href="Js_primitive.html">Js_primitive</a></li>
-<li><a href="Js_promise.html">Js_promise</a></li>
-<li><a href="Js_re.html">Js_re</a></li>
-<li><a href="Js_result.html">Js_result</a></li>
-<li><a href="Js_string.html">Js_string</a></li>
-<li><a href="Js_typed_array.html">Js_typed_array</a></li>
-<li><a href="Js_types.html">Js_types</a></li>
-<li><a href="Js_undefined.html">Js_undefined</a></li>
-<li><a href="Js_unsafe.html">Js_unsafe</a></li>
-<li><a href="Js_vector.html">Js_vector</a></li>
-<li><a href="Node.html">Node</a></li>
-<li><a href="Node_buffer.html">Node_buffer</a></li>
-<li><a href="Node_child_process.html">Node_child_process</a></li>
-<li><a href="Node_fs.html">Node_fs</a></li>
-<li><a href="Node_module.html">Node_module</a></li>
-<li><a href="Node_path.html">Node_path</a></li>
-<li><a href="Node_process.html">Node_process</a></li></ul></nav>
-<div class="navbar"><a class="pre" href="Belt_MutableMapInt.html" title="Belt_MutableMapInt">Previous</a>
-&nbsp;<a class="up" href="index.html" title="Index">Up</a>
-&nbsp;<a class="post" href="Belt_MutableQueue.html" title="Belt_MutableQueue">Next</a>
-</div>
-<h1>Module <a href="type_Belt_MutableMapString.html">Belt_MutableMapString</a></h1>
-
-<pre><span class="keyword">module</span> Belt_MutableMapString: <code class="code">sig</code> <a href="Belt_MutableMapString.html">..</a> <code class="code">end</code></pre><div class="info module top">
-                    <div class="not-examples">
-                    <code class="code">cmp m1 m2 cmp</code>
-    First compare by size, if size is the same,
-    compare by key, value pair<br>
- 
-                    </div>
-                    
-                    </div>
-
-                  <hr width="100%">
-<div class="type-declaration">
-<pre><span id="TYPEkey"><span class="keyword">type</span> <code class="type"></code>key</span> = <code class="type">string</code> </pre>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Belt_MutableMapString</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
 </div>
 
-<div class="type-declaration">
-<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type">'a</code> t</span> </pre>
-</div>
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#Belt_MutableMapString" class='level-1 header'>Belt_MutableMapString</a>
+<a href="#type-key" class='level-2 type'>key</a>
+<a href="#type-t" class='level-2 type'>t</a>
+<a href="#value-make" class='level-2 value'>make</a>
+<a href="#value-clear" class='level-2 value'>clear</a>
+<a href="#value-isEmpty" class='level-2 value'>isEmpty</a>
+<a href="#value-has" class='level-2 value'>has</a>
+<a href="#value-cmpU" class='level-2 value'>cmpU</a>
+<a href="#value-cmp" class='level-2 value'>cmp</a>
+<a href="#value-eqU" class='level-2 value'>eqU</a>
+<a href="#value-eq" class='level-2 value'>eq</a>
+<a href="#value-forEachU" class='level-2 value'>forEachU</a>
+<a href="#value-forEach" class='level-2 value'>forEach</a>
+<a href="#value-reduceU" class='level-2 value'>reduceU</a>
+<a href="#value-reduce" class='level-2 value'>reduce</a>
+<a href="#value-everyU" class='level-2 value'>everyU</a>
+<a href="#value-every" class='level-2 value'>every</a>
+<a href="#value-someU" class='level-2 value'>someU</a>
+<a href="#value-some" class='level-2 value'>some</a>
+<a href="#value-size" class='level-2 value'>size</a>
+<a href="#value-toList" class='level-2 value'>toList</a>
+<a href="#value-toArray" class='level-2 value'>toArray</a>
+<a href="#value-ofArray" class='level-2 value'>ofArray</a>
+<a href="#value-fromArray" class='level-2 value'>fromArray</a>
+<a href="#value-keysToArray" class='level-2 value'>keysToArray</a>
+<a href="#value-valuesToArray" class='level-2 value'>valuesToArray</a>
+<a href="#value-minKey" class='level-2 value'>minKey</a>
+<a href="#value-minKeyUndefined" class='level-2 value'>minKeyUndefined</a>
+<a href="#value-maxKey" class='level-2 value'>maxKey</a>
+<a href="#value-maxKeyUndefined" class='level-2 value'>maxKeyUndefined</a>
+<a href="#value-minimum" class='level-2 value'>minimum</a>
+<a href="#value-minUndefined" class='level-2 value'>minUndefined</a>
+<a href="#value-maximum" class='level-2 value'>maximum</a>
+<a href="#value-maxUndefined" class='level-2 value'>maxUndefined</a>
+<a href="#value-get" class='level-2 value'>get</a>
+<a href="#value-getUndefined" class='level-2 value'>getUndefined</a>
+<a href="#value-getWithDefault" class='level-2 value'>getWithDefault</a>
+<a href="#value-getExn" class='level-2 value'>getExn</a>
+<a href="#value-checkInvariantInternal" class='level-2 value'>checkInvariantInternal</a>
+<a href="#value-remove" class='level-2 value'>remove</a>
+<a href="#value-removeMany" class='level-2 value'>removeMany</a>
+<a href="#value-set" class='level-2 value'>set</a>
+<a href="#value-updateU" class='level-2 value'>updateU</a>
+<a href="#value-update" class='level-2 value'>update</a>
+<a href="#value-mapU" class='level-2 value'>mapU</a>
+<a href="#value-map" class='level-2 value'>map</a>
+<a href="#value-mapWithKeyU" class='level-2 value'>mapWithKeyU</a>
+<a href="#value-mapWithKey" class='level-2 value'>mapWithKey</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Js.html">Js</a>
+<a href="Arg.html">Arg</a>
+<a href="Array.html">Array</a>
+<a href="ArrayLabels.html">ArrayLabels</a>
+<a href="Bigarray.html">Bigarray</a>
+<a href="Buffer.html">Buffer</a>
+<a href="Bytes.html">Bytes</a>
+<a href="BytesLabels.html">BytesLabels</a>
+<a href="Callback.html">Callback</a>
+<a href="CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="CamlinternalMod.html">CamlinternalMod</a>
+<a href="CamlinternalOO.html">CamlinternalOO</a>
+<a href="Char.html">Char</a>
+<a href="Complex.html">Complex</a>
+<a href="Digest.html">Digest</a>
+<a href="Filename.html">Filename</a>
+<a href="Format.html">Format</a>
+<a href="Gc.html">Gc</a>
+<a href="Genlex.html">Genlex</a>
+<a href="Hashtbl.html">Hashtbl</a>
+<a href="Int32.html">Int32</a>
+<a href="Int64.html">Int64</a>
+<a href="Lazy.html">Lazy</a>
+<a href="Lexing.html">Lexing</a>
+<a href="List.html">List</a>
+<a href="ListLabels.html">ListLabels</a>
+<a href="Map.html">Map</a>
+<a href="Marshal.html">Marshal</a>
+<a href="MoreLabels.html">MoreLabels</a>
+<a href="Nativeint.html">Nativeint</a>
+<a href="Obj.html">Obj</a>
+<a href="Oo.html">Oo</a>
+<a href="Parsing.html">Parsing</a>
+<a href="Pervasives.html">Pervasives</a>
+<a href="Printexc.html">Printexc</a>
+<a href="Printf.html">Printf</a>
+<a href="Queue.html">Queue</a>
+<a href="Random.html">Random</a>
+<a href="Scanf.html">Scanf</a>
+<a href="Set.html">Set</a>
+<a href="Sort.html">Sort</a>
+<a href="Stack.html">Stack</a>
+<a href="Std_exit.html">Std_exit</a>
+<a href="StdLabels.html">StdLabels</a>
+<a href="Stream.html">Stream</a>
+<a href="String.html">String</a>
+<a href="StringLabels.html">StringLabels</a>
+<a href="Sys.html">Sys</a>
+<a href="Unix.html">Unix</a>
+<a href="UnixLabels.html">UnixLabels</a>
+<a href="Weak.html">Weak</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/others/belt_MutableMapString.ml" class="edit-link">Edit</a>
+    <a href="#Belt_MutableMapString" id="Belt_MutableMapString"><h1>Belt_MutableMapString</h1></a>
 
+<p><span class='missing'>This module does not have a toplevel documentation block.</span></p>
+<div class='doc-item'><h4 class='item'>type <a href="#type-key" id="type-key">key</a> = string</h4>
 
-<pre><span id="VALmake"><span class="keyword">val</span> make</span> : <code class="type">unit -> 'a <a href="Belt_MutableMapString.html#TYPEt">t</a></code></pre>
-<pre><span id="VALclear"><span class="keyword">val</span> clear</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> unit</code></pre>
-<pre><span id="VALisEmpty"><span class="keyword">val</span> isEmpty</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> bool</code></pre>
-<pre><span id="VALhas"><span class="keyword">val</span> has</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> <a href="Belt_MutableMapString.html#TYPEkey">key</a> -> bool</code></pre>
-<pre><span id="VALcmpU"><span class="keyword">val</span> cmpU</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -><br>       'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> ('a -> 'a -> int [@bs]) -> int</code></pre>
-<pre><span id="VALcmp"><span class="keyword">val</span> cmp</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -><br>       'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> ('a -> 'a -> int) -> int</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">cmp m1 m2 cmp</code>
-    First compare by size, if size is the same,
-    compare by key, value pair<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body body-empty'></div></div>
 
-                  
-<pre><span id="VALeqU"><span class="keyword">val</span> eqU</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -><br>       'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> ('a -> 'a -> bool [@bs]) -> bool</code></pre>
-<pre><span id="VALeq"><span class="keyword">val</span> eq</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -><br>       'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> ('a -> 'a -> bool) -> bool</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">eq m1 m2 cmp</code><br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-t" id="type-t">t</a>('a)</h4>
 
-                  
-<pre><span id="VALforEachU"><span class="keyword">val</span> forEachU</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -><br>       (<a href="Belt_MutableMapString.html#TYPEkey">key</a> -> 'a -> unit [@bs]) -> unit</code></pre>
-<pre><span id="VALforEach"><span class="keyword">val</span> forEach</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -><br>       (<a href="Belt_MutableMapString.html#TYPEkey">key</a> -> 'a -> unit) -> unit</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">forEach m f</code> applies <code class="code">f</code> to all bindings in map <code class="code">m</code>.
-   <code class="code">f</code> receives the key as first argument, and the associated value
-   as second argument.
-   The application order of <code class="code">f</code>  is in increasing order.<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body body-empty'></div></div>
 
-                  
-<pre><span id="VALreduceU"><span class="keyword">val</span> reduceU</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -><br>       'b -> ('b -> <a href="Belt_MutableMapString.html#TYPEkey">key</a> -> 'a -> 'b [@bs]) -> 'b</code></pre>
-<pre><span id="VALreduce"><span class="keyword">val</span> reduce</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -><br>       'b -> ('b -> <a href="Belt_MutableMapString.html#TYPEkey">key</a> -> 'a -> 'b) -> 'b</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">reduce m a f</code> computes <code class="code">(f kN dN ... (f k1 d1 a)...)</code>,
-   where <code class="code">k1 ... kN</code> are the keys of all bindings in <code class="code">m</code>
-   (in increasing order), and <code class="code">d1 ... dN</code> are the associated data.<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-make" id="value-make">make</a>: unit => <a href="#type-t">t</a>('a)</h4>
 
-                  
-<pre><span id="VALeveryU"><span class="keyword">val</span> everyU</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -><br>       (<a href="Belt_MutableMapString.html#TYPEkey">key</a> -> 'a -> bool [@bs]) -> bool</code></pre>
-<pre><span id="VALevery"><span class="keyword">val</span> every</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -><br>       (<a href="Belt_MutableMapString.html#TYPEkey">key</a> -> 'a -> bool) -> bool</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">every m p</code> checks if all the bindings of the map
-    satisfy the predicate <code class="code">p</code>.
-    The application order of <code class="code">p</code> is unspecified.<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body body-empty'></div></div>
 
-                  
-<pre><span id="VALsomeU"><span class="keyword">val</span> someU</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -><br>       (<a href="Belt_MutableMapString.html#TYPEkey">key</a> -> 'a -> bool [@bs]) -> bool</code></pre>
-<pre><span id="VALsome"><span class="keyword">val</span> some</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -><br>       (<a href="Belt_MutableMapString.html#TYPEkey">key</a> -> 'a -> bool) -> bool</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">some m p</code> checks if at least one binding of the map
-    satisfy the predicate <code class="code">p</code>.
-    The application order of <code class="code">p</code> is unspecified.<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-clear" id="value-clear">clear</a>: <a href="#type-t">t</a>('a) => unit</h4>
 
-                  
-<pre><span id="VALsize"><span class="keyword">val</span> size</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> int</code></pre>
-<pre><span id="VALtoList"><span class="keyword">val</span> toList</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> (<a href="Belt_MutableMapString.html#TYPEkey">key</a> * 'a) list</code></pre><div class="info ">
-                    <div class="not-examples">
-                    In increasing order<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body body-empty'></div></div>
 
-                  
-<pre><span id="VALtoArray"><span class="keyword">val</span> toArray</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> (<a href="Belt_MutableMapString.html#TYPEkey">key</a> * 'a) array</code></pre>
-<pre><span id="VALofArray"><span class="keyword">val</span> ofArray</span> : <code class="type">(<a href="Belt_MutableMapString.html#TYPEkey">key</a> * 'a) array -> 'a <a href="Belt_MutableMapString.html#TYPEt">t</a></code></pre>
-<pre><span id="VALfromArray"><span class="keyword">val</span> fromArray</span> : <code class="type">(<a href="Belt_MutableMapString.html#TYPEkey">key</a> * 'a) array -> 'a <a href="Belt_MutableMapString.html#TYPEt">t</a></code></pre>
-<pre><span id="VALkeysToArray"><span class="keyword">val</span> keysToArray</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> <a href="Belt_MutableMapString.html#TYPEkey">key</a> array</code></pre>
-<pre><span id="VALvaluesToArray"><span class="keyword">val</span> valuesToArray</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> 'a array</code></pre>
-<pre><span id="VALminKey"><span class="keyword">val</span> minKey</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> <a href="Belt_MutableMapString.html#TYPEkey">key</a> option</code></pre>
-<pre><span id="VALminKeyUndefined"><span class="keyword">val</span> minKeyUndefined</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> <a href="Belt_MutableMapString.html#TYPEkey">key</a> <a href="Js.html#TYPEundefined">Js.undefined</a></code></pre>
-<pre><span id="VALmaxKey"><span class="keyword">val</span> maxKey</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> <a href="Belt_MutableMapString.html#TYPEkey">key</a> option</code></pre>
-<pre><span id="VALmaxKeyUndefined"><span class="keyword">val</span> maxKeyUndefined</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> <a href="Belt_MutableMapString.html#TYPEkey">key</a> <a href="Js.html#TYPEundefined">Js.undefined</a></code></pre>
-<pre><span id="VALminimum"><span class="keyword">val</span> minimum</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> (<a href="Belt_MutableMapString.html#TYPEkey">key</a> * 'a) option</code></pre>
-<pre><span id="VALminUndefined"><span class="keyword">val</span> minUndefined</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> (<a href="Belt_MutableMapString.html#TYPEkey">key</a> * 'a) <a href="Js.html#TYPEundefined">Js.undefined</a></code></pre>
-<pre><span id="VALmaximum"><span class="keyword">val</span> maximum</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> (<a href="Belt_MutableMapString.html#TYPEkey">key</a> * 'a) option</code></pre>
-<pre><span id="VALmaxUndefined"><span class="keyword">val</span> maxUndefined</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> (<a href="Belt_MutableMapString.html#TYPEkey">key</a> * 'a) <a href="Js.html#TYPEundefined">Js.undefined</a></code></pre>
-<pre><span id="VALget"><span class="keyword">val</span> get</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> <a href="Belt_MutableMapString.html#TYPEkey">key</a> -> 'a option</code></pre>
-<pre><span id="VALgetUndefined"><span class="keyword">val</span> getUndefined</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> <a href="Belt_MutableMapString.html#TYPEkey">key</a> -> 'a <a href="Js.html#TYPEundefined">Js.undefined</a></code></pre>
-<pre><span id="VALgetWithDefault"><span class="keyword">val</span> getWithDefault</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> <a href="Belt_MutableMapString.html#TYPEkey">key</a> -> 'a -> 'a</code></pre>
-<pre><span id="VALgetExn"><span class="keyword">val</span> getExn</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> <a href="Belt_MutableMapString.html#TYPEkey">key</a> -> 'a</code></pre>
-<pre><span id="VALcheckInvariantInternal"><span class="keyword">val</span> checkInvariantInternal</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <b>raise</b> when invariant is not held<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-isEmpty" id="value-isEmpty">isEmpty</a>: <a href="#type-t">t</a>('a) => bool</h4>
 
-                  
-<pre><span id="VALremove"><span class="keyword">val</span> remove</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> <a href="Belt_MutableMapString.html#TYPEkey">key</a> -> unit</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">remove m x</code> do the in-place modification<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body body-empty'></div></div>
 
-                  
-<pre><span id="VALremoveMany"><span class="keyword">val</span> removeMany</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> <a href="Belt_MutableMapString.html#TYPEkey">key</a> array -> unit</code></pre>
-<pre><span id="VALset"><span class="keyword">val</span> set</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> <a href="Belt_MutableMapString.html#TYPEkey">key</a> -> 'a -> unit</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">add m x y</code> do the in-place modification, return
-    <code class="code">m</code> for chaining. If <code class="code">x</code> was already bound
-   in <code class="code">m</code>, its previous binding disappears.<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-has" id="value-has">has</a>: (<a href="#type-t">t</a>('a), <a href="#type-key">key</a>) => bool</h4>
 
-                  
-<pre><span id="VALupdateU"><span class="keyword">val</span> updateU</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -><br>       <a href="Belt_MutableMapString.html#TYPEkey">key</a> -> ('a option -> 'a option [@bs]) -> unit</code></pre>
-<pre><span id="VALupdate"><span class="keyword">val</span> update</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -><br>       <a href="Belt_MutableMapString.html#TYPEkey">key</a> -> ('a option -> 'a option) -> unit</code></pre>
-<pre><span id="VALmapU"><span class="keyword">val</span> mapU</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> ('a -> 'b [@bs]) -> 'b <a href="Belt_MutableMapString.html#TYPEt">t</a></code></pre>
-<pre><span id="VALmap"><span class="keyword">val</span> map</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -> ('a -> 'b) -> 'b <a href="Belt_MutableMapString.html#TYPEt">t</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">map m f</code> returns a map with same domain as <code class="code">m</code>, where the
-   associated value <code class="code">a</code> of all bindings of <code class="code">m</code> has been
-   replaced by the result of the application of <code class="code">f</code> to <code class="code">a</code>.
-   The bindings are passed to <code class="code">f</code> in increasing order
-   with respect to the ordering over the type of the keys.<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body body-empty'></div></div>
 
-                  
-<pre><span id="VALmapWithKeyU"><span class="keyword">val</span> mapWithKeyU</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -><br>       (<a href="Belt_MutableMapString.html#TYPEkey">key</a> -> 'a -> 'b [@bs]) -> 'b <a href="Belt_MutableMapString.html#TYPEt">t</a></code></pre>
-<pre><span id="VALmapWithKey"><span class="keyword">val</span> mapWithKey</span> : <code class="type">'a <a href="Belt_MutableMapString.html#TYPEt">t</a> -><br>       (<a href="Belt_MutableMapString.html#TYPEkey">key</a> -> 'a -> 'b) -> 'b <a href="Belt_MutableMapString.html#TYPEt">t</a></code></pre></body></html>
+<div class='doc-item'><h4 class='item'>let <a href="#value-cmpU" id="value-cmpU">cmpU</a>: (
+  <a href="#type-t">t</a>('a),
+  <a href="#type-t">t</a>('a),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of 'a52 * 'a52 ], int)
+) => int</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-cmp" id="value-cmp">cmp</a>: (<a href="#type-t">t</a>('a), <a href="#type-t">t</a>('a), ('a, 'a) => int) => int</h4>
+
+<div class='body '><p><code>cmp m1 m2 cmp</code> First compare by size, if size is the same, compare by key, value pair</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-eqU" id="value-eqU">eqU</a>: (
+  <a href="#type-t">t</a>('a),
+  <a href="#type-t">t</a>('a),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of 'a51 * 'a51 ], bool)
+) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-eq" id="value-eq">eq</a>: (<a href="#type-t">t</a>('a), <a href="#type-t">t</a>('a), ('a, 'a) => bool) => bool</h4>
+
+<div class='body '><p><code>eq m1 m2 cmp</code></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-forEachU" id="value-forEachU">forEachU</a>: (
+  <a href="#type-t">t</a>('a),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of key * 'a50 ], unit)
+) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-forEach" id="value-forEach">forEach</a>: (<a href="#type-t">t</a>('a), (<a href="#type-key">key</a>, 'a) => unit) => unit</h4>
+
+<div class='body '><p><code>forEach m f</code> applies <code>f</code> to all bindings in map <code>m</code>. <code>f</code> receives the key as first argument, and the associated value as second argument. The application order of <code>f</code> is in increasing order.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-reduceU" id="value-reduceU">reduceU</a>: (
+  <a href="#type-t">t</a>('a),
+  'b,
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_3 of 'b12 * key * 'a49 ], 'b)
+) => 'b</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-reduce" id="value-reduce">reduce</a>: (<a href="#type-t">t</a>('a), 'b, ('b, <a href="#type-key">key</a>, 'a) => 'b) => 'b</h4>
+
+<div class='body '><p><code>reduce m a f</code> computes <code>(f kN dN ... (f k1 d1 a)...)</code>, where <code>k1 ... kN</code> are the keys of all bindings in <code>m</code> (in increasing order), and <code>d1 ... dN</code> are the associated data.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-everyU" id="value-everyU">everyU</a>: (
+  <a href="#type-t">t</a>('a),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of key * 'a48 ], bool)
+) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-every" id="value-every">every</a>: (<a href="#type-t">t</a>('a), (<a href="#type-key">key</a>, 'a) => bool) => bool</h4>
+
+<div class='body '><p><code>every m p</code> checks if all the bindings of the map satisfy the predicate <code>p</code>. The application order of <code>p</code> is unspecified.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-someU" id="value-someU">someU</a>: (
+  <a href="#type-t">t</a>('a),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of key * 'a47 ], bool)
+) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-some" id="value-some">some</a>: (<a href="#type-t">t</a>('a), (<a href="#type-key">key</a>, 'a) => bool) => bool</h4>
+
+<div class='body '><p><code>some m p</code> checks if at least one binding of the map satisfy the predicate <code>p</code>. The application order of <code>p</code> is unspecified.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-size" id="value-size">size</a>: <a href="#type-t">t</a>('a) => int</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-toList" id="value-toList">toList</a>: <a href="#type-t">t</a>('a) => list((<a href="#type-key">key</a>, 'a))</h4>
+
+<div class='body '><p>In increasing order</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-toArray" id="value-toArray">toArray</a>: <a href="#type-t">t</a>('a) => array((<a href="#type-key">key</a>, 'a))</h4>
+
+<div class='body '><p>In increasing order</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-ofArray" id="value-ofArray">ofArray</a>: array((<a href="#type-key">key</a>, 'a)) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fromArray" id="value-fromArray">fromArray</a>: array((<a href="#type-key">key</a>, 'a)) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-keysToArray" id="value-keysToArray">keysToArray</a>: <a href="#type-t">t</a>('a) => array(<a href="#type-key">key</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-valuesToArray" id="value-valuesToArray">valuesToArray</a>: <a href="#type-t">t</a>('a) => array('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-minKey" id="value-minKey">minKey</a>: <a href="#type-t">t</a>('a) => option(<a href="#type-key">key</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-minKeyUndefined" id="value-minKeyUndefined">minKeyUndefined</a>: <a href="#type-t">t</a>('a) => <a href="Js.html#type-undefined" title="Js.undefined">undefined</a>(<a href="#type-key">key</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-maxKey" id="value-maxKey">maxKey</a>: <a href="#type-t">t</a>('a) => option(<a href="#type-key">key</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-maxKeyUndefined" id="value-maxKeyUndefined">maxKeyUndefined</a>: <a href="#type-t">t</a>('a) => <a href="Js.html#type-undefined" title="Js.undefined">undefined</a>(<a href="#type-key">key</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-minimum" id="value-minimum">minimum</a>: <a href="#type-t">t</a>('a) => option((<a href="#type-key">key</a>, 'a))</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-minUndefined" id="value-minUndefined">minUndefined</a>: <a href="#type-t">t</a>('a) => <a href="Js.html#type-undefined" title="Js.undefined">undefined</a>((<a href="#type-key">key</a>, 'a))</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-maximum" id="value-maximum">maximum</a>: <a href="#type-t">t</a>('a) => option((<a href="#type-key">key</a>, 'a))</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-maxUndefined" id="value-maxUndefined">maxUndefined</a>: <a href="#type-t">t</a>('a) => <a href="Js.html#type-undefined" title="Js.undefined">undefined</a>((<a href="#type-key">key</a>, 'a))</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-get" id="value-get">get</a>: (<a href="#type-t">t</a>('a), <a href="#type-key">key</a>) => option('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getUndefined" id="value-getUndefined">getUndefined</a>: (<a href="#type-t">t</a>('a), <a href="#type-key">key</a>) => <a href="Js.html#type-undefined" title="Js.undefined">undefined</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getWithDefault" id="value-getWithDefault">getWithDefault</a>: (<a href="#type-t">t</a>('a), <a href="#type-key">key</a>, 'a) => 'a</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getExn" id="value-getExn">getExn</a>: (<a href="#type-t">t</a>('a), <a href="#type-key">key</a>) => 'a</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-checkInvariantInternal" id="value-checkInvariantInternal">checkInvariantInternal</a>: <a href="#type-t">t</a>('a) => unit</h4>
+
+<div class='body '><p><strong>raise</strong> when invariant is not held</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-remove" id="value-remove">remove</a>: (<a href="#type-t">t</a>('a), <a href="#type-key">key</a>) => unit</h4>
+
+<div class='body '><p><code>remove m x</code> do the in-place modification</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-removeMany" id="value-removeMany">removeMany</a>: (<a href="#type-t">t</a>('a), array(<a href="#type-key">key</a>)) => unit</h4>
+
+<div class='body '><p><code>remove m x</code> do the in-place modification</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-set" id="value-set">set</a>: (<a href="#type-t">t</a>('a), <a href="#type-key">key</a>, 'a) => unit</h4>
+
+<div class='body '><p><code>add m x y</code> do the in-place modification, return <code>m</code> for chaining. If <code>x</code> was already bound in <code>m</code>, its previous binding disappears.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-updateU" id="value-updateU">updateU</a>: (
+  <a href="#type-t">t</a>('a),
+  <a href="#type-key">key</a>,
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_1 of 'a46 option ], option('a))
+) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-update" id="value-update">update</a>: (<a href="#type-t">t</a>('a), <a href="#type-key">key</a>, option('a) => option('a)) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-mapU" id="value-mapU">mapU</a>: (<a href="#type-t">t</a>('a), <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_1 of 'a45 ], 'b)) => <a href="#type-t">t</a>('b)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-map" id="value-map">map</a>: (<a href="#type-t">t</a>('a), 'a => 'b) => <a href="#type-t">t</a>('b)</h4>
+
+<div class='body '><p><code>map m f</code> returns a map with same domain as <code>m</code>, where the associated value <code>a</code> of all bindings of <code>m</code> has been replaced by the result of the application of <code>f</code> to <code>a</code>. The bindings are passed to <code>f</code> in increasing order with respect to the ordering over the type of the keys.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-mapWithKeyU" id="value-mapWithKeyU">mapWithKeyU</a>: (
+  <a href="#type-t">t</a>('a),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of key * 'a44 ], 'b)
+) => <a href="#type-t">t</a>('b)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-mapWithKey" id="value-mapWithKey">mapWithKey</a>: (<a href="#type-t">t</a>('a), (<a href="#type-key">key</a>, 'a) => 'b) => <a href="#type-t">t</a>('b)</h4>
+
+<div class='body body-empty'></div></div>
+
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

@@ -1,0 +1,1036 @@
+
+    
+<!doctype html>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Format</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
+</div>
+
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#value-open_box" class='level-0 value'>open_box</a>
+<a href="#value-close_box" class='level-0 value'>close_box</a>
+<a href="#value-print_string" class='level-0 value'>print_string</a>
+<a href="#value-print_as" class='level-0 value'>print_as</a>
+<a href="#value-print_int" class='level-0 value'>print_int</a>
+<a href="#value-print_float" class='level-0 value'>print_float</a>
+<a href="#value-print_char" class='level-0 value'>print_char</a>
+<a href="#value-print_bool" class='level-0 value'>print_bool</a>
+<a href="#value-print_space" class='level-0 value'>print_space</a>
+<a href="#value-print_cut" class='level-0 value'>print_cut</a>
+<a href="#value-print_break" class='level-0 value'>print_break</a>
+<a href="#value-print_flush" class='level-0 value'>print_flush</a>
+<a href="#value-print_newline" class='level-0 value'>print_newline</a>
+<a href="#value-force_newline" class='level-0 value'>force_newline</a>
+<a href="#value-print_if_newline" class='level-0 value'>print_if_newline</a>
+<a href="#value-set_margin" class='level-0 value'>set_margin</a>
+<a href="#value-get_margin" class='level-0 value'>get_margin</a>
+<a href="#value-set_max_indent" class='level-0 value'>set_max_indent</a>
+<a href="#value-get_max_indent" class='level-0 value'>get_max_indent</a>
+<a href="#value-set_max_boxes" class='level-0 value'>set_max_boxes</a>
+<a href="#value-get_max_boxes" class='level-0 value'>get_max_boxes</a>
+<a href="#value-over_max_boxes" class='level-0 value'>over_max_boxes</a>
+<a href="#value-open_hbox" class='level-0 value'>open_hbox</a>
+<a href="#value-open_vbox" class='level-0 value'>open_vbox</a>
+<a href="#value-open_hvbox" class='level-0 value'>open_hvbox</a>
+<a href="#value-open_hovbox" class='level-0 value'>open_hovbox</a>
+<a href="#value-open_tbox" class='level-0 value'>open_tbox</a>
+<a href="#value-close_tbox" class='level-0 value'>close_tbox</a>
+<a href="#value-print_tbreak" class='level-0 value'>print_tbreak</a>
+<a href="#value-set_tab" class='level-0 value'>set_tab</a>
+<a href="#value-print_tab" class='level-0 value'>print_tab</a>
+<a href="#value-set_ellipsis_text" class='level-0 value'>set_ellipsis_text</a>
+<a href="#value-get_ellipsis_text" class='level-0 value'>get_ellipsis_text</a>
+<a href="#type-tag" class='level-0 type'>tag</a>
+<a href="#value-open_tag" class='level-0 value'>open_tag</a>
+<a href="#value-close_tag" class='level-0 value'>close_tag</a>
+<a href="#value-set_tags" class='level-0 value'>set_tags</a>
+<a href="#value-set_print_tags" class='level-0 value'>set_print_tags</a>
+<a href="#value-set_mark_tags" class='level-0 value'>set_mark_tags</a>
+<a href="#value-get_print_tags" class='level-0 value'>get_print_tags</a>
+<a href="#value-get_mark_tags" class='level-0 value'>get_mark_tags</a>
+<a href="#value-set_formatter_out_channel" class='level-0 value'>set_formatter_out_channel</a>
+<a href="#value-set_formatter_output_functions" class='level-0 value'>set_formatter_output_functions</a>
+<a href="#value-get_formatter_output_functions" class='level-0 value'>get_formatter_output_functions</a>
+<a href="#type-formatter_out_functions" class='level-0 type'>formatter_out_functions</a>
+<a href="#value-set_formatter_out_functions" class='level-0 value'>set_formatter_out_functions</a>
+<a href="#value-get_formatter_out_functions" class='level-0 value'>get_formatter_out_functions</a>
+<a href="#type-formatter_tag_functions" class='level-0 type'>formatter_tag_functions</a>
+<a href="#value-set_formatter_tag_functions" class='level-0 value'>set_formatter_tag_functions</a>
+<a href="#value-get_formatter_tag_functions" class='level-0 value'>get_formatter_tag_functions</a>
+<a href="#type-formatter" class='level-0 type'>formatter</a>
+<a href="#value-formatter_of_out_channel" class='level-0 value'>formatter_of_out_channel</a>
+<a href="#value-std_formatter" class='level-0 value'>std_formatter</a>
+<a href="#value-err_formatter" class='level-0 value'>err_formatter</a>
+<a href="#value-formatter_of_buffer" class='level-0 value'>formatter_of_buffer</a>
+<a href="#value-stdbuf" class='level-0 value'>stdbuf</a>
+<a href="#value-str_formatter" class='level-0 value'>str_formatter</a>
+<a href="#value-flush_str_formatter" class='level-0 value'>flush_str_formatter</a>
+<a href="#value-make_formatter" class='level-0 value'>make_formatter</a>
+<a href="#value-pp_open_hbox" class='level-0 value'>pp_open_hbox</a>
+<a href="#value-pp_open_vbox" class='level-0 value'>pp_open_vbox</a>
+<a href="#value-pp_open_hvbox" class='level-0 value'>pp_open_hvbox</a>
+<a href="#value-pp_open_hovbox" class='level-0 value'>pp_open_hovbox</a>
+<a href="#value-pp_open_box" class='level-0 value'>pp_open_box</a>
+<a href="#value-pp_close_box" class='level-0 value'>pp_close_box</a>
+<a href="#value-pp_open_tag" class='level-0 value'>pp_open_tag</a>
+<a href="#value-pp_close_tag" class='level-0 value'>pp_close_tag</a>
+<a href="#value-pp_print_string" class='level-0 value'>pp_print_string</a>
+<a href="#value-pp_print_as" class='level-0 value'>pp_print_as</a>
+<a href="#value-pp_print_int" class='level-0 value'>pp_print_int</a>
+<a href="#value-pp_print_float" class='level-0 value'>pp_print_float</a>
+<a href="#value-pp_print_char" class='level-0 value'>pp_print_char</a>
+<a href="#value-pp_print_bool" class='level-0 value'>pp_print_bool</a>
+<a href="#value-pp_print_break" class='level-0 value'>pp_print_break</a>
+<a href="#value-pp_print_cut" class='level-0 value'>pp_print_cut</a>
+<a href="#value-pp_print_space" class='level-0 value'>pp_print_space</a>
+<a href="#value-pp_force_newline" class='level-0 value'>pp_force_newline</a>
+<a href="#value-pp_print_flush" class='level-0 value'>pp_print_flush</a>
+<a href="#value-pp_print_newline" class='level-0 value'>pp_print_newline</a>
+<a href="#value-pp_print_if_newline" class='level-0 value'>pp_print_if_newline</a>
+<a href="#value-pp_open_tbox" class='level-0 value'>pp_open_tbox</a>
+<a href="#value-pp_close_tbox" class='level-0 value'>pp_close_tbox</a>
+<a href="#value-pp_print_tbreak" class='level-0 value'>pp_print_tbreak</a>
+<a href="#value-pp_set_tab" class='level-0 value'>pp_set_tab</a>
+<a href="#value-pp_print_tab" class='level-0 value'>pp_print_tab</a>
+<a href="#value-pp_set_tags" class='level-0 value'>pp_set_tags</a>
+<a href="#value-pp_set_print_tags" class='level-0 value'>pp_set_print_tags</a>
+<a href="#value-pp_set_mark_tags" class='level-0 value'>pp_set_mark_tags</a>
+<a href="#value-pp_get_print_tags" class='level-0 value'>pp_get_print_tags</a>
+<a href="#value-pp_get_mark_tags" class='level-0 value'>pp_get_mark_tags</a>
+<a href="#value-pp_set_margin" class='level-0 value'>pp_set_margin</a>
+<a href="#value-pp_get_margin" class='level-0 value'>pp_get_margin</a>
+<a href="#value-pp_set_max_indent" class='level-0 value'>pp_set_max_indent</a>
+<a href="#value-pp_get_max_indent" class='level-0 value'>pp_get_max_indent</a>
+<a href="#value-pp_set_max_boxes" class='level-0 value'>pp_set_max_boxes</a>
+<a href="#value-pp_get_max_boxes" class='level-0 value'>pp_get_max_boxes</a>
+<a href="#value-pp_over_max_boxes" class='level-0 value'>pp_over_max_boxes</a>
+<a href="#value-pp_set_ellipsis_text" class='level-0 value'>pp_set_ellipsis_text</a>
+<a href="#value-pp_get_ellipsis_text" class='level-0 value'>pp_get_ellipsis_text</a>
+<a href="#value-pp_set_formatter_out_channel" class='level-0 value'>pp_set_formatter_out_channel</a>
+<a href="#value-pp_set_formatter_output_functions" class='level-0 value'>pp_set_formatter_output_functions</a>
+<a href="#value-pp_get_formatter_output_functions" class='level-0 value'>pp_get_formatter_output_functions</a>
+<a href="#value-pp_set_formatter_tag_functions" class='level-0 value'>pp_set_formatter_tag_functions</a>
+<a href="#value-pp_get_formatter_tag_functions" class='level-0 value'>pp_get_formatter_tag_functions</a>
+<a href="#value-pp_set_formatter_out_functions" class='level-0 value'>pp_set_formatter_out_functions</a>
+<a href="#value-pp_get_formatter_out_functions" class='level-0 value'>pp_get_formatter_out_functions</a>
+<a href="#value-pp_print_list" class='level-0 value'>pp_print_list</a>
+<a href="#value-pp_print_text" class='level-0 value'>pp_print_text</a>
+<a href="#value-fprintf" class='level-0 value'>fprintf</a>
+<a href="#value-printf" class='level-0 value'>printf</a>
+<a href="#value-eprintf" class='level-0 value'>eprintf</a>
+<a href="#value-sprintf" class='level-0 value'>sprintf</a>
+<a href="#value-asprintf" class='level-0 value'>asprintf</a>
+<a href="#value-ifprintf" class='level-0 value'>ifprintf</a>
+<a href="#value-kfprintf" class='level-0 value'>kfprintf</a>
+<a href="#value-ikfprintf" class='level-0 value'>ikfprintf</a>
+<a href="#value-ksprintf" class='level-0 value'>ksprintf</a>
+<a href="#value-bprintf" class='level-0 value'>bprintf</a>
+<a href="#value-kprintf" class='level-0 value'>kprintf</a>
+<a href="#value-set_all_formatter_output_functions" class='level-0 value'>set_all_formatter_output_functions</a>
+<a href="#value-get_all_formatter_output_functions" class='level-0 value'>get_all_formatter_output_functions</a>
+<a href="#value-pp_set_all_formatter_output_functions" class='level-0 value'>pp_set_all_formatter_output_functions</a>
+<a href="#value-pp_get_all_formatter_output_functions" class='level-0 value'>pp_get_all_formatter_output_functions</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Js.html">Js</a>
+<a href="Arg.html">Arg</a>
+<a href="Array.html">Array</a>
+<a href="ArrayLabels.html">ArrayLabels</a>
+<a href="Bigarray.html">Bigarray</a>
+<a href="Buffer.html">Buffer</a>
+<a href="Bytes.html">Bytes</a>
+<a href="BytesLabels.html">BytesLabels</a>
+<a href="Callback.html">Callback</a>
+<a href="CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="CamlinternalMod.html">CamlinternalMod</a>
+<a href="CamlinternalOO.html">CamlinternalOO</a>
+<a href="Char.html">Char</a>
+<a href="Complex.html">Complex</a>
+<a href="Digest.html">Digest</a>
+<a href="Filename.html">Filename</a>
+<a href="Format.html">Format</a>
+<a href="Gc.html">Gc</a>
+<a href="Genlex.html">Genlex</a>
+<a href="Hashtbl.html">Hashtbl</a>
+<a href="Int32.html">Int32</a>
+<a href="Int64.html">Int64</a>
+<a href="Lazy.html">Lazy</a>
+<a href="Lexing.html">Lexing</a>
+<a href="List.html">List</a>
+<a href="ListLabels.html">ListLabels</a>
+<a href="Map.html">Map</a>
+<a href="Marshal.html">Marshal</a>
+<a href="MoreLabels.html">MoreLabels</a>
+<a href="Nativeint.html">Nativeint</a>
+<a href="Obj.html">Obj</a>
+<a href="Oo.html">Oo</a>
+<a href="Parsing.html">Parsing</a>
+<a href="Pervasives.html">Pervasives</a>
+<a href="Printexc.html">Printexc</a>
+<a href="Printf.html">Printf</a>
+<a href="Queue.html">Queue</a>
+<a href="Random.html">Random</a>
+<a href="Scanf.html">Scanf</a>
+<a href="Set.html">Set</a>
+<a href="Sort.html">Sort</a>
+<a href="Stack.html">Stack</a>
+<a href="Std_exit.html">Std_exit</a>
+<a href="StdLabels.html">StdLabels</a>
+<a href="Stream.html">Stream</a>
+<a href="String.html">String</a>
+<a href="StringLabels.html">StringLabels</a>
+<a href="Sys.html">Sys</a>
+<a href="Unix.html">Unix</a>
+<a href="UnixLabels.html">UnixLabels</a>
+<a href="Weak.html">Weak</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/stdlib/format.ml" class="edit-link">Edit</a>
+    <p>Pretty printing.</p>
+<p>This module implements a pretty-printing facility to format text within &#39;pretty-printing boxes&#39;. The pretty-printer breaks lines at specified break hints, and indents lines according to the box structure.</p>
+<p>For a gentle introduction to the basics of pretty-printing using <code>Format</code>, read <a href='http://caml.inria.fr/resources/doc/guides/format.en.html'>http://caml.inria.fr/resources/doc/guides/format.en.html</a>.</p>
+<p>You may consider this module as providing an extension to the <code>printf</code> facility to provide automatic line breaking. The addition of pretty-printing annotations to your regular <code>printf</code> formats gives you fancy indentation and line breaks. Pretty-printing annotations are described below in the documentation of the function fprintf.</p>
+<p>You may also use the explicit box management and printing functions provided by this module. This style is more basic but more verbose than the <code>fprintf</code> concise formats.</p>
+<p>For instance, the sequence <code>open_box 0; print_string &quot;x =&quot;; print_space ();
+    print_int 1; close_box (); print_newline ()</code> that prints <code>x = 1</code> within a pretty-printing box, can be abbreviated as <code>printf &quot;@[%s@ %i@]@.&quot; &quot;x =&quot; 1</code>, or even shorter <code>printf &quot;@[x =@ %i@]@.&quot; 1</code>.</p>
+<p>Rule of thumb for casual users of this library:</p>
+<ul><li><p>use simple boxes (as obtained by <code>open_box 0</code>);</p>
+</li><li><p>use simple break hints (as obtained by <code>print_cut ()</code> that outputs a simple break hint, or by <code>print_space ()</code> that outputs a space indicating a break hint);</p>
+</li><li><p>once a box is opened, display its material with basic printing functions (e. g. <code>print_int</code> and <code>print_string</code>);</p>
+</li><li><p>when the material for a box has been printed, call <code>close_box ()</code> to close the box;</p>
+</li><li><p>at the end of your routine, flush the pretty-printer to display all the remaining material, e.g. evaluate <code>print_newline ()</code>.</p>
+</li></ul><p>The behaviour of pretty-printing commands is unspecified if there is no opened pretty-printing box. Each box opened via one of the <code>open_</code> functions below must be closed using <code>close_box</code> for proper formatting. Otherwise, some of the material printed in the boxes may not be output, or may be formatted incorrectly.</p>
+<p>In case of interactive use, the system closes all opened boxes and flushes all pending text (as with the <code>print_newline</code> function) after each phrase. Each phrase is therefore executed in the initial state of the pretty-printer.</p>
+<p>Warning: the material output by the following functions is delayed in the pretty-printer queue in order to compute the proper line breaking. Hence, you should not mix calls to the printing functions of the basic I/O system with calls to the functions of this module: this could result in some strange output seemingly unrelated with the evaluation order of printing commands.</p>
+<p>other items defined</p><div class='doc-item'><h4 id="Boxes">Boxes</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-open_box" id="value-open_box">open_box</a>: int => unit</h4>
+
+<div class='body '><p><code>open_box d</code> opens a new pretty-printing box with offset <code>d</code>. This box is the general purpose pretty-printing box. Material in this box is displayed &#39;horizontal or vertical&#39;: break hints inside the box may lead to a new line, if there is no more room on the line to print the remainder of the box, or if a new line may lead to a new indentation (demonstrating the indentation of the box). When a new line is printed in the box, <code>d</code> is added to the current indentation.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-close_box" id="value-close_box">close_box</a>: unit => unit</h4>
+
+<div class='body '><p>Closes the most recently opened pretty-printing box.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Formatting-functions">Formatting functions</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-print_string" id="value-print_string">print_string</a>: string => unit</h4>
+
+<div class='body '><p><code>print_string str</code> prints <code>str</code> in the current box.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-print_as" id="value-print_as">print_as</a>: (int, string) => unit</h4>
+
+<div class='body '><p><code>print_as len str</code> prints <code>str</code> in the current box. The pretty-printer formats <code>str</code> as if it were of length <code>len</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-print_int" id="value-print_int">print_int</a>: int => unit</h4>
+
+<div class='body '><p>Prints an integer in the current box.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-print_float" id="value-print_float">print_float</a>: float => unit</h4>
+
+<div class='body '><p>Prints a floating point number in the current box.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-print_char" id="value-print_char">print_char</a>: char => unit</h4>
+
+<div class='body '><p>Prints a character in the current box.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-print_bool" id="value-print_bool">print_bool</a>: bool => unit</h4>
+
+<div class='body '><p>Prints a boolean in the current box.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Break-hints">Break hints</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-print_space" id="value-print_space">print_space</a>: unit => unit</h4>
+
+<div class='body '><p><code>print_space ()</code> is used to separate items (typically to print a space between two words). It indicates that the line may be split at this point. It either prints one space or splits the line. It is equivalent to <code>print_break 1 0</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-print_cut" id="value-print_cut">print_cut</a>: unit => unit</h4>
+
+<div class='body '><p><code>print_cut ()</code> is used to mark a good break position. It indicates that the line may be split at this point. It either prints nothing or splits the line. This allows line splitting at the current point, without printing spaces or adding indentation. It is equivalent to <code>print_break 0 0</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-print_break" id="value-print_break">print_break</a>: (int, int) => unit</h4>
+
+<div class='body '><p>Inserts a break hint in a pretty-printing box. <code>print_break nspaces offset</code> indicates that the line may be split (a newline character is printed) at this point, if the contents of the current box does not fit on the current line. If the line is split at that point, <code>offset</code> is added to the current indentation. If the line is not split, <code>nspaces</code> spaces are printed.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-print_flush" id="value-print_flush">print_flush</a>: unit => unit</h4>
+
+<div class='body '><p>Flushes the pretty printer: all opened boxes are closed, and all pending text is displayed.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-print_newline" id="value-print_newline">print_newline</a>: unit => unit</h4>
+
+<div class='body '><p>Equivalent to <code>print_flush</code> followed by a new line.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-force_newline" id="value-force_newline">force_newline</a>: unit => unit</h4>
+
+<div class='body '><p>Forces a newline in the current box. Not the normal way of pretty-printing, you should prefer break hints.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-print_if_newline" id="value-print_if_newline">print_if_newline</a>: unit => unit</h4>
+
+<div class='body '><p>Executes the next formatting command if the preceding line has just been split. Otherwise, ignore the next formatting command.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Margin">Margin</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-set_margin" id="value-set_margin">set_margin</a>: int => unit</h4>
+
+<div class='body '><p><code>set_margin d</code> sets the value of the right margin to <code>d</code> (in characters): this value is used to detect line overflows that leads to split lines. Nothing happens if <code>d</code> is smaller than 2. If <code>d</code> is too large, the right margin is set to the maximum admissible value (which is greater than <code>10^9</code>).</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-get_margin" id="value-get_margin">get_margin</a>: unit => int</h4>
+
+<div class='body '><p>Returns the position of the right margin.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Maximum-indentation-limit">Maximum indentation limit</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-set_max_indent" id="value-set_max_indent">set_max_indent</a>: int => unit</h4>
+
+<div class='body '><p><code>set_max_indent d</code> sets the value of the maximum indentation limit to <code>d</code> (in characters): once this limit is reached, boxes are rejected to the left, if they do not fit on the current line. Nothing happens if <code>d</code> is smaller than 2. If <code>d</code> is too large, the limit is set to the maximum admissible value (which is greater than <code>10^9</code>).</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-get_max_indent" id="value-get_max_indent">get_max_indent</a>: unit => int</h4>
+
+<div class='body '><p>Return the value of the maximum indentation limit (in characters).</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Formatting-depth-maximum-number-of-boxes-allowed-before-ellipsis">Formatting depth: maximum number of boxes allowed before ellipsis</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-set_max_boxes" id="value-set_max_boxes">set_max_boxes</a>: int => unit</h4>
+
+<div class='body '><p><code>set_max_boxes max</code> sets the maximum number of boxes simultaneously opened. Material inside boxes nested deeper is printed as an ellipsis (more precisely as the text returned by <code>get_ellipsis_text ()</code>). Nothing happens if <code>max</code> is smaller than 2.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-get_max_boxes" id="value-get_max_boxes">get_max_boxes</a>: unit => int</h4>
+
+<div class='body '><p>Returns the maximum number of boxes allowed before ellipsis.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-over_max_boxes" id="value-over_max_boxes">over_max_boxes</a>: unit => bool</h4>
+
+<div class='body '><p>Tests if the maximum number of boxes allowed have already been opened.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Advanced-formatting">Advanced formatting</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-open_hbox" id="value-open_hbox">open_hbox</a>: unit => unit</h4>
+
+<div class='body '><p><code>open_hbox ()</code> opens a new pretty-printing box. This box is &#39;horizontal&#39;: the line is not split in this box (new lines may still occur inside boxes nested deeper).</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-open_vbox" id="value-open_vbox">open_vbox</a>: int => unit</h4>
+
+<div class='body '><p><code>open_vbox d</code> opens a new pretty-printing box with offset <code>d</code>. This box is &#39;vertical&#39;: every break hint inside this box leads to a new line. When a new line is printed in the box, <code>d</code> is added to the current indentation.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-open_hvbox" id="value-open_hvbox">open_hvbox</a>: int => unit</h4>
+
+<div class='body '><p><code>open_hvbox d</code> opens a new pretty-printing box with offset <code>d</code>. This box is &#39;horizontal-vertical&#39;: it behaves as an &#39;horizontal&#39; box if it fits on a single line, otherwise it behaves as a &#39;vertical&#39; box. When a new line is printed in the box, <code>d</code> is added to the current indentation.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-open_hovbox" id="value-open_hovbox">open_hovbox</a>: int => unit</h4>
+
+<div class='body '><p><code>open_hovbox d</code> opens a new pretty-printing box with offset <code>d</code>. This box is &#39;horizontal or vertical&#39;: break hints inside this box may lead to a new line, if there is no more room on the line to print the remainder of the box. When a new line is printed in the box, <code>d</code> is added to the current indentation.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Tabulations">Tabulations</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-open_tbox" id="value-open_tbox">open_tbox</a>: unit => unit</h4>
+
+<div class='body '><p>Opens a tabulation box.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-close_tbox" id="value-close_tbox">close_tbox</a>: unit => unit</h4>
+
+<div class='body '><p>Closes the most recently opened tabulation box.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-print_tbreak" id="value-print_tbreak">print_tbreak</a>: (int, int) => unit</h4>
+
+<div class='body '><p>Break hint in a tabulation box. <code>print_tbreak spaces offset</code> moves the insertion point to the next tabulation (<code>spaces</code> being added to this position). Nothing occurs if insertion point is already on a tabulation mark. If there is no next tabulation on the line, then a newline is printed and the insertion point moves to the first tabulation of the box. If a new line is printed, <code>offset</code> is added to the current indentation.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-set_tab" id="value-set_tab">set_tab</a>: unit => unit</h4>
+
+<div class='body '><p>Sets a tabulation mark at the current insertion point.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-print_tab" id="value-print_tab">print_tab</a>: unit => unit</h4>
+
+<div class='body '><p><code>print_tab ()</code> is equivalent to <code>print_tbreak 0 0</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Ellipsis">Ellipsis</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-set_ellipsis_text" id="value-set_ellipsis_text">set_ellipsis_text</a>: string => unit</h4>
+
+<div class='body '><p>Set the text of the ellipsis printed when too many boxes are opened (a single dot, <code>.</code>, by default).</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-get_ellipsis_text" id="value-get_ellipsis_text">get_ellipsis_text</a>: unit => string</h4>
+
+<div class='body '><p>Return the text of the ellipsis.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Semantics-Tags">Semantics Tags</h4></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-tag" id="type-tag">tag</a> = string</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><p><em>Semantics tags</em> (or simply <em>tags</em>) are used to decorate printed entities for user&#39;s defined purposes, e.g. setting font and giving size indications for a display device, or marking delimitation of semantics entities (e.g. HTML or TeX elements or terminal escape sequences).</p>
+<p>By default, those tags do not influence line breaking calculation: the tag &#39;markers&#39; are not considered as part of the printing material that drives line breaking (in other words, the length of those strings is considered as zero for line breaking).</p>
+<p>Thus, tag handling is in some sense transparent to pretty-printing and does not interfere with usual indentation. Hence, a single pretty printing routine can output both simple &#39;verbatim&#39; material or richer decorated output depending on the treatment of tags. By default, tags are not active, hence the output is not decorated with tag information. Once <code>set_tags</code> is set to <code>true</code>, the pretty printer engine honours tags and decorates the output accordingly.</p>
+<p>When a tag has been opened (or closed), it is both and successively &#39;printed&#39; and &#39;marked&#39;. Printing a tag means calling a formatter specific function with the name of the tag as argument: that &#39;tag printing&#39; function can then print any regular material to the formatter (so that this material is enqueued as usual in the formatter queue for further line-breaking computation). Marking a tag means to output an arbitrary string (the &#39;tag marker&#39;), directly into the output device of the formatter. Hence, the formatter specific &#39;tag marking&#39; function must return the tag marker string associated to its tag argument. Being flushed directly into the output device of the formatter, tag marker strings are not considered as part of the printing material that drives line breaking (in other words, the length of the strings corresponding to tag markers is considered as zero for line breaking). In addition, advanced users may take advantage of the specificity of tag markers to be precisely output when the pretty printer has already decided where to break the lines, and precisely when the queue is flushed into the output device.</p>
+<p>In the spirit of HTML tags, the default tag marking functions output tags enclosed in &quot;&lt;&quot; and &quot;&gt;&quot;: hence, the opening marker of tag <code>t</code> is <code>&quot;&lt;t&gt;&quot;</code> and the closing marker <code>&quot;&lt;/t&gt;&quot;</code>.</p>
+<p>Default tag printing functions just do nothing.</p>
+<p>Tag marking and tag printing functions are user definable and can be set by calling <code>set_formatter_tag_functions</code>.</p>
+</div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-open_tag" id="value-open_tag">open_tag</a>: <a href="#type-tag">tag</a> => unit</h4>
+
+<div class='body '><p><code>open_tag t</code> opens the tag named <code>t</code>; the <code>print_open_tag</code> function of the formatter is called with <code>t</code> as argument; the tag marker <code>mark_open_tag t</code> will be flushed into the output device of the formatter.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-close_tag" id="value-close_tag">close_tag</a>: unit => unit</h4>
+
+<div class='body '><p><code>close_tag ()</code> closes the most recently opened tag <code>t</code>. In addition, the <code>print_close_tag</code> function of the formatter is called with <code>t</code> as argument. The marker <code>mark_close_tag t</code> will be flushed into the output device of the formatter.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-set_tags" id="value-set_tags">set_tags</a>: bool => unit</h4>
+
+<div class='body '><p><code>set_tags b</code> turns on or off the treatment of tags (default is off).</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-set_print_tags" id="value-set_print_tags">set_print_tags</a>: bool => unit</h4>
+
+<div class='body '><p><code>set_print_tags b</code> turns on or off the printing of tags.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-set_mark_tags" id="value-set_mark_tags">set_mark_tags</a>: bool => unit</h4>
+
+<div class='body '><p><code>set_mark_tags b</code> turns on or off the output of tag markers.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-get_print_tags" id="value-get_print_tags">get_print_tags</a>: unit => bool</h4>
+
+<div class='body '><p>Return the current status of tags printing.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-get_mark_tags" id="value-get_mark_tags">get_mark_tags</a>: unit => bool</h4>
+
+<div class='body '><p>Return the current status of tags marking.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Redirecting-the-standard-formatter-output">Redirecting the standard formatter output</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-set_formatter_out_channel" id="value-set_formatter_out_channel">set_formatter_out_channel</a>: <a href="Pervasives.html#type-out_channel" title="Pervasives.out_channel">out_channel</a> => unit</h4>
+
+<div class='body '><p>Redirect the pretty-printer output to the given channel. (All the output functions of the standard formatter are set to the default output functions printing to the given channel.)</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-set_formatter_output_functions" id="value-set_formatter_output_functions">set_formatter_output_functions</a>: (
+  (string, int, int) => unit,
+  unit => unit
+) => unit</h4>
+
+<div class='body '><p><code>set_formatter_output_functions out flush</code> redirects the pretty-printer output functions to the functions <code>out</code> and <code>flush</code>.</p>
+<p>The <code>out</code> function performs all the pretty-printer string output. It is called with a string <code>s</code>, a start position <code>p</code>, and a number of characters <code>n</code>; it is supposed to output characters <code>p</code> to <code>p + n - 1</code> of <code>s</code>.</p>
+<p>The <code>flush</code> function is called whenever the pretty-printer is flushed (via conversion <code>%!</code>, or pretty-printing indications <code>@?</code> or <code>@.</code>, or using low level functions <code>print_flush</code> or <code>print_newline</code>).</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-get_formatter_output_functions" id="value-get_formatter_output_functions">get_formatter_output_functions</a>: unit => (
+  (string, int, int) => unit,
+  unit => unit
+)</h4>
+
+<div class='body '><p>Return the current output functions of the pretty-printer.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Changing-the-meaning-of-standard-formatter-pretty-printing">Changing the meaning of standard formatter pretty printing</h4></div>
+
+<div class='doc-item'><p>The <code>Format</code> module is versatile enough to let you completely redefine the meaning of pretty printing: you may provide your own functions to define how to handle indentation, line breaking, and even printing of all the characters that have to be printed!</p>
+</div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-formatter_out_functions" id="type-formatter_out_functions">formatter_out_functions</a> = {
+  out_string: (string, int, int) => unit,
+  out_flush: unit => unit,
+  out_newline: unit => unit,
+  out_spaces: int => unit
+}</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-set_formatter_out_functions" id="value-set_formatter_out_functions">set_formatter_out_functions</a>: <a href="#type-formatter_out_functions">formatter_out_functions</a> => unit</h4>
+
+<div class='body '><p><code>set_formatter_out_functions f</code> Redirect the pretty-printer output to the functions <code>f.out_string</code> and <code>f.out_flush</code> as described in <code>set_formatter_output_functions</code>. In addition, the pretty-printer function that outputs a newline is set to the function <code>f.out_newline</code> and the function that outputs indentation spaces is set to the function <code>f.out_spaces</code>.</p>
+<p>This way, you can change the meaning of indentation (which can be something else than just printing space characters) and the meaning of new lines opening (which can be connected to any other action needed by the application at hand). The two functions <code>f.out_spaces</code> and <code>f.out_newline</code> are normally connected to <code>f.out_string</code> and <code>f.out_flush</code>: respective default values for <code>f.out_space</code> and <code>f.out_newline</code> are <code>f.out_string (String.make n &#39; &#39;) 0 n</code> and <code>f.out_string &quot;
+&quot; 0 1</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-get_formatter_out_functions" id="value-get_formatter_out_functions">get_formatter_out_functions</a>: unit => <a href="#type-formatter_out_functions">formatter_out_functions</a></h4>
+
+<div class='body '><p>Return the current output functions of the pretty-printer, including line breaking and indentation functions. Useful to record the current setting and restore it afterwards.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Changing-the-meaning-of-printing-semantics-tags">Changing the meaning of printing semantics tags</h4></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-formatter_tag_functions" id="type-formatter_tag_functions">formatter_tag_functions</a> = {
+  mark_open_tag: <a href="#type-tag">tag</a> => string,
+  mark_close_tag: <a href="#type-tag">tag</a> => string,
+  print_open_tag: <a href="#type-tag">tag</a> => unit,
+  print_close_tag: <a href="#type-tag">tag</a> => unit
+}</h4>
+
+<div class='body '><p>The tag handling functions specific to a formatter: <code>mark</code> versions are the &#39;tag marking&#39; functions that associate a string marker to a tag in order for the pretty-printing engine to flush those markers as 0 length tokens in the output device of the formatter. <code>print</code> versions are the &#39;tag printing&#39; functions that can perform regular printing when a tag is closed or opened.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-set_formatter_tag_functions" id="value-set_formatter_tag_functions">set_formatter_tag_functions</a>: <a href="#type-formatter_tag_functions">formatter_tag_functions</a> => unit</h4>
+
+<div class='body '><p><code>set_formatter_tag_functions tag_funs</code> changes the meaning of opening and closing tags to use the functions in <code>tag_funs</code>.</p>
+<p>When opening a tag name <code>t</code>, the string <code>t</code> is passed to the opening tag marking function (the <code>mark_open_tag</code> field of the record <code>tag_funs</code>), that must return the opening tag marker for that name. When the next call to <code>close_tag ()</code> happens, the tag name <code>t</code> is sent back to the closing tag marking function (the <code>mark_close_tag</code> field of record <code>tag_funs</code>), that must return a closing tag marker for that name.</p>
+<p>The <code>print_</code> field of the record contains the functions that are called at tag opening and tag closing time, to output regular material in the pretty-printer queue.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-get_formatter_tag_functions" id="value-get_formatter_tag_functions">get_formatter_tag_functions</a>: unit => <a href="#type-formatter_tag_functions">formatter_tag_functions</a></h4>
+
+<div class='body '><p>Return the current tag functions of the pretty-printer.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Multiple-formatted-output">Multiple formatted output</h4></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-formatter" id="type-formatter">formatter</a></h4>
+
+<div class='body '><p>Abstract data corresponding to a pretty-printer (also called a formatter) and all its machinery.</p>
+<p>Defining new pretty-printers permits unrelated output of material in parallel on several output channels. All the parameters of a pretty-printer are local to this pretty-printer: margin, maximum indentation limit, maximum number of boxes simultaneously opened, ellipsis, and so on, are specific to each pretty-printer and may be fixed independently. Given a <code>Pervasives.out_channel</code> output channel <code>oc</code>, a new formatter writing to that channel is simply obtained by calling <code>formatter_of_out_channel oc</code>. Alternatively, the <code>make_formatter</code> function allocates a new formatter with explicit output and flushing functions (convenient to output material to strings for instance).</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-formatter_of_out_channel" id="value-formatter_of_out_channel">formatter_of_out_channel</a>: <a href="Pervasives.html#type-out_channel" title="Pervasives.out_channel">out_channel</a> => <a href="#type-formatter">formatter</a></h4>
+
+<div class='body '><p><code>formatter_of_out_channel oc</code> returns a new formatter that writes to the corresponding channel <code>oc</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-std_formatter" id="value-std_formatter">std_formatter</a>: <a href="#type-formatter">formatter</a></h4>
+
+<div class='body '><p>The standard formatter used by the formatting functions above. It is defined as <code>formatter_of_out_channel stdout</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-err_formatter" id="value-err_formatter">err_formatter</a>: <a href="#type-formatter">formatter</a></h4>
+
+<div class='body '><p>A formatter to use with formatting functions below for output to standard error. It is defined as <code>formatter_of_out_channel stderr</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-formatter_of_buffer" id="value-formatter_of_buffer">formatter_of_buffer</a>: <a href="Buffer.html">Buffer</a>.<a href="Buffer.html#type-t">t</a> => <a href="#type-formatter">formatter</a></h4>
+
+<div class='body '><p><code>formatter_of_buffer b</code> returns a new formatter writing to buffer <code>b</code>. As usual, the formatter has to be flushed at the end of pretty printing, using <code>pp_print_flush</code> or <code>pp_print_newline</code>, to display all the pending material.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-stdbuf" id="value-stdbuf">stdbuf</a>: <a href="Buffer.html">Buffer</a>.<a href="Buffer.html#type-t">t</a></h4>
+
+<div class='body '><p>The string buffer in which <code>str_formatter</code> writes.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-str_formatter" id="value-str_formatter">str_formatter</a>: <a href="#type-formatter">formatter</a></h4>
+
+<div class='body '><p>A formatter to use with formatting functions below for output to the <code>stdbuf</code> string buffer. <code>str_formatter</code> is defined as <code>formatter_of_buffer stdbuf</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-flush_str_formatter" id="value-flush_str_formatter">flush_str_formatter</a>: unit => string</h4>
+
+<div class='body '><p>Returns the material printed with <code>str_formatter</code>, flushes the formatter and resets the corresponding buffer.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-make_formatter" id="value-make_formatter">make_formatter</a>: (
+  (string, int, int) => unit,
+  unit => unit
+) => <a href="#type-formatter">formatter</a></h4>
+
+<div class='body '><p><code>make_formatter out flush</code> returns a new formatter that writes according to the output function <code>out</code>, and the flushing function <code>flush</code>. For instance, a formatter to the <code>Pervasives.out_channel</code> <code>oc</code> is returned by <code>make_formatter (Pervasives.output oc) (fun () -&gt; Pervasives.flush oc)</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Basic-functions-to-use-with-formatters">Basic functions to use with formatters</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_open_hbox" id="value-pp_open_hbox">pp_open_hbox</a>: (<a href="#type-formatter">formatter</a>, unit) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_open_vbox" id="value-pp_open_vbox">pp_open_vbox</a>: (<a href="#type-formatter">formatter</a>, int) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_open_hvbox" id="value-pp_open_hvbox">pp_open_hvbox</a>: (<a href="#type-formatter">formatter</a>, int) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_open_hovbox" id="value-pp_open_hovbox">pp_open_hovbox</a>: (<a href="#type-formatter">formatter</a>, int) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_open_box" id="value-pp_open_box">pp_open_box</a>: (<a href="#type-formatter">formatter</a>, int) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_close_box" id="value-pp_close_box">pp_close_box</a>: (<a href="#type-formatter">formatter</a>, unit) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_open_tag" id="value-pp_open_tag">pp_open_tag</a>: (<a href="#type-formatter">formatter</a>, string) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_close_tag" id="value-pp_close_tag">pp_close_tag</a>: (<a href="#type-formatter">formatter</a>, unit) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_print_string" id="value-pp_print_string">pp_print_string</a>: (<a href="#type-formatter">formatter</a>, string) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_print_as" id="value-pp_print_as">pp_print_as</a>: (<a href="#type-formatter">formatter</a>, int, string) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_print_int" id="value-pp_print_int">pp_print_int</a>: (<a href="#type-formatter">formatter</a>, int) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_print_float" id="value-pp_print_float">pp_print_float</a>: (<a href="#type-formatter">formatter</a>, float) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_print_char" id="value-pp_print_char">pp_print_char</a>: (<a href="#type-formatter">formatter</a>, char) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_print_bool" id="value-pp_print_bool">pp_print_bool</a>: (<a href="#type-formatter">formatter</a>, bool) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_print_break" id="value-pp_print_break">pp_print_break</a>: (<a href="#type-formatter">formatter</a>, int, int) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_print_cut" id="value-pp_print_cut">pp_print_cut</a>: (<a href="#type-formatter">formatter</a>, unit) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_print_space" id="value-pp_print_space">pp_print_space</a>: (<a href="#type-formatter">formatter</a>, unit) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_force_newline" id="value-pp_force_newline">pp_force_newline</a>: (<a href="#type-formatter">formatter</a>, unit) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_print_flush" id="value-pp_print_flush">pp_print_flush</a>: (<a href="#type-formatter">formatter</a>, unit) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_print_newline" id="value-pp_print_newline">pp_print_newline</a>: (<a href="#type-formatter">formatter</a>, unit) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_print_if_newline" id="value-pp_print_if_newline">pp_print_if_newline</a>: (<a href="#type-formatter">formatter</a>, unit) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_open_tbox" id="value-pp_open_tbox">pp_open_tbox</a>: (<a href="#type-formatter">formatter</a>, unit) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_close_tbox" id="value-pp_close_tbox">pp_close_tbox</a>: (<a href="#type-formatter">formatter</a>, unit) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_print_tbreak" id="value-pp_print_tbreak">pp_print_tbreak</a>: (<a href="#type-formatter">formatter</a>, int, int) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_set_tab" id="value-pp_set_tab">pp_set_tab</a>: (<a href="#type-formatter">formatter</a>, unit) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_print_tab" id="value-pp_print_tab">pp_print_tab</a>: (<a href="#type-formatter">formatter</a>, unit) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_set_tags" id="value-pp_set_tags">pp_set_tags</a>: (<a href="#type-formatter">formatter</a>, bool) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_set_print_tags" id="value-pp_set_print_tags">pp_set_print_tags</a>: (<a href="#type-formatter">formatter</a>, bool) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_set_mark_tags" id="value-pp_set_mark_tags">pp_set_mark_tags</a>: (<a href="#type-formatter">formatter</a>, bool) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_get_print_tags" id="value-pp_get_print_tags">pp_get_print_tags</a>: (<a href="#type-formatter">formatter</a>, unit) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_get_mark_tags" id="value-pp_get_mark_tags">pp_get_mark_tags</a>: (<a href="#type-formatter">formatter</a>, unit) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_set_margin" id="value-pp_set_margin">pp_set_margin</a>: (<a href="#type-formatter">formatter</a>, int) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_get_margin" id="value-pp_get_margin">pp_get_margin</a>: (<a href="#type-formatter">formatter</a>, unit) => int</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_set_max_indent" id="value-pp_set_max_indent">pp_set_max_indent</a>: (<a href="#type-formatter">formatter</a>, int) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_get_max_indent" id="value-pp_get_max_indent">pp_get_max_indent</a>: (<a href="#type-formatter">formatter</a>, unit) => int</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_set_max_boxes" id="value-pp_set_max_boxes">pp_set_max_boxes</a>: (<a href="#type-formatter">formatter</a>, int) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_get_max_boxes" id="value-pp_get_max_boxes">pp_get_max_boxes</a>: (<a href="#type-formatter">formatter</a>, unit) => int</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_over_max_boxes" id="value-pp_over_max_boxes">pp_over_max_boxes</a>: (<a href="#type-formatter">formatter</a>, unit) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_set_ellipsis_text" id="value-pp_set_ellipsis_text">pp_set_ellipsis_text</a>: (<a href="#type-formatter">formatter</a>, string) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_get_ellipsis_text" id="value-pp_get_ellipsis_text">pp_get_ellipsis_text</a>: (<a href="#type-formatter">formatter</a>, unit) => string</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_set_formatter_out_channel" id="value-pp_set_formatter_out_channel">pp_set_formatter_out_channel</a>: (
+  <a href="#type-formatter">formatter</a>,
+  <a href="Pervasives.html#type-out_channel" title="Pervasives.out_channel">out_channel</a>
+) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_set_formatter_output_functions" id="value-pp_set_formatter_output_functions">pp_set_formatter_output_functions</a>: (
+  <a href="#type-formatter">formatter</a>,
+  (string, int, int) => unit,
+  unit => unit
+) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_get_formatter_output_functions" id="value-pp_get_formatter_output_functions">pp_get_formatter_output_functions</a>: (
+  <a href="#type-formatter">formatter</a>,
+  unit
+) => ((string, int, int) => unit, unit => unit)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_set_formatter_tag_functions" id="value-pp_set_formatter_tag_functions">pp_set_formatter_tag_functions</a>: (
+  <a href="#type-formatter">formatter</a>,
+  <a href="#type-formatter_tag_functions">formatter_tag_functions</a>
+) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_get_formatter_tag_functions" id="value-pp_get_formatter_tag_functions">pp_get_formatter_tag_functions</a>: (
+  <a href="#type-formatter">formatter</a>,
+  unit
+) => <a href="#type-formatter_tag_functions">formatter_tag_functions</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_set_formatter_out_functions" id="value-pp_set_formatter_out_functions">pp_set_formatter_out_functions</a>: (
+  <a href="#type-formatter">formatter</a>,
+  <a href="#type-formatter_out_functions">formatter_out_functions</a>
+) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_get_formatter_out_functions" id="value-pp_get_formatter_out_functions">pp_get_formatter_out_functions</a>: (
+  <a href="#type-formatter">formatter</a>,
+  unit
+) => <a href="#type-formatter_out_functions">formatter_out_functions</a></h4>
+
+<div class='body '><p>These functions are the basic ones: usual functions operating on the standard formatter are defined via partial evaluation of these primitives. For instance, <code>print_string</code> is equal to <code>pp_print_string std_formatter</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Convenience-formatting-functions">Convenience formatting functions.</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_print_list" id="value-pp_print_list">pp_print_list</a>: (
+  ~?pp_sep: option((<a href="#type-formatter">formatter</a>, unit) => unit),
+  (<a href="#type-formatter">formatter</a>, 'a) => unit,
+  <a href="#type-formatter">formatter</a>,
+  list('a)
+) => unit</h4>
+
+<div class='body '><p><code>pp_print_list ?pp_sep pp_v ppf l</code> prints the list <code>l</code>. <code>pp_v</code> is used on the elements of <code>l</code> and each element is separated by a call to <code>pp_sep</code> (defaults to pp_print_cut). Does nothing on empty lists.</p>
+Since: 4.02.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_print_text" id="value-pp_print_text">pp_print_text</a>: (<a href="#type-formatter">formatter</a>, string) => unit</h4>
+
+<div class='body '><p><code>pp_print_text ppf s</code> prints <code>s</code> with spaces and newlines respectively printed with pp_print_space and pp_force_newline.</p>
+Since: 4.02.0</div></div>
+
+<div class='doc-item'><h4 id="printf-like-functions-for-pretty-printing"><code>printf</code> like functions for pretty-printing.</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fprintf" id="value-fprintf">fprintf</a>: (<a href="#type-formatter">formatter</a>, <a href="Pervasives.html#type-format" title="Pervasives.format">format</a>('a, <a href="#type-formatter">formatter</a>, unit)) => 'a</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><p><code>fprintf ff fmt arg1 ... argN</code> formats the arguments <code>arg1</code> to <code>argN</code> according to the format string <code>fmt</code>, and outputs the resulting string on the formatter <code>ff</code>.</p>
+<p>The format <code>fmt</code> is a character string which contains three types of objects: plain characters and conversion specifications as specified in the <code>Printf</code> module, and pretty-printing indications specific to the <code>Format</code> module.</p>
+<p>The pretty-printing indication characters are introduced by a <code>@</code> character, and their meanings are:</p>
+<ul><li><p><code>@[</code>: open a pretty-printing box. The type and offset of the box may be optionally specified with the following syntax: the <code>&lt;</code> character, followed by an optional box type indication, then an optional integer offset, and the closing <code>&gt;</code> character. Box type is one of <code>h</code>, <code>v</code>, <code>hv</code>, <code>b</code>, or <code>hov</code>, which stand respectively for an horizontal box, a vertical box, an &#39;horizontal-vertical&#39; box, or an &#39;horizontal or vertical&#39; box (<code>b</code> standing for an &#39;horizontal or vertical&#39; box demonstrating indentation and <code>hov</code> standing for a regular&#39;horizontal or vertical&#39; box). For instance, <code>@[&lt;hov 2&gt;</code> opens an &#39;horizontal or vertical&#39; box with indentation 2 as obtained with <code>open_hovbox 2</code>. For more details about boxes, see the various box opening functions <code>open_*box</code>.</p>
+</li><li><p><code>@]</code>: close the most recently opened pretty-printing box.</p>
+</li><li><p><code>@,</code>: output a good break hint, as with <code>print_cut ()</code>.</p>
+</li><li><p><code>@ </code>: output a good break space, as with <code>print_space ()</code>.</p>
+</li><li><p><code>@;</code>: output a fully specified good break as with <code>print_break</code>. The <code>nspaces</code> and <code>offset</code> parameters of the break may be optionally specified with the following syntax: the <code>&lt;</code> character, followed by an integer <code>nspaces</code> value, then an integer <code>offset</code>, and a closing <code>&gt;</code> character. If no parameters are provided, the good break defaults to a good break space.</p>
+</li><li><p><code>@.</code>: flush the pretty printer and output a new line, as with <code>print_newline ()</code>.</p>
+</li><li><p><code>@&lt;n&gt;</code>: print the following item as if it were of length <code>n</code>. Hence, <code>printf &quot;@&lt;0&gt;%s&quot; arg</code> prints <code>arg</code> as a zero length string. If <code>@&lt;n&gt;</code> is not followed by a conversion specification, then the following character of the format is printed as if it were of length <code>n</code>.</p>
+</li><li><p><code>@\{</code>: open a tag. The name of the tag may be optionally specified with the following syntax: the <code>&lt;</code> character, followed by an optional string specification, and the closing <code>&gt;</code> character. The string specification is any character string that does not contain the closing character <code>&#39;&gt;&#39;</code>. If omitted, the tag name defaults to the empty string. For more details about tags, see the functions <code>open_tag</code> and <code>close_tag</code>.</p>
+</li><li><p><code>@\}</code>: close the most recently opened tag.</p>
+</li><li><p><code>@?</code>: flush the pretty printer as with <code>print_flush ()</code>. This is equivalent to the conversion <code>%!</code>.</p>
+</li><li><p><code>@\n</code>: force a newline, as with <code>force_newline ()</code>.</p>
+</li><li><p><code>@@</code>: print a single <code>@</code> character.</p>
+</li></ul><p>Example: <code>printf &quot;@[%s@ %d@]@.&quot; &quot;x =&quot; 1</code> is equivalent to <code>open_box (); print_string &quot;x =&quot;; print_space ();
+    print_int 1; close_box (); print_newline ()</code>. It prints <code>x = 1</code> within a pretty-printing box.</p>
+<p>Note: If you need to prevent the interpretation of a <code>@</code> character as a pretty-printing indication, you can also escape it with a <code>%</code> character.</p>
+</div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-printf" id="value-printf">printf</a>: <a href="Pervasives.html#type-format" title="Pervasives.format">format</a>('a, <a href="#type-formatter">formatter</a>, unit) => 'a</h4>
+
+<div class='body '><p>Same as <code>fprintf</code> above, but output on <code>std_formatter</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-eprintf" id="value-eprintf">eprintf</a>: <a href="Pervasives.html#type-format" title="Pervasives.format">format</a>('a, <a href="#type-formatter">formatter</a>, unit) => 'a</h4>
+
+<div class='body '><p>Same as <code>fprintf</code> above, but output on <code>err_formatter</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sprintf" id="value-sprintf">sprintf</a>: <a href="Pervasives.html#type-format" title="Pervasives.format">format</a>('a, unit, string) => 'a</h4>
+
+<div class='body '><p>Same as <code>printf</code> above, but instead of printing on a formatter, returns a string containing the result of formatting the arguments. Note that the pretty-printer queue is flushed at the end of <em>each call</em> to <code>sprintf</code>.</p>
+<p>In case of multiple and related calls to <code>sprintf</code> to output material on a single string, you should consider using <code>fprintf</code> with the predefined formatter <code>str_formatter</code> and call <code>flush_str_formatter ()</code> to get the final result.</p>
+<p>Alternatively, you can use <code>Format.fprintf</code> with a formatter writing to a buffer of your own: flushing the formatter and the buffer at the end of pretty-printing returns the desired string.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-asprintf" id="value-asprintf">asprintf</a>: <a href="Pervasives.html#type-format4" title="Pervasives.format4">format4</a>('a, <a href="#type-formatter">formatter</a>, unit, string) => 'a</h4>
+
+<div class='body '><p>Same as <code>printf</code> above, but instead of printing on a formatter, returns a string containing the result of formatting the arguments. The type of <code>asprintf</code> is general enough to interact nicely with <code>%a</code> conversions.</p>
+Since: 4.01.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-ifprintf" id="value-ifprintf">ifprintf</a>: (<a href="#type-formatter">formatter</a>, <a href="Pervasives.html#type-format" title="Pervasives.format">format</a>('a, <a href="#type-formatter">formatter</a>, unit)) => 'a</h4>
+
+<div class='body '><p>Same as <code>fprintf</code> above, but does not print anything. Useful to ignore some material when conditionally printing.</p>
+Since: 3.10.0</div></div>
+
+<div class='doc-item'><p>Formatted output functions with continuations.</p>
+</div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-kfprintf" id="value-kfprintf">kfprintf</a>: (
+  <a href="#type-formatter">formatter</a> => 'a,
+  <a href="#type-formatter">formatter</a>,
+  <a href="Pervasives.html#type-format4" title="Pervasives.format4">format4</a>('b, <a href="#type-formatter">formatter</a>, unit, 'a)
+) => 'b</h4>
+
+<div class='body '><p>Same as <code>fprintf</code> above, but instead of returning immediately, passes the formatter to its first argument at the end of printing.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-ikfprintf" id="value-ikfprintf">ikfprintf</a>: (
+  <a href="#type-formatter">formatter</a> => 'a,
+  <a href="#type-formatter">formatter</a>,
+  <a href="Pervasives.html#type-format4" title="Pervasives.format4">format4</a>('b, <a href="#type-formatter">formatter</a>, unit, 'a)
+) => 'b</h4>
+
+<div class='body '><p>Same as <code>kfprintf</code> above, but does not print anything. Useful to ignore some material when conditionally printing.</p>
+Since: 3.12.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-ksprintf" id="value-ksprintf">ksprintf</a>: (
+  string => 'a,
+  <a href="Pervasives.html#type-format4" title="Pervasives.format4">format4</a>('b, unit, string, 'a)
+) => 'b</h4>
+
+<div class='body '><p>Same as <code>sprintf</code> above, but instead of returning the string, passes it to the first argument.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Deprecated">Deprecated</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-bprintf" id="value-bprintf">bprintf</a>: (<a href="Buffer.html">Buffer</a>.<a href="Buffer.html#type-t">t</a>, <a href="Pervasives.html#type-format" title="Pervasives.format">format</a>('a, <a href="#type-formatter">formatter</a>, unit)) => 'a</h4>
+
+<div class='body '><p>Deprecated: <p>This function is error prone. Do not use it.</p>
+<p>If you need to print to some buffer <code>b</code>, you must first define a formatter writing to <code>b</code>, using <code>let to_b = formatter_of_buffer b</code>; then use regular calls to <code>Format.fprintf</code> on formatter <code>to_b</code>.</p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-kprintf" id="value-kprintf">kprintf</a>: (
+  string => 'a,
+  <a href="Pervasives.html#type-format4" title="Pervasives.format4">format4</a>('b, unit, string, 'a)
+) => 'b</h4>
+
+<div class='body '><p>Deprecated: <p>An alias for <code>ksprintf</code>.</p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-set_all_formatter_output_functions" id="value-set_all_formatter_output_functions">set_all_formatter_output_functions</a>: (
+  ~out: (string, int, int) => unit,
+  ~flush: unit => unit,
+  ~newline: unit => unit,
+  ~spaces: int => unit
+) => unit</h4>
+
+<div class='body '><p>Deprecated: <p>Subsumed by <code>set_formatter_out_functions</code>.</p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-get_all_formatter_output_functions" id="value-get_all_formatter_output_functions">get_all_formatter_output_functions</a>: unit => (
+  (string, int, int) => unit,
+  unit => unit,
+  unit => unit,
+  int => unit
+)</h4>
+
+<div class='body '><p>Deprecated: <p>Subsumed by <code>get_formatter_out_functions</code>.</p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_set_all_formatter_output_functions" id="value-pp_set_all_formatter_output_functions">pp_set_all_formatter_output_functions</a>: (
+  <a href="#type-formatter">formatter</a>,
+  ~out: (string, int, int) => unit,
+  ~flush: unit => unit,
+  ~newline: unit => unit,
+  ~spaces: int => unit
+) => unit</h4>
+
+<div class='body '><p>Deprecated: <p>Subsumed by <code>pp_set_formatter_out_functions</code>.</p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pp_get_all_formatter_output_functions" id="value-pp_get_all_formatter_output_functions">pp_get_all_formatter_output_functions</a>: (
+  <a href="#type-formatter">formatter</a>,
+  unit
+) => (
+  (string, int, int) => unit,
+  unit => unit,
+  unit => unit,
+  int => unit
+)</h4>
+
+<div class='body '><p>Deprecated: <p>Subsumed by <code>pp_get_formatter_out_functions</code>.</p></p>
+</div></div>
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

@@ -1,155 +1,674 @@
+
+    
 <!doctype html>
-<html>
-<head>
-                 <link rel="stylesheet" href="../api_static/tomorrow-night.css">
-                 <link rel="stylesheet" href="../api_static/style.css" type="text/css">
-                 <script src="../api_static//highlight.pack.js"></script>
-                 <script src="../api_static//script.js"></script>
-                 <script>hljs.initHighlightingOnLoad();</script> 
-                 <meta charset="utf8">
-                 <link rel="previous" href="Js_undefined.html"><link rel="next" href="Js_vector.html">
-                 <title> Js_unsafe </title></head> 
-               <body>
-<nav class="module-index"><ul><li><a href="Belt.html">Belt</a></li>
-<li><a href="Belt_Array.html">Belt_Array</a></li>
-<li><a href="Belt_HashMap.html">Belt_HashMap</a></li>
-<li><a href="Belt_HashMapInt.html">Belt_HashMapInt</a></li>
-<li><a href="Belt_HashMapString.html">Belt_HashMapString</a></li>
-<li><a href="Belt_HashSet.html">Belt_HashSet</a></li>
-<li><a href="Belt_HashSetInt.html">Belt_HashSetInt</a></li>
-<li><a href="Belt_HashSetString.html">Belt_HashSetString</a></li>
-<li><a href="Belt_Id.html">Belt_Id</a></li>
-<li><a href="Belt_List.html">Belt_List</a></li>
-<li><a href="Belt_Map.html">Belt_Map</a></li>
-<li><a href="Belt_MapDict.html">Belt_MapDict</a></li>
-<li><a href="Belt_MapInt.html">Belt_MapInt</a></li>
-<li><a href="Belt_MapString.html">Belt_MapString</a></li>
-<li><a href="Belt_MutableMap.html">Belt_MutableMap</a></li>
-<li><a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a></li>
-<li><a href="Belt_MutableMapString.html">Belt_MutableMapString</a></li>
-<li><a href="Belt_MutableQueue.html">Belt_MutableQueue</a></li>
-<li><a href="Belt_MutableSet.html">Belt_MutableSet</a></li>
-<li><a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a></li>
-<li><a href="Belt_MutableSetString.html">Belt_MutableSetString</a></li>
-<li><a href="Belt_MutableStack.html">Belt_MutableStack</a></li>
-<li><a href="Belt_Option.html">Belt_Option</a></li>
-<li><a href="Belt_Range.html">Belt_Range</a></li>
-<li><a href="Belt_Set.html">Belt_Set</a></li>
-<li><a href="Belt_SetDict.html">Belt_SetDict</a></li>
-<li><a href="Belt_SetInt.html">Belt_SetInt</a></li>
-<li><a href="Belt_SetString.html">Belt_SetString</a></li>
-<li><a href="Belt_SortArray.html">Belt_SortArray</a></li>
-<li><a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a></li>
-<li><a href="Belt_SortArrayString.html">Belt_SortArrayString</a></li>
-<li><a href="Belt_internalAVLset.html">Belt_internalAVLset</a></li>
-<li><a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a></li>
-<li><a href="Belt_internalBuckets.html">Belt_internalBuckets</a></li>
-<li><a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a></li>
-<li><a href="Belt_internalMapInt.html">Belt_internalMapInt</a></li>
-<li><a href="Belt_internalMapString.html">Belt_internalMapString</a></li>
-<li><a href="Belt_internalMutableAVLMap.html">Belt_internalMutableAVLMap</a></li>
-<li><a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a></li>
-<li><a href="Belt_internalSetInt.html">Belt_internalSetInt</a></li>
-<li><a href="Belt_internalSetString.html">Belt_internalSetString</a></li>
-<li><a href="Dom.html">Dom</a></li>
-<li><a href="Dom_storage.html">Dom_storage</a></li>
-<li><a href="Js.html">Js</a></li>
-<li><a href="Js_array.html">Js_array</a></li>
-<li><a href="Js_boolean.html">Js_boolean</a></li>
-<li><a href="Js_cast.html">Js_cast</a></li>
-<li><a href="Js_console.html">Js_console</a></li>
-<li><a href="Js_date.html">Js_date</a></li>
-<li><a href="Js_dict.html">Js_dict</a></li>
-<li><a href="Js_exn.html">Js_exn</a></li>
-<li><a href="Js_float.html">Js_float</a></li>
-<li><a href="Js_global.html">Js_global</a></li>
-<li><a href="Js_int.html">Js_int</a></li>
-<li><a href="Js_int64.html">Js_int64</a></li>
-<li><a href="Js_internal.html">Js_internal</a></li>
-<li><a href="Js_json.html">Js_json</a></li>
-<li><a href="Js_list.html">Js_list</a></li>
-<li><a href="Js_mapperRt.html">Js_mapperRt</a></li>
-<li><a href="Js_math.html">Js_math</a></li>
-<li><a href="Js_nativeint.html">Js_nativeint</a></li>
-<li><a href="Js_null.html">Js_null</a></li>
-<li><a href="Js_null_undefined.html">Js_null_undefined</a></li>
-<li><a href="Js_obj.html">Js_obj</a></li>
-<li><a href="Js_option.html">Js_option</a></li>
-<li><a href="Js_primitive.html">Js_primitive</a></li>
-<li><a href="Js_promise.html">Js_promise</a></li>
-<li><a href="Js_re.html">Js_re</a></li>
-<li><a href="Js_result.html">Js_result</a></li>
-<li><a href="Js_string.html">Js_string</a></li>
-<li><a href="Js_typed_array.html">Js_typed_array</a></li>
-<li><a href="Js_types.html">Js_types</a></li>
-<li><a href="Js_undefined.html">Js_undefined</a></li>
-<li><a href="Js_unsafe.html">Js_unsafe</a></li>
-<li><a href="Js_vector.html">Js_vector</a></li>
-<li><a href="Node.html">Node</a></li>
-<li><a href="Node_buffer.html">Node_buffer</a></li>
-<li><a href="Node_child_process.html">Node_child_process</a></li>
-<li><a href="Node_fs.html">Node_fs</a></li>
-<li><a href="Node_module.html">Node_module</a></li>
-<li><a href="Node_path.html">Node_path</a></li>
-<li><a href="Node_process.html">Node_process</a></li></ul></nav>
-<div class="navbar"><a class="pre" href="Js_undefined.html" title="Js_undefined">Previous</a>
-&nbsp;<a class="up" href="index.html" title="Index">Up</a>
-&nbsp;<a class="post" href="Js_vector.html" title="Js_vector">Next</a>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Js_unsafe</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
 </div>
-<h1>Module <a href="type_Js_unsafe.html">Js_unsafe</a></h1>
 
-<pre><span class="keyword">module</span> Js_unsafe: <code class="code">sig</code> <a href="Js_unsafe.html">..</a> <code class="code">end</code></pre><div class="info module top">
-                    <div class="not-examples">
-                     
-                    </div>
-                    
-                    </div>
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#value-!" class='level-0 value'>!</a>
+<a href="#value-debugger" class='level-0 value'>debugger</a>
+<a href="#value-raw_expr" class='level-0 value'>raw_expr</a>
+<a href="#value-raw_stmt" class='level-0 value'>raw_stmt</a>
+<a href="#value-unsafe_downgrade" class='level-0 value'>unsafe_downgrade</a>
+<a href="#value-fn_mk0" class='level-0 value'>fn_mk0</a>
+<a href="#value-fn_mk1" class='level-0 value'>fn_mk1</a>
+<a href="#value-fn_mk2" class='level-0 value'>fn_mk2</a>
+<a href="#value-fn_mk3" class='level-0 value'>fn_mk3</a>
+<a href="#value-fn_mk4" class='level-0 value'>fn_mk4</a>
+<a href="#value-fn_mk5" class='level-0 value'>fn_mk5</a>
+<a href="#value-fn_mk6" class='level-0 value'>fn_mk6</a>
+<a href="#value-fn_mk7" class='level-0 value'>fn_mk7</a>
+<a href="#value-fn_mk8" class='level-0 value'>fn_mk8</a>
+<a href="#value-fn_mk9" class='level-0 value'>fn_mk9</a>
+<a href="#value-fn_method1" class='level-0 value'>fn_method1</a>
+<a href="#value-fn_method2" class='level-0 value'>fn_method2</a>
+<a href="#value-fn_method3" class='level-0 value'>fn_method3</a>
+<a href="#value-fn_method4" class='level-0 value'>fn_method4</a>
+<a href="#value-fn_method5" class='level-0 value'>fn_method5</a>
+<a href="#value-fn_method6" class='level-0 value'>fn_method6</a>
+<a href="#value-fn_method7" class='level-0 value'>fn_method7</a>
+<a href="#value-fn_method8" class='level-0 value'>fn_method8</a>
+<a href="#value-fn_method9" class='level-0 value'>fn_method9</a>
+<a href="#value-fn_method10" class='level-0 value'>fn_method10</a>
+<a href="#value-fn_run0" class='level-0 value'>fn_run0</a>
+<a href="#value-fn_run1" class='level-0 value'>fn_run1</a>
+<a href="#value-fn_run2" class='level-0 value'>fn_run2</a>
+<a href="#value-fn_run3" class='level-0 value'>fn_run3</a>
+<a href="#value-fn_run4" class='level-0 value'>fn_run4</a>
+<a href="#value-fn_run5" class='level-0 value'>fn_run5</a>
+<a href="#value-fn_run6" class='level-0 value'>fn_run6</a>
+<a href="#value-fn_run7" class='level-0 value'>fn_run7</a>
+<a href="#value-fn_run8" class='level-0 value'>fn_run8</a>
+<a href="#value-fn_run9" class='level-0 value'>fn_run9</a>
+<a href="#value-method_run0" class='level-0 value'>method_run0</a>
+<a href="#value-method_run1" class='level-0 value'>method_run1</a>
+<a href="#value-method_run2" class='level-0 value'>method_run2</a>
+<a href="#value-method_run3" class='level-0 value'>method_run3</a>
+<a href="#value-method_run4" class='level-0 value'>method_run4</a>
+<a href="#value-method_run5" class='level-0 value'>method_run5</a>
+<a href="#value-method_run6" class='level-0 value'>method_run6</a>
+<a href="#value-method_run7" class='level-0 value'>method_run7</a>
+<a href="#value-method_run8" class='level-0 value'>method_run8</a>
+<a href="#value-method_run9" class='level-0 value'>method_run9</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Block.html">Block</a>
+<a href="Bs_obj.html">Bs_obj</a>
+<a href="Bs_string.html">Bs_string</a>
+<a href="Caml_array.html">Caml_array</a>
+<a href="Caml_backtrace.html">Caml_backtrace</a>
+<a href="Caml_basic.html">Caml_basic</a>
+<a href="Caml_builtin_exceptions.html">Caml_builtin_exceptions</a>
+<a href="Caml_bytes.html">Caml_bytes</a>
+<a href="Caml_exceptions.html">Caml_exceptions</a>
+<a href="Caml_float.html">Caml_float</a>
+<a href="Caml_format.html">Caml_format</a>
+<a href="Caml_gc.html">Caml_gc</a>
+<a href="Caml_hash.html">Caml_hash</a>
+<a href="Caml_int32.html">Caml_int32</a>
+<a href="Caml_int64.html">Caml_int64</a>
+<a href="Caml_io.html">Caml_io</a>
+<a href="Caml_lexer.html">Caml_lexer</a>
+<a href="Caml_md5.html">Caml_md5</a>
+<a href="Caml_missing_polyfill.html">Caml_missing_polyfill</a>
+<a href="Caml_module.html">Caml_module</a>
+<a href="Caml_obj.html">Caml_obj</a>
+<a href="Caml_oo.html">Caml_oo</a>
+<a href="Caml_oo_curry.html">Caml_oo_curry</a>
+<a href="Caml_parser.html">Caml_parser</a>
+<a href="Caml_primitive.html">Caml_primitive</a>
+<a href="Caml_queue.html">Caml_queue</a>
+<a href="Caml_string.html">Caml_string</a>
+<a href="Caml_sys.html">Caml_sys</a>
+<a href="Caml_utils.html">Caml_utils</a>
+<a href="Caml_weak.html">Caml_weak</a>
+<a href="Curry.html">Curry</a>
+<a href="Js.html">Js</a>
+<a href="Js_exn.html">Js_exn</a>
+<a href="Js_float.html">Js_float</a>
+<a href="Js_int.html">Js_int</a>
+<a href="Js_int64.html">Js_int64</a>
+<a href="Js_internal.html">Js_internal</a>
+<a href="Js_nativeint.html">Js_nativeint</a>
+<a href="Js_null.html">Js_null</a>
+<a href="Js_primitive.html">Js_primitive</a>
+<a href="Js_typed_array.html">Js_typed_array</a>
+<a href="Js_undefined.html">Js_undefined</a>
+<a href="Js_unsafe.html">Js_unsafe</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/runtime/js_unsafe.ml" class="edit-link">Edit</a>
+    <p>other items defined</p><div class='doc-item'><h4 class='item'>let <a href="#value-!" id="value-!">!</a>: <a href="Js.html">Js</a>.<a href="Js.html#type-t">t</a>('a) => 'a</h4>
 
-                  <hr width="100%">
+<div class='body body-empty'></div></div>
 
-<pre><span id="VAL(!)"><span class="keyword">val</span> (!)</span> : <code class="type">'a <a href="Js.html#TYPEt">Js.t</a> -> 'a</code></pre>
-<pre><span id="VALdebugger"><span class="keyword">val</span> debugger</span> : <code class="type">unit -> unit</code></pre>
-<pre><span id="VALraw_expr"><span class="keyword">val</span> raw_expr</span> : <code class="type">string -> 'a</code></pre>
-<pre><span id="VALraw_stmt"><span class="keyword">val</span> raw_stmt</span> : <code class="type">string -> 'a</code></pre>
-<pre><span id="VALraw_function"><span class="keyword">val</span> raw_function</span> : <code class="type">string -> 'a</code></pre>
-<pre><span id="VALunsafe_downgrade"><span class="keyword">val</span> unsafe_downgrade</span> : <code class="type">'a <a href="Js.html#TYPEt">Js.t</a> -> 'a</code></pre>
-<pre><span id="VALfn_mk0"><span class="keyword">val</span> fn_mk0</span> : <code class="type">(unit -> 'a0) -> (unit -> 'a0 [@bs])</code></pre>
-<pre><span id="VALfn_mk1"><span class="keyword">val</span> fn_mk1</span> : <code class="type">('a0 -> 'a1) -> ('a0 -> 'a1 [@bs])</code></pre>
-<pre><span id="VALfn_mk2"><span class="keyword">val</span> fn_mk2</span> : <code class="type">('a0 -> 'a1 -> 'a2) -> ('a0 -> 'a1 -> 'a2 [@bs])</code></pre>
-<pre><span id="VALfn_mk3"><span class="keyword">val</span> fn_mk3</span> : <code class="type">('a0 -> 'a1 -> 'a2 -> 'a3) -> ('a0 -> 'a1 -> 'a2 -> 'a3 [@bs])</code></pre>
-<pre><span id="VALfn_mk4"><span class="keyword">val</span> fn_mk4</span> : <code class="type">('a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4) -> ('a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 [@bs])</code></pre>
-<pre><span id="VALfn_mk5"><span class="keyword">val</span> fn_mk5</span> : <code class="type">('a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5) -><br>       ('a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 [@bs])</code></pre>
-<pre><span id="VALfn_mk6"><span class="keyword">val</span> fn_mk6</span> : <code class="type">('a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6) -><br>       ('a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 [@bs])</code></pre>
-<pre><span id="VALfn_mk7"><span class="keyword">val</span> fn_mk7</span> : <code class="type">('a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 -> 'a7) -><br>       ('a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 -> 'a7 [@bs])</code></pre>
-<pre><span id="VALfn_mk8"><span class="keyword">val</span> fn_mk8</span> : <code class="type">('a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 -> 'a7 -> 'a8) -><br>       ('a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 -> 'a7 -> 'a8 [@bs])</code></pre>
-<pre><span id="VALfn_mk9"><span class="keyword">val</span> fn_mk9</span> : <code class="type">('a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 -> 'a7 -> 'a8 -> 'a9) -><br>       ('a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 -> 'a7 -> 'a8 -> 'a9 [@bs])</code></pre>
-<pre><span id="VALfn_method1"><span class="keyword">val</span> fn_method1</span> : <code class="type">('obj -> 'a0) -> ('obj -> 'a0 [@bs.this])</code></pre>
-<pre><span id="VALfn_method2"><span class="keyword">val</span> fn_method2</span> : <code class="type">('obj -> 'a0 -> 'a1) -> ('obj -> 'a0 -> 'a1 [@bs.this])</code></pre>
-<pre><span id="VALfn_method3"><span class="keyword">val</span> fn_method3</span> : <code class="type">('obj -> 'a0 -> 'a1 -> 'a2) -> ('obj -> 'a0 -> 'a1 -> 'a2 [@bs.this])</code></pre>
-<pre><span id="VALfn_method4"><span class="keyword">val</span> fn_method4</span> : <code class="type">('obj -> 'a0 -> 'a1 -> 'a2 -> 'a3) -><br>       ('obj -> 'a0 -> 'a1 -> 'a2 -> 'a3 [@bs.this])</code></pre>
-<pre><span id="VALfn_method5"><span class="keyword">val</span> fn_method5</span> : <code class="type">('obj -> 'a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4) -><br>       ('obj -> 'a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 [@bs.this])</code></pre>
-<pre><span id="VALfn_method6"><span class="keyword">val</span> fn_method6</span> : <code class="type">('obj -> 'a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5) -><br>       ('obj -> 'a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 [@bs.this])</code></pre>
-<pre><span id="VALfn_method7"><span class="keyword">val</span> fn_method7</span> : <code class="type">('obj -> 'a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6) -><br>       ('obj -> 'a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 [@bs.this])</code></pre>
-<pre><span id="VALfn_method8"><span class="keyword">val</span> fn_method8</span> : <code class="type">('obj -> 'a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 -> 'a7) -><br>       ('obj -> 'a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 -> 'a7 [@bs.this])</code></pre>
-<pre><span id="VALfn_method9"><span class="keyword">val</span> fn_method9</span> : <code class="type">('obj -> 'a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 -> 'a7 -> 'a8) -><br>       ('obj -> 'a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 -> 'a7 -> 'a8<br>       [@bs.this])</code></pre>
-<pre><span id="VALfn_method10"><span class="keyword">val</span> fn_method10</span> : <code class="type">('obj -> 'a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 -> 'a7 -> 'a8 -> 'a9) -><br>       ('obj -> 'a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 -> 'a7 -> 'a8 -> 'a9<br>       [@bs.this])</code></pre>
-<pre><span id="VALfn_run0"><span class="keyword">val</span> fn_run0</span> : <code class="type">(unit -> 'a0 [@bs]) -> 'a0</code></pre>
-<pre><span id="VALfn_run1"><span class="keyword">val</span> fn_run1</span> : <code class="type">('a0 -> 'a1 [@bs]) -> 'a0 -> 'a1</code></pre>
-<pre><span id="VALfn_run2"><span class="keyword">val</span> fn_run2</span> : <code class="type">('a0 -> 'a1 -> 'a2 [@bs]) -> 'a0 -> 'a1 -> 'a2</code></pre>
-<pre><span id="VALfn_run3"><span class="keyword">val</span> fn_run3</span> : <code class="type">('a0 -> 'a1 -> 'a2 -> 'a3 [@bs]) -> 'a0 -> 'a1 -> 'a2 -> 'a3</code></pre>
-<pre><span id="VALfn_run4"><span class="keyword">val</span> fn_run4</span> : <code class="type">('a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 [@bs]) -> 'a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4</code></pre>
-<pre><span id="VALfn_run5"><span class="keyword">val</span> fn_run5</span> : <code class="type">('a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 [@bs]) -><br>       'a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5</code></pre>
-<pre><span id="VALfn_run6"><span class="keyword">val</span> fn_run6</span> : <code class="type">('a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 [@bs]) -><br>       'a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6</code></pre>
-<pre><span id="VALfn_run7"><span class="keyword">val</span> fn_run7</span> : <code class="type">('a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 -> 'a7 [@bs]) -><br>       'a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 -> 'a7</code></pre>
-<pre><span id="VALfn_run8"><span class="keyword">val</span> fn_run8</span> : <code class="type">('a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 -> 'a7 -> 'a8 [@bs]) -><br>       'a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 -> 'a7 -> 'a8</code></pre>
-<pre><span id="VALfn_run9"><span class="keyword">val</span> fn_run9</span> : <code class="type">('a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 -> 'a7 -> 'a8 -> 'a9 [@bs]) -><br>       'a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 -> 'a7 -> 'a8 -> 'a9</code></pre>
-<pre><span id="VALmethod_run0"><span class="keyword">val</span> method_run0</span> : <code class="type">(unit -> 'a0 [@bs.meth]) -> 'a0</code></pre>
-<pre><span id="VALmethod_run1"><span class="keyword">val</span> method_run1</span> : <code class="type">('a0 -> 'a1 [@bs.meth]) -> 'a0 -> 'a1</code></pre>
-<pre><span id="VALmethod_run2"><span class="keyword">val</span> method_run2</span> : <code class="type">('a0 -> 'a1 -> 'a2 [@bs.meth]) -> 'a0 -> 'a1 -> 'a2</code></pre>
-<pre><span id="VALmethod_run3"><span class="keyword">val</span> method_run3</span> : <code class="type">('a0 -> 'a1 -> 'a2 -> 'a3 [@bs.meth]) -> 'a0 -> 'a1 -> 'a2 -> 'a3</code></pre>
-<pre><span id="VALmethod_run4"><span class="keyword">val</span> method_run4</span> : <code class="type">('a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 [@bs.meth]) -><br>       'a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4</code></pre>
-<pre><span id="VALmethod_run5"><span class="keyword">val</span> method_run5</span> : <code class="type">('a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 [@bs.meth]) -><br>       'a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5</code></pre>
-<pre><span id="VALmethod_run6"><span class="keyword">val</span> method_run6</span> : <code class="type">('a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 [@bs.meth]) -><br>       'a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6</code></pre>
-<pre><span id="VALmethod_run7"><span class="keyword">val</span> method_run7</span> : <code class="type">('a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 -> 'a7 [@bs.meth]) -><br>       'a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 -> 'a7</code></pre>
-<pre><span id="VALmethod_run8"><span class="keyword">val</span> method_run8</span> : <code class="type">('a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 -> 'a7 -> 'a8 [@bs.meth]) -><br>       'a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 -> 'a7 -> 'a8</code></pre>
-<pre><span id="VALmethod_run9"><span class="keyword">val</span> method_run9</span> : <code class="type">('a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 -> 'a7 -> 'a8 -> 'a9<br>       [@bs.meth]) -><br>       'a0 -> 'a1 -> 'a2 -> 'a3 -> 'a4 -> 'a5 -> 'a6 -> 'a7 -> 'a8 -> 'a9</code></pre></body></html>
+<div class='doc-item'><h4 class='item'>let <a href="#value-debugger" id="value-debugger">debugger</a>: unit => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-raw_expr" id="value-raw_expr">raw_expr</a>: string => 'a</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-raw_stmt" id="value-raw_stmt">raw_stmt</a>: string => 'a</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-unsafe_downgrade" id="value-unsafe_downgrade">unsafe_downgrade</a>: <a href="Js.html">Js</a>.<a href="Js.html#type-t">t</a>('a) => 'a</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_mk0" id="value-fn_mk0">fn_mk0</a>: unit => 'a0 => <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_0 ], 'a0)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_mk1" id="value-fn_mk1">fn_mk1</a>: 'a0 => 'a1 => <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_1 of 'a035 ], 'a1)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_mk2" id="value-fn_mk2">fn_mk2</a>: ('a0, 'a1) => 'a2 => <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>(
+  [ `Arity_2 of 'a034 * 'a141 ],
+  'a2
+)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_mk3" id="value-fn_mk3">fn_mk3</a>: ('a0, 'a1, 'a2) => 'a3 => <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>(
+  [ `Arity_3 of 'a033 * 'a140 * 'a236 ],
+  'a3
+)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_mk4" id="value-fn_mk4">fn_mk4</a>: ('a0, 'a1, 'a2, 'a3) => 'a4 => <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>(
+  [ `Arity_4 of 'a032 * 'a139 * 'a235 * 'a323 ],
+  'a4
+)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_mk5" id="value-fn_mk5">fn_mk5</a>: ('a0, 'a1, 'a2, 'a3, 'a4) => 'a5 => <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>(
+  [ `Arity_5 of 'a031 * 'a138 * 'a234 * 'a322 * 'a419 ],
+  'a5
+)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_mk6" id="value-fn_mk6">fn_mk6</a>: ('a0, 'a1, 'a2, 'a3, 'a4, 'a5) => 'a6 => <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>(
+  [ `Arity_6 of 'a030 * 'a137 * 'a233 * 'a321 * 'a418 * 'a515 ],
+  'a6
+)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_mk7" id="value-fn_mk7">fn_mk7</a>: (
+  'a0,
+  'a1,
+  'a2,
+  'a3,
+  'a4,
+  'a5,
+  'a6
+) => 'a7 => <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>(
+  [ `Arity_7 of 'a029 * 'a136 * 'a232 * 'a320 * 'a417 * 'a514 * 'a611 ],
+  'a7
+)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_mk8" id="value-fn_mk8">fn_mk8</a>: (
+  'a0,
+  'a1,
+  'a2,
+  'a3,
+  'a4,
+  'a5,
+  'a6,
+  'a7
+) => 'a8 => <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>(
+  [ `Arity_8 of 'a028 * 'a135 * 'a231 * 'a319 * 'a416 * 'a513 * 'a610 * 'a77 ],
+  'a8
+)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_mk9" id="value-fn_mk9">fn_mk9</a>: (
+  'a0,
+  'a1,
+  'a2,
+  'a3,
+  'a4,
+  'a5,
+  'a6,
+  'a7,
+  'a8
+) => 'a9 => <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>(
+  [ `Arity_9 of
+    'a027 * 'a134 * 'a230 * 'a318 * 'a415 * 'a512 * 'a69 * 'a76 * 'a83 ],
+  'a9
+)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_method1" id="value-fn_method1">fn_method1</a>: 'obj => 'a0 => <a href="Js.html#type-Internal.meth_callback" title="Js.Internal.meth_callback">meth_callback</a>(
+  [ `Arity_1 of 'obj8 ],
+  'a0
+)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_method2" id="value-fn_method2">fn_method2</a>: ('obj, 'a0) => 'a1 => <a href="Js.html#type-Internal.meth_callback" title="Js.Internal.meth_callback">meth_callback</a>(
+  [ `Arity_2 of 'obj7 * 'a026 ],
+  'a1
+)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_method3" id="value-fn_method3">fn_method3</a>: ('obj, 'a0, 'a1) => 'a2 => <a href="Js.html#type-Internal.meth_callback" title="Js.Internal.meth_callback">meth_callback</a>(
+  [ `Arity_3 of 'obj6 * 'a025 * 'a133 ],
+  'a2
+)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_method4" id="value-fn_method4">fn_method4</a>: (
+  'obj,
+  'a0,
+  'a1,
+  'a2
+) => 'a3 => <a href="Js.html#type-Internal.meth_callback" title="Js.Internal.meth_callback">meth_callback</a>(
+  [ `Arity_4 of 'obj5 * 'a024 * 'a132 * 'a229 ],
+  'a3
+)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_method5" id="value-fn_method5">fn_method5</a>: (
+  'obj,
+  'a0,
+  'a1,
+  'a2,
+  'a3
+) => 'a4 => <a href="Js.html#type-Internal.meth_callback" title="Js.Internal.meth_callback">meth_callback</a>(
+  [ `Arity_5 of 'obj4 * 'a023 * 'a131 * 'a228 * 'a317 ],
+  'a4
+)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_method6" id="value-fn_method6">fn_method6</a>: (
+  'obj,
+  'a0,
+  'a1,
+  'a2,
+  'a3,
+  'a4
+) => 'a5 => <a href="Js.html#type-Internal.meth_callback" title="Js.Internal.meth_callback">meth_callback</a>(
+  [ `Arity_6 of 'obj3 * 'a022 * 'a130 * 'a227 * 'a316 * 'a414 ],
+  'a5
+)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_method7" id="value-fn_method7">fn_method7</a>: (
+  'obj,
+  'a0,
+  'a1,
+  'a2,
+  'a3,
+  'a4,
+  'a5
+) => 'a6 => <a href="Js.html#type-Internal.meth_callback" title="Js.Internal.meth_callback">meth_callback</a>(
+  [ `Arity_7 of 'obj2 * 'a021 * 'a129 * 'a226 * 'a315 * 'a413 * 'a511 ],
+  'a6
+)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_method8" id="value-fn_method8">fn_method8</a>: (
+  'obj,
+  'a0,
+  'a1,
+  'a2,
+  'a3,
+  'a4,
+  'a5,
+  'a6
+) => 'a7 => <a href="Js.html#type-Internal.meth_callback" title="Js.Internal.meth_callback">meth_callback</a>(
+  [ `Arity_8 of 'obj1 * 'a020 * 'a128 * 'a225 * 'a314 * 'a412 * 'a510 * 'a68 ],
+  'a7
+)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_method9" id="value-fn_method9">fn_method9</a>: (
+  'obj,
+  'a0,
+  'a1,
+  'a2,
+  'a3,
+  'a4,
+  'a5,
+  'a6,
+  'a7
+) => 'a8 => <a href="Js.html#type-Internal.meth_callback" title="Js.Internal.meth_callback">meth_callback</a>(
+  [ `Arity_9 of
+    'obj0 * 'a019 * 'a127 * 'a224 * 'a313 * 'a411 * 'a59 * 'a67 * 'a75 ],
+  'a8
+)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_method10" id="value-fn_method10">fn_method10</a>: (
+  'obj,
+  'a0,
+  'a1,
+  'a2,
+  'a3,
+  'a4,
+  'a5,
+  'a6,
+  'a7,
+  'a8
+) => 'a9 => <a href="Js.html#type-Internal.meth_callback" title="Js.Internal.meth_callback">meth_callback</a>(
+  [ `Arity_10 of
+    'obj * 'a018 * 'a126 * 'a223 * 'a312 * 'a410 * 'a58 * 'a66 * 'a74 * 'a82 ],
+  'a9
+)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_run0" id="value-fn_run0">fn_run0</a>: <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_0 ], 'a0) => 'a0</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_run1" id="value-fn_run1">fn_run1</a>: (<a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_1 of 'a017 ], 'a1), 'a0) => 'a1</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_run2" id="value-fn_run2">fn_run2</a>: (
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of 'a016 * 'a125 ], 'a2),
+  'a0,
+  'a1
+) => 'a2</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_run3" id="value-fn_run3">fn_run3</a>: (
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_3 of 'a015 * 'a124 * 'a222 ], 'a3),
+  'a0,
+  'a1,
+  'a2
+) => 'a3</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_run4" id="value-fn_run4">fn_run4</a>: (
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_4 of 'a014 * 'a123 * 'a221 * 'a311 ], 'a4),
+  'a0,
+  'a1,
+  'a2,
+  'a3
+) => 'a4</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_run5" id="value-fn_run5">fn_run5</a>: (
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>(
+    [ `Arity_5 of 'a013 * 'a122 * 'a220 * 'a310 * 'a49 ],
+    'a5
+  ),
+  'a0,
+  'a1,
+  'a2,
+  'a3,
+  'a4
+) => 'a5</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_run6" id="value-fn_run6">fn_run6</a>: (
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>(
+    [ `Arity_6 of 'a012 * 'a121 * 'a219 * 'a39 * 'a48 * 'a57 ],
+    'a6
+  ),
+  'a0,
+  'a1,
+  'a2,
+  'a3,
+  'a4,
+  'a5
+) => 'a6</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_run7" id="value-fn_run7">fn_run7</a>: (
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>(
+    [ `Arity_7 of 'a011 * 'a120 * 'a218 * 'a38 * 'a47 * 'a56 * 'a65 ],
+    'a7
+  ),
+  'a0,
+  'a1,
+  'a2,
+  'a3,
+  'a4,
+  'a5,
+  'a6
+) => 'a7</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_run8" id="value-fn_run8">fn_run8</a>: (
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>(
+    [ `Arity_8 of 'a010 * 'a119 * 'a217 * 'a37 * 'a46 * 'a55 * 'a64 * 'a73 ],
+    'a8
+  ),
+  'a0,
+  'a1,
+  'a2,
+  'a3,
+  'a4,
+  'a5,
+  'a6,
+  'a7
+) => 'a8</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fn_run9" id="value-fn_run9">fn_run9</a>: (
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>(
+    [ `Arity_9 of 'a09 * 'a118 * 'a216 * 'a36 * 'a45 * 'a54 * 'a63 * 'a72 * 'a81 ],
+    'a9
+  ),
+  'a0,
+  'a1,
+  'a2,
+  'a3,
+  'a4,
+  'a5,
+  'a6,
+  'a7,
+  'a8
+) => 'a9</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-method_run0" id="value-method_run0">method_run0</a>: <a href="Js.html#type-Internal.meth" title="Js.Internal.meth">meth</a>([ `Arity_0 ], 'a0) => 'a0</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-method_run1" id="value-method_run1">method_run1</a>: (
+  <a href="Js.html#type-Internal.meth" title="Js.Internal.meth">meth</a>([ `Arity_1 of 'a08 ], 'a1),
+  'a0
+) => 'a1</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-method_run2" id="value-method_run2">method_run2</a>: (
+  <a href="Js.html#type-Internal.meth" title="Js.Internal.meth">meth</a>([ `Arity_2 of 'a07 * 'a117 ], 'a2),
+  'a0,
+  'a1
+) => 'a2</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-method_run3" id="value-method_run3">method_run3</a>: (
+  <a href="Js.html#type-Internal.meth" title="Js.Internal.meth">meth</a>([ `Arity_3 of 'a06 * 'a116 * 'a215 ], 'a3),
+  'a0,
+  'a1,
+  'a2
+) => 'a3</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-method_run4" id="value-method_run4">method_run4</a>: (
+  <a href="Js.html#type-Internal.meth" title="Js.Internal.meth">meth</a>([ `Arity_4 of 'a05 * 'a115 * 'a214 * 'a35 ], 'a4),
+  'a0,
+  'a1,
+  'a2,
+  'a3
+) => 'a4</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-method_run5" id="value-method_run5">method_run5</a>: (
+  <a href="Js.html#type-Internal.meth" title="Js.Internal.meth">meth</a>(
+    [ `Arity_5 of 'a04 * 'a114 * 'a213 * 'a34 * 'a44 ],
+    'a5
+  ),
+  'a0,
+  'a1,
+  'a2,
+  'a3,
+  'a4
+) => 'a5</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-method_run6" id="value-method_run6">method_run6</a>: (
+  <a href="Js.html#type-Internal.meth" title="Js.Internal.meth">meth</a>(
+    [ `Arity_6 of 'a03 * 'a113 * 'a212 * 'a33 * 'a43 * 'a53 ],
+    'a6
+  ),
+  'a0,
+  'a1,
+  'a2,
+  'a3,
+  'a4,
+  'a5
+) => 'a6</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-method_run7" id="value-method_run7">method_run7</a>: (
+  <a href="Js.html#type-Internal.meth" title="Js.Internal.meth">meth</a>(
+    [ `Arity_7 of 'a02 * 'a112 * 'a211 * 'a32 * 'a42 * 'a52 * 'a62 ],
+    'a7
+  ),
+  'a0,
+  'a1,
+  'a2,
+  'a3,
+  'a4,
+  'a5,
+  'a6
+) => 'a7</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-method_run8" id="value-method_run8">method_run8</a>: (
+  <a href="Js.html#type-Internal.meth" title="Js.Internal.meth">meth</a>(
+    [ `Arity_8 of 'a01 * 'a111 * 'a210 * 'a31 * 'a41 * 'a51 * 'a61 * 'a71 ],
+    'a8
+  ),
+  'a0,
+  'a1,
+  'a2,
+  'a3,
+  'a4,
+  'a5,
+  'a6,
+  'a7
+) => 'a8</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-method_run9" id="value-method_run9">method_run9</a>: (
+  <a href="Js.html#type-Internal.meth" title="Js.Internal.meth">meth</a>(
+    [ `Arity_9 of 'a00 * 'a110 * 'a29 * 'a30 * 'a40 * 'a50 * 'a60 * 'a70 * 'a80 ],
+    'a9
+  ),
+  'a0,
+  'a1,
+  'a2,
+  'a3,
+  'a4,
+  'a5,
+  'a6,
+  'a7,
+  'a8
+) => 'a9</h4>
+
+<div class='body body-empty'></div></div>
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

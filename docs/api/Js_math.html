@@ -1,646 +1,549 @@
+
+    
 <!doctype html>
-<html>
-<head>
-                 <link rel="stylesheet" href="../api_static/tomorrow-night.css">
-                 <link rel="stylesheet" href="../api_static/style.css" type="text/css">
-                 <script src="../api_static//highlight.pack.js"></script>
-                 <script src="../api_static//script.js"></script>
-                 <script>hljs.initHighlightingOnLoad();</script> 
-                 <meta charset="utf8">
-                 <link rel="previous" href="Js_mapperRt.html"><link rel="next" href="Js_nativeint.html">
-                 <title> Js_math </title></head> 
-               <body>
-<nav class="module-index"><ul><li><a href="Belt.html">Belt</a></li>
-<li><a href="Belt_Array.html">Belt_Array</a></li>
-<li><a href="Belt_HashMap.html">Belt_HashMap</a></li>
-<li><a href="Belt_HashMapInt.html">Belt_HashMapInt</a></li>
-<li><a href="Belt_HashMapString.html">Belt_HashMapString</a></li>
-<li><a href="Belt_HashSet.html">Belt_HashSet</a></li>
-<li><a href="Belt_HashSetInt.html">Belt_HashSetInt</a></li>
-<li><a href="Belt_HashSetString.html">Belt_HashSetString</a></li>
-<li><a href="Belt_Id.html">Belt_Id</a></li>
-<li><a href="Belt_List.html">Belt_List</a></li>
-<li><a href="Belt_Map.html">Belt_Map</a></li>
-<li><a href="Belt_MapDict.html">Belt_MapDict</a></li>
-<li><a href="Belt_MapInt.html">Belt_MapInt</a></li>
-<li><a href="Belt_MapString.html">Belt_MapString</a></li>
-<li><a href="Belt_MutableMap.html">Belt_MutableMap</a></li>
-<li><a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a></li>
-<li><a href="Belt_MutableMapString.html">Belt_MutableMapString</a></li>
-<li><a href="Belt_MutableQueue.html">Belt_MutableQueue</a></li>
-<li><a href="Belt_MutableSet.html">Belt_MutableSet</a></li>
-<li><a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a></li>
-<li><a href="Belt_MutableSetString.html">Belt_MutableSetString</a></li>
-<li><a href="Belt_MutableStack.html">Belt_MutableStack</a></li>
-<li><a href="Belt_Option.html">Belt_Option</a></li>
-<li><a href="Belt_Range.html">Belt_Range</a></li>
-<li><a href="Belt_Set.html">Belt_Set</a></li>
-<li><a href="Belt_SetDict.html">Belt_SetDict</a></li>
-<li><a href="Belt_SetInt.html">Belt_SetInt</a></li>
-<li><a href="Belt_SetString.html">Belt_SetString</a></li>
-<li><a href="Belt_SortArray.html">Belt_SortArray</a></li>
-<li><a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a></li>
-<li><a href="Belt_SortArrayString.html">Belt_SortArrayString</a></li>
-<li><a href="Belt_internalAVLset.html">Belt_internalAVLset</a></li>
-<li><a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a></li>
-<li><a href="Belt_internalBuckets.html">Belt_internalBuckets</a></li>
-<li><a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a></li>
-<li><a href="Belt_internalMapInt.html">Belt_internalMapInt</a></li>
-<li><a href="Belt_internalMapString.html">Belt_internalMapString</a></li>
-<li><a href="Belt_internalMutableAVLMap.html">Belt_internalMutableAVLMap</a></li>
-<li><a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a></li>
-<li><a href="Belt_internalSetInt.html">Belt_internalSetInt</a></li>
-<li><a href="Belt_internalSetString.html">Belt_internalSetString</a></li>
-<li><a href="Dom.html">Dom</a></li>
-<li><a href="Dom_storage.html">Dom_storage</a></li>
-<li><a href="Js.html">Js</a></li>
-<li><a href="Js_array.html">Js_array</a></li>
-<li><a href="Js_boolean.html">Js_boolean</a></li>
-<li><a href="Js_cast.html">Js_cast</a></li>
-<li><a href="Js_console.html">Js_console</a></li>
-<li><a href="Js_date.html">Js_date</a></li>
-<li><a href="Js_dict.html">Js_dict</a></li>
-<li><a href="Js_exn.html">Js_exn</a></li>
-<li><a href="Js_float.html">Js_float</a></li>
-<li><a href="Js_global.html">Js_global</a></li>
-<li><a href="Js_int.html">Js_int</a></li>
-<li><a href="Js_int64.html">Js_int64</a></li>
-<li><a href="Js_internal.html">Js_internal</a></li>
-<li><a href="Js_json.html">Js_json</a></li>
-<li><a href="Js_list.html">Js_list</a></li>
-<li><a href="Js_mapperRt.html">Js_mapperRt</a></li>
-<li><a href="Js_math.html">Js_math</a></li>
-<li><a href="Js_nativeint.html">Js_nativeint</a></li>
-<li><a href="Js_null.html">Js_null</a></li>
-<li><a href="Js_null_undefined.html">Js_null_undefined</a></li>
-<li><a href="Js_obj.html">Js_obj</a></li>
-<li><a href="Js_option.html">Js_option</a></li>
-<li><a href="Js_primitive.html">Js_primitive</a></li>
-<li><a href="Js_promise.html">Js_promise</a></li>
-<li><a href="Js_re.html">Js_re</a></li>
-<li><a href="Js_result.html">Js_result</a></li>
-<li><a href="Js_string.html">Js_string</a></li>
-<li><a href="Js_typed_array.html">Js_typed_array</a></li>
-<li><a href="Js_types.html">Js_types</a></li>
-<li><a href="Js_undefined.html">Js_undefined</a></li>
-<li><a href="Js_unsafe.html">Js_unsafe</a></li>
-<li><a href="Js_vector.html">Js_vector</a></li>
-<li><a href="Node.html">Node</a></li>
-<li><a href="Node_buffer.html">Node_buffer</a></li>
-<li><a href="Node_child_process.html">Node_child_process</a></li>
-<li><a href="Node_fs.html">Node_fs</a></li>
-<li><a href="Node_module.html">Node_module</a></li>
-<li><a href="Node_path.html">Node_path</a></li>
-<li><a href="Node_process.html">Node_process</a></li></ul></nav>
-<div class="navbar"><a class="pre" href="Js_mapperRt.html" title="Js_mapperRt">Previous</a>
-&nbsp;<a class="up" href="index.html" title="Index">Up</a>
-&nbsp;<a class="post" href="Js_nativeint.html" title="Js_nativeint">Next</a>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Js_math</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
 </div>
-<h1>Module <a href="type_Js_math.html">Js_math</a></h1>
 
-<pre><span class="keyword">module</span> Js_math: <code class="code">sig</code> <a href="Js_math.html">..</a> <code class="code">end</code></pre><div class="info module top">
-                    <div class="not-examples">
-                    JavaScript Math API<br>
- 
-                    </div>
-                    
-                    </div>
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#value-_E" class='level-0 value'>_E</a>
+<a href="#value-_LN2" class='level-0 value'>_LN2</a>
+<a href="#value-_LN10" class='level-0 value'>_LN10</a>
+<a href="#value-_LOG2E" class='level-0 value'>_LOG2E</a>
+<a href="#value-_LOG10E" class='level-0 value'>_LOG10E</a>
+<a href="#value-_PI" class='level-0 value'>_PI</a>
+<a href="#value-_SQRT1_2" class='level-0 value'>_SQRT1_2</a>
+<a href="#value-_SQRT2" class='level-0 value'>_SQRT2</a>
+<a href="#value-abs_int" class='level-0 value'>abs_int</a>
+<a href="#value-abs_float" class='level-0 value'>abs_float</a>
+<a href="#value-acos" class='level-0 value'>acos</a>
+<a href="#value-acosh" class='level-0 value'>acosh</a>
+<a href="#value-asin" class='level-0 value'>asin</a>
+<a href="#value-asinh" class='level-0 value'>asinh</a>
+<a href="#value-atan" class='level-0 value'>atan</a>
+<a href="#value-atanh" class='level-0 value'>atanh</a>
+<a href="#value-atan2" class='level-0 value'>atan2</a>
+<a href="#value-cbrt" class='level-0 value'>cbrt</a>
+<a href="#value-unsafe_ceil_int" class='level-0 value'>unsafe_ceil_int</a>
+<a href="#value-unsafe_ceil" class='level-0 value'>unsafe_ceil</a>
+<a href="#value-ceil_int" class='level-0 value'>ceil_int</a>
+<a href="#value-ceil" class='level-0 value'>ceil</a>
+<a href="#value-ceil_float" class='level-0 value'>ceil_float</a>
+<a href="#value-clz32" class='level-0 value'>clz32</a>
+<a href="#value-cos" class='level-0 value'>cos</a>
+<a href="#value-cosh" class='level-0 value'>cosh</a>
+<a href="#value-exp" class='level-0 value'>exp</a>
+<a href="#value-expm1" class='level-0 value'>expm1</a>
+<a href="#value-unsafe_floor_int" class='level-0 value'>unsafe_floor_int</a>
+<a href="#value-unsafe_floor" class='level-0 value'>unsafe_floor</a>
+<a href="#value-floor_int" class='level-0 value'>floor_int</a>
+<a href="#value-floor" class='level-0 value'>floor</a>
+<a href="#value-floor_float" class='level-0 value'>floor_float</a>
+<a href="#value-fround" class='level-0 value'>fround</a>
+<a href="#value-hypot" class='level-0 value'>hypot</a>
+<a href="#value-hypotMany" class='level-0 value'>hypotMany</a>
+<a href="#value-imul" class='level-0 value'>imul</a>
+<a href="#value-log" class='level-0 value'>log</a>
+<a href="#value-log1p" class='level-0 value'>log1p</a>
+<a href="#value-log10" class='level-0 value'>log10</a>
+<a href="#value-log2" class='level-0 value'>log2</a>
+<a href="#value-max_int" class='level-0 value'>max_int</a>
+<a href="#value-maxMany_int" class='level-0 value'>maxMany_int</a>
+<a href="#value-max_float" class='level-0 value'>max_float</a>
+<a href="#value-maxMany_float" class='level-0 value'>maxMany_float</a>
+<a href="#value-min_int" class='level-0 value'>min_int</a>
+<a href="#value-minMany_int" class='level-0 value'>minMany_int</a>
+<a href="#value-min_float" class='level-0 value'>min_float</a>
+<a href="#value-minMany_float" class='level-0 value'>minMany_float</a>
+<a href="#value-pow_int" class='level-0 value'>pow_int</a>
+<a href="#value-pow_float" class='level-0 value'>pow_float</a>
+<a href="#value-random" class='level-0 value'>random</a>
+<a href="#value-random_int" class='level-0 value'>random_int</a>
+<a href="#value-unsafe_round" class='level-0 value'>unsafe_round</a>
+<a href="#value-round" class='level-0 value'>round</a>
+<a href="#value-sign_int" class='level-0 value'>sign_int</a>
+<a href="#value-sign_float" class='level-0 value'>sign_float</a>
+<a href="#value-sin" class='level-0 value'>sin</a>
+<a href="#value-sinh" class='level-0 value'>sinh</a>
+<a href="#value-sqrt" class='level-0 value'>sqrt</a>
+<a href="#value-tan" class='level-0 value'>tan</a>
+<a href="#value-tanh" class='level-0 value'>tanh</a>
+<a href="#value-unsafe_trunc" class='level-0 value'>unsafe_trunc</a>
+<a href="#value-trunc" class='level-0 value'>trunc</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Js.html">Js</a>
+<a href="Arg.html">Arg</a>
+<a href="Array.html">Array</a>
+<a href="ArrayLabels.html">ArrayLabels</a>
+<a href="Bigarray.html">Bigarray</a>
+<a href="Buffer.html">Buffer</a>
+<a href="Bytes.html">Bytes</a>
+<a href="BytesLabels.html">BytesLabels</a>
+<a href="Callback.html">Callback</a>
+<a href="CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="CamlinternalMod.html">CamlinternalMod</a>
+<a href="CamlinternalOO.html">CamlinternalOO</a>
+<a href="Char.html">Char</a>
+<a href="Complex.html">Complex</a>
+<a href="Digest.html">Digest</a>
+<a href="Filename.html">Filename</a>
+<a href="Format.html">Format</a>
+<a href="Gc.html">Gc</a>
+<a href="Genlex.html">Genlex</a>
+<a href="Hashtbl.html">Hashtbl</a>
+<a href="Int32.html">Int32</a>
+<a href="Int64.html">Int64</a>
+<a href="Lazy.html">Lazy</a>
+<a href="Lexing.html">Lexing</a>
+<a href="List.html">List</a>
+<a href="ListLabels.html">ListLabels</a>
+<a href="Map.html">Map</a>
+<a href="Marshal.html">Marshal</a>
+<a href="MoreLabels.html">MoreLabels</a>
+<a href="Nativeint.html">Nativeint</a>
+<a href="Obj.html">Obj</a>
+<a href="Oo.html">Oo</a>
+<a href="Parsing.html">Parsing</a>
+<a href="Pervasives.html">Pervasives</a>
+<a href="Printexc.html">Printexc</a>
+<a href="Printf.html">Printf</a>
+<a href="Queue.html">Queue</a>
+<a href="Random.html">Random</a>
+<a href="Scanf.html">Scanf</a>
+<a href="Set.html">Set</a>
+<a href="Sort.html">Sort</a>
+<a href="Stack.html">Stack</a>
+<a href="Std_exit.html">Std_exit</a>
+<a href="StdLabels.html">StdLabels</a>
+<a href="Stream.html">Stream</a>
+<a href="String.html">String</a>
+<a href="StringLabels.html">StringLabels</a>
+<a href="Sys.html">Sys</a>
+<a href="Unix.html">Unix</a>
+<a href="UnixLabels.html">UnixLabels</a>
+<a href="Weak.html">Weak</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/others/js_math.ml" class="edit-link">Edit</a>
+    <p>JavaScript Math API</p>
+<p>other items defined</p><div class='doc-item'><h4 class='item'>let <a href="#value-_E" id="value-_E">_E</a>: float</h4>
 
-                  <hr width="100%">
+<div class='body '><p>Euler&#39;s number</p>
+</div></div>
 
-<pre><span id="VAL_E"><span class="keyword">val</span> _E</span> : <code class="type">float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    Euler's number<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-_LN2" id="value-_LN2">_LN2</a>: float</h4>
 
-                  
-<pre><span id="VAL_LN2"><span class="keyword">val</span> _LN2</span> : <code class="type">float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    natural logarithm of 2<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>natural logarithm of 2</p>
+</div></div>
 
-                  
-<pre><span id="VAL_LN10"><span class="keyword">val</span> _LN10</span> : <code class="type">float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    natural logarithm of 10<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-_LN10" id="value-_LN10">_LN10</a>: float</h4>
 
-                  
-<pre><span id="VAL_LOG2E"><span class="keyword">val</span> _LOG2E</span> : <code class="type">float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    base 2 logarithm of E<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>natural logarithm of 10</p>
+</div></div>
 
-                  
-<pre><span id="VAL_LOG10E"><span class="keyword">val</span> _LOG10E</span> : <code class="type">float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    base 10 logarithm of E<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-_LOG2E" id="value-_LOG2E">_LOG2E</a>: float</h4>
 
-                  
-<pre><span id="VAL_PI"><span class="keyword">val</span> _PI</span> : <code class="type">float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    Pi... (ratio of the circumference and diameter of a circle)<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>base 2 logarithm of E</p>
+</div></div>
 
-                  
-<pre><span id="VAL_SQRT1_2"><span class="keyword">val</span> _SQRT1_2</span> : <code class="type">float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    square root of 1/2<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-_LOG10E" id="value-_LOG10E">_LOG10E</a>: float</h4>
 
-                  
-<pre><span id="VAL_SQRT2"><span class="keyword">val</span> _SQRT2</span> : <code class="type">float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    square root of 2<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>base 10 logarithm of E</p>
+</div></div>
 
-                  
-<pre><span id="VALabs_int"><span class="keyword">val</span> abs_int</span> : <code class="type">int -> int</code></pre><div class="info ">
-                    <div class="not-examples">
-                    absolute value<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-_PI" id="value-_PI">_PI</a>: float</h4>
 
-                  
-<pre><span id="VALabs_float"><span class="keyword">val</span> abs_float</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    absolute value<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>Pi... (ratio of the circumference and diameter of a circle)</p>
+</div></div>
 
-                  
-<pre><span id="VALacos"><span class="keyword">val</span> acos</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    arccosine in radians, can return NaN<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-_SQRT1_2" id="value-_SQRT1_2">_SQRT1_2</a>: float</h4>
 
-                  
-<pre><span id="VALacosh"><span class="keyword">val</span> acosh</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    hyperbolic arccosine in raidans, can return NaN, ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>square root of 1/2</p>
+</div></div>
 
-                  
-<pre><span id="VALasin"><span class="keyword">val</span> asin</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    arcsine in radians, can return NaN<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-_SQRT2" id="value-_SQRT2">_SQRT2</a>: float</h4>
 
-                  
-<pre><span id="VALasinh"><span class="keyword">val</span> asinh</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    hyperbolic arcsine in raidans, ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>square root of 2</p>
+</div></div>
 
-                  
-<pre><span id="VALatan"><span class="keyword">val</span> atan</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    arctangent in radians<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-abs_int" id="value-abs_int">abs_int</a>: int => int</h4>
 
-                  
-<pre><span id="VALatanh"><span class="keyword">val</span> atanh</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    hyperbolic arctangent in radians, can return NaN, ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>absolute value</p>
+</div></div>
 
-                  
-<pre><span id="VALatan2"><span class="keyword">val</span> atan2</span> : <code class="type">y:float -> x:float -> unit -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    arctangent of the quotient of x and y, mostly... this one's a bit weird<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-abs_float" id="value-abs_float">abs_float</a>: float => float</h4>
 
-                  
-<pre><span id="VALcbrt"><span class="keyword">val</span> cbrt</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    cube root, can return NaN, ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>absolute value</p>
+</div></div>
 
-                  
-<pre><span id="VALunsafe_ceil_int"><span class="keyword">val</span> unsafe_ceil_int</span> : <code class="type">float -> int</code></pre><div class="info ">
-                    <div class="not-examples">
-                    may return values not representable by <code class="code">int</code><br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-acos" id="value-acos">acos</a>: float => float</h4>
 
-                  
-<pre><span id="VALunsafe_ceil"><span class="keyword">val</span> unsafe_ceil</span> : <code class="type">float -> int</code></pre>
-<pre><span id="VALceil_int"><span class="keyword">val</span> ceil_int</span> : <code class="type">float -> int</code></pre><div class="info ">
-                    <div class="not-examples">
-                    smallest int greater than or equal to the argument<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>arccosine in radians, can return NaN</p>
+</div></div>
 
-                  
-<pre><span id="VALceil"><span class="keyword">val</span> ceil</span> : <code class="type">float -> int</code></pre>
-<pre><span id="VALceil_float"><span class="keyword">val</span> ceil_float</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    smallest int greater than or equal to the argument<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-acosh" id="value-acosh">acosh</a>: float => float</h4>
 
-                  
-<pre><span id="VALclz32"><span class="keyword">val</span> clz32</span> : <code class="type">int -> int</code></pre><div class="info ">
-                    <div class="not-examples">
-                    number of leading zero bits of the argument's 32 bit int representation, ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>hyperbolic arccosine in raidans, can return NaN, ES2015</p>
+</div></div>
 
-                  
-<pre><span id="VALcos"><span class="keyword">val</span> cos</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    cosine in radians<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-asin" id="value-asin">asin</a>: float => float</h4>
 
-                  
-<pre><span id="VALcosh"><span class="keyword">val</span> cosh</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    hyperbolic cosine in radians, ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>arcsine in radians, can return NaN</p>
+</div></div>
 
-                  
-<pre><span id="VALexp"><span class="keyword">val</span> exp</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    natural exponentional<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-asinh" id="value-asinh">asinh</a>: float => float</h4>
 
-                  
-<pre><span id="VALexpm1"><span class="keyword">val</span> expm1</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    natural exponential minus 1, ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>hyperbolic arcsine in raidans, ES2015</p>
+</div></div>
 
-                  
-<pre><span id="VALunsafe_floor_int"><span class="keyword">val</span> unsafe_floor_int</span> : <code class="type">float -> int</code></pre><div class="info ">
-                    <div class="not-examples">
-                    may return values not representable by <code class="code">int</code><br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-atan" id="value-atan">atan</a>: float => float</h4>
 
-                  
-<pre><span id="VALunsafe_floor"><span class="keyword">val</span> unsafe_floor</span> : <code class="type">float -> int</code></pre>
-<pre><span id="VALfloor_int"><span class="keyword">val</span> floor_int</span> : <code class="type">float -> int</code></pre><div class="info ">
-                    <div class="not-examples">
-                    largest int greater than or equal to the arugment<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>arctangent in radians</p>
+</div></div>
 
-                  
-<pre><span id="VALfloor"><span class="keyword">val</span> floor</span> : <code class="type">float -> int</code></pre>
-<pre><span id="VALfloor_float"><span class="keyword">val</span> floor_float</span> : <code class="type">float -> float</code></pre>
-<pre><span id="VALfround"><span class="keyword">val</span> fround</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    round to nearest single precision float, ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-atanh" id="value-atanh">atanh</a>: float => float</h4>
 
-                  
-<pre><span id="VALhypot"><span class="keyword">val</span> hypot</span> : <code class="type">float -> float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    pythagorean equation, ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>hyperbolic arctangent in radians, can return NaN, ES2015</p>
+</div></div>
 
-                  
-<pre><span id="VALhypotMany"><span class="keyword">val</span> hypotMany</span> : <code class="type">float array -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    generalized pythagorean equation, ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-atan2" id="value-atan2">atan2</a>: (~y: float, ~x: float, unit) => float</h4>
 
-                  
-<pre><span id="VALimul"><span class="keyword">val</span> imul</span> : <code class="type">int -> int -> int</code></pre><div class="info ">
-                    <div class="not-examples">
-                    32-bit integer multiplication, ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>arctangent of the quotient of x and y, mostly... this one&#39;s a bit weird</p>
+</div></div>
 
-                  
-<pre><span id="VALlog"><span class="keyword">val</span> log</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    natural logarithm, can return NaN<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-cbrt" id="value-cbrt">cbrt</a>: float => float</h4>
 
-                  
-<pre><span id="VALlog1p"><span class="keyword">val</span> log1p</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    natural logarithm of 1 + the argument, can return NaN, ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>cube root, can return NaN, ES2015</p>
+</div></div>
 
-                  
-<pre><span id="VALlog10"><span class="keyword">val</span> log10</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    base 10 logarithm, can return NaN, ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-unsafe_ceil_int" id="value-unsafe_ceil_int">unsafe_ceil_int</a>: float => int</h4>
 
-                  
-<pre><span id="VALlog2"><span class="keyword">val</span> log2</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    base 2 logarithm, can return NaN, ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>may return values not representable by <code>int</code></p>
+</div></div>
 
-                  
-<pre><span id="VALmax_int"><span class="keyword">val</span> max_int</span> : <code class="type">int -> int -> int</code></pre><div class="info ">
-                    <div class="not-examples">
-                    max value<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-unsafe_ceil" id="value-unsafe_ceil">unsafe_ceil</a>: float => int</h4>
 
-                  
-<pre><span id="VALmaxMany_int"><span class="keyword">val</span> maxMany_int</span> : <code class="type">int array -> int</code></pre><div class="info ">
-                    <div class="not-examples">
-                    max value<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>smallest int greater than or equal to the argument</p>
+</div></div>
 
-                  
-<pre><span id="VALmax_float"><span class="keyword">val</span> max_float</span> : <code class="type">float -> float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    max value<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-ceil_int" id="value-ceil_int">ceil_int</a>: float => int</h4>
 
-                  
-<pre><span id="VALmaxMany_float"><span class="keyword">val</span> maxMany_float</span> : <code class="type">float array -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    max value<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>smallest int greater than or equal to the argument</p>
+</div></div>
 
-                  
-<pre><span id="VALmin_int"><span class="keyword">val</span> min_int</span> : <code class="type">int -> int -> int</code></pre><div class="info ">
-                    <div class="not-examples">
-                    min value<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-ceil" id="value-ceil">ceil</a>: float => int</h4>
 
-                  
-<pre><span id="VALminMany_int"><span class="keyword">val</span> minMany_int</span> : <code class="type">int array -> int</code></pre><div class="info ">
-                    <div class="not-examples">
-                    min value<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>smallest int greater than or equal to the argument</p>
+</div></div>
 
-                  
-<pre><span id="VALmin_float"><span class="keyword">val</span> min_float</span> : <code class="type">float -> float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    min value<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-ceil_float" id="value-ceil_float">ceil_float</a>: float => float</h4>
 
-                  
-<pre><span id="VALminMany_float"><span class="keyword">val</span> minMany_float</span> : <code class="type">float array -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    min value<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>smallest int greater than or equal to the argument</p>
+</div></div>
 
-                  
-<pre><span id="VALpow_int"><span class="keyword">val</span> pow_int</span> : <code class="type">base:int -> exp:int -> int</code></pre><div class="info ">
-                    <div class="not-examples">
-                    base to the power of the exponent<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-clz32" id="value-clz32">clz32</a>: int => int</h4>
 
-                  
-<pre><span id="VALpow_float"><span class="keyword">val</span> pow_float</span> : <code class="type">base:float -> exp:float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    base to the power of the exponent<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>number of leading zero bits of the argument&#39;s 32 bit int representation, ES2015</p>
+</div></div>
 
-                  
-<pre><span id="VALrandom"><span class="keyword">val</span> random</span> : <code class="type">unit -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    random number in [0,1)<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-cos" id="value-cos">cos</a>: float => float</h4>
 
-                  
-<pre><span id="VALrandom_int"><span class="keyword">val</span> random_int</span> : <code class="type">int -> int -> int</code></pre><div class="info ">
-                    <div class="not-examples">
-                    random number in [min,max)<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>cosine in radians</p>
+</div></div>
 
-                  
-<pre><span id="VALunsafe_round"><span class="keyword">val</span> unsafe_round</span> : <code class="type">float -> int</code></pre><div class="info ">
-                    <div class="not-examples">
-                    rounds to nearest integer, returns a value not representable as <code class="code">int</code> if NaN<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-cosh" id="value-cosh">cosh</a>: float => float</h4>
 
-                  
-<pre><span id="VALround"><span class="keyword">val</span> round</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    rounds to nearest integer<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>hyperbolic cosine in radians, ES2015</p>
+</div></div>
 
-                  
-<pre><span id="VALsign_int"><span class="keyword">val</span> sign_int</span> : <code class="type">int -> int</code></pre><div class="info ">
-                    <div class="not-examples">
-                    the sign of the argument, 1, -1 or 0, ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-exp" id="value-exp">exp</a>: float => float</h4>
 
-                  
-<pre><span id="VALsign_float"><span class="keyword">val</span> sign_float</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    the sign of the argument, 1, -1, 0, -0 or NaN, ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>natural exponentional</p>
+</div></div>
 
-                  
-<pre><span id="VALsin"><span class="keyword">val</span> sin</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    sine in radians<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-expm1" id="value-expm1">expm1</a>: float => float</h4>
 
-                  
-<pre><span id="VALsinh"><span class="keyword">val</span> sinh</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    hyperbolic sine in radians, ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>natural exponential minus 1, ES2015</p>
+</div></div>
 
-                  
-<pre><span id="VALsqrt"><span class="keyword">val</span> sqrt</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    square root, can return NaN<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-unsafe_floor_int" id="value-unsafe_floor_int">unsafe_floor_int</a>: float => int</h4>
 
-                  
-<pre><span id="VALtan"><span class="keyword">val</span> tan</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    tangent in radians<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>may return values not representable by <code>int</code></p>
+</div></div>
 
-                  
-<pre><span id="VALtanh"><span class="keyword">val</span> tanh</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    hyperbolic tangent in radians, ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-unsafe_floor" id="value-unsafe_floor">unsafe_floor</a>: float => int</h4>
 
-                  
-<pre><span id="VALunsafe_trunc"><span class="keyword">val</span> unsafe_trunc</span> : <code class="type">float -> int</code></pre><div class="info ">
-                    <div class="not-examples">
-                    truncate, ie. remove fractional digits, returns a value not representable as <code class="code">int</code> if NaN, ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>largest int greater than or equal to the arugment</p>
+</div></div>
 
-                  
-<pre><span id="VALtrunc"><span class="keyword">val</span> trunc</span> : <code class="type">float -> float</code></pre><div class="info ">
-                    <div class="not-examples">
-                    truncate, ie. remove fractional digits, returns a value not representable as <code class="code">int</code> if NaN, ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-floor_int" id="value-floor_int">floor_int</a>: float => int</h4>
 
-                  </body></html>
+<div class='body '><p>largest int greater than or equal to the arugment</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-floor" id="value-floor">floor</a>: float => int</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-floor_float" id="value-floor_float">floor_float</a>: float => float</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fround" id="value-fround">fround</a>: float => float</h4>
+
+<div class='body '><p>round to nearest single precision float, ES2015</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-hypot" id="value-hypot">hypot</a>: (float, float) => float</h4>
+
+<div class='body '><p>pythagorean equation, ES2015</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-hypotMany" id="value-hypotMany">hypotMany</a>: array(float) => float</h4>
+
+<div class='body '><p>generalized pythagorean equation, ES2015</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-imul" id="value-imul">imul</a>: (int, int) => int</h4>
+
+<div class='body '><p>32-bit integer multiplication, ES2015</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-log" id="value-log">log</a>: float => float</h4>
+
+<div class='body '><p>natural logarithm, can return NaN</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-log1p" id="value-log1p">log1p</a>: float => float</h4>
+
+<div class='body '><p>natural logarithm of 1 + the argument, can return NaN, ES2015</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-log10" id="value-log10">log10</a>: float => float</h4>
+
+<div class='body '><p>base 10 logarithm, can return NaN, ES2015</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-log2" id="value-log2">log2</a>: float => float</h4>
+
+<div class='body '><p>base 2 logarithm, can return NaN, ES2015</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-max_int" id="value-max_int">max_int</a>: (int, int) => int</h4>
+
+<div class='body '><p>max value</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-maxMany_int" id="value-maxMany_int">maxMany_int</a>: array(int) => int</h4>
+
+<div class='body '><p>max value</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-max_float" id="value-max_float">max_float</a>: (float, float) => float</h4>
+
+<div class='body '><p>max value</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-maxMany_float" id="value-maxMany_float">maxMany_float</a>: array(float) => float</h4>
+
+<div class='body '><p>max value</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-min_int" id="value-min_int">min_int</a>: (int, int) => int</h4>
+
+<div class='body '><p>min value</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-minMany_int" id="value-minMany_int">minMany_int</a>: array(int) => int</h4>
+
+<div class='body '><p>min value</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-min_float" id="value-min_float">min_float</a>: (float, float) => float</h4>
+
+<div class='body '><p>min value</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-minMany_float" id="value-minMany_float">minMany_float</a>: array(float) => float</h4>
+
+<div class='body '><p>min value</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pow_int" id="value-pow_int">pow_int</a>: (~base: int, ~exp: int) => int</h4>
+
+<div class='body '><p>base to the power of the exponent</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pow_float" id="value-pow_float">pow_float</a>: (~base: float, ~exp: float) => float</h4>
+
+<div class='body '><p>base to the power of the exponent</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-random" id="value-random">random</a>: unit => float</h4>
+
+<div class='body '><p>random number in [min,max)</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-random_int" id="value-random_int">random_int</a>: (int, int) => int</h4>
+
+<div class='body '><p>random number in [min,max)</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-unsafe_round" id="value-unsafe_round">unsafe_round</a>: float => int</h4>
+
+<div class='body '><p>rounds to nearest integer</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-round" id="value-round">round</a>: float => float</h4>
+
+<div class='body '><p>rounds to nearest integer</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sign_int" id="value-sign_int">sign_int</a>: int => int</h4>
+
+<div class='body '><p>the sign of the argument, 1, -1, 0, -0 or NaN, ES2015</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sign_float" id="value-sign_float">sign_float</a>: float => float</h4>
+
+<div class='body '><p>the sign of the argument, 1, -1, 0, -0 or NaN, ES2015</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sin" id="value-sin">sin</a>: float => float</h4>
+
+<div class='body '><p>sine in radians</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sinh" id="value-sinh">sinh</a>: float => float</h4>
+
+<div class='body '><p>hyperbolic sine in radians, ES2015</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sqrt" id="value-sqrt">sqrt</a>: float => float</h4>
+
+<div class='body '><p>square root, can return NaN</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-tan" id="value-tan">tan</a>: float => float</h4>
+
+<div class='body '><p>tangent in radians</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-tanh" id="value-tanh">tanh</a>: float => float</h4>
+
+<div class='body '><p>hyperbolic tangent in radians, ES2015</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-unsafe_trunc" id="value-unsafe_trunc">unsafe_trunc</a>: float => int</h4>
+
+<div class='body '><p>truncate, ie. remove fractional digits, returns a value not representable as <code>int</code> if NaN, ES2015</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-trunc" id="value-trunc">trunc</a>: float => float</h4>
+
+<div class='body '><p>truncate, ie. remove fractional digits, returns a value not representable as <code>int</code> if NaN, ES2015</p>
+</div></div>
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

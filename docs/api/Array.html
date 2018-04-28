@@ -1,0 +1,355 @@
+
+    
+<!doctype html>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Array</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
+</div>
+
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#value-length" class='level-0 value'>length</a>
+<a href="#value-get" class='level-0 value'>get</a>
+<a href="#value-set" class='level-0 value'>set</a>
+<a href="#value-make" class='level-0 value'>make</a>
+<a href="#value-create" class='level-0 value'>create</a>
+<a href="#value-init" class='level-0 value'>init</a>
+<a href="#value-make_matrix" class='level-0 value'>make_matrix</a>
+<a href="#value-create_matrix" class='level-0 value'>create_matrix</a>
+<a href="#value-append" class='level-0 value'>append</a>
+<a href="#value-concat" class='level-0 value'>concat</a>
+<a href="#value-sub" class='level-0 value'>sub</a>
+<a href="#value-copy" class='level-0 value'>copy</a>
+<a href="#value-fill" class='level-0 value'>fill</a>
+<a href="#value-blit" class='level-0 value'>blit</a>
+<a href="#value-to_list" class='level-0 value'>to_list</a>
+<a href="#value-of_list" class='level-0 value'>of_list</a>
+<a href="#value-iter" class='level-0 value'>iter</a>
+<a href="#value-map" class='level-0 value'>map</a>
+<a href="#value-iteri" class='level-0 value'>iteri</a>
+<a href="#value-mapi" class='level-0 value'>mapi</a>
+<a href="#value-fold_left" class='level-0 value'>fold_left</a>
+<a href="#value-fold_right" class='level-0 value'>fold_right</a>
+<a href="#value-make_float" class='level-0 value'>make_float</a>
+<a href="#value-sort" class='level-0 value'>sort</a>
+<a href="#value-stable_sort" class='level-0 value'>stable_sort</a>
+<a href="#value-fast_sort" class='level-0 value'>fast_sort</a>
+<a href="#value-unsafe_get" class='level-0 value'>unsafe_get</a>
+<a href="#value-unsafe_set" class='level-0 value'>unsafe_set</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Js.html">Js</a>
+<a href="Arg.html">Arg</a>
+<a href="Array.html">Array</a>
+<a href="ArrayLabels.html">ArrayLabels</a>
+<a href="Bigarray.html">Bigarray</a>
+<a href="Buffer.html">Buffer</a>
+<a href="Bytes.html">Bytes</a>
+<a href="BytesLabels.html">BytesLabels</a>
+<a href="Callback.html">Callback</a>
+<a href="CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="CamlinternalMod.html">CamlinternalMod</a>
+<a href="CamlinternalOO.html">CamlinternalOO</a>
+<a href="Char.html">Char</a>
+<a href="Complex.html">Complex</a>
+<a href="Digest.html">Digest</a>
+<a href="Filename.html">Filename</a>
+<a href="Format.html">Format</a>
+<a href="Gc.html">Gc</a>
+<a href="Genlex.html">Genlex</a>
+<a href="Hashtbl.html">Hashtbl</a>
+<a href="Int32.html">Int32</a>
+<a href="Int64.html">Int64</a>
+<a href="Lazy.html">Lazy</a>
+<a href="Lexing.html">Lexing</a>
+<a href="List.html">List</a>
+<a href="ListLabels.html">ListLabels</a>
+<a href="Map.html">Map</a>
+<a href="Marshal.html">Marshal</a>
+<a href="MoreLabels.html">MoreLabels</a>
+<a href="Nativeint.html">Nativeint</a>
+<a href="Obj.html">Obj</a>
+<a href="Oo.html">Oo</a>
+<a href="Parsing.html">Parsing</a>
+<a href="Pervasives.html">Pervasives</a>
+<a href="Printexc.html">Printexc</a>
+<a href="Printf.html">Printf</a>
+<a href="Queue.html">Queue</a>
+<a href="Random.html">Random</a>
+<a href="Scanf.html">Scanf</a>
+<a href="Set.html">Set</a>
+<a href="Sort.html">Sort</a>
+<a href="Stack.html">Stack</a>
+<a href="Std_exit.html">Std_exit</a>
+<a href="StdLabels.html">StdLabels</a>
+<a href="Stream.html">Stream</a>
+<a href="String.html">String</a>
+<a href="StringLabels.html">StringLabels</a>
+<a href="Sys.html">Sys</a>
+<a href="Unix.html">Unix</a>
+<a href="UnixLabels.html">UnixLabels</a>
+<a href="Weak.html">Weak</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/stdlib/array.ml" class="edit-link">Edit</a>
+    <p>Array operations.</p>
+<p>other items defined</p><div class='doc-item'><h4 class='item'>let <a href="#value-length" id="value-length">length</a>: array('a) => int</h4>
+
+<div class='body '><p>Return the length (number of elements) of the given array.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-get" id="value-get">get</a>: (array('a), int) => 'a</h4>
+
+<div class='body '><p><code>Array.get a n</code> returns the element number <code>n</code> of array <code>a</code>. The first element has number 0. The last element has number <code>Array.length a - 1</code>. You can also write <code>a.(n)</code> instead of <code>Array.get a n</code>.</p>
+<p>Raise <code>Invalid_argument &quot;index out of bounds&quot;</code> if <code>n</code> is outside the range 0 to <code>(Array.length a - 1)</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-set" id="value-set">set</a>: (array('a), int, 'a) => unit</h4>
+
+<div class='body '><p><code>Array.set a n x</code> modifies array <code>a</code> in place, replacing element number <code>n</code> with <code>x</code>. You can also write <code>a.(n) &lt;- x</code> instead of <code>Array.set a n x</code>.</p>
+<p>Raise <code>Invalid_argument &quot;index out of bounds&quot;</code> if <code>n</code> is outside the range 0 to <code>Array.length a - 1</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-make" id="value-make">make</a>: (int, 'a) => array('a)</h4>
+
+<div class='body '><p><code>Array.make n x</code> returns a fresh array of length <code>n</code>, initialized with <code>x</code>. All the elements of this new array are initially physically equal to <code>x</code> (in the sense of the <code>==</code> predicate). Consequently, if <code>x</code> is mutable, it is shared among all elements of the array, and modifying <code>x</code> through one of the array entries will modify all other entries at the same time.</p>
+<p>Raise <code>Invalid_argument</code> if <code>n &lt; 0</code> or <code>n &gt; Sys.max_array_length</code>. If the value of <code>x</code> is a floating-point number, then the maximum size is only <code>Sys.max_array_length / 2</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-create" id="value-create">create</a>: (int, 'a) => array('a)</h4>
+
+<div class='body '><p>Deprecated: <p><code>Array.create</code> is an alias for make.</p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-init" id="value-init">init</a>: (int, int => 'a) => array('a)</h4>
+
+<div class='body '><p><code>Array.init n f</code> returns a fresh array of length <code>n</code>, with element number <code>i</code> initialized to the result of <code>f i</code>. In other terms, <code>Array.init n f</code> tabulates the results of <code>f</code> applied to the integers <code>0</code> to <code>n-1</code>.</p>
+<p>Raise <code>Invalid_argument</code> if <code>n &lt; 0</code> or <code>n &gt; Sys.max_array_length</code>. If the return type of <code>f</code> is <code>float</code>, then the maximum size is only <code>Sys.max_array_length / 2</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-make_matrix" id="value-make_matrix">make_matrix</a>: (int, int, 'a) => array(array('a))</h4>
+
+<div class='body '><p><code>Array.make_matrix dimx dimy e</code> returns a two-dimensional array (an array of arrays) with first dimension <code>dimx</code> and second dimension <code>dimy</code>. All the elements of this new matrix are initially physically equal to <code>e</code>. The element (<code>x,y</code>) of a matrix <code>m</code> is accessed with the notation <code>m.(x).(y)</code>.</p>
+<p>Raise <code>Invalid_argument</code> if <code>dimx</code> or <code>dimy</code> is negative or greater than <code>Sys.max_array_length</code>. If the value of <code>e</code> is a floating-point number, then the maximum size is only <code>Sys.max_array_length / 2</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-create_matrix" id="value-create_matrix">create_matrix</a>: (int, int, 'a) => array(array('a))</h4>
+
+<div class='body '><p>Deprecated: <p><code>Array.create_matrix</code> is an alias for make_matrix.</p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-append" id="value-append">append</a>: (array('a), array('a)) => array('a)</h4>
+
+<div class='body '><p><code>Array.append v1 v2</code> returns a fresh array containing the concatenation of the arrays <code>v1</code> and <code>v2</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-concat" id="value-concat">concat</a>: list(array('a)) => array('a)</h4>
+
+<div class='body '><p>Same as <code>Array.append</code>, but concatenates a list of arrays.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sub" id="value-sub">sub</a>: (array('a), int, int) => array('a)</h4>
+
+<div class='body '><p><code>Array.sub a start len</code> returns a fresh array of length <code>len</code>, containing the elements number <code>start</code> to <code>start + len - 1</code> of array <code>a</code>.</p>
+<p>Raise <code>Invalid_argument &quot;Array.sub&quot;</code> if <code>start</code> and <code>len</code> do not designate a valid subarray of <code>a</code>; that is, if <code>start &lt; 0</code>, or <code>len &lt; 0</code>, or <code>start + len &gt; Array.length a</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-copy" id="value-copy">copy</a>: array('a) => array('a)</h4>
+
+<div class='body '><p><code>Array.copy a</code> returns a copy of <code>a</code>, that is, a fresh array containing the same elements as <code>a</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fill" id="value-fill">fill</a>: (array('a), int, int, 'a) => unit</h4>
+
+<div class='body '><p><code>Array.fill a ofs len x</code> modifies the array <code>a</code> in place, storing <code>x</code> in elements number <code>ofs</code> to <code>ofs + len - 1</code>.</p>
+<p>Raise <code>Invalid_argument &quot;Array.fill&quot;</code> if <code>ofs</code> and <code>len</code> do not designate a valid subarray of <code>a</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-blit" id="value-blit">blit</a>: (array('a), int, array('a), int, int) => unit</h4>
+
+<div class='body '><p><code>Array.blit v1 o1 v2 o2 len</code> copies <code>len</code> elements from array <code>v1</code>, starting at element number <code>o1</code>, to array <code>v2</code>, starting at element number <code>o2</code>. It works correctly even if <code>v1</code> and <code>v2</code> are the same array, and the source and destination chunks overlap.</p>
+<p>Raise <code>Invalid_argument &quot;Array.blit&quot;</code> if <code>o1</code> and <code>len</code> do not designate a valid subarray of <code>v1</code>, or if <code>o2</code> and <code>len</code> do not designate a valid subarray of <code>v2</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-to_list" id="value-to_list">to_list</a>: array('a) => list('a)</h4>
+
+<div class='body '><p><code>Array.to_list a</code> returns the list of all the elements of <code>a</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-of_list" id="value-of_list">of_list</a>: list('a) => array('a)</h4>
+
+<div class='body '><p><code>Array.of_list l</code> returns a fresh array containing the elements of <code>l</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-iter" id="value-iter">iter</a>: ('a => unit, array('a)) => unit</h4>
+
+<div class='body '><p><code>Array.iter f a</code> applies function <code>f</code> in turn to all the elements of <code>a</code>. It is equivalent to <code>f a.(0); f a.(1); ...; f a.(Array.length a - 1); ()</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-map" id="value-map">map</a>: ('a => 'b, array('a)) => array('b)</h4>
+
+<div class='body '><p><code>Array.map f a</code> applies function <code>f</code> to all the elements of <code>a</code>, and builds an array with the results returned by <code>f</code>: <code>[| f a.(0); f a.(1); ...; f a.(Array.length a - 1) |]</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-iteri" id="value-iteri">iteri</a>: ((int, 'a) => unit, array('a)) => unit</h4>
+
+<div class='body '><p>Same as iter, but the function is applied to the index of the element as first argument, and the element itself as second argument.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-mapi" id="value-mapi">mapi</a>: ((int, 'a) => 'b, array('a)) => array('b)</h4>
+
+<div class='body '><p>Same as map, but the function is applied to the index of the element as first argument, and the element itself as second argument.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fold_left" id="value-fold_left">fold_left</a>: (('a, 'b) => 'a, 'a, array('b)) => 'a</h4>
+
+<div class='body '><p><code>Array.fold_left f x a</code> computes <code>f (... (f (f x a.(0)) a.(1)) ...) a.(n-1)</code>, where <code>n</code> is the length of the array <code>a</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fold_right" id="value-fold_right">fold_right</a>: (('b, 'a) => 'a, array('b), 'a) => 'a</h4>
+
+<div class='body '><p><code>Array.fold_right f a x</code> computes <code>f a.(0) (f a.(1) ( ... (f a.(n-1) x) ...))</code>, where <code>n</code> is the length of the array <code>a</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-make_float" id="value-make_float">make_float</a>: int => array(float)</h4>
+
+<div class='body '><p><code>Array.make_float n</code> returns a fresh float array of length <code>n</code>, with uninitialized data.</p>
+Since: 4.02</div></div>
+
+<div class='doc-item'><h4 id="Sorting">Sorting</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sort" id="value-sort">sort</a>: (('a, 'a) => int, array('a)) => unit</h4>
+
+<div class='body '><p>Sort an array in increasing order according to a comparison function. The comparison function must return 0 if its arguments compare as equal, a positive integer if the first is greater, and a negative integer if the first is smaller (see below for a complete specification). For example, compare is a suitable comparison function, provided there are no floating-point NaN values in the data. After calling <code>Array.sort</code>, the array is sorted in place in increasing order. <code>Array.sort</code> is guaranteed to run in constant heap space and (at most) logarithmic stack space.</p>
+<p>The current implementation uses Heap Sort. It runs in constant stack space.</p>
+<p>Specification of the comparison function: Let <code>a</code> be the array and <code>cmp</code> the comparison function. The following must be true for all x, y, z in a :</p>
+<ul><li><p><code>cmp x y</code> &gt; 0 if and only if <code>cmp y x</code> &lt; 0</p>
+</li><li><p>if <code>cmp x y</code> &gt;= 0 and <code>cmp y z</code> &gt;= 0 then <code>cmp x z</code> &gt;= 0</p>
+</li></ul><p>When <code>Array.sort</code> returns, <code>a</code> contains the same elements as before, reordered in such a way that for all i and j valid indices of <code>a</code> :</p>
+<ul><li><p><code>cmp a.(i) a.(j)</code> &gt;= 0 if and only if i &gt;= j</p>
+</li></ul></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-stable_sort" id="value-stable_sort">stable_sort</a>: (('a, 'a) => int, array('a)) => unit</h4>
+
+<div class='body '><p>Same as sort, but the sorting algorithm is stable (i.e. elements that compare equal are kept in their original order) and not guaranteed to run in constant heap space.</p>
+<p>The current implementation uses Merge Sort. It uses <code>n/2</code> words of heap space, where <code>n</code> is the length of the array. It is usually faster than the current implementation of sort.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fast_sort" id="value-fast_sort">fast_sort</a>: (('a, 'a) => int, array('a)) => unit</h4>
+
+<div class='body '><p>Same as sort or stable_sort, whichever is faster on typical input.</p>
+</div></div>
+
+<div class='doc-item'><p>/*</p>
+</div>
+
+<div class='doc-item'><h4 id="Undocumented-functions">Undocumented functions</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-unsafe_get" id="value-unsafe_get">unsafe_get</a>: (array('a), int) => 'a</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-unsafe_set" id="value-unsafe_set">unsafe_set</a>: (array('a), int, 'a) => unit</h4>
+
+<div class='body body-empty'></div></div>
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

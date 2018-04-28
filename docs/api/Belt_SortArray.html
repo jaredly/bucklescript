@@ -1,209 +1,409 @@
+
+    
 <!doctype html>
-<html>
-<head>
-                 <link rel="stylesheet" href="../api_static/tomorrow-night.css">
-                 <link rel="stylesheet" href="../api_static/style.css" type="text/css">
-                 <script src="../api_static//highlight.pack.js"></script>
-                 <script src="../api_static//script.js"></script>
-                 <script>hljs.initHighlightingOnLoad();</script> 
-                 <meta charset="utf8">
-                 <link rel="previous" href="Belt_SetString.html"><link rel="next" href="Belt_SortArrayInt.html">
-                 <title> Belt_SortArray </title></head> 
-               <body>
-<nav class="module-index"><ul><li><a href="Belt.html">Belt</a></li>
-<li><a href="Belt_Array.html">Belt_Array</a></li>
-<li><a href="Belt_HashMap.html">Belt_HashMap</a></li>
-<li><a href="Belt_HashMapInt.html">Belt_HashMapInt</a></li>
-<li><a href="Belt_HashMapString.html">Belt_HashMapString</a></li>
-<li><a href="Belt_HashSet.html">Belt_HashSet</a></li>
-<li><a href="Belt_HashSetInt.html">Belt_HashSetInt</a></li>
-<li><a href="Belt_HashSetString.html">Belt_HashSetString</a></li>
-<li><a href="Belt_Id.html">Belt_Id</a></li>
-<li><a href="Belt_List.html">Belt_List</a></li>
-<li><a href="Belt_Map.html">Belt_Map</a></li>
-<li><a href="Belt_MapDict.html">Belt_MapDict</a></li>
-<li><a href="Belt_MapInt.html">Belt_MapInt</a></li>
-<li><a href="Belt_MapString.html">Belt_MapString</a></li>
-<li><a href="Belt_MutableMap.html">Belt_MutableMap</a></li>
-<li><a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a></li>
-<li><a href="Belt_MutableMapString.html">Belt_MutableMapString</a></li>
-<li><a href="Belt_MutableQueue.html">Belt_MutableQueue</a></li>
-<li><a href="Belt_MutableSet.html">Belt_MutableSet</a></li>
-<li><a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a></li>
-<li><a href="Belt_MutableSetString.html">Belt_MutableSetString</a></li>
-<li><a href="Belt_MutableStack.html">Belt_MutableStack</a></li>
-<li><a href="Belt_Option.html">Belt_Option</a></li>
-<li><a href="Belt_Range.html">Belt_Range</a></li>
-<li><a href="Belt_Set.html">Belt_Set</a></li>
-<li><a href="Belt_SetDict.html">Belt_SetDict</a></li>
-<li><a href="Belt_SetInt.html">Belt_SetInt</a></li>
-<li><a href="Belt_SetString.html">Belt_SetString</a></li>
-<li><a href="Belt_SortArray.html">Belt_SortArray</a></li>
-<li><a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a></li>
-<li><a href="Belt_SortArrayString.html">Belt_SortArrayString</a></li>
-<li><a href="Belt_internalAVLset.html">Belt_internalAVLset</a></li>
-<li><a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a></li>
-<li><a href="Belt_internalBuckets.html">Belt_internalBuckets</a></li>
-<li><a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a></li>
-<li><a href="Belt_internalMapInt.html">Belt_internalMapInt</a></li>
-<li><a href="Belt_internalMapString.html">Belt_internalMapString</a></li>
-<li><a href="Belt_internalMutableAVLMap.html">Belt_internalMutableAVLMap</a></li>
-<li><a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a></li>
-<li><a href="Belt_internalSetInt.html">Belt_internalSetInt</a></li>
-<li><a href="Belt_internalSetString.html">Belt_internalSetString</a></li>
-<li><a href="Dom.html">Dom</a></li>
-<li><a href="Dom_storage.html">Dom_storage</a></li>
-<li><a href="Js.html">Js</a></li>
-<li><a href="Js_array.html">Js_array</a></li>
-<li><a href="Js_boolean.html">Js_boolean</a></li>
-<li><a href="Js_cast.html">Js_cast</a></li>
-<li><a href="Js_console.html">Js_console</a></li>
-<li><a href="Js_date.html">Js_date</a></li>
-<li><a href="Js_dict.html">Js_dict</a></li>
-<li><a href="Js_exn.html">Js_exn</a></li>
-<li><a href="Js_float.html">Js_float</a></li>
-<li><a href="Js_global.html">Js_global</a></li>
-<li><a href="Js_int.html">Js_int</a></li>
-<li><a href="Js_int64.html">Js_int64</a></li>
-<li><a href="Js_internal.html">Js_internal</a></li>
-<li><a href="Js_json.html">Js_json</a></li>
-<li><a href="Js_list.html">Js_list</a></li>
-<li><a href="Js_mapperRt.html">Js_mapperRt</a></li>
-<li><a href="Js_math.html">Js_math</a></li>
-<li><a href="Js_nativeint.html">Js_nativeint</a></li>
-<li><a href="Js_null.html">Js_null</a></li>
-<li><a href="Js_null_undefined.html">Js_null_undefined</a></li>
-<li><a href="Js_obj.html">Js_obj</a></li>
-<li><a href="Js_option.html">Js_option</a></li>
-<li><a href="Js_primitive.html">Js_primitive</a></li>
-<li><a href="Js_promise.html">Js_promise</a></li>
-<li><a href="Js_re.html">Js_re</a></li>
-<li><a href="Js_result.html">Js_result</a></li>
-<li><a href="Js_string.html">Js_string</a></li>
-<li><a href="Js_typed_array.html">Js_typed_array</a></li>
-<li><a href="Js_types.html">Js_types</a></li>
-<li><a href="Js_undefined.html">Js_undefined</a></li>
-<li><a href="Js_unsafe.html">Js_unsafe</a></li>
-<li><a href="Js_vector.html">Js_vector</a></li>
-<li><a href="Node.html">Node</a></li>
-<li><a href="Node_buffer.html">Node_buffer</a></li>
-<li><a href="Node_child_process.html">Node_child_process</a></li>
-<li><a href="Node_fs.html">Node_fs</a></li>
-<li><a href="Node_module.html">Node_module</a></li>
-<li><a href="Node_path.html">Node_path</a></li>
-<li><a href="Node_process.html">Node_process</a></li></ul></nav>
-<div class="navbar"><a class="pre" href="Belt_SetString.html" title="Belt_SetString">Previous</a>
-&nbsp;<a class="up" href="index.html" title="Index">Up</a>
-&nbsp;<a class="post" href="Belt_SortArrayInt.html" title="Belt_SortArrayInt">Next</a>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Belt_SortArray</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
 </div>
-<h1>Module <a href="type_Belt_SortArray.html">Belt_SortArray</a></h1>
 
-<pre><span class="keyword">module</span> Belt_SortArray: <code class="code">sig</code> <a href="Belt_SortArray.html">..</a> <code class="code">end</code></pre><div class="info module top">
-                    <div class="not-examples">
-                    A module for Array sort relevant utiliites<br>
- 
-                    </div>
-                    
-                    </div>
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#module-Int" class='level-0 module'>Int</a>
+<a href="#module-String" class='level-0 module'>String</a>
+<a href="#value-strictlySortedLengthU" class='level-0 value'>strictlySortedLengthU</a>
+<a href="#value-strictlySortedLength" class='level-0 value'>strictlySortedLength</a>
+<a href="#value-isSortedU" class='level-0 value'>isSortedU</a>
+<a href="#value-isSorted" class='level-0 value'>isSorted</a>
+<a href="#value-stableSortInPlaceByU" class='level-0 value'>stableSortInPlaceByU</a>
+<a href="#value-stableSortInPlaceBy" class='level-0 value'>stableSortInPlaceBy</a>
+<a href="#value-stableSortByU" class='level-0 value'>stableSortByU</a>
+<a href="#value-stableSortBy" class='level-0 value'>stableSortBy</a>
+<a href="#value-binarySearchByU" class='level-0 value'>binarySearchByU</a>
+<a href="#value-binarySearchBy" class='level-0 value'>binarySearchBy</a>
+<a href="#value-unionU" class='level-0 value'>unionU</a>
+<a href="#value-union" class='level-0 value'>union</a>
+<a href="#value-intersectU" class='level-0 value'>intersectU</a>
+<a href="#value-intersect" class='level-0 value'>intersect</a>
+<a href="#value-diffU" class='level-0 value'>diffU</a>
+<a href="#value-diff" class='level-0 value'>diff</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Js.html">Js</a>
+<a href="Arg.html">Arg</a>
+<a href="Array.html">Array</a>
+<a href="ArrayLabels.html">ArrayLabels</a>
+<a href="Bigarray.html">Bigarray</a>
+<a href="Buffer.html">Buffer</a>
+<a href="Bytes.html">Bytes</a>
+<a href="BytesLabels.html">BytesLabels</a>
+<a href="Callback.html">Callback</a>
+<a href="CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="CamlinternalMod.html">CamlinternalMod</a>
+<a href="CamlinternalOO.html">CamlinternalOO</a>
+<a href="Char.html">Char</a>
+<a href="Complex.html">Complex</a>
+<a href="Digest.html">Digest</a>
+<a href="Filename.html">Filename</a>
+<a href="Format.html">Format</a>
+<a href="Gc.html">Gc</a>
+<a href="Genlex.html">Genlex</a>
+<a href="Hashtbl.html">Hashtbl</a>
+<a href="Int32.html">Int32</a>
+<a href="Int64.html">Int64</a>
+<a href="Lazy.html">Lazy</a>
+<a href="Lexing.html">Lexing</a>
+<a href="List.html">List</a>
+<a href="ListLabels.html">ListLabels</a>
+<a href="Map.html">Map</a>
+<a href="Marshal.html">Marshal</a>
+<a href="MoreLabels.html">MoreLabels</a>
+<a href="Nativeint.html">Nativeint</a>
+<a href="Obj.html">Obj</a>
+<a href="Oo.html">Oo</a>
+<a href="Parsing.html">Parsing</a>
+<a href="Pervasives.html">Pervasives</a>
+<a href="Printexc.html">Printexc</a>
+<a href="Printf.html">Printf</a>
+<a href="Queue.html">Queue</a>
+<a href="Random.html">Random</a>
+<a href="Scanf.html">Scanf</a>
+<a href="Set.html">Set</a>
+<a href="Sort.html">Sort</a>
+<a href="Stack.html">Stack</a>
+<a href="Std_exit.html">Std_exit</a>
+<a href="StdLabels.html">StdLabels</a>
+<a href="Stream.html">Stream</a>
+<a href="String.html">String</a>
+<a href="StringLabels.html">StringLabels</a>
+<a href="Sys.html">Sys</a>
+<a href="Unix.html">Unix</a>
+<a href="UnixLabels.html">UnixLabels</a>
+<a href="Weak.html">Weak</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/others/belt_SortArray.ml" class="edit-link">Edit</a>
+    <p>A module for Array sort relevant utiliites</p>
+<p>other items defined</p><div class='doc-item'><h4 class='item module'>module <a href="#module-Int" id="module-Int">Int</a> : <a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a></h4><div class='body module-body'><p>Specalized when key type is <code>int</code>, more efficient than the gerneic type</p>
+</div></div>
 
-                  <hr width="100%">
+<div class='doc-item'><h4 class='item module'>module <a href="#module-String" id="module-String">String</a> : <a href="Belt_SortArrayString.html">Belt_SortArrayString</a></h4><div class='body module-body'><p>Specalized when key type is <code>string</code>, more efficient than the gerneic type</p>
+</div></div>
 
-<pre><span class="keyword">module</span> <a href="Belt_SortArray.Int.html">Int</a>: <code class="type"><a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Specalized when key type is <code class="code">int</code>, more efficient
-    than the gerneic type<br>
- 
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Belt_SortArray.String.html">String</a>: <code class="type"><a href="Belt_SortArrayString.html">Belt_SortArrayString</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Specalized when key type is <code class="code">string</code>, more efficient
-    than the gerneic type<br>
- 
-                </div>
-                </div> 
-<pre><span id="VALstrictlySortedLengthU"><span class="keyword">val</span> strictlySortedLengthU</span> : <code class="type">'a array -> ('a -> 'a -> bool [@bs]) -> int</code></pre>
-<pre><span id="VALstrictlySortedLength"><span class="keyword">val</span> strictlySortedLength</span> : <code class="type">'a array -> ('a -> 'a -> bool) -> int</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">strictlySortedLenght xs cmp</code>
-  return <code class="code">+n</code> means increasing order
-  <code class="code">-n</code> means negative order<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">     strictlySortedLength [|1;2;3;4;3|] (fun x y -&gt; x &lt; y) = 4;;
-     strictlySortedLength [||] (fun x y -&gt; x &lt; y) = 0;;
-     strictlySortedLength [|1|] (fun x y -&gt; x &lt; y) = 1;;
-     strictlySortedLength [|4;3;2;1|] (fun x y -&gt; x &lt; y) = -4;;
-  </code></pre>  </pre>
-                    </div>
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-strictlySortedLengthU" id="value-strictlySortedLengthU">strictlySortedLengthU</a>: (
+  array('a),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of 'a119 * 'a119 ], bool)
+) => int</h4>
 
-                  
-<pre><span id="VALisSortedU"><span class="keyword">val</span> isSortedU</span> : <code class="type">'a array -> ('a -> 'a -> int [@bs]) -> bool</code></pre>
-<pre><span id="VALisSorted"><span class="keyword">val</span> isSorted</span> : <code class="type">'a array -> ('a -> 'a -> int) -> bool</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">isSorted arr cmp</code><br>
-<div class="tag"> <b>Returns</b> true if array is increasingly sorted (equal is okay )<br>
- </div> 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">     isSorted [|1;1;2;3;4|] (fun x y -&gt; compare x y)) = true
-   </code></pre>  </pre>
-                    </div>
-                    </div>
+<div class='body body-empty'></div></div>
 
-                  
-<pre><span id="VALstableSortInPlaceByU"><span class="keyword">val</span> stableSortInPlaceByU</span> : <code class="type">'a array -> ('a -> 'a -> int [@bs]) -> unit</code></pre>
-<pre><span id="VALstableSortInPlaceBy"><span class="keyword">val</span> stableSortInPlaceBy</span> : <code class="type">'a array -> ('a -> 'a -> int) -> unit</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">stableSortBy xs cmp</code>
-<p>
+<div class='doc-item'><h4 class='item'>let <a href="#value-strictlySortedLength" id="value-strictlySortedLength">strictlySortedLength</a>: (
+  array('a),
+  ('a, 'a) => bool
+) => int</h4>
 
-    Sort xs in place using comparator <code class="code">cmp</code>, the stable means if the elements
-    are equal, their order will be preserved<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p><code>strictlySortedLenght xs cmp</code> return <code>+n</code> means increasing order <code>-n</code> means negative order</p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='42' id='block-42'><code>strictlySortedLength [|1;2;3;4;3|] (fun x y -&gt; x &lt; y) = 4;;
+strictlySortedLength [||] (fun x y -&gt; x &lt; y) = 0;;
+strictlySortedLength [|1|] (fun x y -&gt; x &lt; y) = 1;;
+strictlySortedLength [|4;3;2;1|] (fun x y -&gt; x &lt; y) = -4;;</code></pre>
+  
+  <script type='docre-source' data-block-id="42">#open Belt_SortArray
+strictlySortedLength [|1;2;3;4;3|] (fun x y -> x < y) = 4;;
+strictlySortedLength [||] (fun x y -> x < y) = 0;;
+strictlySortedLength [|1|] (fun x y -> x < y) = 1;;
+strictlySortedLength [|4;3;2;1|] (fun x y -> x < y) = -4;;
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 0-20:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='42-alt' id='block-42-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></div></div>
 
-                  
-<pre><span id="VALstableSortByU"><span class="keyword">val</span> stableSortByU</span> : <code class="type">'a array -> ('a -> 'a -> int [@bs]) -> 'a array</code></pre>
-<pre><span id="VALstableSortBy"><span class="keyword">val</span> stableSortBy</span> : <code class="type">'a array -> ('a -> 'a -> int) -> 'a array</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">stableSort xs cmp</code><br>
-<div class="tag"> <b>Returns</b> a fresh array
-<p>
+<div class='doc-item'><h4 class='item'>let <a href="#value-isSortedU" id="value-isSortedU">isSortedU</a>: (
+  array('a),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of 'a118 * 'a118 ], int)
+) => bool</h4>
 
-    The same as <a href="Belt_SortArray.html#VALstableSortInPlaceBy"><code class="code">Belt_SortArray.stableSortInPlaceBy</code></a> except that <code class="code">xs</code> is  not modified<br>
- </div> 
-                    </div>
-                    
-                    </div>
+<div class='body body-empty'></div></div>
 
-                  
-<pre><span id="VALbinarySearchByU"><span class="keyword">val</span> binarySearchByU</span> : <code class="type">'a array -> 'a -> ('a -> 'a -> int [@bs]) -> int</code></pre>
-<pre><span id="VALbinarySearchBy"><span class="keyword">val</span> binarySearchBy</span> : <code class="type">'a array -> 'a -> ('a -> 'a -> int) -> int</code></pre><div class="info ">
-                    <div class="not-examples">
-                    If value is not found and value is less than one or more elements in array, 
-  the negative number returned is the bitwise complement of the index of the first element 
-  that is larger than value. 
-<p>
+<div class='doc-item'><h4 class='item'>let <a href="#value-isSorted" id="value-isSorted">isSorted</a>: (array('a), ('a, 'a) => int) => bool</h4>
 
-  If value is not found and value is greater than all elements in array,
-  the negative number returned is the bitwise complement of 
-  (the index of the last element plus 1)
-<p>
+<div class='body '><p><code>isSorted arr cmp</code></p>
+<p>Returns: <p>true if array is increasingly sorted (equal is okay )</p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='43' id='block-43'><code>isSorted [|1;1;2;3;4|] (fun x y -&gt; compare x y)) = true</code></pre>
+  
+  <script type='docre-source' data-block-id="43">#open Belt_SortArray
+isSorted [|1;1;2;3;4|] (fun x y -> compare x y)) = true
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 0-8:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='43-alt' id='block-43-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></p>
+</div></div>
 
-  for example, if <code class="code">key</code> is smaller than all elements return <code class="code">-1</code> since <code class="code">lnot (-1) = 0</code>
-  if <code class="code">key</code> is larger than all elements return <code class="code">- (len + 1)</code> since <code class="code">lnot (-(len+1)) = len</code><br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">     binarySearchBy [|1;2;3;4;33;35;36|] 33 = 4;;
-     lnot (binarySearchBy [|1;3;5;7|] 4) = 2;;
-   </code></pre>  </pre>
-                    </div>
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-stableSortInPlaceByU" id="value-stableSortInPlaceByU">stableSortInPlaceByU</a>: (
+  array('a),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of 'a117 * 'a117 ], int)
+) => unit</h4>
 
-                  </body></html>
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-stableSortInPlaceBy" id="value-stableSortInPlaceBy">stableSortInPlaceBy</a>: (
+  array('a),
+  ('a, 'a) => int
+) => unit</h4>
+
+<div class='body '><p><code>stableSortBy xs cmp</code></p>
+<p>Sort xs in place using comparator <code>cmp</code>, the stable means if the elements are equal, their order will be preserved</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-stableSortByU" id="value-stableSortByU">stableSortByU</a>: (
+  array('a),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of 'a116 * 'a116 ], int)
+) => array('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-stableSortBy" id="value-stableSortBy">stableSortBy</a>: (array('a), ('a, 'a) => int) => array('a)</h4>
+
+<div class='body '><p><code>stableSort xs cmp</code></p>
+<p>Returns: <p>a fresh array</p>
+<p>The same as stableSortInPlaceBy except that <code>xs</code> is not modified</p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-binarySearchByU" id="value-binarySearchByU">binarySearchByU</a>: (
+  array('a),
+  'a,
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of 'a115 * 'a115 ], int)
+) => int</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-binarySearchBy" id="value-binarySearchBy">binarySearchBy</a>: (array('a), 'a, ('a, 'a) => int) => int</h4>
+
+<div class='body '><p>If value is not found and value is less than one or more elements in array, the negative number returned is the bitwise complement of the index of the first element that is larger than value.</p>
+<p>If value is not found and value is greater than all elements in array, the negative number returned is the bitwise complement of (the index of the last element plus 1)</p>
+<p>for example, if <code>key</code> is smaller than all elements return <code>-1</code> since <code>lnot (-1) = 0</code> if <code>key</code> is larger than all elements return <code>- (len + 1)</code> since <code>lnot (-(len+1)) = len</code></p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='44' id='block-44'><code>binarySearchBy [|1;2;3;4;33;35;36|] 33 = 4;;
+lnot (binarySearchBy [|1;3;5;7|] 4) = 2;;</code></pre>
+  
+  <script type='docre-source' data-block-id="44">#open Belt_SortArray
+binarySearchBy [|1;2;3;4;33;35;36|] 33 = 4;;
+lnot (binarySearchBy [|1;3;5;7|] 4) = 2;;
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 0-14:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='44-alt' id='block-44-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-unionU" id="value-unionU">unionU</a>: (
+  array('a),
+  int,
+  int,
+  array('a),
+  int,
+  int,
+  array('a),
+  int,
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of 'a114 * 'a114 ], int)
+) => int</h4>
+
+<div class='body '><p>/*</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-union" id="value-union">union</a>: (
+  array('a),
+  int,
+  int,
+  array('a),
+  int,
+  int,
+  array('a),
+  int,
+  ('a, 'a) => int
+) => int</h4>
+
+<div class='body '><p><code>union src src1ofs src1len src2 src2ofs src2len dst dstofs cmp</code> assume <code>src</code> and <code>src2</code> is strictly sorted. for equivalent elements, it is picked from <code>src</code> also assume that <code>dst</code> is large enough to store all elements</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-intersectU" id="value-intersectU">intersectU</a>: (
+  array('a),
+  int,
+  int,
+  array('a),
+  int,
+  int,
+  array('a),
+  int,
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of 'a113 * 'a113 ], int)
+) => int</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-intersect" id="value-intersect">intersect</a>: (
+  array('a),
+  int,
+  int,
+  array('a),
+  int,
+  int,
+  array('a),
+  int,
+  ('a, 'a) => int
+) => int</h4>
+
+<div class='body '><p><code>union src src1ofs src1len src2 src2ofs src2len dst dstofs cmp</code> return the <code>offset</code> in the output array</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-diffU" id="value-diffU">diffU</a>: (
+  array('a),
+  int,
+  int,
+  array('a),
+  int,
+  int,
+  array('a),
+  int,
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of 'a112 * 'a112 ], int)
+) => int</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-diff" id="value-diff">diff</a>: (
+  array('a),
+  int,
+  int,
+  array('a),
+  int,
+  int,
+  array('a),
+  int,
+  ('a, 'a) => int
+) => int</h4>
+
+<div class='body '><p>/*</p>
+</div></div>
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

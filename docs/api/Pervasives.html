@@ -1,0 +1,1428 @@
+
+    
+<!doctype html>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Pervasives</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
+</div>
+
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#value-raise" class='level-0 value'>raise</a>
+<a href="#value-raise_notrace" class='level-0 value'>raise_notrace</a>
+<a href="#value-invalid_arg" class='level-0 value'>invalid_arg</a>
+<a href="#value-failwith" class='level-0 value'>failwith</a>
+<a href="#value-=" class='level-0 value'>=</a>
+<a href="#value-<>" class='level-0 value'><></a>
+<a href="#value-<" class='level-0 value'><</a>
+<a href="#value->" class='level-0 value'>></a>
+<a href="#value-<=" class='level-0 value'><=</a>
+<a href="#value->=" class='level-0 value'>>=</a>
+<a href="#value-compare" class='level-0 value'>compare</a>
+<a href="#value-min" class='level-0 value'>min</a>
+<a href="#value-max" class='level-0 value'>max</a>
+<a href="#value-==" class='level-0 value'>==</a>
+<a href="#value-!=" class='level-0 value'>!=</a>
+<a href="#value-not" class='level-0 value'>not</a>
+<a href="#value-&&" class='level-0 value'>&&</a>
+<a href="#value-&" class='level-0 value'>&</a>
+<a href="#value-||" class='level-0 value'>||</a>
+<a href="#value-or" class='level-0 value'>or</a>
+<a href="#value-__LOC__" class='level-0 value'>__LOC__</a>
+<a href="#value-__FILE__" class='level-0 value'>__FILE__</a>
+<a href="#value-__LINE__" class='level-0 value'>__LINE__</a>
+<a href="#value-__MODULE__" class='level-0 value'>__MODULE__</a>
+<a href="#value-__POS__" class='level-0 value'>__POS__</a>
+<a href="#value-__LOC_OF__" class='level-0 value'>__LOC_OF__</a>
+<a href="#value-__LINE_OF__" class='level-0 value'>__LINE_OF__</a>
+<a href="#value-__POS_OF__" class='level-0 value'>__POS_OF__</a>
+<a href="#value-|>" class='level-0 value'>|></a>
+<a href="#value-@@" class='level-0 value'>@@</a>
+<a href="#value-~-" class='level-0 value'>~-</a>
+<a href="#value-~+" class='level-0 value'>~+</a>
+<a href="#value-succ" class='level-0 value'>succ</a>
+<a href="#value-pred" class='level-0 value'>pred</a>
+<a href="#value-+" class='level-0 value'>+</a>
+<a href="#value--" class='level-0 value'>-</a>
+<a href="#value-*" class='level-0 value'>*</a>
+<a href="#value-/" class='level-0 value'>/</a>
+<a href="#value-mod" class='level-0 value'>mod</a>
+<a href="#value-abs" class='level-0 value'>abs</a>
+<a href="#value-max_int" class='level-0 value'>max_int</a>
+<a href="#value-min_int" class='level-0 value'>min_int</a>
+<a href="#value-land" class='level-0 value'>land</a>
+<a href="#value-lor" class='level-0 value'>lor</a>
+<a href="#value-lxor" class='level-0 value'>lxor</a>
+<a href="#value-lnot" class='level-0 value'>lnot</a>
+<a href="#value-lsl" class='level-0 value'>lsl</a>
+<a href="#value-lsr" class='level-0 value'>lsr</a>
+<a href="#value-asr" class='level-0 value'>asr</a>
+<a href="#value-~-." class='level-0 value'>~-.</a>
+<a href="#value-~+." class='level-0 value'>~+.</a>
+<a href="#value-+." class='level-0 value'>+.</a>
+<a href="#value--." class='level-0 value'>-.</a>
+<a href="#value-*." class='level-0 value'>*.</a>
+<a href="#value-/." class='level-0 value'>/.</a>
+<a href="#value-**" class='level-0 value'>**</a>
+<a href="#value-sqrt" class='level-0 value'>sqrt</a>
+<a href="#value-exp" class='level-0 value'>exp</a>
+<a href="#value-log" class='level-0 value'>log</a>
+<a href="#value-log10" class='level-0 value'>log10</a>
+<a href="#value-expm1" class='level-0 value'>expm1</a>
+<a href="#value-log1p" class='level-0 value'>log1p</a>
+<a href="#value-cos" class='level-0 value'>cos</a>
+<a href="#value-sin" class='level-0 value'>sin</a>
+<a href="#value-tan" class='level-0 value'>tan</a>
+<a href="#value-acos" class='level-0 value'>acos</a>
+<a href="#value-asin" class='level-0 value'>asin</a>
+<a href="#value-atan" class='level-0 value'>atan</a>
+<a href="#value-atan2" class='level-0 value'>atan2</a>
+<a href="#value-hypot" class='level-0 value'>hypot</a>
+<a href="#value-cosh" class='level-0 value'>cosh</a>
+<a href="#value-sinh" class='level-0 value'>sinh</a>
+<a href="#value-tanh" class='level-0 value'>tanh</a>
+<a href="#value-ceil" class='level-0 value'>ceil</a>
+<a href="#value-floor" class='level-0 value'>floor</a>
+<a href="#value-abs_float" class='level-0 value'>abs_float</a>
+<a href="#value-copysign" class='level-0 value'>copysign</a>
+<a href="#value-mod_float" class='level-0 value'>mod_float</a>
+<a href="#value-frexp" class='level-0 value'>frexp</a>
+<a href="#value-ldexp" class='level-0 value'>ldexp</a>
+<a href="#value-modf" class='level-0 value'>modf</a>
+<a href="#value-float" class='level-0 value'>float</a>
+<a href="#value-float_of_int" class='level-0 value'>float_of_int</a>
+<a href="#value-truncate" class='level-0 value'>truncate</a>
+<a href="#value-int_of_float" class='level-0 value'>int_of_float</a>
+<a href="#value-infinity" class='level-0 value'>infinity</a>
+<a href="#value-neg_infinity" class='level-0 value'>neg_infinity</a>
+<a href="#value-nan" class='level-0 value'>nan</a>
+<a href="#value-max_float" class='level-0 value'>max_float</a>
+<a href="#value-min_float" class='level-0 value'>min_float</a>
+<a href="#value-epsilon_float" class='level-0 value'>epsilon_float</a>
+<a href="#type-fpclass" class='level-0 type'>fpclass</a>
+<a href="#value-classify_float" class='level-0 value'>classify_float</a>
+<a href="#value-^" class='level-0 value'>^</a>
+<a href="#value-int_of_char" class='level-0 value'>int_of_char</a>
+<a href="#value-char_of_int" class='level-0 value'>char_of_int</a>
+<a href="#value-ignore" class='level-0 value'>ignore</a>
+<a href="#value-string_of_bool" class='level-0 value'>string_of_bool</a>
+<a href="#value-bool_of_string" class='level-0 value'>bool_of_string</a>
+<a href="#value-string_of_int" class='level-0 value'>string_of_int</a>
+<a href="#value-int_of_string" class='level-0 value'>int_of_string</a>
+<a href="#value-string_of_float" class='level-0 value'>string_of_float</a>
+<a href="#value-float_of_string" class='level-0 value'>float_of_string</a>
+<a href="#value-fst" class='level-0 value'>fst</a>
+<a href="#value-snd" class='level-0 value'>snd</a>
+<a href="#value-@" class='level-0 value'>@</a>
+<a href="#type-in_channel" class='level-0 type'>in_channel</a>
+<a href="#type-out_channel" class='level-0 type'>out_channel</a>
+<a href="#value-stdin" class='level-0 value'>stdin</a>
+<a href="#value-stdout" class='level-0 value'>stdout</a>
+<a href="#value-stderr" class='level-0 value'>stderr</a>
+<a href="#value-print_char" class='level-0 value'>print_char</a>
+<a href="#value-print_string" class='level-0 value'>print_string</a>
+<a href="#value-print_bytes" class='level-0 value'>print_bytes</a>
+<a href="#value-print_int" class='level-0 value'>print_int</a>
+<a href="#value-print_float" class='level-0 value'>print_float</a>
+<a href="#value-print_endline" class='level-0 value'>print_endline</a>
+<a href="#value-print_newline" class='level-0 value'>print_newline</a>
+<a href="#value-prerr_char" class='level-0 value'>prerr_char</a>
+<a href="#value-prerr_string" class='level-0 value'>prerr_string</a>
+<a href="#value-prerr_bytes" class='level-0 value'>prerr_bytes</a>
+<a href="#value-prerr_int" class='level-0 value'>prerr_int</a>
+<a href="#value-prerr_float" class='level-0 value'>prerr_float</a>
+<a href="#value-prerr_endline" class='level-0 value'>prerr_endline</a>
+<a href="#value-prerr_newline" class='level-0 value'>prerr_newline</a>
+<a href="#value-read_line" class='level-0 value'>read_line</a>
+<a href="#value-read_int" class='level-0 value'>read_int</a>
+<a href="#value-read_float" class='level-0 value'>read_float</a>
+<a href="#type-open_flag" class='level-0 type'>open_flag</a>
+<a href="#value-open_out" class='level-0 value'>open_out</a>
+<a href="#value-open_out_bin" class='level-0 value'>open_out_bin</a>
+<a href="#value-open_out_gen" class='level-0 value'>open_out_gen</a>
+<a href="#value-flush" class='level-0 value'>flush</a>
+<a href="#value-flush_all" class='level-0 value'>flush_all</a>
+<a href="#value-output_char" class='level-0 value'>output_char</a>
+<a href="#value-output_string" class='level-0 value'>output_string</a>
+<a href="#value-output_bytes" class='level-0 value'>output_bytes</a>
+<a href="#value-output" class='level-0 value'>output</a>
+<a href="#value-output_substring" class='level-0 value'>output_substring</a>
+<a href="#value-output_byte" class='level-0 value'>output_byte</a>
+<a href="#value-output_binary_int" class='level-0 value'>output_binary_int</a>
+<a href="#value-output_value" class='level-0 value'>output_value</a>
+<a href="#value-seek_out" class='level-0 value'>seek_out</a>
+<a href="#value-pos_out" class='level-0 value'>pos_out</a>
+<a href="#value-out_channel_length" class='level-0 value'>out_channel_length</a>
+<a href="#value-close_out" class='level-0 value'>close_out</a>
+<a href="#value-close_out_noerr" class='level-0 value'>close_out_noerr</a>
+<a href="#value-set_binary_mode_out" class='level-0 value'>set_binary_mode_out</a>
+<a href="#value-open_in" class='level-0 value'>open_in</a>
+<a href="#value-open_in_bin" class='level-0 value'>open_in_bin</a>
+<a href="#value-open_in_gen" class='level-0 value'>open_in_gen</a>
+<a href="#value-input_char" class='level-0 value'>input_char</a>
+<a href="#value-input_line" class='level-0 value'>input_line</a>
+<a href="#value-input" class='level-0 value'>input</a>
+<a href="#value-really_input" class='level-0 value'>really_input</a>
+<a href="#value-really_input_string" class='level-0 value'>really_input_string</a>
+<a href="#value-input_byte" class='level-0 value'>input_byte</a>
+<a href="#value-input_binary_int" class='level-0 value'>input_binary_int</a>
+<a href="#value-input_value" class='level-0 value'>input_value</a>
+<a href="#value-seek_in" class='level-0 value'>seek_in</a>
+<a href="#value-pos_in" class='level-0 value'>pos_in</a>
+<a href="#value-in_channel_length" class='level-0 value'>in_channel_length</a>
+<a href="#value-close_in" class='level-0 value'>close_in</a>
+<a href="#value-close_in_noerr" class='level-0 value'>close_in_noerr</a>
+<a href="#value-set_binary_mode_in" class='level-0 value'>set_binary_mode_in</a>
+<a href="#module-LargeFile" class='level-0 module'>LargeFile</a>
+<a href="#value-LargeFile.seek_out" class='level-1 value'>seek_out</a>
+<a href="#value-LargeFile.pos_out" class='level-1 value'>pos_out</a>
+<a href="#value-LargeFile.out_channel_length" class='level-1 value'>out_channel_length</a>
+<a href="#value-LargeFile.seek_in" class='level-1 value'>seek_in</a>
+<a href="#value-LargeFile.pos_in" class='level-1 value'>pos_in</a>
+<a href="#value-LargeFile.in_channel_length" class='level-1 value'>in_channel_length</a>
+<a href="#type-ref" class='level-0 type'>ref</a>
+<a href="#value-ref" class='level-0 value'>ref</a>
+<a href="#value-!" class='level-0 value'>!</a>
+<a href="#value-:=" class='level-0 value'>:=</a>
+<a href="#value-incr" class='level-0 value'>incr</a>
+<a href="#value-decr" class='level-0 value'>decr</a>
+<a href="#type-format6" class='level-0 type'>format6</a>
+<a href="#type-format4" class='level-0 type'>format4</a>
+<a href="#type-format" class='level-0 type'>format</a>
+<a href="#value-string_of_format" class='level-0 value'>string_of_format</a>
+<a href="#value-format_of_string" class='level-0 value'>format_of_string</a>
+<a href="#value-^^" class='level-0 value'>^^</a>
+<a href="#value-exit" class='level-0 value'>exit</a>
+<a href="#value-at_exit" class='level-0 value'>at_exit</a>
+<a href="#value-valid_float_lexem" class='level-0 value'>valid_float_lexem</a>
+<a href="#value-unsafe_really_input" class='level-0 value'>unsafe_really_input</a>
+<a href="#value-do_at_exit" class='level-0 value'>do_at_exit</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Js.html">Js</a>
+<a href="Arg.html">Arg</a>
+<a href="Array.html">Array</a>
+<a href="ArrayLabels.html">ArrayLabels</a>
+<a href="Bigarray.html">Bigarray</a>
+<a href="Buffer.html">Buffer</a>
+<a href="Bytes.html">Bytes</a>
+<a href="BytesLabels.html">BytesLabels</a>
+<a href="Callback.html">Callback</a>
+<a href="CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="CamlinternalMod.html">CamlinternalMod</a>
+<a href="CamlinternalOO.html">CamlinternalOO</a>
+<a href="Char.html">Char</a>
+<a href="Complex.html">Complex</a>
+<a href="Digest.html">Digest</a>
+<a href="Filename.html">Filename</a>
+<a href="Format.html">Format</a>
+<a href="Gc.html">Gc</a>
+<a href="Genlex.html">Genlex</a>
+<a href="Hashtbl.html">Hashtbl</a>
+<a href="Int32.html">Int32</a>
+<a href="Int64.html">Int64</a>
+<a href="Lazy.html">Lazy</a>
+<a href="Lexing.html">Lexing</a>
+<a href="List.html">List</a>
+<a href="ListLabels.html">ListLabels</a>
+<a href="Map.html">Map</a>
+<a href="Marshal.html">Marshal</a>
+<a href="MoreLabels.html">MoreLabels</a>
+<a href="Nativeint.html">Nativeint</a>
+<a href="Obj.html">Obj</a>
+<a href="Oo.html">Oo</a>
+<a href="Parsing.html">Parsing</a>
+<a href="Pervasives.html">Pervasives</a>
+<a href="Printexc.html">Printexc</a>
+<a href="Printf.html">Printf</a>
+<a href="Queue.html">Queue</a>
+<a href="Random.html">Random</a>
+<a href="Scanf.html">Scanf</a>
+<a href="Set.html">Set</a>
+<a href="Sort.html">Sort</a>
+<a href="Stack.html">Stack</a>
+<a href="Std_exit.html">Std_exit</a>
+<a href="StdLabels.html">StdLabels</a>
+<a href="Stream.html">Stream</a>
+<a href="String.html">String</a>
+<a href="StringLabels.html">StringLabels</a>
+<a href="Sys.html">Sys</a>
+<a href="Unix.html">Unix</a>
+<a href="UnixLabels.html">UnixLabels</a>
+<a href="Weak.html">Weak</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/stdlib/pervasives.ml" class="edit-link">Edit</a>
+    <p>The initially opened module.</p>
+<p>This module provides the basic operations over the built-in types (numbers, booleans, byte sequences, strings, exceptions, references, lists, arrays, input-output channels, ...).</p>
+<p>This module is automatically opened at the beginning of each compilation. All components of this module can therefore be referred by their short name, without prefixing them by <code>Pervasives</code>.</p>
+<p>other items defined</p><div class='doc-item'><h4 id="Exceptions">Exceptions</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-raise" id="value-raise">raise</a>: exn => 'a</h4>
+
+<div class='body '><p>Raise the given exception value</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-raise_notrace" id="value-raise_notrace">raise_notrace</a>: exn => 'a</h4>
+
+<div class='body '><p>A faster version <code>raise</code> which does not record the backtrace.</p>
+Since: 4.02.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-invalid_arg" id="value-invalid_arg">invalid_arg</a>: string => 'a</h4>
+
+<div class='body '><p>Raise exception <code>Invalid_argument</code> with the given string.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-failwith" id="value-failwith">failwith</a>: string => 'a</h4>
+
+<div class='body '><p>Raise exception <code>Failure</code> with the given string.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Comparisons">Comparisons</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-=" id="value-=">=</a>: ('a, 'a) => bool</h4>
+
+<div class='body '><p><code>e1 = e2</code> tests for structural equality of <code>e1</code> and <code>e2</code>. Mutable structures (e.g. references and arrays) are equal if and only if their current contents are structurally equal, even if the two mutable objects are not the same physical object. Equality between functional values raises <code>Invalid_argument</code>. Equality between cyclic data structures may not terminate.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-<>" id="value-<>"><></a>: ('a, 'a) => bool</h4>
+
+<div class='body '><p>Negation of ( = ).</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-<" id="value-<"><</a>: ('a, 'a) => bool</h4>
+
+<div class='body '><p>See ( &gt;= ).</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value->" id="value->">></a>: ('a, 'a) => bool</h4>
+
+<div class='body '><p>See ( &gt;= ).</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-<=" id="value-<="><=</a>: ('a, 'a) => bool</h4>
+
+<div class='body '><p>See ( &gt;= ).</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value->=" id="value->=">>=</a>: ('a, 'a) => bool</h4>
+
+<div class='body '><p>Structural ordering functions. These functions coincide with the usual orderings over integers, characters, strings, byte sequences and floating-point numbers, and extend them to a total ordering over all types. The ordering is compatible with <code>( = )</code>. As in the case of <code>( = )</code>, mutable structures are compared by contents. Comparison between functional values raises <code>Invalid_argument</code>. Comparison between cyclic structures may not terminate.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-compare" id="value-compare">compare</a>: ('a, 'a) => int</h4>
+
+<div class='body '><p><code>compare x y</code> returns <code>0</code> if <code>x</code> is equal to <code>y</code>, a negative integer if <code>x</code> is less than <code>y</code>, and a positive integer if <code>x</code> is greater than <code>y</code>. The ordering implemented by <code>compare</code> is compatible with the comparison predicates <code>=</code>, <code>&lt;</code> and <code>&gt;</code> defined above, with one difference on the treatment of the float value nan. Namely, the comparison predicates treat <code>nan</code> as different from any other float value, including itself; while <code>compare</code> treats <code>nan</code> as equal to itself and less than any other float value. This treatment of <code>nan</code> ensures that <code>compare</code> defines a total ordering relation.</p>
+<p><code>compare</code> applied to functional values may raise <code>Invalid_argument</code>. <code>compare</code> applied to cyclic structures may not terminate.</p>
+<p>The <code>compare</code> function can be used as the comparison function required by the Make and Make functors, as well as the sort and sort functions.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-min" id="value-min">min</a>: ('a, 'a) => 'a</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-max" id="value-max">max</a>: ('a, 'a) => 'a</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-==" id="value-==">==</a>: ('a, 'a) => bool</h4>
+
+<div class='body '><p><code>e1 == e2</code> tests for physical equality of <code>e1</code> and <code>e2</code>. On mutable types such as references, arrays, byte sequences, records with mutable fields and objects with mutable instance variables, <code>e1 == e2</code> is true if and only if physical modification of <code>e1</code> also affects <code>e2</code>. On non-mutable types, the behavior of <code>( == )</code> is implementation-dependent; however, it is guaranteed that <code>e1 == e2</code> implies <code>compare e1 e2 = 0</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-!=" id="value-!=">!=</a>: ('a, 'a) => bool</h4>
+
+<div class='body '><p>Negation of ( == ).</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Boolean-operations">Boolean operations</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-not" id="value-not">not</a>: bool => bool</h4>
+
+<div class='body '><p>The boolean negation.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-&&" id="value-&&">&&</a>: (bool, bool) => bool</h4>
+
+<div class='body '><p>The boolean &#39;and&#39;. Evaluation is sequential, left-to-right: in <code>e1 &amp;&amp; e2</code>, <code>e1</code> is evaluated first, and if it returns <code>false</code>, <code>e2</code> is not evaluated at all.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-&" id="value-&">&</a>: (bool, bool) => bool</h4>
+
+<div class='body '><p>Deprecated: <p>( &amp;&amp; ) should be used instead.</p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-||" id="value-||">||</a>: (bool, bool) => bool</h4>
+
+<div class='body '><p>The boolean &#39;or&#39;. Evaluation is sequential, left-to-right: in <code>e1 || e2</code>, <code>e1</code> is evaluated first, and if it returns <code>true</code>, <code>e2</code> is not evaluated at all.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-or" id="value-or">or</a>: (bool, bool) => bool</h4>
+
+<div class='body '><p>Deprecated: <p>( || ) should be used instead.</p></p>
+</div></div>
+
+<div class='doc-item'><h4 id="Debugging">Debugging</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-__LOC__" id="value-__LOC__">__LOC__</a>: string</h4>
+
+<div class='body '><p><code>__LOC__</code> returns the location at which this expression appears in the file currently being parsed by the compiler, with the standard error format of OCaml: &quot;File %S, line %d, characters %d-%d&quot;.</p>
+Since: 4.02.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-__FILE__" id="value-__FILE__">__FILE__</a>: string</h4>
+
+<div class='body '><p><code>__LOC__</code> returns the location at which this expression appears in the file currently being parsed by the compiler, with the standard error format of OCaml: &quot;File %S, line %d, characters %d-%d&quot;.</p>
+Since: 4.02.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-__LINE__" id="value-__LINE__">__LINE__</a>: int</h4>
+
+<div class='body '><p><code>__FILE__</code> returns the name of the file currently being parsed by the compiler.</p>
+Since: 4.02.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-__MODULE__" id="value-__MODULE__">__MODULE__</a>: string</h4>
+
+<div class='body '><p><code>__LINE__</code> returns the line number at which this expression appears in the file currently being parsed by the compiler.</p>
+Since: 4.02.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-__POS__" id="value-__POS__">__POS__</a>: (string, int, int, int)</h4>
+
+<div class='body '><p><code>__MODULE__</code> returns the module name of the file being parsed by the compiler.</p>
+Since: 4.02.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-__LOC_OF__" id="value-__LOC_OF__">__LOC_OF__</a>: 'a => (string, 'a)</h4>
+
+<div class='body '><p><code>__LOC_OF__ expr</code> returns a pair <code>(loc, expr)</code> where <code>loc</code> is the location of <code>expr</code> in the file currently being parsed by the compiler, with the standard error format of OCaml: &quot;File %S, line %d, characters %d-%d&quot;.</p>
+Since: 4.02.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-__LINE_OF__" id="value-__LINE_OF__">__LINE_OF__</a>: 'a => (int, 'a)</h4>
+
+<div class='body '><p><code>__LOC_OF__ expr</code> returns a pair <code>(loc, expr)</code> where <code>loc</code> is the location of <code>expr</code> in the file currently being parsed by the compiler, with the standard error format of OCaml: &quot;File %S, line %d, characters %d-%d&quot;.</p>
+Since: 4.02.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-__POS_OF__" id="value-__POS_OF__">__POS_OF__</a>: 'a => ((string, int, int, int), 'a)</h4>
+
+<div class='body '><p><code>__LINE__ expr</code> returns a pair <code>(line, expr)</code>, where <code>line</code> is the line number at which the expression <code>expr</code> appears in the file currently being parsed by the compiler.</p>
+Since: 4.02.0</div></div>
+
+<div class='doc-item'><h4 id="Composition-operators">Composition operators</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-|>" id="value-|>">|></a>: ('a, 'a => 'b) => 'b</h4>
+
+<div class='body '><p>Reverse-application operator: <code>x |&gt; f |&gt; g</code> is exactly equivalent to <code>g (f (x))</code>.</p>
+Since: 4.01</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-@@" id="value-@@">@@</a>: ('a => 'b, 'a) => 'b</h4>
+
+<div class='body '><p>Application operator: <code>g @@ f @@ x</code> is exactly equivalent to <code>g (f (x))</code>.</p>
+Since: 4.01</div></div>
+
+<div class='doc-item'><h4 id="Integer-arithmetic">Integer arithmetic</h4></div>
+
+<div class='doc-item'><p>Integers are 31 bits wide (or 63 bits on 64-bit processors). All operations are taken modulo 2Superscript (or 2Superscript). They do not fail on overflow.</p>
+</div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-~-" id="value-~-">~-</a>: int => int</h4>
+
+<div class='body '><p>Unary negation. You can also write <code>- e</code> instead of <code>~- e</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-~+" id="value-~+">~+</a>: int => int</h4>
+
+<div class='body '><p>Unary addition. You can also write <code>+ e</code> instead of <code>~+ e</code>.</p>
+Since: 3.12.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-succ" id="value-succ">succ</a>: int => int</h4>
+
+<div class='body '><p><code>succ x</code> is <code>x + 1</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pred" id="value-pred">pred</a>: int => int</h4>
+
+<div class='body '><p><code>pred x</code> is <code>x - 1</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-+" id="value-+">+</a>: (int, int) => int</h4>
+
+<div class='body '><p>Integer addition.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value--" id="value--">-</a>: (int, int) => int</h4>
+
+<div class='body '><p>Integer subtraction.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-*" id="value-*">*</a>: (int, int) => int</h4>
+
+<div class='body '><p>Integer multiplication.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-/" id="value-/">/</a>: (int, int) => int</h4>
+
+<div class='body '><p>Integer division. Raise <code>Division_by_zero</code> if the second argument is 0. Integer division rounds the real quotient of its arguments towards zero. More precisely, if <code>x &gt;= 0</code> and <code>y &gt; 0</code>, <code>x / y</code> is the greatest integer less than or equal to the real quotient of <code>x</code> by <code>y</code>. Moreover, <code>(- x) / y = x / (- y) = - (x / y)</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-mod" id="value-mod">mod</a>: (int, int) => int</h4>
+
+<div class='body '>failed to parse: File &quot;&quot;, line 2, characters 11-12:
+unpaired &#39;]&#39; (end of code)</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-abs" id="value-abs">abs</a>: int => int</h4>
+
+<div class='body '><p>Return the absolute value of the argument. Note that this may be negative if the argument is <code>min_int</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-max_int" id="value-max_int">max_int</a>: int</h4>
+
+<div class='body '><p>The greatest representable integer.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-min_int" id="value-min_int">min_int</a>: int</h4>
+
+<div class='body '><p>The smallest representable integer.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Bitwise-operations">Bitwise operations</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-land" id="value-land">land</a>: (int, int) => int</h4>
+
+<div class='body '><p>Bitwise logical and.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-lor" id="value-lor">lor</a>: (int, int) => int</h4>
+
+<div class='body '><p>Bitwise logical or.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-lxor" id="value-lxor">lxor</a>: (int, int) => int</h4>
+
+<div class='body '><p>Bitwise logical exclusive or.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-lnot" id="value-lnot">lnot</a>: int => int</h4>
+
+<div class='body '><p>Bitwise logical negation.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-lsl" id="value-lsl">lsl</a>: (int, int) => int</h4>
+
+<div class='body '><p><code>n lsl m</code> shifts <code>n</code> to the left by <code>m</code> bits. The result is unspecified if <code>m &lt; 0</code> or <code>m &gt;= bitsize</code>, where <code>bitsize</code> is <code>32</code> on a 32-bit platform and <code>64</code> on a 64-bit platform.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-lsr" id="value-lsr">lsr</a>: (int, int) => int</h4>
+
+<div class='body '><p><code>n lsr m</code> shifts <code>n</code> to the right by <code>m</code> bits. This is a logical shift: zeroes are inserted regardless of the sign of <code>n</code>. The result is unspecified if <code>m &lt; 0</code> or <code>m &gt;= bitsize</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-asr" id="value-asr">asr</a>: (int, int) => int</h4>
+
+<div class='body '><p><code>n asr m</code> shifts <code>n</code> to the right by <code>m</code> bits. This is an arithmetic shift: the sign bit of <code>n</code> is replicated. The result is unspecified if <code>m &lt; 0</code> or <code>m &gt;= bitsize</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Floating-point-arithmetic">Floating-point arithmetic</h4><p>OCaml&#39;s floating-point numbers follow the IEEE 754 standard, using double precision (64 bits) numbers. Floating-point operations never raise an exception on overflow, underflow, division by zero, etc. Instead, special IEEE numbers are returned as appropriate, such as <code>infinity</code> for <code>1.0 /. 0.0</code>, <code>neg_infinity</code> for <code>-1.0 /. 0.0</code>, and <code>nan</code> (&#39;not a number&#39;) for <code>0.0 /. 0.0</code>. These special numbers then propagate through floating-point computations as expected: for instance, <code>1.0 /. infinity</code> is <code>0.0</code>, and any arithmetic operation with <code>nan</code> as argument returns <code>nan</code> as result.</p>
+</div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-~-." id="value-~-.">~-.</a>: float => float</h4>
+
+<div class='body '><p>Unary negation. You can also write <code>-. e</code> instead of <code>~-. e</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-~+." id="value-~+.">~+.</a>: float => float</h4>
+
+<div class='body '><p>Unary addition. You can also write <code>+. e</code> instead of <code>~+. e</code>.</p>
+Since: 3.12.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-+." id="value-+.">+.</a>: (float, float) => float</h4>
+
+<div class='body '><p>Floating-point addition</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value--." id="value--.">-.</a>: (float, float) => float</h4>
+
+<div class='body '><p>Floating-point subtraction</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-*." id="value-*.">*.</a>: (float, float) => float</h4>
+
+<div class='body '><p>Floating-point multiplication</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-/." id="value-/.">/.</a>: (float, float) => float</h4>
+
+<div class='body '><p>Floating-point division.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-**" id="value-**">**</a>: (float, float) => float</h4>
+
+<div class='body '><p>Exponentiation.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sqrt" id="value-sqrt">sqrt</a>: float => float</h4>
+
+<div class='body '><p>Square root.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-exp" id="value-exp">exp</a>: float => float</h4>
+
+<div class='body '><p>Exponential.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-log" id="value-log">log</a>: float => float</h4>
+
+<div class='body '><p>Natural logarithm.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-log10" id="value-log10">log10</a>: float => float</h4>
+
+<div class='body '><p>Base 10 logarithm.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-expm1" id="value-expm1">expm1</a>: float => float</h4>
+
+<div class='body '><p><code>expm1 x</code> computes <code>exp x -. 1.0</code>, giving numerically-accurate results even if <code>x</code> is close to <code>0.0</code>.</p>
+Since: 3.12.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-log1p" id="value-log1p">log1p</a>: float => float</h4>
+
+<div class='body '><p><code>log1p x</code> computes <code>log(1.0 +. x)</code> (natural logarithm), giving numerically-accurate results even if <code>x</code> is close to <code>0.0</code>.</p>
+Since: 3.12.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-cos" id="value-cos">cos</a>: float => float</h4>
+
+<div class='body '><p>Cosine. Argument is in radians.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sin" id="value-sin">sin</a>: float => float</h4>
+
+<div class='body '><p>Sine. Argument is in radians.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-tan" id="value-tan">tan</a>: float => float</h4>
+
+<div class='body '><p>Tangent. Argument is in radians.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-acos" id="value-acos">acos</a>: float => float</h4>
+
+<div class='body '><p>Arc cosine. The argument must fall within the range <code>[-1.0, 1.0]</code>. Result is in radians and is between <code>0.0</code> and <code>pi</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-asin" id="value-asin">asin</a>: float => float</h4>
+
+<div class='body '><p>Arc sine. The argument must fall within the range <code>[-1.0, 1.0]</code>. Result is in radians and is between <code>-pi/2</code> and <code>pi/2</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-atan" id="value-atan">atan</a>: float => float</h4>
+
+<div class='body '><p>Arc tangent. Result is in radians and is between <code>-pi/2</code> and <code>pi/2</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-atan2" id="value-atan2">atan2</a>: (float, float) => float</h4>
+
+<div class='body '><p><code>atan2 y x</code> returns the arc tangent of <code>y /. x</code>. The signs of <code>x</code> and <code>y</code> are used to determine the quadrant of the result. Result is in radians and is between <code>-pi</code> and <code>pi</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-hypot" id="value-hypot">hypot</a>: (float, float) => float</h4>
+
+<div class='body '><p><code>hypot x y</code> returns <code>sqrt(x *. x + y *. y)</code>, that is, the length of the hypotenuse of a right-angled triangle with sides of length <code>x</code> and <code>y</code>, or, equivalently, the distance of the point <code>(x,y)</code> to origin.</p>
+Since: 4.00.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-cosh" id="value-cosh">cosh</a>: float => float</h4>
+
+<div class='body '><p>Hyperbolic cosine. Argument is in radians.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sinh" id="value-sinh">sinh</a>: float => float</h4>
+
+<div class='body '><p>Hyperbolic sine. Argument is in radians.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-tanh" id="value-tanh">tanh</a>: float => float</h4>
+
+<div class='body '><p>Hyperbolic tangent. Argument is in radians.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-ceil" id="value-ceil">ceil</a>: float => float</h4>
+
+<div class='body '><p>Round above to an integer value. <code>ceil f</code> returns the least integer value greater than or equal to <code>f</code>. The result is returned as a float.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-floor" id="value-floor">floor</a>: float => float</h4>
+
+<div class='body '><p>Round below to an integer value. <code>floor f</code> returns the greatest integer value less than or equal to <code>f</code>. The result is returned as a float.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-abs_float" id="value-abs_float">abs_float</a>: float => float</h4>
+
+<div class='body '><p><code>abs_float f</code> returns the absolute value of <code>f</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-copysign" id="value-copysign">copysign</a>: (float, float) => float</h4>
+
+<div class='body '><p><code>copysign x y</code> returns a float whose absolute value is that of <code>x</code> and whose sign is that of <code>y</code>. If <code>x</code> is <code>nan</code>, returns <code>nan</code>. If <code>y</code> is <code>nan</code>, returns either <code>x</code> or <code>-. x</code>, but it is not specified which.</p>
+Since: 4.00.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-mod_float" id="value-mod_float">mod_float</a>: (float, float) => float</h4>
+
+<div class='body '><p><code>mod_float a b</code> returns the remainder of <code>a</code> with respect to <code>b</code>. The returned value is <code>a -. n *. b</code>, where <code>n</code> is the quotient <code>a /. b</code> rounded towards zero to an integer.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-frexp" id="value-frexp">frexp</a>: float => (float, int)</h4>
+
+<div class='body '>failed to parse: File &quot;&quot;, line 4, characters 1-2:
+unpaired &#39;]&#39; (end of code)</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-ldexp" id="value-ldexp">ldexp</a>: (float, int) => float</h4>
+
+<div class='body '><p><code>ldexp x n</code> returns <code>x *. 2 ** n</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-modf" id="value-modf">modf</a>: float => (float, float)</h4>
+
+<div class='body '><p><code>modf f</code> returns the pair of the fractional and integral part of <code>f</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-float" id="value-float">float</a>: int => float</h4>
+
+<div class='body '><p>Same as float_of_int.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-float_of_int" id="value-float_of_int">float_of_int</a>: int => float</h4>
+
+<div class='body '><p>Convert an integer to floating-point.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-truncate" id="value-truncate">truncate</a>: float => int</h4>
+
+<div class='body '><p>Same as int_of_float.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-int_of_float" id="value-int_of_float">int_of_float</a>: float => int</h4>
+
+<div class='body '><p>Truncate the given floating-point number to an integer. The result is unspecified if the argument is <code>nan</code> or falls outside the range of representable integers.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-infinity" id="value-infinity">infinity</a>: float</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-neg_infinity" id="value-neg_infinity">neg_infinity</a>: float</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-nan" id="value-nan">nan</a>: float</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-max_float" id="value-max_float">max_float</a>: float</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-min_float" id="value-min_float">min_float</a>: float</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-epsilon_float" id="value-epsilon_float">epsilon_float</a>: float</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-fpclass" id="type-fpclass">fpclass</a> = 
+  | FP_normal
+  | FP_subnormal
+  | FP_zero
+  | FP_infinite
+  | FP_nan</h4>
+
+<div class='body '><p>The five classes of floating-point numbers, as determined by the classify_float function.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-classify_float" id="value-classify_float">classify_float</a>: float => <a href="#type-fpclass">fpclass</a></h4>
+
+<div class='body '><p>Return the class of the given floating-point number: normal, subnormal, zero, infinite, or not a number.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="String-operations">String operations</h4><p>More string operations are provided in module String.</p>
+</div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-^" id="value-^">^</a>: (string, string) => string</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><p>String concatenation.</p>
+</div>
+
+<div class='doc-item'><h4 id="Character-operations">Character operations</h4><p>More character operations are provided in module Char.</p>
+</div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-int_of_char" id="value-int_of_char">int_of_char</a>: char => int</h4>
+
+<div class='body '><p>Return the ASCII code of the argument.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-char_of_int" id="value-char_of_int">char_of_int</a>: int => char</h4>
+
+<div class='body '><p>Return the character with the given ASCII code. Raise <code>Invalid_argument &quot;char_of_int&quot;</code> if the argument is outside the range 0--255.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Unit-operations">Unit operations</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-ignore" id="value-ignore">ignore</a>: 'a => unit</h4>
+
+<div class='body '><p>Discard the value of its argument and return <code>()</code>. For instance, <code>ignore(f x)</code> discards the result of the side-effecting function <code>f</code>. It is equivalent to <code>f x; ()</code>, except that the latter may generate a compiler warning; writing <code>ignore(f x)</code> instead avoids the warning.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="String-conversion-functions">String conversion functions</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-string_of_bool" id="value-string_of_bool">string_of_bool</a>: bool => string</h4>
+
+<div class='body '><p>Return the string representation of a boolean. As the returned values may be shared, the user should not modify them directly.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-bool_of_string" id="value-bool_of_string">bool_of_string</a>: string => bool</h4>
+
+<div class='body '><p>Convert the given string to a boolean. Raise <code>Invalid_argument &quot;bool_of_string&quot;</code> if the string is not <code>&quot;true&quot;</code> or <code>&quot;false&quot;</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-string_of_int" id="value-string_of_int">string_of_int</a>: int => string</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-int_of_string" id="value-int_of_string">int_of_string</a>: string => int</h4>
+
+<div class='body '><p>Convert the given string to an integer. The string is read in decimal (by default) or in hexadecimal (if it begins with <code>0x</code> or <code>0X</code>), octal (if it begins with <code>0o</code> or <code>0O</code>), or binary (if it begins with <code>0b</code> or <code>0B</code>). Raise <code>Failure &quot;int_of_string&quot;</code> if the given string is not a valid representation of an integer, or if the integer represented exceeds the range of integers representable in type <code>int</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-string_of_float" id="value-string_of_float">string_of_float</a>: float => string</h4>
+
+<div class='body '><p>Return the string representation of a floating-point number.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-float_of_string" id="value-float_of_string">float_of_string</a>: string => float</h4>
+
+<div class='body '><p>Convert the given string to a float. Raise <code>Failure &quot;float_of_string&quot;</code> if the given string is not a valid representation of a float.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Pair-operations">Pair operations</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fst" id="value-fst">fst</a>: ('a, 'b) => 'a</h4>
+
+<div class='body '><p>Return the first component of a pair.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-snd" id="value-snd">snd</a>: ('a, 'b) => 'b</h4>
+
+<div class='body '><p>Return the second component of a pair.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="List-operations">List operations</h4><p>More list operations are provided in module List.</p>
+</div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-@" id="value-@">@</a>: (list('a), list('a)) => list('a)</h4>
+
+<div class='body '><p>List concatenation.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Input-output">Input/output</h4><p>Note: all input/output functions can raise <code>Sys_error</code> when the system calls they invoke fail.</p>
+</div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-in_channel" id="type-in_channel">in_channel</a></h4>
+
+<div class='body '><p>The type of input channel.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-out_channel" id="type-out_channel">out_channel</a></h4>
+
+<div class='body '><p>The type of output channel.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-stdin" id="value-stdin">stdin</a>: <a href="#type-in_channel">in_channel</a></h4>
+
+<div class='body '><p>The standard input for the process.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-stdout" id="value-stdout">stdout</a>: <a href="#type-out_channel">out_channel</a></h4>
+
+<div class='body '><p>The standard output for the process.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-stderr" id="value-stderr">stderr</a>: <a href="#type-out_channel">out_channel</a></h4>
+
+<div class='body '><p>The standard error output for the process.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Output-functions-on-standard-output">Output functions on standard output</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-print_char" id="value-print_char">print_char</a>: char => unit</h4>
+
+<div class='body '><p>Print a character on standard output.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-print_string" id="value-print_string">print_string</a>: string => unit</h4>
+
+<div class='body '><p>Print a string on standard output.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-print_bytes" id="value-print_bytes">print_bytes</a>: bytes => unit</h4>
+
+<div class='body '><p>Print a byte sequence on standard output.</p>
+Since: 4.02.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-print_int" id="value-print_int">print_int</a>: int => unit</h4>
+
+<div class='body '><p>Print an integer, in decimal, on standard output.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-print_float" id="value-print_float">print_float</a>: float => unit</h4>
+
+<div class='body '><p>Print a floating-point number, in decimal, on standard output.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-print_endline" id="value-print_endline">print_endline</a>: string => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><p>Print a string, followed by a newline character, on standard output and flush standard output.</p>
+</div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-print_newline" id="value-print_newline">print_newline</a>: unit => unit</h4>
+
+<div class='body '><p>Print a newline character on standard output, and flush standard output. This can be used to simulate line buffering of standard output.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Output-functions-on-standard-error">Output functions on standard error</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-prerr_char" id="value-prerr_char">prerr_char</a>: char => unit</h4>
+
+<div class='body '><p>Print a character on standard error.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-prerr_string" id="value-prerr_string">prerr_string</a>: string => unit</h4>
+
+<div class='body '><p>Print a string on standard error.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-prerr_bytes" id="value-prerr_bytes">prerr_bytes</a>: bytes => unit</h4>
+
+<div class='body '><p>Print a byte sequence on standard error.</p>
+Since: 4.02.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-prerr_int" id="value-prerr_int">prerr_int</a>: int => unit</h4>
+
+<div class='body '><p>Print an integer, in decimal, on standard error.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-prerr_float" id="value-prerr_float">prerr_float</a>: float => unit</h4>
+
+<div class='body '><p>Print a floating-point number, in decimal, on standard error.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-prerr_endline" id="value-prerr_endline">prerr_endline</a>: string => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><p>Print a string, followed by a newline character on standard error and flush standard error.</p>
+</div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-prerr_newline" id="value-prerr_newline">prerr_newline</a>: unit => unit</h4>
+
+<div class='body '><p>Print a newline character on standard error, and flush standard error.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Input-functions-on-standard-input">Input functions on standard input</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-read_line" id="value-read_line">read_line</a>: unit => string</h4>
+
+<div class='body '><p>Flush standard output, then read characters from standard input until a newline character is encountered. Return the string of all characters read, without the newline character at the end.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-read_int" id="value-read_int">read_int</a>: unit => int</h4>
+
+<div class='body '><p>Flush standard output, then read one line from standard input and convert it to an integer. Raise <code>Failure &quot;int_of_string&quot;</code> if the line read is not a valid representation of an integer.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-read_float" id="value-read_float">read_float</a>: unit => float</h4>
+
+<div class='body '><p>Flush standard output, then read one line from standard input and convert it to a floating-point number. The result is unspecified if the line read is not a valid representation of a floating-point number.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="General-output-functions">General output functions</h4></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-open_flag" id="type-open_flag">open_flag</a> = 
+  | Open_rdonly
+  | Open_wronly
+  | Open_append
+  | Open_creat
+  | Open_trunc
+  | Open_excl
+  | Open_binary
+  | Open_text
+  | Open_nonblock</h4>
+
+<div class='body '><p>Opening modes for open_out_gen and open_in_gen.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-open_out" id="value-open_out">open_out</a>: string => <a href="#type-out_channel">out_channel</a></h4>
+
+<div class='body '><p>Open the named file for writing, and return a new output channel on that file, positionned at the beginning of the file. The file is truncated to zero length if it already exists. It is created if it does not already exists.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-open_out_bin" id="value-open_out_bin">open_out_bin</a>: string => <a href="#type-out_channel">out_channel</a></h4>
+
+<div class='body '><p>Same as open_out, but the file is opened in binary mode, so that no translation takes place during writes. On operating systems that do not distinguish between text mode and binary mode, this function behaves like open_out.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-open_out_gen" id="value-open_out_gen">open_out_gen</a>: (
+  list(<a href="#type-open_flag">open_flag</a>),
+  int,
+  string
+) => <a href="#type-out_channel">out_channel</a></h4>
+
+<div class='body '><p><code>open_out_gen mode perm filename</code> opens the named file for writing, as described above. The extra argument <code>mode</code> specify the opening mode. The extra argument <code>perm</code> specifies the file permissions, in case the file must be created. open_out and open_out_bin are special cases of this function.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-flush" id="value-flush">flush</a>: <a href="#type-out_channel">out_channel</a> => unit</h4>
+
+<div class='body '><p>Flush the buffer associated with the given output channel, performing all pending writes on that channel. Interactive programs must be careful about flushing standard output and standard error at the right time.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-flush_all" id="value-flush_all">flush_all</a>: unit => unit</h4>
+
+<div class='body '><p>Flush all open output channels; ignore errors.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-output_char" id="value-output_char">output_char</a>: (<a href="#type-out_channel">out_channel</a>, char) => unit</h4>
+
+<div class='body '><p>Write the character on the given output channel.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-output_string" id="value-output_string">output_string</a>: (<a href="#type-out_channel">out_channel</a>, string) => unit</h4>
+
+<div class='body '><p>Write the string on the given output channel.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-output_bytes" id="value-output_bytes">output_bytes</a>: (<a href="#type-out_channel">out_channel</a>, bytes) => unit</h4>
+
+<div class='body '><p>Write the byte sequence on the given output channel.</p>
+Since: 4.02.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-output" id="value-output">output</a>: (<a href="#type-out_channel">out_channel</a>, bytes, int, int) => unit</h4>
+
+<div class='body '><p><code>output oc buf pos len</code> writes <code>len</code> characters from byte sequence <code>buf</code>, starting at offset <code>pos</code>, to the given output channel <code>oc</code>. Raise <code>Invalid_argument &quot;output&quot;</code> if <code>pos</code> and <code>len</code> do not designate a valid range of <code>buf</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-output_substring" id="value-output_substring">output_substring</a>: (
+  <a href="#type-out_channel">out_channel</a>,
+  string,
+  int,
+  int
+) => unit</h4>
+
+<div class='body '><p>Same as <code>output</code> but take a string as argument instead of a byte sequence.</p>
+Since: 4.02.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-output_byte" id="value-output_byte">output_byte</a>: (<a href="#type-out_channel">out_channel</a>, int) => unit</h4>
+
+<div class='body '><p>Write one 8-bit integer (as the single character with that code) on the given output channel. The given integer is taken modulo 256.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-output_binary_int" id="value-output_binary_int">output_binary_int</a>: (<a href="#type-out_channel">out_channel</a>, int) => unit</h4>
+
+<div class='body '><p>Write one integer in binary format (4 bytes, big-endian) on the given output channel. The given integer is taken modulo 2Superscript. The only reliable way to read it back is through the input_binary_int function. The format is compatible across all machines for a given version of OCaml.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-output_value" id="value-output_value">output_value</a>: (<a href="#type-out_channel">out_channel</a>, 'a) => unit</h4>
+
+<div class='body '><p>Write the representation of a structured value of any type to a channel. Circularities and sharing inside the value are detected and preserved. The object can be read back, by the function input_value. See the description of module Marshal for more information. output_value is equivalent to to_channel with an empty list of flags.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-seek_out" id="value-seek_out">seek_out</a>: (<a href="#type-out_channel">out_channel</a>, int) => unit</h4>
+
+<div class='body '><p><code>seek_out chan pos</code> sets the current writing position to <code>pos</code> for channel <code>chan</code>. This works only for regular files. On files of other kinds (such as terminals, pipes and sockets), the behavior is unspecified.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pos_out" id="value-pos_out">pos_out</a>: <a href="#type-out_channel">out_channel</a> => int</h4>
+
+<div class='body '><p>Return the current writing position for the given channel. Does not work on channels opened with the <code>Open_append</code> flag (returns unspecified results).</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-out_channel_length" id="value-out_channel_length">out_channel_length</a>: <a href="#type-out_channel">out_channel</a> => int</h4>
+
+<div class='body '><p>Return the size (number of characters) of the regular file on which the given channel is opened. If the channel is opened on a file that is not a regular file, the result is meaningless.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-close_out" id="value-close_out">close_out</a>: <a href="#type-out_channel">out_channel</a> => unit</h4>
+
+<div class='body '><p>Close the given channel, flushing all buffered write operations. Output functions raise a <code>Sys_error</code> exception when they are applied to a closed output channel, except <code>close_out</code> and <code>flush</code>, which do nothing when applied to an already closed channel. Note that <code>close_out</code> may raise <code>Sys_error</code> if the operating system signals an error when flushing or closing.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-close_out_noerr" id="value-close_out_noerr">close_out_noerr</a>: <a href="#type-out_channel">out_channel</a> => unit</h4>
+
+<div class='body '><p>Same as <code>close_out</code>, but ignore all errors.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-set_binary_mode_out" id="value-set_binary_mode_out">set_binary_mode_out</a>: (<a href="#type-out_channel">out_channel</a>, bool) => unit</h4>
+
+<div class='body '><p><code>set_binary_mode_out oc true</code> sets the channel <code>oc</code> to binary mode: no translations take place during output. <code>set_binary_mode_out oc false</code> sets the channel <code>oc</code> to text mode: depending on the operating system, some translations may take place during output. For instance, under Windows, end-of-lines will be translated from <code>\n</code> to <code>\r\n</code>. This function has no effect under operating systems that do not distinguish between text mode and binary mode.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="General-input-functions">General input functions</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-open_in" id="value-open_in">open_in</a>: string => <a href="#type-in_channel">in_channel</a></h4>
+
+<div class='body '><p>Open the named file for reading, and return a new input channel on that file, positionned at the beginning of the file.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-open_in_bin" id="value-open_in_bin">open_in_bin</a>: string => <a href="#type-in_channel">in_channel</a></h4>
+
+<div class='body '><p>Same as open_in, but the file is opened in binary mode, so that no translation takes place during reads. On operating systems that do not distinguish between text mode and binary mode, this function behaves like open_in.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-open_in_gen" id="value-open_in_gen">open_in_gen</a>: (
+  list(<a href="#type-open_flag">open_flag</a>),
+  int,
+  string
+) => <a href="#type-in_channel">in_channel</a></h4>
+
+<div class='body '><p><code>open_in_gen mode perm filename</code> opens the named file for reading, as described above. The extra arguments <code>mode</code> and <code>perm</code> specify the opening mode and file permissions. open_in and open_in_bin are special cases of this function.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-input_char" id="value-input_char">input_char</a>: <a href="#type-in_channel">in_channel</a> => char</h4>
+
+<div class='body '><p>Read one character from the given input channel. Raise <code>End_of_file</code> if there are no more characters to read.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-input_line" id="value-input_line">input_line</a>: <a href="#type-in_channel">in_channel</a> => string</h4>
+
+<div class='body '><p>Read characters from the given input channel, until a newline character is encountered. Return the string of all characters read, without the newline character at the end. Raise <code>End_of_file</code> if the end of the file is reached at the beginning of line.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-input" id="value-input">input</a>: (<a href="#type-in_channel">in_channel</a>, bytes, int, int) => int</h4>
+
+<div class='body '><p><code>input ic buf pos len</code> reads up to <code>len</code> characters from the given channel <code>ic</code>, storing them in byte sequence <code>buf</code>, starting at character number <code>pos</code>. It returns the actual number of characters read, between 0 and <code>len</code> (inclusive). A return value of 0 means that the end of file was reached. A return value between 0 and <code>len</code> exclusive means that not all requested <code>len</code> characters were read, either because no more characters were available at that time, or because the implementation found it convenient to do a partial read; <code>input</code> must be called again to read the remaining characters, if desired. (See also really_input for reading exactly <code>len</code> characters.) Exception <code>Invalid_argument &quot;input&quot;</code> is raised if <code>pos</code> and <code>len</code> do not designate a valid range of <code>buf</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-really_input" id="value-really_input">really_input</a>: (<a href="#type-in_channel">in_channel</a>, bytes, int, int) => unit</h4>
+
+<div class='body '><p><code>really_input ic buf pos len</code> reads <code>len</code> characters from channel <code>ic</code>, storing them in byte sequence <code>buf</code>, starting at character number <code>pos</code>. Raise <code>End_of_file</code> if the end of file is reached before <code>len</code> characters have been read. Raise <code>Invalid_argument &quot;really_input&quot;</code> if <code>pos</code> and <code>len</code> do not designate a valid range of <code>buf</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-really_input_string" id="value-really_input_string">really_input_string</a>: (<a href="#type-in_channel">in_channel</a>, int) => string</h4>
+
+<div class='body '><p><code>really_input_string ic len</code> reads <code>len</code> characters from channel <code>ic</code> and returns them in a new string. Raise <code>End_of_file</code> if the end of file is reached before <code>len</code> characters have been read.</p>
+Since: 4.02.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-input_byte" id="value-input_byte">input_byte</a>: <a href="#type-in_channel">in_channel</a> => int</h4>
+
+<div class='body '><p>Same as input_char, but return the 8-bit integer representing the character. Raise <code>End_of_file</code> if an end of file was reached.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-input_binary_int" id="value-input_binary_int">input_binary_int</a>: <a href="#type-in_channel">in_channel</a> => int</h4>
+
+<div class='body '><p>Read an integer encoded in binary format (4 bytes, big-endian) from the given input channel. See output_binary_int. Raise <code>End_of_file</code> if an end of file was reached while reading the integer.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-input_value" id="value-input_value">input_value</a>: <a href="#type-in_channel">in_channel</a> => 'a</h4>
+
+<div class='body '><p>Read the representation of a structured value, as produced by output_value, and return the corresponding value. This function is identical to from_channel; see the description of module Marshal for more information, in particular concerning the lack of type safety.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-seek_in" id="value-seek_in">seek_in</a>: (<a href="#type-in_channel">in_channel</a>, int) => unit</h4>
+
+<div class='body '><p><code>seek_in chan pos</code> sets the current reading position to <code>pos</code> for channel <code>chan</code>. This works only for regular files. On files of other kinds, the behavior is unspecified.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pos_in" id="value-pos_in">pos_in</a>: <a href="#type-in_channel">in_channel</a> => int</h4>
+
+<div class='body '><p>Return the current reading position for the given channel.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-in_channel_length" id="value-in_channel_length">in_channel_length</a>: <a href="#type-in_channel">in_channel</a> => int</h4>
+
+<div class='body '><p>Return the size (number of characters) of the regular file on which the given channel is opened. If the channel is opened on a file that is not a regular file, the result is meaningless. The returned size does not take into account the end-of-line translations that can be performed when reading from a channel opened in text mode.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-close_in" id="value-close_in">close_in</a>: <a href="#type-in_channel">in_channel</a> => unit</h4>
+
+<div class='body '><p>Close the given channel. Input functions raise a <code>Sys_error</code> exception when they are applied to a closed input channel, except <code>close_in</code>, which does nothing when applied to an already closed channel.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-close_in_noerr" id="value-close_in_noerr">close_in_noerr</a>: <a href="#type-in_channel">in_channel</a> => unit</h4>
+
+<div class='body '><p>Same as <code>close_in</code>, but ignore all errors.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-set_binary_mode_in" id="value-set_binary_mode_in">set_binary_mode_in</a>: (<a href="#type-in_channel">in_channel</a>, bool) => unit</h4>
+
+<div class='body '><p><code>set_binary_mode_in ic true</code> sets the channel <code>ic</code> to binary mode: no translations take place during input. <code>set_binary_mode_out ic false</code> sets the channel <code>ic</code> to text mode: depending on the operating system, some translations may take place during input. For instance, under Windows, end-of-lines will be translated from <code>\r\n</code> to <code>\n</code>. This function has no effect under operating systems that do not distinguish between text mode and binary mode.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Operations-on-large-files">Operations on large files</h4></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-LargeFile" id="module-LargeFile">LargeFile</a></h4><div class='body module-body'><p>Operations on large files. This sub-module provides 64-bit variants of the channel functions that manipulate file positions and file sizes. By representing positions and sizes by 64-bit integers (type <code>int64</code>) instead of regular integers (type <code>int</code>), these alternate functions allow operating on files whose sizes are greater than <code>max_int</code>.</p>
+<p>other items defined</p><div class='doc-item'><h4 class='item'>let <a href="#value-LargeFile.seek_out" id="value-LargeFile.seek_out">seek_out</a>: (<a href="#type-out_channel">out_channel</a>, int64) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-LargeFile.pos_out" id="value-LargeFile.pos_out">pos_out</a>: <a href="#type-out_channel">out_channel</a> => int64</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-LargeFile.out_channel_length" id="value-LargeFile.out_channel_length">out_channel_length</a>: <a href="#type-out_channel">out_channel</a> => int64</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-LargeFile.seek_in" id="value-LargeFile.seek_in">seek_in</a>: (<a href="#type-in_channel">in_channel</a>, int64) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-LargeFile.pos_in" id="value-LargeFile.pos_in">pos_in</a>: <a href="#type-in_channel">in_channel</a> => int64</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-LargeFile.in_channel_length" id="value-LargeFile.in_channel_length">in_channel_length</a>: <a href="#type-in_channel">in_channel</a> => int64</h4>
+
+<div class='body body-empty'></div></div></div></div>
+
+<div class='doc-item'><h4 id="References">References</h4></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-ref" id="type-ref">ref</a>('a) = {mut contents: 'a}</h4>
+
+<div class='body '><p>The type of references (mutable indirection cells) containing a value of type <code>&#39;a</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-ref" id="value-ref">ref</a>: 'a => <a href="#type-ref">ref</a>('a)</h4>
+
+<div class='body '><p>Return a fresh reference containing the given value.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-!" id="value-!">!</a>: <a href="#type-ref">ref</a>('a) => 'a</h4>
+
+<div class='body '><p><code>!r</code> returns the current contents of reference <code>r</code>. Equivalent to <code>fun r -&gt; r.contents</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-:=" id="value-:=">:=</a>: (<a href="#type-ref">ref</a>('a), 'a) => unit</h4>
+
+<div class='body '><p><code>r := a</code> stores the value of <code>a</code> in reference <code>r</code>. Equivalent to <code>fun r v -&gt; r.contents &lt;- v</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-incr" id="value-incr">incr</a>: <a href="#type-ref">ref</a>(int) => unit</h4>
+
+<div class='body '><p>Increment the integer contained in the given reference. Equivalent to <code>fun r -&gt; r := succ !r</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-decr" id="value-decr">decr</a>: <a href="#type-ref">ref</a>(int) => unit</h4>
+
+<div class='body '><p>Decrement the integer contained in the given reference. Equivalent to <code>fun r -&gt; r := pred !r</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Operations-on-format-strings">Operations on format strings</h4></div>
+
+<div class='doc-item'><p>Format strings are character strings with special lexical conventions that defines the functionality of formatted input/output functions. Format strings are used to read data with formatted input functions from module Scanf and to print data with formatted output functions from modules Printf and Format.</p>
+<p>Format strings are made of three kinds of entities:</p>
+<ul><li><p><em>conversions specifications</em>, introduced by the special character <code>&#39;%&#39;</code> followed by one or more characters specifying what kind of argument to read or print,</p>
+</li><li><p><em>formatting indications</em>, introduced by the special character <code>&#39;@&#39;</code> followed by one or more characters specifying how to read or print the argument,</p>
+</li><li><p><em>plain characters</em> that are regular characters with usual lexical conventions. Plain characters specify string literals to be read in the input or printed in the output.</p>
+</li></ul><p>There is an additional lexical rule to escape the special characters <code>&#39;%&#39;</code> and <code>&#39;@&#39;</code> in format strings: if a special character follows a <code>&#39;%&#39;</code> character, it is treated as a plain character. In other words, <code>&quot;%%&quot;</code> is considered as a plain <code>&#39;%&#39;</code> and <code>&quot;%@&quot;</code> as a plain <code>&#39;@&#39;</code>.</p>
+<p>For more information about conversion specifications and formatting indications available, read the documentation of modules Scanf, Printf and Format.</p>
+</div>
+
+<div class='doc-item'><p>Format strings have a general and highly polymorphic type <code>(&#39;a, &#39;b, &#39;c, &#39;d, &#39;e, &#39;f) format6</code>. The two simplified types, <code>format</code> and <code>format4</code> below are included for backward compatibility with earlier releases of OCaml.</p>
+<p>The meaning of format string type parameters is as follows:</p>
+<ul><li><p><code>&#39;a</code> is the type of the parameters of the format for formatted output functions (<code>printf</code>-style functions); <code>&#39;a</code> is the type of the values read by the format for formatted input functions (<code>scanf</code>-style functions).</p>
+</li></ul><ul><li><p><code>&#39;b</code> is the type of input source for formatted input functions and the type of output target for formatted output functions. For <code>printf</code>-style functions from module <code>Printf</code>, <code>&#39;b</code> is typically <code>out_channel</code>; for <code>printf</code>-style functions from module <code>Format</code>, <code>&#39;b</code> is typically <code>Format.formatter</code>; for <code>scanf</code>-style functions from module <code>Scanf</code>, <code>&#39;b</code> is typically <code>Scanf.Scanning.in_channel</code>.</p>
+</li></ul><p>Type argument <code>&#39;b</code> is also the type of the first argument given to user&#39;s defined printing functions for <code>%a</code> and <code>%t</code> conversions, and user&#39;s defined reading functions for <code>%r</code> conversion.</p>
+<ul><li><p><code>&#39;c</code> is the type of the result of the <code>%a</code> and <code>%t</code> printing functions, and also the type of the argument transmitted to the first argument of <code>kprintf</code>-style functions or to the <code>kscanf</code>-style functions.</p>
+</li></ul><ul><li><p><code>&#39;d</code> is the type of parameters for the <code>scanf</code>-style functions.</p>
+</li></ul><ul><li><p><code>&#39;e</code> is the type of the receiver function for the <code>scanf</code>-style functions.</p>
+</li></ul><ul><li><p><code>&#39;f</code> is the final result type of a formatted input/output function invocation: for the <code>printf</code>-style functions, it is typically <code>unit</code>; for the <code>scanf</code>-style functions, it is typically the result type of the receiver function.</p>
+</li></ul></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-format6" id="type-format6">format6</a>('a, 'b, 'c, 'd, 'e, 'f) = <a href="CamlinternalFormatBasics.html#type-format6" title="CamlinternalFormatBasics.format6">format6</a>(
+  'a,
+  'b,
+  'c,
+  'd,
+  'e,
+  'f
+)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-format4" id="type-format4">format4</a>('a, 'b, 'c, 'd) = <a href="#type-format6">format6</a>(
+  'a,
+  'b,
+  'c,
+  'c,
+  'c,
+  'd
+)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-format" id="type-format">format</a>('a, 'b, 'c) = <a href="#type-format4">format4</a>('a, 'b, 'c, 'c)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-string_of_format" id="value-string_of_format">string_of_format</a>: <a href="#type-format6">format6</a>(
+  'a,
+  'b,
+  'c,
+  'd,
+  'e,
+  'f
+) => string</h4>
+
+<div class='body '><p>Converts a format string into a string.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-format_of_string" id="value-format_of_string">format_of_string</a>: <a href="#type-format6">format6</a>(
+  'a,
+  'b,
+  'c,
+  'd,
+  'e,
+  'f
+) => <a href="#type-format6">format6</a>('a, 'b, 'c, 'd, 'e, 'f)</h4>
+
+<div class='body '><p><code>format_of_string s</code> returns a format string read from the string literal <code>s</code>. Note: <code>format_of_string</code> can not convert a string argument that is not a literal. If you need this functionality, use the more general format_from_string function.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-^^" id="value-^^">^^</a>: (
+  <a href="#type-format6">format6</a>('a, 'b, 'c, 'd, 'e, 'f),
+  <a href="#type-format6">format6</a>('f, 'b, 'c, 'e, 'g, 'h)
+) => <a href="#type-format6">format6</a>('a, 'b, 'c, 'd, 'g, 'h)</h4>
+
+<div class='body '><p><code>f1 ^^ f2</code> catenates format strings <code>f1</code> and <code>f2</code>. The result is a format string that behaves as the concatenation of format strings <code>f1</code> and <code>f2</code>: in case of formatted output, it accepts arguments from <code>f1</code>, then arguments from <code>f2</code>; in case of formatted input, it returns results from <code>f1</code>, then results from <code>f2</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Program-termination">Program termination</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-exit" id="value-exit">exit</a>: int => 'a</h4>
+
+<div class='body '><p>Terminate the process, returning the given status code to the operating system: usually 0 to indicate no errors, and a small positive integer to indicate failure. All open output channels are flushed with <code>flush_all</code>. An implicit <code>exit 0</code> is performed each time a program terminates normally. An implicit <code>exit 2</code> is performed if the program terminates early because of an uncaught exception.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-at_exit" id="value-at_exit">at_exit</a>: unit => unit => unit</h4>
+
+<div class='body '><p>Register the given function to be called at program termination time. The functions registered with <code>at_exit</code> will be called when the program executes exit, or terminates, either normally or because of an uncaught exception. The functions are called in &#39;last in, first out&#39; order: the function most recently added with <code>at_exit</code> is called first.</p>
+</div></div>
+
+<div class='doc-item'><p>/*</p>
+</div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-valid_float_lexem" id="value-valid_float_lexem">valid_float_lexem</a>: string => string</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-unsafe_really_input" id="value-unsafe_really_input">unsafe_really_input</a>: (
+  <a href="#type-in_channel">in_channel</a>,
+  bytes,
+  int,
+  int
+) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-do_at_exit" id="value-do_at_exit">do_at_exit</a>: unit => unit</h4>
+
+<div class='body body-empty'></div></div>
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

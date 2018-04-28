@@ -1,0 +1,1173 @@
+
+    
+<!doctype html>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>CamlinternalFormatBasics</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
+</div>
+
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#CamlinternalFormatBasics" class='level-1 header'>CamlinternalFormatBasics</a>
+<a href="#type-padty" class='level-2 type'>padty</a>
+<a href="#type-int_conv" class='level-2 type'>int_conv</a>
+<a href="#type-float_conv" class='level-2 type'>float_conv</a>
+<a href="#type-char_set" class='level-2 type'>char_set</a>
+<a href="#type-counter" class='level-2 type'>counter</a>
+<a href="#type-padding" class='level-2 type'>padding</a>
+<a href="#type-pad_option" class='level-2 type'>pad_option</a>
+<a href="#type-precision" class='level-2 type'>precision</a>
+<a href="#type-prec_option" class='level-2 type'>prec_option</a>
+<a href="#type-custom_arity" class='level-2 type'>custom_arity</a>
+<a href="#type-block_type" class='level-2 type'>block_type</a>
+<a href="#type-formatting_lit" class='level-2 type'>formatting_lit</a>
+<a href="#type-formatting_gen" class='level-2 type'>formatting_gen</a>
+<a href="#type-fmtty" class='level-2 type'>fmtty</a>
+<a href="#type-fmtty_rel" class='level-2 type'>fmtty_rel</a>
+<a href="#type-fmt" class='level-2 type'>fmt</a>
+<a href="#type-ignored" class='level-2 type'>ignored</a>
+<a href="#type-format6" class='level-2 type'>format6</a>
+<a href="#value-concat_fmtty" class='level-2 value'>concat_fmtty</a>
+<a href="#value-erase_rel" class='level-2 value'>erase_rel</a>
+<a href="#value-concat_fmt" class='level-2 value'>concat_fmt</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Js.html">Js</a>
+<a href="Arg.html">Arg</a>
+<a href="Array.html">Array</a>
+<a href="ArrayLabels.html">ArrayLabels</a>
+<a href="Bigarray.html">Bigarray</a>
+<a href="Buffer.html">Buffer</a>
+<a href="Bytes.html">Bytes</a>
+<a href="BytesLabels.html">BytesLabels</a>
+<a href="Callback.html">Callback</a>
+<a href="CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="CamlinternalMod.html">CamlinternalMod</a>
+<a href="CamlinternalOO.html">CamlinternalOO</a>
+<a href="Char.html">Char</a>
+<a href="Complex.html">Complex</a>
+<a href="Digest.html">Digest</a>
+<a href="Filename.html">Filename</a>
+<a href="Format.html">Format</a>
+<a href="Gc.html">Gc</a>
+<a href="Genlex.html">Genlex</a>
+<a href="Hashtbl.html">Hashtbl</a>
+<a href="Int32.html">Int32</a>
+<a href="Int64.html">Int64</a>
+<a href="Lazy.html">Lazy</a>
+<a href="Lexing.html">Lexing</a>
+<a href="List.html">List</a>
+<a href="ListLabels.html">ListLabels</a>
+<a href="Map.html">Map</a>
+<a href="Marshal.html">Marshal</a>
+<a href="MoreLabels.html">MoreLabels</a>
+<a href="Nativeint.html">Nativeint</a>
+<a href="Obj.html">Obj</a>
+<a href="Oo.html">Oo</a>
+<a href="Parsing.html">Parsing</a>
+<a href="Pervasives.html">Pervasives</a>
+<a href="Printexc.html">Printexc</a>
+<a href="Printf.html">Printf</a>
+<a href="Queue.html">Queue</a>
+<a href="Random.html">Random</a>
+<a href="Scanf.html">Scanf</a>
+<a href="Set.html">Set</a>
+<a href="Sort.html">Sort</a>
+<a href="Stack.html">Stack</a>
+<a href="Std_exit.html">Std_exit</a>
+<a href="StdLabels.html">StdLabels</a>
+<a href="Stream.html">Stream</a>
+<a href="String.html">String</a>
+<a href="StringLabels.html">StringLabels</a>
+<a href="Sys.html">Sys</a>
+<a href="Unix.html">Unix</a>
+<a href="UnixLabels.html">UnixLabels</a>
+<a href="Weak.html">Weak</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/stdlib/camlinternalFormatBasics.ml" class="edit-link">Edit</a>
+    <a href="#CamlinternalFormatBasics" id="CamlinternalFormatBasics"><h1>CamlinternalFormatBasics</h1></a>
+
+<p><span class='missing'>This module does not have a toplevel documentation block.</span></p>
+<div class='doc-item'><h4 class='item'>type <a href="#type-padty" id="type-padty">padty</a> = | Left | Right | Zeros</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-int_conv" id="type-int_conv">int_conv</a> = 
+  | Int_d
+  | Int_pd
+  | Int_sd
+  | Int_i
+  | Int_pi
+  | Int_si
+  | Int_x
+  | Int_Cx
+  | Int_X
+  | Int_CX
+  | Int_o
+  | Int_Co
+  | Int_u</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-float_conv" id="type-float_conv">float_conv</a> = 
+  | Float_f
+  | Float_pf
+  | Float_sf
+  | Float_e
+  | Float_pe
+  | Float_se
+  | Float_E
+  | Float_pE
+  | Float_sE
+  | Float_g
+  | Float_pg
+  | Float_sg
+  | Float_G
+  | Float_pG
+  | Float_sG
+  | Float_F</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-char_set" id="type-char_set">char_set</a> = string</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-counter" id="type-counter">counter</a> = | Line_counter | Char_counter | Token_counter</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-padding" id="type-padding">padding</a>('a, 'b) = 
+  | No_padding: <a href="#type-padding">padding</a>('a, 'a)
+  | Lit_padding(<a href="#type-padty">padty</a>, int): <a href="#type-padding">padding</a>('a, 'a)
+  | Arg_padding(<a href="#type-padty">padty</a>): <a href="#type-padding">padding</a>(int => 'a, 'a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-pad_option" id="type-pad_option">pad_option</a> = option(int)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-precision" id="type-precision">precision</a>('a, 'b) = 
+  | No_precision: <a href="#type-precision">precision</a>('a, 'a)
+  | Lit_precision(int): <a href="#type-precision">precision</a>('a, 'a)
+  | Arg_precision: <a href="#type-precision">precision</a>(int => 'a, 'a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-prec_option" id="type-prec_option">prec_option</a> = option(int)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-custom_arity" id="type-custom_arity">custom_arity</a>('a, 'b, 'c) = 
+  | Custom_zero: <a href="#type-custom_arity">custom_arity</a>('a, string, 'a)
+  | Custom_succ(<a href="#type-custom_arity">custom_arity</a>('a, 'b, 'c)): <a href="#type-custom_arity">custom_arity</a>(
+    'a,
+    'x => 'b,
+    'x => 'c
+  )</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-block_type" id="type-block_type">block_type</a> = 
+  | Pp_hbox
+  | Pp_vbox
+  | Pp_hvbox
+  | Pp_hovbox
+  | Pp_box
+  | Pp_fits</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-formatting_lit" id="type-formatting_lit">formatting_lit</a> = 
+  | Close_box
+  | Close_tag
+  | Break(string, int, int)
+  | FFlush
+  | Force_newline
+  | Flush_newline
+  | Magic_size(string, int)
+  | Escaped_at
+  | Escaped_percent
+  | Scan_indic(char)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-formatting_gen" id="type-formatting_gen">formatting_gen</a>('a, 'b, 'c, 'd, 'e, 'f) = 
+  | Open_tag(
+    <a href="#type-format6">format6</a>('a, 'b, 'c, 'd, 'e, 'f)
+  ): <a href="#type-formatting_gen">formatting_gen</a>('a, 'b, 'c, 'd, 'e, 'f)
+  | Open_box(
+    <a href="#type-format6">format6</a>('a, 'b, 'c, 'd, 'e, 'f)
+  ): <a href="#type-formatting_gen">formatting_gen</a>('a, 'b, 'c, 'd, 'e, 'f)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-fmtty" id="type-fmtty">fmtty</a>('a, 'b, 'c, 'd, 'e, 'f) = <a href="#type-fmtty_rel">fmtty_rel</a>(
+  'a,
+  'b,
+  'c,
+  'd,
+  'e,
+  'f,
+  'a,
+  'b,
+  'c,
+  'd,
+  'e,
+  'f
+)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-fmtty_rel" id="type-fmtty_rel">fmtty_rel</a>(
+  'a1,
+  'b1,
+  'c1,
+  'd1,
+  'e1,
+  'f1,
+  'a2,
+  'b2,
+  'c2,
+  'd2,
+  'e2,
+  'f2
+) = 
+  | Char_ty(
+    <a href="#type-fmtty_rel">fmtty_rel</a>(
+      'a1,
+      'b1,
+      'c1,
+      'd1,
+      'e1,
+      'f1,
+      'a2,
+      'b2,
+      'c2,
+      'd2,
+      'e2,
+      'f2
+    )
+  ): <a href="#type-fmtty_rel">fmtty_rel</a>(
+    char => 'a1,
+    'b1,
+    'c1,
+    'd1,
+    'e1,
+    'f1,
+    char => 'a2,
+    'b2,
+    'c2,
+    'd2,
+    'e2,
+    'f2
+  )
+  | String_ty(
+    <a href="#type-fmtty_rel">fmtty_rel</a>(
+      'a1,
+      'b1,
+      'c1,
+      'd1,
+      'e1,
+      'f1,
+      'a2,
+      'b2,
+      'c2,
+      'd2,
+      'e2,
+      'f2
+    )
+  ): <a href="#type-fmtty_rel">fmtty_rel</a>(
+    string => 'a1,
+    'b1,
+    'c1,
+    'd1,
+    'e1,
+    'f1,
+    string => 'a2,
+    'b2,
+    'c2,
+    'd2,
+    'e2,
+    'f2
+  )
+  | Int_ty(
+    <a href="#type-fmtty_rel">fmtty_rel</a>(
+      'a1,
+      'b1,
+      'c1,
+      'd1,
+      'e1,
+      'f1,
+      'a2,
+      'b2,
+      'c2,
+      'd2,
+      'e2,
+      'f2
+    )
+  ): <a href="#type-fmtty_rel">fmtty_rel</a>(
+    int => 'a1,
+    'b1,
+    'c1,
+    'd1,
+    'e1,
+    'f1,
+    int => 'a2,
+    'b2,
+    'c2,
+    'd2,
+    'e2,
+    'f2
+  )
+  | Int32_ty(
+    <a href="#type-fmtty_rel">fmtty_rel</a>(
+      'a1,
+      'b1,
+      'c1,
+      'd1,
+      'e1,
+      'f1,
+      'a2,
+      'b2,
+      'c2,
+      'd2,
+      'e2,
+      'f2
+    )
+  ): <a href="#type-fmtty_rel">fmtty_rel</a>(
+    int32 => 'a1,
+    'b1,
+    'c1,
+    'd1,
+    'e1,
+    'f1,
+    int32 => 'a2,
+    'b2,
+    'c2,
+    'd2,
+    'e2,
+    'f2
+  )
+  | Nativeint_ty(
+    <a href="#type-fmtty_rel">fmtty_rel</a>(
+      'a1,
+      'b1,
+      'c1,
+      'd1,
+      'e1,
+      'f1,
+      'a2,
+      'b2,
+      'c2,
+      'd2,
+      'e2,
+      'f2
+    )
+  ): <a href="#type-fmtty_rel">fmtty_rel</a>(
+    nativeint => 'a1,
+    'b1,
+    'c1,
+    'd1,
+    'e1,
+    'f1,
+    nativeint => 'a2,
+    'b2,
+    'c2,
+    'd2,
+    'e2,
+    'f2
+  )
+  | Int64_ty(
+    <a href="#type-fmtty_rel">fmtty_rel</a>(
+      'a1,
+      'b1,
+      'c1,
+      'd1,
+      'e1,
+      'f1,
+      'a2,
+      'b2,
+      'c2,
+      'd2,
+      'e2,
+      'f2
+    )
+  ): <a href="#type-fmtty_rel">fmtty_rel</a>(
+    int64 => 'a1,
+    'b1,
+    'c1,
+    'd1,
+    'e1,
+    'f1,
+    int64 => 'a2,
+    'b2,
+    'c2,
+    'd2,
+    'e2,
+    'f2
+  )
+  | Float_ty(
+    <a href="#type-fmtty_rel">fmtty_rel</a>(
+      'a1,
+      'b1,
+      'c1,
+      'd1,
+      'e1,
+      'f1,
+      'a2,
+      'b2,
+      'c2,
+      'd2,
+      'e2,
+      'f2
+    )
+  ): <a href="#type-fmtty_rel">fmtty_rel</a>(
+    float => 'a1,
+    'b1,
+    'c1,
+    'd1,
+    'e1,
+    'f1,
+    float => 'a2,
+    'b2,
+    'c2,
+    'd2,
+    'e2,
+    'f2
+  )
+  | Bool_ty(
+    <a href="#type-fmtty_rel">fmtty_rel</a>(
+      'a1,
+      'b1,
+      'c1,
+      'd1,
+      'e1,
+      'f1,
+      'a2,
+      'b2,
+      'c2,
+      'd2,
+      'e2,
+      'f2
+    )
+  ): <a href="#type-fmtty_rel">fmtty_rel</a>(
+    bool => 'a1,
+    'b1,
+    'c1,
+    'd1,
+    'e1,
+    'f1,
+    bool => 'a2,
+    'b2,
+    'c2,
+    'd2,
+    'e2,
+    'f2
+  )
+  | Format_arg_ty(
+    <a href="#type-fmtty">fmtty</a>('g, 'h, 'i, 'j, 'k, 'l),
+    <a href="#type-fmtty_rel">fmtty_rel</a>(
+      'a1,
+      'b1,
+      'c1,
+      'd1,
+      'e1,
+      'f1,
+      'a2,
+      'b2,
+      'c2,
+      'd2,
+      'e2,
+      'f2
+    )
+  ): <a href="#type-fmtty_rel">fmtty_rel</a>(
+    <a href="#type-format6">format6</a>('g, 'h, 'i, 'j, 'k, 'l) => 'a1,
+    'b1,
+    'c1,
+    'd1,
+    'e1,
+    'f1,
+    <a href="#type-format6">format6</a>('g, 'h, 'i, 'j, 'k, 'l) => 'a2,
+    'b2,
+    'c2,
+    'd2,
+    'e2,
+    'f2
+  )
+  | Format_subst_ty(
+    <a href="#type-fmtty_rel">fmtty_rel</a>(
+      'g,
+      'h,
+      'i,
+      'j,
+      'k,
+      'l,
+      'g1,
+      'b1,
+      'c1,
+      'j1,
+      'd1,
+      'a1
+    ),
+    <a href="#type-fmtty_rel">fmtty_rel</a>(
+      'g,
+      'h,
+      'i,
+      'j,
+      'k,
+      'l,
+      'g2,
+      'b2,
+      'c2,
+      'j2,
+      'd2,
+      'a2
+    ),
+    <a href="#type-fmtty_rel">fmtty_rel</a>(
+      'a1,
+      'b1,
+      'c1,
+      'd1,
+      'e1,
+      'f1,
+      'a2,
+      'b2,
+      'c2,
+      'd2,
+      'e2,
+      'f2
+    )
+  ): <a href="#type-fmtty_rel">fmtty_rel</a>(
+    <a href="#type-format6">format6</a>('g, 'h, 'i, 'j, 'k, 'l) => 'g1,
+    'b1,
+    'c1,
+    'j1,
+    'e1,
+    'f1,
+    <a href="#type-format6">format6</a>('g, 'h, 'i, 'j, 'k, 'l) => 'g2,
+    'b2,
+    'c2,
+    'j2,
+    'e2,
+    'f2
+  )
+  | Alpha_ty(
+    <a href="#type-fmtty_rel">fmtty_rel</a>(
+      'a1,
+      'b1,
+      'c1,
+      'd1,
+      'e1,
+      'f1,
+      'a2,
+      'b2,
+      'c2,
+      'd2,
+      'e2,
+      'f2
+    )
+  ): <a href="#type-fmtty_rel">fmtty_rel</a>(
+    (('b1, 'x) => 'c1, 'x) => 'a1,
+    'b1,
+    'c1,
+    'd1,
+    'e1,
+    'f1,
+    (('b2, 'x) => 'c2, 'x) => 'a2,
+    'b2,
+    'c2,
+    'd2,
+    'e2,
+    'f2
+  )
+  | Theta_ty(
+    <a href="#type-fmtty_rel">fmtty_rel</a>(
+      'a1,
+      'b1,
+      'c1,
+      'd1,
+      'e1,
+      'f1,
+      'a2,
+      'b2,
+      'c2,
+      'd2,
+      'e2,
+      'f2
+    )
+  ): <a href="#type-fmtty_rel">fmtty_rel</a>(
+    'b1 => 'c1 => 'a1,
+    'b1,
+    'c1,
+    'd1,
+    'e1,
+    'f1,
+    'b2 => 'c2 => 'a2,
+    'b2,
+    'c2,
+    'd2,
+    'e2,
+    'f2
+  )
+  | Any_ty(
+    <a href="#type-fmtty_rel">fmtty_rel</a>(
+      'a1,
+      'b1,
+      'c1,
+      'd1,
+      'e1,
+      'f1,
+      'a2,
+      'b2,
+      'c2,
+      'd2,
+      'e2,
+      'f2
+    )
+  ): <a href="#type-fmtty_rel">fmtty_rel</a>(
+    'x => 'a1,
+    'b1,
+    'c1,
+    'd1,
+    'e1,
+    'f1,
+    'x => 'a2,
+    'b2,
+    'c2,
+    'd2,
+    'e2,
+    'f2
+  )
+  | Reader_ty(
+    <a href="#type-fmtty_rel">fmtty_rel</a>(
+      'a1,
+      'b1,
+      'c1,
+      'd1,
+      'e1,
+      'f1,
+      'a2,
+      'b2,
+      'c2,
+      'd2,
+      'e2,
+      'f2
+    )
+  ): <a href="#type-fmtty_rel">fmtty_rel</a>(
+    'x => 'a1,
+    'b1,
+    'c1,
+    'b1 => 'x => 'd1,
+    'e1,
+    'f1,
+    'x => 'a2,
+    'b2,
+    'c2,
+    'b2 => 'x => 'd2,
+    'e2,
+    'f2
+  )
+  | Ignored_reader_ty(
+    <a href="#type-fmtty_rel">fmtty_rel</a>(
+      'a1,
+      'b1,
+      'c1,
+      'd1,
+      'e1,
+      'f1,
+      'a2,
+      'b2,
+      'c2,
+      'd2,
+      'e2,
+      'f2
+    )
+  ): <a href="#type-fmtty_rel">fmtty_rel</a>(
+    'a1,
+    'b1,
+    'c1,
+    'b1 => 'x => 'd1,
+    'e1,
+    'f1,
+    'a2,
+    'b2,
+    'c2,
+    'b2 => 'x => 'd2,
+    'e2,
+    'f2
+  )
+  | End_of_fmtty: <a href="#type-fmtty_rel">fmtty_rel</a>(
+    'f1,
+    'b1,
+    'c1,
+    'd1,
+    'd1,
+    'f1,
+    'f2,
+    'b2,
+    'c2,
+    'd2,
+    'd2,
+    'f2
+  )</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-fmt" id="type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f) = 
+  | Char(<a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)): <a href="#type-fmt">fmt</a>(
+    char => 'a,
+    'b,
+    'c,
+    'd,
+    'e,
+    'f
+  )
+  | Caml_char(<a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)): <a href="#type-fmt">fmt</a>(
+    char => 'a,
+    'b,
+    'c,
+    'd,
+    'e,
+    'f
+  )
+  | String(
+    <a href="#type-padding">padding</a>('x, string => 'a),
+    <a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)
+  ): <a href="#type-fmt">fmt</a>('x, 'b, 'c, 'd, 'e, 'f)
+  | Caml_string(
+    <a href="#type-padding">padding</a>('x, string => 'a),
+    <a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)
+  ): <a href="#type-fmt">fmt</a>('x, 'b, 'c, 'd, 'e, 'f)
+  | Int(
+    <a href="#type-int_conv">int_conv</a>,
+    <a href="#type-padding">padding</a>('x, 'y),
+    <a href="#type-precision">precision</a>('y, int => 'a),
+    <a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)
+  ): <a href="#type-fmt">fmt</a>('x, 'b, 'c, 'd, 'e, 'f)
+  | Int32(
+    <a href="#type-int_conv">int_conv</a>,
+    <a href="#type-padding">padding</a>('x, 'y),
+    <a href="#type-precision">precision</a>('y, int32 => 'a),
+    <a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)
+  ): <a href="#type-fmt">fmt</a>('x, 'b, 'c, 'd, 'e, 'f)
+  | Nativeint(
+    <a href="#type-int_conv">int_conv</a>,
+    <a href="#type-padding">padding</a>('x, 'y),
+    <a href="#type-precision">precision</a>('y, nativeint => 'a),
+    <a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)
+  ): <a href="#type-fmt">fmt</a>('x, 'b, 'c, 'd, 'e, 'f)
+  | Int64(
+    <a href="#type-int_conv">int_conv</a>,
+    <a href="#type-padding">padding</a>('x, 'y),
+    <a href="#type-precision">precision</a>('y, int64 => 'a),
+    <a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)
+  ): <a href="#type-fmt">fmt</a>('x, 'b, 'c, 'd, 'e, 'f)
+  | Float(
+    <a href="#type-float_conv">float_conv</a>,
+    <a href="#type-padding">padding</a>('x, 'y),
+    <a href="#type-precision">precision</a>('y, float => 'a),
+    <a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)
+  ): <a href="#type-fmt">fmt</a>('x, 'b, 'c, 'd, 'e, 'f)
+  | Bool(<a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)): <a href="#type-fmt">fmt</a>(
+    bool => 'a,
+    'b,
+    'c,
+    'd,
+    'e,
+    'f
+  )
+  | Flush(<a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)): <a href="#type-fmt">fmt</a>(
+    'a,
+    'b,
+    'c,
+    'd,
+    'e,
+    'f
+  )
+  | String_literal(
+    string,
+    <a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)
+  ): <a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)
+  | Char_literal(char, <a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)): <a href="#type-fmt">fmt</a>(
+    'a,
+    'b,
+    'c,
+    'd,
+    'e,
+    'f
+  )
+  | Format_arg(
+    <a href="#type-pad_option">pad_option</a>,
+    <a href="#type-fmtty">fmtty</a>('g, 'h, 'i, 'j, 'k, 'l),
+    <a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)
+  ): <a href="#type-fmt">fmt</a>(
+    <a href="#type-format6">format6</a>('g, 'h, 'i, 'j, 'k, 'l) => 'a,
+    'b,
+    'c,
+    'd,
+    'e,
+    'f
+  )
+  | Format_subst(
+    <a href="#type-pad_option">pad_option</a>,
+    <a href="#type-fmtty_rel">fmtty_rel</a>(
+      'g,
+      'h,
+      'i,
+      'j,
+      'k,
+      'l,
+      'g2,
+      'b,
+      'c,
+      'j2,
+      'd,
+      'a
+    ),
+    <a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)
+  ): <a href="#type-fmt">fmt</a>(
+    <a href="#type-format6">format6</a>('g, 'h, 'i, 'j, 'k, 'l) => 'g2,
+    'b,
+    'c,
+    'j2,
+    'e,
+    'f
+  )
+  | Alpha(<a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)): <a href="#type-fmt">fmt</a>(
+    (('b, 'x) => 'c, 'x) => 'a,
+    'b,
+    'c,
+    'd,
+    'e,
+    'f
+  )
+  | Theta(<a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)): <a href="#type-fmt">fmt</a>(
+    'b => 'c => 'a,
+    'b,
+    'c,
+    'd,
+    'e,
+    'f
+  )
+  | Formatting_lit(
+    <a href="#type-formatting_lit">formatting_lit</a>,
+    <a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)
+  ): <a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)
+  | Formatting_gen(
+    <a href="#type-formatting_gen">formatting_gen</a>('a1, 'b, 'c, 'd1, 'e1, 'f1),
+    <a href="#type-fmt">fmt</a>('f1, 'b, 'c, 'e1, 'e2, 'f2)
+  ): <a href="#type-fmt">fmt</a>('a1, 'b, 'c, 'd1, 'e2, 'f2)
+  | Reader(<a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)): <a href="#type-fmt">fmt</a>(
+    'x => 'a,
+    'b,
+    'c,
+    'b => 'x => 'd,
+    'e,
+    'f
+  )
+  | Scan_char_set(
+    <a href="#type-pad_option">pad_option</a>,
+    <a href="#type-char_set">char_set</a>,
+    <a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)
+  ): <a href="#type-fmt">fmt</a>(string => 'a, 'b, 'c, 'd, 'e, 'f)
+  | Scan_get_counter(
+    <a href="#type-counter">counter</a>,
+    <a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)
+  ): <a href="#type-fmt">fmt</a>(int => 'a, 'b, 'c, 'd, 'e, 'f)
+  | Scan_next_char(<a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)): <a href="#type-fmt">fmt</a>(
+    char => 'a,
+    'b,
+    'c,
+    'd,
+    'e,
+    'f
+  )
+  | Ignored_param(
+    <a href="#type-ignored">ignored</a>('a, 'b, 'c, 'd, 'y, 'x),
+    <a href="#type-fmt">fmt</a>('x, 'b, 'c, 'y, 'e, 'f)
+  ): <a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)
+  | Custom(
+    <a href="#type-custom_arity">custom_arity</a>('a, 'x, 'y),
+    unit => 'x,
+    <a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f)
+  ): <a href="#type-fmt">fmt</a>('y, 'b, 'c, 'd, 'e, 'f)
+  | End_of_format: <a href="#type-fmt">fmt</a>('f, 'b, 'c, 'e, 'e, 'f)</h4>
+
+<div class='body '><p>List of format elements.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-ignored" id="type-ignored">ignored</a>('a, 'b, 'c, 'd, 'e, 'f) = 
+  | Ignored_char: <a href="#type-ignored">ignored</a>('a, 'b, 'c, 'd, 'd, 'a)
+  | Ignored_caml_char: <a href="#type-ignored">ignored</a>('a, 'b, 'c, 'd, 'd, 'a)
+  | Ignored_string(<a href="#type-pad_option">pad_option</a>): <a href="#type-ignored">ignored</a>(
+    'a,
+    'b,
+    'c,
+    'd,
+    'd,
+    'a
+  )
+  | Ignored_caml_string(<a href="#type-pad_option">pad_option</a>): <a href="#type-ignored">ignored</a>(
+    'a,
+    'b,
+    'c,
+    'd,
+    'd,
+    'a
+  )
+  | Ignored_int(<a href="#type-int_conv">int_conv</a>, <a href="#type-pad_option">pad_option</a>): <a href="#type-ignored">ignored</a>(
+    'a,
+    'b,
+    'c,
+    'd,
+    'd,
+    'a
+  )
+  | Ignored_int32(<a href="#type-int_conv">int_conv</a>, <a href="#type-pad_option">pad_option</a>): <a href="#type-ignored">ignored</a>(
+    'a,
+    'b,
+    'c,
+    'd,
+    'd,
+    'a
+  )
+  | Ignored_nativeint(<a href="#type-int_conv">int_conv</a>, <a href="#type-pad_option">pad_option</a>): <a href="#type-ignored">ignored</a>(
+    'a,
+    'b,
+    'c,
+    'd,
+    'd,
+    'a
+  )
+  | Ignored_int64(<a href="#type-int_conv">int_conv</a>, <a href="#type-pad_option">pad_option</a>): <a href="#type-ignored">ignored</a>(
+    'a,
+    'b,
+    'c,
+    'd,
+    'd,
+    'a
+  )
+  | Ignored_float(<a href="#type-pad_option">pad_option</a>, <a href="#type-prec_option">prec_option</a>): <a href="#type-ignored">ignored</a>(
+    'a,
+    'b,
+    'c,
+    'd,
+    'd,
+    'a
+  )
+  | Ignored_bool: <a href="#type-ignored">ignored</a>('a, 'b, 'c, 'd, 'd, 'a)
+  | Ignored_format_arg(
+    <a href="#type-pad_option">pad_option</a>,
+    <a href="#type-fmtty">fmtty</a>('g, 'h, 'i, 'j, 'k, 'l)
+  ): <a href="#type-ignored">ignored</a>('a, 'b, 'c, 'd, 'd, 'a)
+  | Ignored_format_subst(
+    <a href="#type-pad_option">pad_option</a>,
+    <a href="#type-fmtty">fmtty</a>('a, 'b, 'c, 'd, 'e, 'f)
+  ): <a href="#type-ignored">ignored</a>('a, 'b, 'c, 'd, 'e, 'f)
+  | Ignored_reader: <a href="#type-ignored">ignored</a>(
+    'a,
+    'b,
+    'c,
+    'b => 'x => 'd,
+    'd,
+    'a
+  )
+  | Ignored_scan_char_set(<a href="#type-pad_option">pad_option</a>, <a href="#type-char_set">char_set</a>): <a href="#type-ignored">ignored</a>(
+    'a,
+    'b,
+    'c,
+    'd,
+    'd,
+    'a
+  )
+  | Ignored_scan_get_counter(<a href="#type-counter">counter</a>): <a href="#type-ignored">ignored</a>(
+    'a,
+    'b,
+    'c,
+    'd,
+    'd,
+    'a
+  )
+  | Ignored_scan_next_char: <a href="#type-ignored">ignored</a>('a, 'b, 'c, 'd, 'd, 'a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-format6" id="type-format6">format6</a>('a, 'b, 'c, 'd, 'e, 'f) = 
+  | Format(<a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f), string)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-concat_fmtty" id="value-concat_fmtty">concat_fmtty</a>: (
+  <a href="#type-fmtty_rel">fmtty_rel</a>(
+    'g1,
+    'b1,
+    'c1,
+    'j1,
+    'd1,
+    'a1,
+    'g2,
+    'b2,
+    'c2,
+    'j2,
+    'd2,
+    'a2
+  ),
+  <a href="#type-fmtty_rel">fmtty_rel</a>(
+    'a1,
+    'b1,
+    'c1,
+    'd1,
+    'e1,
+    'f1,
+    'a2,
+    'b2,
+    'c2,
+    'd2,
+    'e2,
+    'f2
+  )
+) => <a href="#type-fmtty_rel">fmtty_rel</a>(
+  'g1,
+  'b1,
+  'c1,
+  'j1,
+  'e1,
+  'f1,
+  'g2,
+  'b2,
+  'c2,
+  'j2,
+  'e2,
+  'f2
+)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-erase_rel" id="value-erase_rel">erase_rel</a>: <a href="#type-fmtty_rel">fmtty_rel</a>(
+  'a,
+  'b,
+  'c,
+  'd,
+  'e,
+  'f,
+  'g,
+  'h,
+  'i,
+  'j,
+  'k,
+  'l
+) => <a href="#type-fmtty">fmtty</a>('a, 'b, 'c, 'd, 'e, 'f)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-concat_fmt" id="value-concat_fmt">concat_fmt</a>: (
+  <a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'e, 'f),
+  <a href="#type-fmt">fmt</a>('f, 'b, 'c, 'e, 'g, 'h)
+) => <a href="#type-fmt">fmt</a>('a, 'b, 'c, 'd, 'g, 'h)</h4>
+
+<div class='body body-empty'></div></div>
+
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

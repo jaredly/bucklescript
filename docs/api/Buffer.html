@@ -1,0 +1,285 @@
+
+    
+<!doctype html>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Buffer</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
+</div>
+
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#type-t" class='level-0 type'>t</a>
+<a href="#value-create" class='level-0 value'>create</a>
+<a href="#value-contents" class='level-0 value'>contents</a>
+<a href="#value-to_bytes" class='level-0 value'>to_bytes</a>
+<a href="#value-sub" class='level-0 value'>sub</a>
+<a href="#value-blit" class='level-0 value'>blit</a>
+<a href="#value-nth" class='level-0 value'>nth</a>
+<a href="#value-length" class='level-0 value'>length</a>
+<a href="#value-clear" class='level-0 value'>clear</a>
+<a href="#value-reset" class='level-0 value'>reset</a>
+<a href="#value-add_char" class='level-0 value'>add_char</a>
+<a href="#value-add_string" class='level-0 value'>add_string</a>
+<a href="#value-add_bytes" class='level-0 value'>add_bytes</a>
+<a href="#value-add_substring" class='level-0 value'>add_substring</a>
+<a href="#value-add_subbytes" class='level-0 value'>add_subbytes</a>
+<a href="#value-add_substitute" class='level-0 value'>add_substitute</a>
+<a href="#value-add_buffer" class='level-0 value'>add_buffer</a>
+<a href="#value-add_channel" class='level-0 value'>add_channel</a>
+<a href="#value-output_buffer" class='level-0 value'>output_buffer</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Js.html">Js</a>
+<a href="Arg.html">Arg</a>
+<a href="Array.html">Array</a>
+<a href="ArrayLabels.html">ArrayLabels</a>
+<a href="Bigarray.html">Bigarray</a>
+<a href="Buffer.html">Buffer</a>
+<a href="Bytes.html">Bytes</a>
+<a href="BytesLabels.html">BytesLabels</a>
+<a href="Callback.html">Callback</a>
+<a href="CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="CamlinternalMod.html">CamlinternalMod</a>
+<a href="CamlinternalOO.html">CamlinternalOO</a>
+<a href="Char.html">Char</a>
+<a href="Complex.html">Complex</a>
+<a href="Digest.html">Digest</a>
+<a href="Filename.html">Filename</a>
+<a href="Format.html">Format</a>
+<a href="Gc.html">Gc</a>
+<a href="Genlex.html">Genlex</a>
+<a href="Hashtbl.html">Hashtbl</a>
+<a href="Int32.html">Int32</a>
+<a href="Int64.html">Int64</a>
+<a href="Lazy.html">Lazy</a>
+<a href="Lexing.html">Lexing</a>
+<a href="List.html">List</a>
+<a href="ListLabels.html">ListLabels</a>
+<a href="Map.html">Map</a>
+<a href="Marshal.html">Marshal</a>
+<a href="MoreLabels.html">MoreLabels</a>
+<a href="Nativeint.html">Nativeint</a>
+<a href="Obj.html">Obj</a>
+<a href="Oo.html">Oo</a>
+<a href="Parsing.html">Parsing</a>
+<a href="Pervasives.html">Pervasives</a>
+<a href="Printexc.html">Printexc</a>
+<a href="Printf.html">Printf</a>
+<a href="Queue.html">Queue</a>
+<a href="Random.html">Random</a>
+<a href="Scanf.html">Scanf</a>
+<a href="Set.html">Set</a>
+<a href="Sort.html">Sort</a>
+<a href="Stack.html">Stack</a>
+<a href="Std_exit.html">Std_exit</a>
+<a href="StdLabels.html">StdLabels</a>
+<a href="Stream.html">Stream</a>
+<a href="String.html">String</a>
+<a href="StringLabels.html">StringLabels</a>
+<a href="Sys.html">Sys</a>
+<a href="Unix.html">Unix</a>
+<a href="UnixLabels.html">UnixLabels</a>
+<a href="Weak.html">Weak</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/stdlib/buffer.ml" class="edit-link">Edit</a>
+    <p>Extensible buffers.</p>
+<p>This module implements buffers that automatically expand as necessary. It provides accumulative concatenation of strings in quasi-linear time (instead of quadratic time when strings are concatenated pairwise).</p>
+<p>other items defined</p><div class='doc-item'><h4 class='item'>type <a href="#type-t" id="type-t">t</a></h4>
+
+<div class='body '><p>The abstract type of buffers.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-create" id="value-create">create</a>: int => <a href="#type-t">t</a></h4>
+
+<div class='body '><p><code>create n</code> returns a fresh buffer, initially empty. The <code>n</code> parameter is the initial size of the internal byte sequence that holds the buffer contents. That byte sequence is automatically reallocated when more than <code>n</code> characters are stored in the buffer, but shrinks back to <code>n</code> characters when <code>reset</code> is called. For best performance, <code>n</code> should be of the same order of magnitude as the number of characters that are expected to be stored in the buffer (for instance, 80 for a buffer that holds one output line). Nothing bad will happen if the buffer grows beyond that limit, however. In doubt, take <code>n = 16</code> for instance. If <code>n</code> is not between 1 and max_string_length, it will be clipped to that interval.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-contents" id="value-contents">contents</a>: <a href="#type-t">t</a> => string</h4>
+
+<div class='body '><p>Return a copy of the current contents of the buffer. The buffer itself is unchanged.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-to_bytes" id="value-to_bytes">to_bytes</a>: <a href="#type-t">t</a> => bytes</h4>
+
+<div class='body '><p>Return a copy of the current contents of the buffer. The buffer itself is unchanged.</p>
+Since: 4.02</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sub" id="value-sub">sub</a>: (<a href="#type-t">t</a>, int, int) => string</h4>
+
+<div class='body '><p><code>Buffer.sub b off len</code> returns (a copy of) the bytes from the current contents of the buffer <code>b</code> starting at offset <code>off</code> of length <code>len</code> bytes. May raise <code>Invalid_argument</code> if out of bounds request. The buffer itself is unaffected.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-blit" id="value-blit">blit</a>: (<a href="#type-t">t</a>, int, bytes, int, int) => unit</h4>
+
+<div class='body '><p><code>Buffer.blit src srcoff dst dstoff len</code> copies <code>len</code> characters from the current contents of the buffer <code>src</code>, starting at offset <code>srcoff</code> to <code>dst</code>, starting at character <code>dstoff</code>.</p>
+<p>Raise <code>Invalid_argument</code> if <code>srcoff</code> and <code>len</code> do not designate a valid range of <code>src</code>, or if <code>dstoff</code> and <code>len</code> do not designate a valid range of <code>dst</code>.</p>
+Since: 3.11.2</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-nth" id="value-nth">nth</a>: (<a href="#type-t">t</a>, int) => char</h4>
+
+<div class='body '><p>get the n-th character of the buffer. Raise <code>Invalid_argument</code> if index out of bounds</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-length" id="value-length">length</a>: <a href="#type-t">t</a> => int</h4>
+
+<div class='body '><p>Return the number of characters currently contained in the buffer.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-clear" id="value-clear">clear</a>: <a href="#type-t">t</a> => unit</h4>
+
+<div class='body '><p>Empty the buffer.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-reset" id="value-reset">reset</a>: <a href="#type-t">t</a> => unit</h4>
+
+<div class='body '><p>Empty the buffer and deallocate the internal byte sequence holding the buffer contents, replacing it with the initial internal byte sequence of length <code>n</code> that was allocated by create <code>n</code>. For long-lived buffers that may have grown a lot, <code>reset</code> allows faster reclamation of the space used by the buffer.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-add_char" id="value-add_char">add_char</a>: (<a href="#type-t">t</a>, char) => unit</h4>
+
+<div class='body '><p><code>add_char b c</code> appends the character <code>c</code> at the end of the buffer <code>b</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-add_string" id="value-add_string">add_string</a>: (<a href="#type-t">t</a>, string) => unit</h4>
+
+<div class='body '><p><code>add_string b s</code> appends the string <code>s</code> at the end of the buffer <code>b</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-add_bytes" id="value-add_bytes">add_bytes</a>: (<a href="#type-t">t</a>, bytes) => unit</h4>
+
+<div class='body '><p><code>add_string b s</code> appends the string <code>s</code> at the end of the buffer <code>b</code>.</p>
+Since: 4.02</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-add_substring" id="value-add_substring">add_substring</a>: (<a href="#type-t">t</a>, string, int, int) => unit</h4>
+
+<div class='body '><p><code>add_substring b s ofs len</code> takes <code>len</code> characters from offset <code>ofs</code> in string <code>s</code> and appends them at the end of the buffer <code>b</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-add_subbytes" id="value-add_subbytes">add_subbytes</a>: (<a href="#type-t">t</a>, bytes, int, int) => unit</h4>
+
+<div class='body '><p><code>add_substring b s ofs len</code> takes <code>len</code> characters from offset <code>ofs</code> in byte sequence <code>s</code> and appends them at the end of the buffer <code>b</code>.</p>
+Since: 4.02</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-add_substitute" id="value-add_substitute">add_substitute</a>: (<a href="#type-t">t</a>, string => string, string) => unit</h4>
+
+<div class='body '><p><code>add_substitute b f s</code> appends the string pattern <code>s</code> at the end of the buffer <code>b</code> with substitution. The substitution process looks for variables into the pattern and substitutes each variable name by its value, as obtained by applying the mapping <code>f</code> to the variable name. Inside the string pattern, a variable name immediately follows a non-escaped <code>$</code> character and is one of the following:</p>
+<ul><li><p>a non empty sequence of alphanumeric or <code>_</code> characters,</p>
+</li><li><p>an arbitrary sequence of characters enclosed by a pair of matching parentheses or curly brackets. An escaped <code>$</code> character is a <code>$</code> that immediately follows a backslash character; it then stands for a plain <code>$</code>. Raise <code>Not_found</code> if the closing character of a parenthesized variable cannot be found.</p>
+</li></ul></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-add_buffer" id="value-add_buffer">add_buffer</a>: (<a href="#type-t">t</a>, <a href="#type-t">t</a>) => unit</h4>
+
+<div class='body '><p><code>add_buffer b1 b2</code> appends the current contents of buffer <code>b2</code> at the end of buffer <code>b1</code>. <code>b2</code> is not modified.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-add_channel" id="value-add_channel">add_channel</a>: (<a href="#type-t">t</a>, <a href="Pervasives.html#type-in_channel" title="Pervasives.in_channel">in_channel</a>, int) => unit</h4>
+
+<div class='body '><p><code>add_channel b ic n</code> reads exactly <code>n</code> character from the input channel <code>ic</code> and stores them at the end of buffer <code>b</code>. Raise <code>End_of_file</code> if the channel contains fewer than <code>n</code> characters.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-output_buffer" id="value-output_buffer">output_buffer</a>: (<a href="Pervasives.html#type-out_channel" title="Pervasives.out_channel">out_channel</a>, <a href="#type-t">t</a>) => unit</h4>
+
+<div class='body '><p><code>output_buffer oc b</code> writes the current contents of buffer <code>b</code> on the output channel <code>oc</code>.</p>
+</div></div>
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

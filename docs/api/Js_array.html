@@ -1,270 +1,502 @@
+
+    
 <!doctype html>
-<html>
-<head>
-                 <link rel="stylesheet" href="../api_static/tomorrow-night.css">
-                 <link rel="stylesheet" href="../api_static/style.css" type="text/css">
-                 <script src="../api_static//highlight.pack.js"></script>
-                 <script src="../api_static//script.js"></script>
-                 <script>hljs.initHighlightingOnLoad();</script> 
-                 <meta charset="utf8">
-                 <link rel="previous" href="Js.html"><link rel="next" href="Js_boolean.html">
-                 <title> Js_array </title></head> 
-               <body>
-<nav class="module-index"><ul><li><a href="Belt.html">Belt</a></li>
-<li><a href="Belt_Array.html">Belt_Array</a></li>
-<li><a href="Belt_HashMap.html">Belt_HashMap</a></li>
-<li><a href="Belt_HashMapInt.html">Belt_HashMapInt</a></li>
-<li><a href="Belt_HashMapString.html">Belt_HashMapString</a></li>
-<li><a href="Belt_HashSet.html">Belt_HashSet</a></li>
-<li><a href="Belt_HashSetInt.html">Belt_HashSetInt</a></li>
-<li><a href="Belt_HashSetString.html">Belt_HashSetString</a></li>
-<li><a href="Belt_Id.html">Belt_Id</a></li>
-<li><a href="Belt_List.html">Belt_List</a></li>
-<li><a href="Belt_Map.html">Belt_Map</a></li>
-<li><a href="Belt_MapDict.html">Belt_MapDict</a></li>
-<li><a href="Belt_MapInt.html">Belt_MapInt</a></li>
-<li><a href="Belt_MapString.html">Belt_MapString</a></li>
-<li><a href="Belt_MutableMap.html">Belt_MutableMap</a></li>
-<li><a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a></li>
-<li><a href="Belt_MutableMapString.html">Belt_MutableMapString</a></li>
-<li><a href="Belt_MutableQueue.html">Belt_MutableQueue</a></li>
-<li><a href="Belt_MutableSet.html">Belt_MutableSet</a></li>
-<li><a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a></li>
-<li><a href="Belt_MutableSetString.html">Belt_MutableSetString</a></li>
-<li><a href="Belt_MutableStack.html">Belt_MutableStack</a></li>
-<li><a href="Belt_Option.html">Belt_Option</a></li>
-<li><a href="Belt_Range.html">Belt_Range</a></li>
-<li><a href="Belt_Set.html">Belt_Set</a></li>
-<li><a href="Belt_SetDict.html">Belt_SetDict</a></li>
-<li><a href="Belt_SetInt.html">Belt_SetInt</a></li>
-<li><a href="Belt_SetString.html">Belt_SetString</a></li>
-<li><a href="Belt_SortArray.html">Belt_SortArray</a></li>
-<li><a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a></li>
-<li><a href="Belt_SortArrayString.html">Belt_SortArrayString</a></li>
-<li><a href="Belt_internalAVLset.html">Belt_internalAVLset</a></li>
-<li><a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a></li>
-<li><a href="Belt_internalBuckets.html">Belt_internalBuckets</a></li>
-<li><a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a></li>
-<li><a href="Belt_internalMapInt.html">Belt_internalMapInt</a></li>
-<li><a href="Belt_internalMapString.html">Belt_internalMapString</a></li>
-<li><a href="Belt_internalMutableAVLMap.html">Belt_internalMutableAVLMap</a></li>
-<li><a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a></li>
-<li><a href="Belt_internalSetInt.html">Belt_internalSetInt</a></li>
-<li><a href="Belt_internalSetString.html">Belt_internalSetString</a></li>
-<li><a href="Dom.html">Dom</a></li>
-<li><a href="Dom_storage.html">Dom_storage</a></li>
-<li><a href="Js.html">Js</a></li>
-<li><a href="Js_array.html">Js_array</a></li>
-<li><a href="Js_boolean.html">Js_boolean</a></li>
-<li><a href="Js_cast.html">Js_cast</a></li>
-<li><a href="Js_console.html">Js_console</a></li>
-<li><a href="Js_date.html">Js_date</a></li>
-<li><a href="Js_dict.html">Js_dict</a></li>
-<li><a href="Js_exn.html">Js_exn</a></li>
-<li><a href="Js_float.html">Js_float</a></li>
-<li><a href="Js_global.html">Js_global</a></li>
-<li><a href="Js_int.html">Js_int</a></li>
-<li><a href="Js_int64.html">Js_int64</a></li>
-<li><a href="Js_internal.html">Js_internal</a></li>
-<li><a href="Js_json.html">Js_json</a></li>
-<li><a href="Js_list.html">Js_list</a></li>
-<li><a href="Js_mapperRt.html">Js_mapperRt</a></li>
-<li><a href="Js_math.html">Js_math</a></li>
-<li><a href="Js_nativeint.html">Js_nativeint</a></li>
-<li><a href="Js_null.html">Js_null</a></li>
-<li><a href="Js_null_undefined.html">Js_null_undefined</a></li>
-<li><a href="Js_obj.html">Js_obj</a></li>
-<li><a href="Js_option.html">Js_option</a></li>
-<li><a href="Js_primitive.html">Js_primitive</a></li>
-<li><a href="Js_promise.html">Js_promise</a></li>
-<li><a href="Js_re.html">Js_re</a></li>
-<li><a href="Js_result.html">Js_result</a></li>
-<li><a href="Js_string.html">Js_string</a></li>
-<li><a href="Js_typed_array.html">Js_typed_array</a></li>
-<li><a href="Js_types.html">Js_types</a></li>
-<li><a href="Js_undefined.html">Js_undefined</a></li>
-<li><a href="Js_unsafe.html">Js_unsafe</a></li>
-<li><a href="Js_vector.html">Js_vector</a></li>
-<li><a href="Node.html">Node</a></li>
-<li><a href="Node_buffer.html">Node_buffer</a></li>
-<li><a href="Node_child_process.html">Node_child_process</a></li>
-<li><a href="Node_fs.html">Node_fs</a></li>
-<li><a href="Node_module.html">Node_module</a></li>
-<li><a href="Node_path.html">Node_path</a></li>
-<li><a href="Node_process.html">Node_process</a></li></ul></nav>
-<div class="navbar"><a class="pre" href="Js.html" title="Js">Previous</a>
-&nbsp;<a class="up" href="index.html" title="Index">Up</a>
-&nbsp;<a class="post" href="Js_boolean.html" title="Js_boolean">Next</a>
-</div>
-<h1>Module <a href="type_Js_array.html">Js_array</a></h1>
-
-<pre><span class="keyword">module</span> Js_array: <code class="code">sig</code> <a href="Js_array.html">..</a> <code class="code">end</code></pre><div class="info module top">
-                    <div class="not-examples">
-                    JavaScript Array API<br>
- 
-                    </div>
-                    
-                    </div>
-
-                  <hr width="100%">
-<div class="type-declaration">
-<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type">'a</code> t</span> = <code class="type">'a array</code> </pre>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Js_array</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
 </div>
 
-<div class="type-declaration">
-<pre><span id="TYPEarray_like"><span class="keyword">type</span> <code class="type">'a</code> array_like</span> </pre>
-</div>
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#type-t" class='level-0 type'>t</a>
+<a href="#type-array_like" class='level-0 type'>array_like</a>
+<a href="#value-from" class='level-0 value'>from</a>
+<a href="#value-fromMap" class='level-0 value'>fromMap</a>
+<a href="#value-isArray" class='level-0 value'>isArray</a>
+<a href="#value-length" class='level-0 value'>length</a>
+<a href="#value-copyWithin" class='level-0 value'>copyWithin</a>
+<a href="#value-copyWithinFrom" class='level-0 value'>copyWithinFrom</a>
+<a href="#value-copyWithinFromRange" class='level-0 value'>copyWithinFromRange</a>
+<a href="#value-fillInPlace" class='level-0 value'>fillInPlace</a>
+<a href="#value-fillFromInPlace" class='level-0 value'>fillFromInPlace</a>
+<a href="#value-fillRangeInPlace" class='level-0 value'>fillRangeInPlace</a>
+<a href="#value-pop" class='level-0 value'>pop</a>
+<a href="#value-push" class='level-0 value'>push</a>
+<a href="#value-pushMany" class='level-0 value'>pushMany</a>
+<a href="#value-reverseInPlace" class='level-0 value'>reverseInPlace</a>
+<a href="#value-shift" class='level-0 value'>shift</a>
+<a href="#value-sortInPlace" class='level-0 value'>sortInPlace</a>
+<a href="#value-sortInPlaceWith" class='level-0 value'>sortInPlaceWith</a>
+<a href="#value-spliceInPlace" class='level-0 value'>spliceInPlace</a>
+<a href="#value-removeFromInPlace" class='level-0 value'>removeFromInPlace</a>
+<a href="#value-removeCountInPlace" class='level-0 value'>removeCountInPlace</a>
+<a href="#value-unshift" class='level-0 value'>unshift</a>
+<a href="#value-unshiftMany" class='level-0 value'>unshiftMany</a>
+<a href="#value-append" class='level-0 value'>append</a>
+<a href="#value-concat" class='level-0 value'>concat</a>
+<a href="#value-concatMany" class='level-0 value'>concatMany</a>
+<a href="#value-includes" class='level-0 value'>includes</a>
+<a href="#value-indexOf" class='level-0 value'>indexOf</a>
+<a href="#value-indexOfFrom" class='level-0 value'>indexOfFrom</a>
+<a href="#value-join" class='level-0 value'>join</a>
+<a href="#value-joinWith" class='level-0 value'>joinWith</a>
+<a href="#value-lastIndexOf" class='level-0 value'>lastIndexOf</a>
+<a href="#value-lastIndexOfFrom" class='level-0 value'>lastIndexOfFrom</a>
+<a href="#value-lastIndexOf_start" class='level-0 value'>lastIndexOf_start</a>
+<a href="#value-slice" class='level-0 value'>slice</a>
+<a href="#value-copy" class='level-0 value'>copy</a>
+<a href="#value-slice_copy" class='level-0 value'>slice_copy</a>
+<a href="#value-sliceFrom" class='level-0 value'>sliceFrom</a>
+<a href="#value-slice_start" class='level-0 value'>slice_start</a>
+<a href="#value-toString" class='level-0 value'>toString</a>
+<a href="#value-toLocaleString" class='level-0 value'>toLocaleString</a>
+<a href="#value-every" class='level-0 value'>every</a>
+<a href="#value-everyi" class='level-0 value'>everyi</a>
+<a href="#value-filter" class='level-0 value'>filter</a>
+<a href="#value-filteri" class='level-0 value'>filteri</a>
+<a href="#value-find" class='level-0 value'>find</a>
+<a href="#value-findi" class='level-0 value'>findi</a>
+<a href="#value-findIndex" class='level-0 value'>findIndex</a>
+<a href="#value-findIndexi" class='level-0 value'>findIndexi</a>
+<a href="#value-forEach" class='level-0 value'>forEach</a>
+<a href="#value-forEachi" class='level-0 value'>forEachi</a>
+<a href="#value-map" class='level-0 value'>map</a>
+<a href="#value-mapi" class='level-0 value'>mapi</a>
+<a href="#value-reduce" class='level-0 value'>reduce</a>
+<a href="#value-reducei" class='level-0 value'>reducei</a>
+<a href="#value-reduceRight" class='level-0 value'>reduceRight</a>
+<a href="#value-reduceRighti" class='level-0 value'>reduceRighti</a>
+<a href="#value-some" class='level-0 value'>some</a>
+<a href="#value-somei" class='level-0 value'>somei</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Js.html">Js</a>
+<a href="Arg.html">Arg</a>
+<a href="Array.html">Array</a>
+<a href="ArrayLabels.html">ArrayLabels</a>
+<a href="Bigarray.html">Bigarray</a>
+<a href="Buffer.html">Buffer</a>
+<a href="Bytes.html">Bytes</a>
+<a href="BytesLabels.html">BytesLabels</a>
+<a href="Callback.html">Callback</a>
+<a href="CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="CamlinternalMod.html">CamlinternalMod</a>
+<a href="CamlinternalOO.html">CamlinternalOO</a>
+<a href="Char.html">Char</a>
+<a href="Complex.html">Complex</a>
+<a href="Digest.html">Digest</a>
+<a href="Filename.html">Filename</a>
+<a href="Format.html">Format</a>
+<a href="Gc.html">Gc</a>
+<a href="Genlex.html">Genlex</a>
+<a href="Hashtbl.html">Hashtbl</a>
+<a href="Int32.html">Int32</a>
+<a href="Int64.html">Int64</a>
+<a href="Lazy.html">Lazy</a>
+<a href="Lexing.html">Lexing</a>
+<a href="List.html">List</a>
+<a href="ListLabels.html">ListLabels</a>
+<a href="Map.html">Map</a>
+<a href="Marshal.html">Marshal</a>
+<a href="MoreLabels.html">MoreLabels</a>
+<a href="Nativeint.html">Nativeint</a>
+<a href="Obj.html">Obj</a>
+<a href="Oo.html">Oo</a>
+<a href="Parsing.html">Parsing</a>
+<a href="Pervasives.html">Pervasives</a>
+<a href="Printexc.html">Printexc</a>
+<a href="Printf.html">Printf</a>
+<a href="Queue.html">Queue</a>
+<a href="Random.html">Random</a>
+<a href="Scanf.html">Scanf</a>
+<a href="Set.html">Set</a>
+<a href="Sort.html">Sort</a>
+<a href="Stack.html">Stack</a>
+<a href="Std_exit.html">Std_exit</a>
+<a href="StdLabels.html">StdLabels</a>
+<a href="Stream.html">Stream</a>
+<a href="String.html">String</a>
+<a href="StringLabels.html">StringLabels</a>
+<a href="Sys.html">Sys</a>
+<a href="Unix.html">Unix</a>
+<a href="UnixLabels.html">UnixLabels</a>
+<a href="Weak.html">Weak</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/others/js_array.ml" class="edit-link">Edit</a>
+    <p>JavaScript Array API</p>
+<p>other items defined</p><div class='doc-item'><h4 class='item'>type <a href="#type-t" id="type-t">t</a>('a) = array('a)</h4>
 
+<div class='body body-empty'></div></div>
 
-<pre><span id="VALfrom"><span class="keyword">val</span> from</span> : <code class="type">'a <a href="Js_array.html#TYPEarray_like">array_like</a> -> 'b array</code></pre>
-<pre><span id="VALfromMap"><span class="keyword">val</span> fromMap</span> : <code class="type">'a <a href="Js_array.html#TYPEarray_like">array_like</a> -> ('a -> 'b) -> 'b array</code></pre><div class="info ">
-                    <div class="not-examples">
-                    ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-array_like" id="type-array_like">array_like</a>('a)</h4>
 
-                  
-<pre><span id="VALisArray"><span class="keyword">val</span> isArray</span> : <code class="type">'a -> bool</code></pre><div class="info ">
-                    <div class="not-examples">
-                    ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body body-empty'></div></div>
 
-                  <br>
-ES2015<br>
-<br>
-ES2015<br>
+<div class='doc-item'><h4 class='item'>let <a href="#value-from" id="value-from">from</a>: <a href="#type-array_like">array_like</a>('a) => array('b)</h4>
 
-<pre><span id="VALlength"><span class="keyword">val</span> length</span> : <code class="type">'a array -> int</code></pre>
-<pre><span id="VALcopyWithin"><span class="keyword">val</span> copyWithin</span> : <code class="type">to_:int -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'a <a href="Js_array.html#TYPEt">t</a></code></pre>
-<pre><span id="VALcopyWithinFrom"><span class="keyword">val</span> copyWithinFrom</span> : <code class="type">to_:int -> from:int -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'a <a href="Js_array.html#TYPEt">t</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>ES2015</p>
+</div></div>
 
-                  
-<pre><span id="VALcopyWithinFromRange"><span class="keyword">val</span> copyWithinFromRange</span> : <code class="type">to_:int -> start:int -> end_:int -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'a <a href="Js_array.html#TYPEt">t</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-fromMap" id="value-fromMap">fromMap</a>: (<a href="#type-array_like">array_like</a>('a), 'a => 'b) => array('b)</h4>
 
-                  <br>
-ES2015<br>
+<div class='body '><p>ES2015</p>
+</div></div>
 
-<pre><span id="VALfillInPlace"><span class="keyword">val</span> fillInPlace</span> : <code class="type">'a -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'a <a href="Js_array.html#TYPEt">t</a></code></pre>
-<pre><span id="VALfillFromInPlace"><span class="keyword">val</span> fillFromInPlace</span> : <code class="type">'a -> from:int -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'a <a href="Js_array.html#TYPEt">t</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-isArray" id="value-isArray">isArray</a>: 'a => bool</h4>
 
-                  
-<pre><span id="VALfillRangeInPlace"><span class="keyword">val</span> fillRangeInPlace</span> : <code class="type">'a -> start:int -> end_:int -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'a <a href="Js_array.html#TYPEt">t</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>ES2015</p>
+</div></div>
 
-                  <br>
-ES2015<br>
+<div class='doc-item'><h4 class='item'>let <a href="#value-length" id="value-length">length</a>: array('a) => int</h4>
 
-<pre><span id="VALpop"><span class="keyword">val</span> pop</span> : <code class="type">'a <a href="Js_array.html#TYPEt">t</a> -> 'a option</code></pre><div class="info ">
-                    <div class="not-examples">
-                    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body body-empty'></div></div>
 
-                  
-<pre><span id="VALpush"><span class="keyword">val</span> push</span> : <code class="type">'a -> 'a <a href="Js_array.html#TYPEt">t</a> -> int</code></pre>
-<pre><span id="VALpushMany"><span class="keyword">val</span> pushMany</span> : <code class="type">'a array -> 'a <a href="Js_array.html#TYPEt">t</a> -> int</code></pre>
-<pre><span id="VALreverseInPlace"><span class="keyword">val</span> reverseInPlace</span> : <code class="type">'a <a href="Js_array.html#TYPEt">t</a> -> 'a <a href="Js_array.html#TYPEt">t</a></code></pre>
-<pre><span id="VALshift"><span class="keyword">val</span> shift</span> : <code class="type">'a <a href="Js_array.html#TYPEt">t</a> -> 'a option</code></pre>
-<pre><span id="VALsortInPlace"><span class="keyword">val</span> sortInPlace</span> : <code class="type">'a <a href="Js_array.html#TYPEt">t</a> -> 'a <a href="Js_array.html#TYPEt">t</a></code></pre>
-<pre><span id="VALsortInPlaceWith"><span class="keyword">val</span> sortInPlaceWith</span> : <code class="type">('a -> 'a -> int) -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'a <a href="Js_array.html#TYPEt">t</a></code></pre>
-<pre><span id="VALspliceInPlace"><span class="keyword">val</span> spliceInPlace</span> : <code class="type">pos:int -> remove:int -> add:'a array -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'a <a href="Js_array.html#TYPEt">t</a></code></pre>
-<pre><span id="VALremoveFromInPlace"><span class="keyword">val</span> removeFromInPlace</span> : <code class="type">pos:int -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'a <a href="Js_array.html#TYPEt">t</a></code></pre>
-<pre><span id="VALremoveCountInPlace"><span class="keyword">val</span> removeCountInPlace</span> : <code class="type">pos:int -> count:int -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'a <a href="Js_array.html#TYPEt">t</a></code></pre>
-<pre><span id="VALunshift"><span class="keyword">val</span> unshift</span> : <code class="type">'a -> 'a <a href="Js_array.html#TYPEt">t</a> -> int</code></pre>
-<pre><span id="VALunshiftMany"><span class="keyword">val</span> unshiftMany</span> : <code class="type">'a array -> 'a <a href="Js_array.html#TYPEt">t</a> -> int</code></pre>
-<pre><span id="VALappend"><span class="keyword">val</span> append</span> : <code class="type">'a -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'a <a href="Js_array.html#TYPEt">t</a></code></pre>
-<pre><span id="VALconcat"><span class="keyword">val</span> concat</span> : <code class="type">'a <a href="Js_array.html#TYPEt">t</a> -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'a <a href="Js_array.html#TYPEt">t</a></code></pre>
-<pre><span id="VALconcatMany"><span class="keyword">val</span> concatMany</span> : <code class="type">'a <a href="Js_array.html#TYPEt">t</a> array -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'a <a href="Js_array.html#TYPEt">t</a></code></pre>
-<pre><span id="VALincludes"><span class="keyword">val</span> includes</span> : <code class="type">'a -> 'a <a href="Js_array.html#TYPEt">t</a> -> bool</code></pre><br>
-ES2016<br>
+<div class='doc-item'><h4 class='item'>let <a href="#value-copyWithin" id="value-copyWithin">copyWithin</a>: (~to_: int, <a href="#type-t">t</a>('a)) => <a href="#type-t">t</a>('a)</h4>
 
-<pre><span id="VALindexOf"><span class="keyword">val</span> indexOf</span> : <code class="type">'a -> 'a <a href="Js_array.html#TYPEt">t</a> -> int</code></pre>
-<pre><span id="VALindexOfFrom"><span class="keyword">val</span> indexOfFrom</span> : <code class="type">'a -> from:int -> 'a <a href="Js_array.html#TYPEt">t</a> -> int</code></pre>
-<pre><span id="VALjoin"><span class="keyword">val</span> join</span> : <code class="type">'a <a href="Js_array.html#TYPEt">t</a> -> string</code></pre>
-<pre><span id="VALjoinWith"><span class="keyword">val</span> joinWith</span> : <code class="type">string -> 'a <a href="Js_array.html#TYPEt">t</a> -> string</code></pre>
-<pre><span id="VALlastIndexOf"><span class="keyword">val</span> lastIndexOf</span> : <code class="type">'a -> 'a <a href="Js_array.html#TYPEt">t</a> -> int</code></pre>
-<pre><span id="VALlastIndexOfFrom"><span class="keyword">val</span> lastIndexOfFrom</span> : <code class="type">'a -> from:int -> 'a <a href="Js_array.html#TYPEt">t</a> -> int</code></pre>
-<pre><span id="VALlastIndexOf_start"><span class="keyword">val</span> lastIndexOf_start</span> : <code class="type">'a -> 'a <a href="Js_array.html#TYPEt">t</a> -> int</code></pre>
-<pre><span id="VALslice"><span class="keyword">val</span> slice</span> : <code class="type">start:int -> end_:int -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'a <a href="Js_array.html#TYPEt">t</a></code></pre>
-<pre><span id="VALcopy"><span class="keyword">val</span> copy</span> : <code class="type">'a <a href="Js_array.html#TYPEt">t</a> -> 'a <a href="Js_array.html#TYPEt">t</a></code></pre>
-<pre><span id="VALslice_copy"><span class="keyword">val</span> slice_copy</span> : <code class="type">unit -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'a <a href="Js_array.html#TYPEt">t</a></code></pre>
-<pre><span id="VALsliceFrom"><span class="keyword">val</span> sliceFrom</span> : <code class="type">int -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'a <a href="Js_array.html#TYPEt">t</a></code></pre>
-<pre><span id="VALslice_start"><span class="keyword">val</span> slice_start</span> : <code class="type">int -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'a <a href="Js_array.html#TYPEt">t</a></code></pre>
-<pre><span id="VALtoString"><span class="keyword">val</span> toString</span> : <code class="type">'a <a href="Js_array.html#TYPEt">t</a> -> string</code></pre>
-<pre><span id="VALtoLocaleString"><span class="keyword">val</span> toLocaleString</span> : <code class="type">'a <a href="Js_array.html#TYPEt">t</a> -> string</code></pre>
-<pre><span id="VALevery"><span class="keyword">val</span> every</span> : <code class="type">('a -> bool) -> 'a <a href="Js_array.html#TYPEt">t</a> -> bool</code></pre>
-<pre><span id="VALeveryi"><span class="keyword">val</span> everyi</span> : <code class="type">('a -> int -> bool) -> 'a <a href="Js_array.html#TYPEt">t</a> -> bool</code></pre>
-<pre><span id="VALfilter"><span class="keyword">val</span> filter</span> : <code class="type">('a -> bool) -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'a <a href="Js_array.html#TYPEt">t</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    should we use <code class="code">bool</code> or <code class="code">boolan</code> seems they are intechangeable here<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p>ES2015</p>
+</div></div>
 
-                  
-<pre><span id="VALfilteri"><span class="keyword">val</span> filteri</span> : <code class="type">('a -> int -> bool) -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'a <a href="Js_array.html#TYPEt">t</a></code></pre>
-<pre><span id="VALfind"><span class="keyword">val</span> find</span> : <code class="type">('a -> bool) -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'a option</code></pre>
-<pre><span id="VALfindi"><span class="keyword">val</span> findi</span> : <code class="type">('a -> int -> bool) -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'a option</code></pre><div class="info ">
-                    <div class="not-examples">
-                    ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-copyWithinFrom" id="value-copyWithinFrom">copyWithinFrom</a>: (~to_: int, ~from: int, <a href="#type-t">t</a>('a)) => <a href="#type-t">t</a>('a)</h4>
 
-                  <br>
-ES2015<br>
+<div class='body '><p>ES2015</p>
+</div></div>
 
-<pre><span id="VALfindIndex"><span class="keyword">val</span> findIndex</span> : <code class="type">('a -> bool) -> 'a <a href="Js_array.html#TYPEt">t</a> -> int</code></pre>
-<pre><span id="VALfindIndexi"><span class="keyword">val</span> findIndexi</span> : <code class="type">('a -> int -> bool) -> 'a <a href="Js_array.html#TYPEt">t</a> -> int</code></pre><div class="info ">
-                    <div class="not-examples">
-                    ES2015<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-copyWithinFromRange" id="value-copyWithinFromRange">copyWithinFromRange</a>: (
+  ~to_: int,
+  ~start: int,
+  ~end_: int,
+  <a href="#type-t">t</a>('a)
+) => <a href="#type-t">t</a>('a)</h4>
 
-                  <br>
-ES2015<br>
+<div class='body '><p>ES2015</p>
+</div></div>
 
-<pre><span id="VALforEach"><span class="keyword">val</span> forEach</span> : <code class="type">('a -> unit) -> 'a <a href="Js_array.html#TYPEt">t</a> -> unit</code></pre>
-<pre><span id="VALforEachi"><span class="keyword">val</span> forEachi</span> : <code class="type">('a -> int -> unit) -> 'a <a href="Js_array.html#TYPEt">t</a> -> unit</code></pre>
-<pre><span id="VALmap"><span class="keyword">val</span> map</span> : <code class="type">('a -> 'b) -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'b <a href="Js_array.html#TYPEt">t</a></code></pre>
-<pre><span id="VALmapi"><span class="keyword">val</span> mapi</span> : <code class="type">('a -> int -> 'b) -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'b <a href="Js_array.html#TYPEt">t</a></code></pre>
-<pre><span id="VALreduce"><span class="keyword">val</span> reduce</span> : <code class="type">('b -> 'a -> 'b) -> 'b -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'b</code></pre>
-<pre><span id="VALreducei"><span class="keyword">val</span> reducei</span> : <code class="type">('b -> 'a -> int -> 'b) -> 'b -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'b</code></pre>
-<pre><span id="VALreduceRight"><span class="keyword">val</span> reduceRight</span> : <code class="type">('b -> 'a -> 'b) -> 'b -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'b</code></pre>
-<pre><span id="VALreduceRighti"><span class="keyword">val</span> reduceRighti</span> : <code class="type">('b -> 'a -> int -> 'b) -> 'b -> 'a <a href="Js_array.html#TYPEt">t</a> -> 'b</code></pre>
-<pre><span id="VALsome"><span class="keyword">val</span> some</span> : <code class="type">('a -> bool) -> 'a <a href="Js_array.html#TYPEt">t</a> -> bool</code></pre>
-<pre><span id="VALsomei"><span class="keyword">val</span> somei</span> : <code class="type">('a -> int -> bool) -> 'a <a href="Js_array.html#TYPEt">t</a> -> bool</code></pre></body></html>
+<div class='doc-item'><h4 class='item'>let <a href="#value-fillInPlace" id="value-fillInPlace">fillInPlace</a>: ('a, <a href="#type-t">t</a>('a)) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body '><p>ES2015</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fillFromInPlace" id="value-fillFromInPlace">fillFromInPlace</a>: ('a, ~from: int, <a href="#type-t">t</a>('a)) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body '><p>ES2015</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fillRangeInPlace" id="value-fillRangeInPlace">fillRangeInPlace</a>: (
+  'a,
+  ~start: int,
+  ~end_: int,
+  <a href="#type-t">t</a>('a)
+) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body '><p>ES2015</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pop" id="value-pop">pop</a>: <a href="#type-t">t</a>('a) => option('a)</h4>
+
+<div class='body '><p>https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-push" id="value-push">push</a>: ('a, <a href="#type-t">t</a>('a)) => int</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pushMany" id="value-pushMany">pushMany</a>: (array('a), <a href="#type-t">t</a>('a)) => int</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-reverseInPlace" id="value-reverseInPlace">reverseInPlace</a>: <a href="#type-t">t</a>('a) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-shift" id="value-shift">shift</a>: <a href="#type-t">t</a>('a) => option('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sortInPlace" id="value-sortInPlace">sortInPlace</a>: <a href="#type-t">t</a>('a) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sortInPlaceWith" id="value-sortInPlaceWith">sortInPlaceWith</a>: (('a, 'a) => int, <a href="#type-t">t</a>('a)) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-spliceInPlace" id="value-spliceInPlace">spliceInPlace</a>: (
+  ~pos: int,
+  ~remove: int,
+  ~add: array('a),
+  <a href="#type-t">t</a>('a)
+) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-removeFromInPlace" id="value-removeFromInPlace">removeFromInPlace</a>: (~pos: int, <a href="#type-t">t</a>('a)) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-removeCountInPlace" id="value-removeCountInPlace">removeCountInPlace</a>: (
+  ~pos: int,
+  ~count: int,
+  <a href="#type-t">t</a>('a)
+) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-unshift" id="value-unshift">unshift</a>: ('a, <a href="#type-t">t</a>('a)) => int</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-unshiftMany" id="value-unshiftMany">unshiftMany</a>: (array('a), <a href="#type-t">t</a>('a)) => int</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-append" id="value-append">append</a>: ('a, <a href="#type-t">t</a>('a)) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-concat" id="value-concat">concat</a>: (<a href="#type-t">t</a>('a), <a href="#type-t">t</a>('a)) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-concatMany" id="value-concatMany">concatMany</a>: (array(<a href="#type-t">t</a>('a)), <a href="#type-t">t</a>('a)) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-includes" id="value-includes">includes</a>: ('a, <a href="#type-t">t</a>('a)) => bool</h4>
+
+<div class='body '><p>ES2016</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-indexOf" id="value-indexOf">indexOf</a>: ('a, <a href="#type-t">t</a>('a)) => int</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-indexOfFrom" id="value-indexOfFrom">indexOfFrom</a>: ('a, ~from: int, <a href="#type-t">t</a>('a)) => int</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-join" id="value-join">join</a>: <a href="#type-t">t</a>('a) => string</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-joinWith" id="value-joinWith">joinWith</a>: (string, <a href="#type-t">t</a>('a)) => string</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-lastIndexOf" id="value-lastIndexOf">lastIndexOf</a>: ('a, <a href="#type-t">t</a>('a)) => int</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-lastIndexOfFrom" id="value-lastIndexOfFrom">lastIndexOfFrom</a>: ('a, ~from: int, <a href="#type-t">t</a>('a)) => int</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-lastIndexOf_start" id="value-lastIndexOf_start">lastIndexOf_start</a>: ('a, <a href="#type-t">t</a>('a)) => int</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-slice" id="value-slice">slice</a>: (~start: int, ~end_: int, <a href="#type-t">t</a>('a)) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-copy" id="value-copy">copy</a>: <a href="#type-t">t</a>('a) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-slice_copy" id="value-slice_copy">slice_copy</a>: (unit, <a href="#type-t">t</a>('a)) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sliceFrom" id="value-sliceFrom">sliceFrom</a>: (int, <a href="#type-t">t</a>('a)) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-slice_start" id="value-slice_start">slice_start</a>: (int, <a href="#type-t">t</a>('a)) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-toString" id="value-toString">toString</a>: <a href="#type-t">t</a>('a) => string</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-toLocaleString" id="value-toLocaleString">toLocaleString</a>: <a href="#type-t">t</a>('a) => string</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-every" id="value-every">every</a>: ('a => bool, <a href="#type-t">t</a>('a)) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-everyi" id="value-everyi">everyi</a>: (('a, int) => bool, <a href="#type-t">t</a>('a)) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-filter" id="value-filter">filter</a>: ('a => bool, <a href="#type-t">t</a>('a)) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body '><p>should we use <code>bool</code> or <code>boolan</code> seems they are intechangeable here</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-filteri" id="value-filteri">filteri</a>: (('a, int) => bool, <a href="#type-t">t</a>('a)) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-find" id="value-find">find</a>: ('a => bool, <a href="#type-t">t</a>('a)) => option('a)</h4>
+
+<div class='body '><p>ES2015</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-findi" id="value-findi">findi</a>: (('a, int) => bool, <a href="#type-t">t</a>('a)) => option('a)</h4>
+
+<div class='body '><p>ES2015</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-findIndex" id="value-findIndex">findIndex</a>: ('a => bool, <a href="#type-t">t</a>('a)) => int</h4>
+
+<div class='body '><p>ES2015</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-findIndexi" id="value-findIndexi">findIndexi</a>: (('a, int) => bool, <a href="#type-t">t</a>('a)) => int</h4>
+
+<div class='body '><p>ES2015</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-forEach" id="value-forEach">forEach</a>: ('a => unit, <a href="#type-t">t</a>('a)) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-forEachi" id="value-forEachi">forEachi</a>: (('a, int) => unit, <a href="#type-t">t</a>('a)) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-map" id="value-map">map</a>: ('a => 'b, <a href="#type-t">t</a>('a)) => <a href="#type-t">t</a>('b)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-mapi" id="value-mapi">mapi</a>: (('a, int) => 'b, <a href="#type-t">t</a>('a)) => <a href="#type-t">t</a>('b)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-reduce" id="value-reduce">reduce</a>: (('b, 'a) => 'b, 'b, <a href="#type-t">t</a>('a)) => 'b</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-reducei" id="value-reducei">reducei</a>: (('b, 'a, int) => 'b, 'b, <a href="#type-t">t</a>('a)) => 'b</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-reduceRight" id="value-reduceRight">reduceRight</a>: (('b, 'a) => 'b, 'b, <a href="#type-t">t</a>('a)) => 'b</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-reduceRighti" id="value-reduceRighti">reduceRighti</a>: (('b, 'a, int) => 'b, 'b, <a href="#type-t">t</a>('a)) => 'b</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-some" id="value-some">some</a>: ('a => bool, <a href="#type-t">t</a>('a)) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-somei" id="value-somei">somei</a>: (('a, int) => bool, <a href="#type-t">t</a>('a)) => bool</h4>
+
+<div class='body body-empty'></div></div>
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

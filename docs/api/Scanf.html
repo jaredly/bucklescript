@@ -1,0 +1,458 @@
+
+    
+<!doctype html>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Scanf</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
+</div>
+
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#module-Scanning" class='level-0 module'>Scanning</a>
+<a href="#type-Scanning.in_channel" class='level-1 type'>in_channel</a>
+<a href="#type-Scanning.scanbuf" class='level-1 type'>scanbuf</a>
+<a href="#value-Scanning.stdin" class='level-1 value'>stdin</a>
+<a href="#type-Scanning.file_name" class='level-1 type'>file_name</a>
+<a href="#value-Scanning.open_in" class='level-1 value'>open_in</a>
+<a href="#value-Scanning.open_in_bin" class='level-1 value'>open_in_bin</a>
+<a href="#value-Scanning.close_in" class='level-1 value'>close_in</a>
+<a href="#value-Scanning.from_file" class='level-1 value'>from_file</a>
+<a href="#value-Scanning.from_file_bin" class='level-1 value'>from_file_bin</a>
+<a href="#value-Scanning.from_string" class='level-1 value'>from_string</a>
+<a href="#value-Scanning.from_function" class='level-1 value'>from_function</a>
+<a href="#value-Scanning.from_channel" class='level-1 value'>from_channel</a>
+<a href="#value-Scanning.end_of_input" class='level-1 value'>end_of_input</a>
+<a href="#value-Scanning.beginning_of_input" class='level-1 value'>beginning_of_input</a>
+<a href="#value-Scanning.name_of_input" class='level-1 value'>name_of_input</a>
+<a href="#value-Scanning.stdib" class='level-1 value'>stdib</a>
+<a href="#type-scanner" class='level-0 type'>scanner</a>
+<a href="#value-bscanf" class='level-0 value'>bscanf</a>
+<a href="#value-fscanf" class='level-0 value'>fscanf</a>
+<a href="#value-sscanf" class='level-0 value'>sscanf</a>
+<a href="#value-scanf" class='level-0 value'>scanf</a>
+<a href="#value-kscanf" class='level-0 value'>kscanf</a>
+<a href="#value-ksscanf" class='level-0 value'>ksscanf</a>
+<a href="#value-kfscanf" class='level-0 value'>kfscanf</a>
+<a href="#value-bscanf_format" class='level-0 value'>bscanf_format</a>
+<a href="#value-sscanf_format" class='level-0 value'>sscanf_format</a>
+<a href="#value-format_from_string" class='level-0 value'>format_from_string</a>
+<a href="#value-unescaped" class='level-0 value'>unescaped</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Js.html">Js</a>
+<a href="Arg.html">Arg</a>
+<a href="Array.html">Array</a>
+<a href="ArrayLabels.html">ArrayLabels</a>
+<a href="Bigarray.html">Bigarray</a>
+<a href="Buffer.html">Buffer</a>
+<a href="Bytes.html">Bytes</a>
+<a href="BytesLabels.html">BytesLabels</a>
+<a href="Callback.html">Callback</a>
+<a href="CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="CamlinternalMod.html">CamlinternalMod</a>
+<a href="CamlinternalOO.html">CamlinternalOO</a>
+<a href="Char.html">Char</a>
+<a href="Complex.html">Complex</a>
+<a href="Digest.html">Digest</a>
+<a href="Filename.html">Filename</a>
+<a href="Format.html">Format</a>
+<a href="Gc.html">Gc</a>
+<a href="Genlex.html">Genlex</a>
+<a href="Hashtbl.html">Hashtbl</a>
+<a href="Int32.html">Int32</a>
+<a href="Int64.html">Int64</a>
+<a href="Lazy.html">Lazy</a>
+<a href="Lexing.html">Lexing</a>
+<a href="List.html">List</a>
+<a href="ListLabels.html">ListLabels</a>
+<a href="Map.html">Map</a>
+<a href="Marshal.html">Marshal</a>
+<a href="MoreLabels.html">MoreLabels</a>
+<a href="Nativeint.html">Nativeint</a>
+<a href="Obj.html">Obj</a>
+<a href="Oo.html">Oo</a>
+<a href="Parsing.html">Parsing</a>
+<a href="Pervasives.html">Pervasives</a>
+<a href="Printexc.html">Printexc</a>
+<a href="Printf.html">Printf</a>
+<a href="Queue.html">Queue</a>
+<a href="Random.html">Random</a>
+<a href="Scanf.html">Scanf</a>
+<a href="Set.html">Set</a>
+<a href="Sort.html">Sort</a>
+<a href="Stack.html">Stack</a>
+<a href="Std_exit.html">Std_exit</a>
+<a href="StdLabels.html">StdLabels</a>
+<a href="Stream.html">Stream</a>
+<a href="String.html">String</a>
+<a href="StringLabels.html">StringLabels</a>
+<a href="Sys.html">Sys</a>
+<a href="Unix.html">Unix</a>
+<a href="UnixLabels.html">UnixLabels</a>
+<a href="Weak.html">Weak</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/stdlib/scanf.ml" class="edit-link">Edit</a>
+    <p>Formatted input functions.</p>
+<p>other items defined</p><div class='doc-item'><h4 id="Introduction">Introduction</h4></div>
+
+<div class='doc-item'><h4 id="Functional-input-with-format-strings">Functional input with format strings</h4></div>
+
+<div class='doc-item'><p>The module <code>Scanf</code> provides formatted input functions or <em>scanners</em>.</p>
+<p>The formatted input functions can read from any kind of input, including strings, files, or anything that can return characters. The more general source of characters is named a <em>formatted input channel</em> (or <em>scanning buffer</em>) and has type in_channel. The more general formatted input function reads from any scanning buffer and is named <code>bscanf</code>.</p>
+<p>Generally speaking, the formatted input functions have 3 arguments:</p>
+<ul><li><p>the first argument is a source of characters for the input,</p>
+</li><li><p>the second argument is a format string that specifies the values to read,</p>
+</li><li><p>the third argument is a <em>receiver function</em> that is applied to the values read.</p>
+</li></ul><p>Hence, a typical call to the formatted input function bscanf is <code>bscanf ic fmt f</code>, where:</p>
+<ul><li><p><code>ic</code> is a source of characters (typically a <em>formatted input channel</em> with type in_channel),</p>
+</li></ul><ul><li><p><code>fmt</code> is a format string (the same format strings as those used to print material with module Printf or Format),</p>
+</li></ul><ul><li><p><code>f</code> is a function that has as many arguments as the number of values to read in the input.</p>
+</li></ul></div>
+
+<div class='doc-item'><h4 id="A-simple-example">A simple example</h4></div>
+
+<div class='doc-item'><p>As suggested above, the expression <code>bscanf ic &quot;%d&quot; f</code> reads a decimal integer <code>n</code> from the source of characters <code>ic</code> and returns <code>f n</code>.</p>
+<p>For instance,</p>
+<ul><li><p>if we use <code>stdin</code> as the source of characters (stdin is the predefined formatted input channel that reads from standard input),</p>
+</li></ul><ul><li><p>if we define the receiver <code>f</code> as <code>let f x = x + 1</code>,</p>
+</li></ul><p>then <code>bscanf Scanning.stdin &quot;%d&quot; f</code> reads an integer <code>n</code> from the standard input and returns <code>f n</code> (that is <code>n + 1</code>). Thus, if we evaluate <code>bscanf stdin &quot;%d&quot; f</code>, and then enter <code>41</code> at the keyboard, we get <code>42</code> as the final result.</p>
+</div>
+
+<div class='doc-item'><h4 id="Formatted-input-as-a-functional-feature">Formatted input as a functional feature</h4></div>
+
+<div class='doc-item'><p>The OCaml scanning facility is reminiscent of the corresponding C feature. However, it is also largely different, simpler, and yet more powerful: the formatted input functions are higher-order functionals and the parameter passing mechanism is just the regular function application not the variable assignment based mechanism which is typical for formatted input in imperative languages; the OCaml format strings also feature useful additions to easily define complex tokens; as expected within a functional programming language, the formatted input functions also support polymorphism, in particular arbitrary interaction with polymorphic user-defined scanners. Furthermore, the OCaml formatted input facility is fully type-checked at compile time.</p>
+</div>
+
+<div class='doc-item'><h4 id="Formatted-input-channel">Formatted input channel</h4></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Scanning" id="module-Scanning">Scanning</a></h4><div class='body module-body'><p><span class='missing'>This module does not have a toplevel documentation block.</span></p>
+<div class='doc-item'><h4 class='item'>type <a href="#type-Scanning.in_channel" id="type-Scanning.in_channel">in_channel</a></h4>
+
+<div class='body '><p>The notion of input channel for the <code>Scanf</code> module: those channels provide all the machinery necessary to read from a given <code>Pervasives.in_channel</code> value. A <code>Scanf.Scanning.in_channel</code> value is also called a <em>formatted input channel</em> or equivalently a <em>scanning buffer</em>. The type <code>scanbuf</code> below is an alias for <code>in_channel</code>.</p>
+Since: 3.12.0</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-Scanning.scanbuf" id="type-Scanning.scanbuf">scanbuf</a> = <a href="#type-Scanning.in_channel">in_channel</a></h4>
+
+<div class='body '><p>The type of scanning buffers. A scanning buffer is the source from which a formatted input function gets characters. The scanning buffer holds the current state of the scan, plus a function to get the next char from the input, and a token buffer to store the string matched so far.</p>
+<p>Note: a scanning action may often require to examine one character in advance; when this &#39;lookahead&#39; character does not belong to the token read, it is stored back in the scanning buffer and becomes the next character yet to be read.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Scanning.stdin" id="value-Scanning.stdin">stdin</a>: <a href="#type-Scanning.in_channel">in_channel</a></h4>
+
+<div class='body '><p>The standard input notion for the <code>Scanf</code> module. <code>Scanning.stdin</code> is the formatted input channel attached to <code>Pervasives.stdin</code>.</p>
+<p>Note: in the interactive system, when input is read from <code>stdin</code>, the newline character that triggers the evaluation is incorporated in the input; thus, the scanning specifications must properly skip this additional newline character (for instance, simply add a <code>&#39;\n&#39;</code> as the last character of the format string).</p>
+Since: 3.12.0</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-Scanning.file_name" id="type-Scanning.file_name">file_name</a> = string</h4>
+
+<div class='body '><p>A convenient alias to designate a file name.</p>
+Since: 4.00.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Scanning.open_in" id="value-Scanning.open_in">open_in</a>: <a href="#type-Scanning.file_name">file_name</a> => <a href="#type-Scanning.in_channel">in_channel</a></h4>
+
+<div class='body '><p><code>Scanning.open_in fname</code> returns a formatted input channel for bufferized reading in text mode from file <code>fname</code>.</p>
+<p>Note: <code>open_in</code> returns a formatted input channel that efficiently reads characters in large chunks; in contrast, <code>from_channel</code> below returns formatted input channels that must read one character at a time, leading to a much slower scanning rate.</p>
+Since: 3.12.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Scanning.open_in_bin" id="value-Scanning.open_in_bin">open_in_bin</a>: <a href="#type-Scanning.file_name">file_name</a> => <a href="#type-Scanning.in_channel">in_channel</a></h4>
+
+<div class='body '><p><code>Scanning.open_in_bin fname</code> returns a formatted input channel for bufferized reading in binary mode from file <code>fname</code>.</p>
+Since: 3.12.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Scanning.close_in" id="value-Scanning.close_in">close_in</a>: <a href="#type-Scanning.in_channel">in_channel</a> => unit</h4>
+
+<div class='body '><p>Closes the <code>Pervasives.in_channel</code> associated with the given <code>Scanning.in_channel</code> formatted input channel.</p>
+Since: 3.12.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Scanning.from_file" id="value-Scanning.from_file">from_file</a>: <a href="#type-Scanning.file_name">file_name</a> => <a href="#type-Scanning.in_channel">in_channel</a></h4>
+
+<div class='body '><p>An alias for <code>open_in</code> above.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Scanning.from_file_bin" id="value-Scanning.from_file_bin">from_file_bin</a>: string => <a href="#type-Scanning.in_channel">in_channel</a></h4>
+
+<div class='body '><p>An alias for <code>open_in_bin</code> above.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Scanning.from_string" id="value-Scanning.from_string">from_string</a>: string => <a href="#type-Scanning.in_channel">in_channel</a></h4>
+
+<div class='body '><p><code>Scanning.from_string s</code> returns a formatted input channel which reads from the given string. Reading starts from the first character in the string. The end-of-input condition is set when the end of the string is reached.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Scanning.from_function" id="value-Scanning.from_function">from_function</a>: unit => char => <a href="#type-Scanning.in_channel">in_channel</a></h4>
+
+<div class='body '><p><code>Scanning.from_function f</code> returns a formatted input channel with the given function as its reading method.</p>
+<p>When scanning needs one more character, the given function is called.</p>
+<p>When the function has no more character to provide, it <em>must</em> signal an end-of-input condition by raising the exception <code>End_of_file</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Scanning.from_channel" id="value-Scanning.from_channel">from_channel</a>: <a href="Pervasives.html#type-in_channel" title="Pervasives.in_channel">in_channel</a> => <a href="#type-Scanning.in_channel">in_channel</a></h4>
+
+<div class='body '><p><code>Scanning.from_channel ic</code> returns a formatted input channel which reads from the regular input channel <code>ic</code> argument, starting at the current reading position.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Scanning.end_of_input" id="value-Scanning.end_of_input">end_of_input</a>: <a href="#type-Scanning.in_channel">in_channel</a> => bool</h4>
+
+<div class='body '><p><code>Scanning.end_of_input ic</code> tests the end-of-input condition of the given formatted input channel.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Scanning.beginning_of_input" id="value-Scanning.beginning_of_input">beginning_of_input</a>: <a href="#type-Scanning.in_channel">in_channel</a> => bool</h4>
+
+<div class='body '><p><code>Scanning.beginning_of_input ic</code> tests the beginning of input condition of the given formatted input channel.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Scanning.name_of_input" id="value-Scanning.name_of_input">name_of_input</a>: <a href="#type-Scanning.in_channel">in_channel</a> => string</h4>
+
+<div class='body '><p><code>Scanning.name_of_input ic</code> returns the name of the character source for the formatted input channel <code>ic</code>.</p>
+Since: 3.09.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Scanning.stdib" id="value-Scanning.stdib">stdib</a>: <a href="#type-Scanning.in_channel">in_channel</a></h4>
+
+<div class='body '><p>A deprecated alias for <code>Scanning.stdin</code>, the scanning buffer reading from <code>Pervasives.stdin</code>.</p>
+</div></div>
+</div></div>
+
+<div class='doc-item'><h4 id="Type-of-formatted-input-functions">Type of formatted input functions</h4></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-scanner" id="type-scanner">scanner</a>('a, 'b, 'c, 'd) = <a href="Pervasives.html#type-format6" title="Pervasives.format6">format6</a>(
+  'a,
+  <a href="#type-Scanning.in_channel" title="Scanning.in_channel">in_channel</a>,
+  'b,
+  'c,
+  'a => 'd,
+  'd
+) => 'c</h4>
+
+<div class='body '><p>The type of formatted input scanners: <code>(&#39;a, &#39;b, &#39;c, &#39;d) scanner</code> is the type of a formatted input function that reads from some formatted input channel according to some format string; more precisely, if <code>scan</code> is some formatted input function, then <code>scan
+    ic fmt f</code> applies <code>f</code> to the arguments specified by the format string <code>fmt</code>, when <code>scan</code> has read those arguments from the formatted input channel <code>ic</code>.</p>
+<p>For instance, the <code>scanf</code> function below has type <code>(&#39;a, &#39;b, &#39;c, &#39;d)
+    scanner</code>, since it is a formatted input function that reads from <code>Scanning.stdin</code>: <code>scanf fmt f</code> applies <code>f</code> to the arguments specified by <code>fmt</code>, reading those arguments from <code>Pervasives.stdin</code> as expected.</p>
+<p>If the format <code>fmt</code> has some <code>%r</code> indications, the corresponding input functions must be provided before the receiver <code>f</code> argument. For instance, if <code>read_elem</code> is an input function for values of type <code>t</code>, then <code>bscanf ic &quot;%r;&quot; read_elem f</code> reads a value <code>v</code> of type <code>t</code> followed by a <code>&#39;;&#39;</code> character, and returns <code>f v</code>.</p>
+Since: 3.10.0</div></div>
+
+<div class='doc-item'><h4 id="The-general-formatted-input-function">The general formatted input function</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-bscanf" id="value-bscanf">bscanf</a>: <a href="#type-Scanning.in_channel" title="Scanning.in_channel">in_channel</a> => <a href="#type-scanner">scanner</a>('a, 'b, 'c, 'd)</h4>
+
+<div class='body '><p><code>bscanf ic fmt r1 ... rN f</code> reads arguments for the function <code>f</code>, from the formatted input channel <code>ic</code>, according to the format string <code>fmt</code>, and applies <code>f</code> to these values. The result of this call to <code>f</code> is returned as the result of the entire <code>bscanf</code> call. For instance, if <code>f</code> is the function <code>fun s i -&gt; i + 1</code>, then <code>Scanf.sscanf &quot;x=  1&quot; &quot;%s = %i&quot; f</code> returns <code>2</code>.</p>
+<p>Arguments <code>r1</code> to <code>rN</code> are user-defined input functions that read the argument corresponding to the <code>%r</code> conversions specified in the format string.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Format-string-description">Format string description</h4></div>
+
+<div class='doc-item'><p>The format string is a character string which contains three types of objects:</p>
+<ul><li><p>plain characters, which are simply matched with the characters of the input (with a special case for space and line feed, see space),</p>
+</li><li><p>conversion specifications, each of which causes reading and conversion of one argument for the function <code>f</code> (see conversion),</p>
+</li><li><p>scanning indications to specify boundaries of tokens (see scanning indication).</p>
+</li></ul></div>
+
+<div class='doc-item'><h4 id="The-space-character-in-format-strings">The space character in format strings</h4></div>
+
+<div class='doc-item'><p>As mentioned above, a plain character in the format string is just matched with the next character of the input; however, two characters are special exceptions to this rule: the space character (<code>&#39; &#39;</code> or ASCII code 32) and the line feed character (<code>&#39;\n&#39;</code> or ASCII code 10). A space does not match a single space character, but any amount of &#39;whitespace&#39; in the input. More precisely, a space inside the format string matches <em>any number</em> of tab, space, line feed and carriage return characters. Similarly, a line feed character in the format string matches either a single line feed or a carriage return followed by a line feed.</p>
+<p>Matching <em>any</em> amount of whitespace, a space in the format string also matches no amount of whitespace at all; hence, the call <code>bscanf ib
+    &quot;Price = %d $&quot; (fun p -&gt; p)</code> succeeds and returns <code>1</code> when reading an input with various whitespace in it, such as <code>Price = 1 $</code>, <code>Price  =  1    $</code>, or even <code>Price=1$</code>.</p>
+</div>
+
+<div class='doc-item'><h4 id="Conversion-specifications-in-format-strings">Conversion specifications in format strings</h4></div>
+
+<div class='doc-item'>failed to parse: File &quot;&quot;, line 14, characters 42-45:
+&#39;{ul ...}&#39; (bulleted list) must begin on its own line</div>
+
+<div class='doc-item'><h4 id="Scanning-indications-in-format-strings">Scanning indications in format strings</h4></div>
+
+<div class='doc-item'><p>Scanning indications appear just after the string conversions <code>%s</code> and <code>%[ range ]</code> to delimit the end of the token. A scanning indication is introduced by a <code>@</code> character, followed by some plain character <code>c</code>. It means that the string token should end just before the next matching <code>c</code> (which is skipped). If no <code>c</code> character is encountered, the string token spreads as much as possible. For instance, <code>&quot;%s@	&quot;</code> reads a string up to the next tab character or to the end of input. If a <code>@</code> character appears anywhere else in the format string, it is treated as a plain character.</p>
+<p>Note:</p>
+<ul><li><p>As usual in format strings, <code>%</code> and <code>@</code> characters must be escaped using <code>%%</code> and <code>%@</code>; this rule still holds within range specifications and scanning indications. For instance, <code>&quot;%s@%%&quot;</code> reads a string up to the next <code>%</code> character.</p>
+</li><li><p>The scanning indications introduce slight differences in the syntax of <code>Scanf</code> format strings, compared to those used for the <code>Printf</code> module. However, the scanning indications are similar to those used in the <code>Format</code> module; hence, when producing formatted text to be scanned by <code>!Scanf.bscanf</code>, it is wise to use printing functions from the <code>Format</code> module (or, if you need to use functions from <code>Printf</code>, banish or carefully double check the format strings that contain <code>&#39;@&#39;</code> characters).</p>
+</li></ul></div>
+
+<div class='doc-item'><h4 id="Exceptions-during-scanning">Exceptions during scanning</h4></div>
+
+<div class='doc-item'><p>Scanners may raise the following exceptions when the input cannot be read according to the format string:</p>
+<ul><li><p>Raise <code>Scanf.Scan_failure</code> if the input does not match the format.</p>
+</li></ul><ul><li><p>Raise <code>Failure</code> if a conversion to a number is not possible.</p>
+</li></ul><ul><li><p>Raise <code>End_of_file</code> if the end of input is encountered while some more characters are needed to read the current conversion specification.</p>
+</li></ul><ul><li><p>Raise <code>Invalid_argument</code> if the format string is invalid.</p>
+</li></ul><p>Note:</p>
+<ul><li><p>as a consequence, scanning a <code>%s</code> conversion never raises exception <code>End_of_file</code>: if the end of input is reached the conversion succeeds and simply returns the characters read so far, or <code>&quot;&quot;</code> if none were ever read.</p>
+</li></ul></div>
+
+<div class='doc-item'><h4 id="Specialised-formatted-input-functions">Specialised formatted input functions</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fscanf" id="value-fscanf">fscanf</a>: <a href="Pervasives.html#type-in_channel" title="Pervasives.in_channel">in_channel</a> => <a href="#type-scanner">scanner</a>('a, 'b, 'c, 'd)</h4>
+
+<div class='body '><p>Same as bscanf, but reads from the given regular input channel.</p>
+<p>Warning: since all formatted input functions operate from a <em>formatted input channel</em>, be aware that each <code>fscanf</code> invocation will operate with a formatted input channel reading from the given channel. This extra level of bufferization can lead to a strange scanning behaviour if you use low level primitives on the channel (reading characters, seeking the reading position, and so on).</p>
+<p>As a consequence, never mix direct low level reading and high level scanning from the same regular input channel.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sscanf" id="value-sscanf">sscanf</a>: string => <a href="#type-scanner">scanner</a>('a, 'b, 'c, 'd)</h4>
+
+<div class='body '><p>Same as bscanf, but reads from the given string.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-scanf" id="value-scanf">scanf</a>: <a href="#type-scanner">scanner</a>('a, 'b, 'c, 'd)</h4>
+
+<div class='body '><p>Same as bscanf, but reads from the predefined formatted input channel stdin that is connected to <code>Pervasives.stdin</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-kscanf" id="value-kscanf">kscanf</a>: (
+  <a href="#type-Scanning.in_channel" title="Scanning.in_channel">in_channel</a>,
+  (<a href="#type-Scanning.in_channel" title="Scanning.in_channel">in_channel</a>, exn) => 'd
+) => <a href="#type-scanner">scanner</a>('a, 'b, 'c, 'd)</h4>
+
+<div class='body '><p>Same as bscanf, but takes an additional function argument <code>ef</code> that is called in case of error: if the scanning process or some conversion fails, the scanning function aborts and calls the error handling function <code>ef</code> with the formatted input channel and the exception that aborted the scanning process as arguments.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-ksscanf" id="value-ksscanf">ksscanf</a>: (string, (<a href="#type-Scanning.in_channel" title="Scanning.in_channel">in_channel</a>, exn) => 'd) => <a href="#type-scanner">scanner</a>(
+  'a,
+  'b,
+  'c,
+  'd
+)</h4>
+
+<div class='body '><p>Same as kscanf but reads from the given string.</p>
+Since: 4.02.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-kfscanf" id="value-kfscanf">kfscanf</a>: (
+  <a href="Pervasives.html#type-in_channel" title="Pervasives.in_channel">in_channel</a>,
+  (<a href="#type-Scanning.in_channel" title="Scanning.in_channel">in_channel</a>, exn) => 'd
+) => <a href="#type-scanner">scanner</a>('a, 'b, 'c, 'd)</h4>
+
+<div class='body '><p>Same as kscanf, but reads from the given regular input channel.</p>
+Since: 4.02.0</div></div>
+
+<div class='doc-item'><h4 id="Reading-format-strings-from-input">Reading format strings from input</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-bscanf_format" id="value-bscanf_format">bscanf_format</a>: (
+  <a href="#type-Scanning.in_channel" title="Scanning.in_channel">in_channel</a>,
+  <a href="Pervasives.html#type-format6" title="Pervasives.format6">format6</a>('a, 'b, 'c, 'd, 'e, 'f),
+  <a href="Pervasives.html#type-format6" title="Pervasives.format6">format6</a>('a, 'b, 'c, 'd, 'e, 'f) => 'g
+) => 'g</h4>
+
+<div class='body '><p><code>bscanf_format ic fmt f</code> reads a format string token from the formatted input channel <code>ic</code>, according to the given format string <code>fmt</code>, and applies <code>f</code> to the resulting format string value. Raise <code>Scan_failure</code> if the format string value read does not have the same type as <code>fmt</code>.</p>
+Since: 3.09.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sscanf_format" id="value-sscanf_format">sscanf_format</a>: (
+  string,
+  <a href="Pervasives.html#type-format6" title="Pervasives.format6">format6</a>('a, 'b, 'c, 'd, 'e, 'f),
+  <a href="Pervasives.html#type-format6" title="Pervasives.format6">format6</a>('a, 'b, 'c, 'd, 'e, 'f) => 'g
+) => 'g</h4>
+
+<div class='body '><p>Same as bscanf_format, but reads from the given string.</p>
+Since: 3.09.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-format_from_string" id="value-format_from_string">format_from_string</a>: (
+  string,
+  <a href="Pervasives.html#type-format6" title="Pervasives.format6">format6</a>('a, 'b, 'c, 'd, 'e, 'f)
+) => <a href="Pervasives.html#type-format6" title="Pervasives.format6">format6</a>('a, 'b, 'c, 'd, 'e, 'f)</h4>
+
+<div class='body '><p><code>format_from_string s fmt</code> converts a string argument to a format string, according to the given format string <code>fmt</code>. Raise <code>Scan_failure</code> if <code>s</code>, considered as a format string, does not have the same type as <code>fmt</code>.</p>
+Since: 3.10.0</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-unescaped" id="value-unescaped">unescaped</a>: string => string</h4>
+
+<div class='body '><p>Return a copy of the argument with escape sequences, following the lexical conventions of OCaml, replaced by their corresponding special characters. If there is no escape sequence in the argument, still return a copy, contrary to String.escaped.</p>
+Since: 4.00.0</div></div>
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

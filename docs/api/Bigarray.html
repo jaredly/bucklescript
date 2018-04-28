@@ -1,0 +1,1031 @@
+
+    
+<!doctype html>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Bigarray</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
+</div>
+
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#type-float32_elt" class='level-0 type'>float32_elt</a>
+<a href="#type-float64_elt" class='level-0 type'>float64_elt</a>
+<a href="#type-int8_signed_elt" class='level-0 type'>int8_signed_elt</a>
+<a href="#type-int8_unsigned_elt" class='level-0 type'>int8_unsigned_elt</a>
+<a href="#type-int16_signed_elt" class='level-0 type'>int16_signed_elt</a>
+<a href="#type-int16_unsigned_elt" class='level-0 type'>int16_unsigned_elt</a>
+<a href="#type-int32_elt" class='level-0 type'>int32_elt</a>
+<a href="#type-int64_elt" class='level-0 type'>int64_elt</a>
+<a href="#type-int_elt" class='level-0 type'>int_elt</a>
+<a href="#type-nativeint_elt" class='level-0 type'>nativeint_elt</a>
+<a href="#type-complex32_elt" class='level-0 type'>complex32_elt</a>
+<a href="#type-complex64_elt" class='level-0 type'>complex64_elt</a>
+<a href="#type-kind" class='level-0 type'>kind</a>
+<a href="#value-float32" class='level-0 value'>float32</a>
+<a href="#value-float64" class='level-0 value'>float64</a>
+<a href="#value-complex32" class='level-0 value'>complex32</a>
+<a href="#value-complex64" class='level-0 value'>complex64</a>
+<a href="#value-int8_signed" class='level-0 value'>int8_signed</a>
+<a href="#value-int8_unsigned" class='level-0 value'>int8_unsigned</a>
+<a href="#value-int16_signed" class='level-0 value'>int16_signed</a>
+<a href="#value-int16_unsigned" class='level-0 value'>int16_unsigned</a>
+<a href="#value-int" class='level-0 value'>int</a>
+<a href="#value-int32" class='level-0 value'>int32</a>
+<a href="#value-int64" class='level-0 value'>int64</a>
+<a href="#value-nativeint" class='level-0 value'>nativeint</a>
+<a href="#value-char" class='level-0 value'>char</a>
+<a href="#type-c_layout" class='level-0 type'>c_layout</a>
+<a href="#type-fortran_layout" class='level-0 type'>fortran_layout</a>
+<a href="#type-layout" class='level-0 type'>layout</a>
+<a href="#value-c_layout" class='level-0 value'>c_layout</a>
+<a href="#value-fortran_layout" class='level-0 value'>fortran_layout</a>
+<a href="#module-Genarray" class='level-0 module'>Genarray</a>
+<a href="#type-Genarray.t" class='level-1 type'>t</a>
+<a href="#value-Genarray.create" class='level-1 value'>create</a>
+<a href="#value-Genarray.num_dims" class='level-1 value'>num_dims</a>
+<a href="#value-Genarray.dims" class='level-1 value'>dims</a>
+<a href="#value-Genarray.nth_dim" class='level-1 value'>nth_dim</a>
+<a href="#value-Genarray.kind" class='level-1 value'>kind</a>
+<a href="#value-Genarray.layout" class='level-1 value'>layout</a>
+<a href="#value-Genarray.get" class='level-1 value'>get</a>
+<a href="#value-Genarray.set" class='level-1 value'>set</a>
+<a href="#value-Genarray.sub_left" class='level-1 value'>sub_left</a>
+<a href="#value-Genarray.sub_right" class='level-1 value'>sub_right</a>
+<a href="#value-Genarray.slice_left" class='level-1 value'>slice_left</a>
+<a href="#value-Genarray.slice_right" class='level-1 value'>slice_right</a>
+<a href="#value-Genarray.blit" class='level-1 value'>blit</a>
+<a href="#value-Genarray.fill" class='level-1 value'>fill</a>
+<a href="#value-Genarray.map_file" class='level-1 value'>map_file</a>
+<a href="#module-Array1" class='level-0 module'>Array1</a>
+<a href="#type-Array1.t" class='level-1 type'>t</a>
+<a href="#value-Array1.create" class='level-1 value'>create</a>
+<a href="#value-Array1.dim" class='level-1 value'>dim</a>
+<a href="#value-Array1.kind" class='level-1 value'>kind</a>
+<a href="#value-Array1.layout" class='level-1 value'>layout</a>
+<a href="#value-Array1.get" class='level-1 value'>get</a>
+<a href="#value-Array1.set" class='level-1 value'>set</a>
+<a href="#value-Array1.sub" class='level-1 value'>sub</a>
+<a href="#value-Array1.blit" class='level-1 value'>blit</a>
+<a href="#value-Array1.fill" class='level-1 value'>fill</a>
+<a href="#value-Array1.of_array" class='level-1 value'>of_array</a>
+<a href="#value-Array1.map_file" class='level-1 value'>map_file</a>
+<a href="#value-Array1.unsafe_get" class='level-1 value'>unsafe_get</a>
+<a href="#value-Array1.unsafe_set" class='level-1 value'>unsafe_set</a>
+<a href="#module-Array2" class='level-0 module'>Array2</a>
+<a href="#type-Array2.t" class='level-1 type'>t</a>
+<a href="#value-Array2.create" class='level-1 value'>create</a>
+<a href="#value-Array2.dim1" class='level-1 value'>dim1</a>
+<a href="#value-Array2.dim2" class='level-1 value'>dim2</a>
+<a href="#value-Array2.kind" class='level-1 value'>kind</a>
+<a href="#value-Array2.layout" class='level-1 value'>layout</a>
+<a href="#value-Array2.get" class='level-1 value'>get</a>
+<a href="#value-Array2.set" class='level-1 value'>set</a>
+<a href="#value-Array2.sub_left" class='level-1 value'>sub_left</a>
+<a href="#value-Array2.sub_right" class='level-1 value'>sub_right</a>
+<a href="#value-Array2.slice_left" class='level-1 value'>slice_left</a>
+<a href="#value-Array2.slice_right" class='level-1 value'>slice_right</a>
+<a href="#value-Array2.blit" class='level-1 value'>blit</a>
+<a href="#value-Array2.fill" class='level-1 value'>fill</a>
+<a href="#value-Array2.of_array" class='level-1 value'>of_array</a>
+<a href="#value-Array2.map_file" class='level-1 value'>map_file</a>
+<a href="#value-Array2.unsafe_get" class='level-1 value'>unsafe_get</a>
+<a href="#value-Array2.unsafe_set" class='level-1 value'>unsafe_set</a>
+<a href="#module-Array3" class='level-0 module'>Array3</a>
+<a href="#type-Array3.t" class='level-1 type'>t</a>
+<a href="#value-Array3.create" class='level-1 value'>create</a>
+<a href="#value-Array3.dim1" class='level-1 value'>dim1</a>
+<a href="#value-Array3.dim2" class='level-1 value'>dim2</a>
+<a href="#value-Array3.dim3" class='level-1 value'>dim3</a>
+<a href="#value-Array3.kind" class='level-1 value'>kind</a>
+<a href="#value-Array3.layout" class='level-1 value'>layout</a>
+<a href="#value-Array3.get" class='level-1 value'>get</a>
+<a href="#value-Array3.set" class='level-1 value'>set</a>
+<a href="#value-Array3.sub_left" class='level-1 value'>sub_left</a>
+<a href="#value-Array3.sub_right" class='level-1 value'>sub_right</a>
+<a href="#value-Array3.slice_left_1" class='level-1 value'>slice_left_1</a>
+<a href="#value-Array3.slice_right_1" class='level-1 value'>slice_right_1</a>
+<a href="#value-Array3.slice_left_2" class='level-1 value'>slice_left_2</a>
+<a href="#value-Array3.slice_right_2" class='level-1 value'>slice_right_2</a>
+<a href="#value-Array3.blit" class='level-1 value'>blit</a>
+<a href="#value-Array3.fill" class='level-1 value'>fill</a>
+<a href="#value-Array3.of_array" class='level-1 value'>of_array</a>
+<a href="#value-Array3.map_file" class='level-1 value'>map_file</a>
+<a href="#value-Array3.unsafe_get" class='level-1 value'>unsafe_get</a>
+<a href="#value-Array3.unsafe_set" class='level-1 value'>unsafe_set</a>
+<a href="#value-genarray_of_array1" class='level-0 value'>genarray_of_array1</a>
+<a href="#value-genarray_of_array2" class='level-0 value'>genarray_of_array2</a>
+<a href="#value-genarray_of_array3" class='level-0 value'>genarray_of_array3</a>
+<a href="#value-array1_of_genarray" class='level-0 value'>array1_of_genarray</a>
+<a href="#value-array2_of_genarray" class='level-0 value'>array2_of_genarray</a>
+<a href="#value-array3_of_genarray" class='level-0 value'>array3_of_genarray</a>
+<a href="#value-reshape" class='level-0 value'>reshape</a>
+<a href="#value-reshape_1" class='level-0 value'>reshape_1</a>
+<a href="#value-reshape_2" class='level-0 value'>reshape_2</a>
+<a href="#value-reshape_3" class='level-0 value'>reshape_3</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Js.html">Js</a>
+<a href="Arg.html">Arg</a>
+<a href="Array.html">Array</a>
+<a href="ArrayLabels.html">ArrayLabels</a>
+<a href="Bigarray.html">Bigarray</a>
+<a href="Buffer.html">Buffer</a>
+<a href="Bytes.html">Bytes</a>
+<a href="BytesLabels.html">BytesLabels</a>
+<a href="Callback.html">Callback</a>
+<a href="CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="CamlinternalMod.html">CamlinternalMod</a>
+<a href="CamlinternalOO.html">CamlinternalOO</a>
+<a href="Char.html">Char</a>
+<a href="Complex.html">Complex</a>
+<a href="Digest.html">Digest</a>
+<a href="Filename.html">Filename</a>
+<a href="Format.html">Format</a>
+<a href="Gc.html">Gc</a>
+<a href="Genlex.html">Genlex</a>
+<a href="Hashtbl.html">Hashtbl</a>
+<a href="Int32.html">Int32</a>
+<a href="Int64.html">Int64</a>
+<a href="Lazy.html">Lazy</a>
+<a href="Lexing.html">Lexing</a>
+<a href="List.html">List</a>
+<a href="ListLabels.html">ListLabels</a>
+<a href="Map.html">Map</a>
+<a href="Marshal.html">Marshal</a>
+<a href="MoreLabels.html">MoreLabels</a>
+<a href="Nativeint.html">Nativeint</a>
+<a href="Obj.html">Obj</a>
+<a href="Oo.html">Oo</a>
+<a href="Parsing.html">Parsing</a>
+<a href="Pervasives.html">Pervasives</a>
+<a href="Printexc.html">Printexc</a>
+<a href="Printf.html">Printf</a>
+<a href="Queue.html">Queue</a>
+<a href="Random.html">Random</a>
+<a href="Scanf.html">Scanf</a>
+<a href="Set.html">Set</a>
+<a href="Sort.html">Sort</a>
+<a href="Stack.html">Stack</a>
+<a href="Std_exit.html">Std_exit</a>
+<a href="StdLabels.html">StdLabels</a>
+<a href="Stream.html">Stream</a>
+<a href="String.html">String</a>
+<a href="StringLabels.html">StringLabels</a>
+<a href="Sys.html">Sys</a>
+<a href="Unix.html">Unix</a>
+<a href="UnixLabels.html">UnixLabels</a>
+<a href="Weak.html">Weak</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/stdlib/bigarray.ml" class="edit-link">Edit</a>
+    <p>Large, multi-dimensional, numerical arrays.</p>
+<p>This module implements multi-dimensional arrays of integers and floating-point numbers, thereafter referred to as &#39;big arrays&#39;. The implementation allows efficient sharing of large numerical arrays between OCaml code and C or Fortran numerical libraries.</p>
+<p>Concerning the naming conventions, users of this module are encouraged to do <code>open Bigarray</code> in their source, then refer to array types and operations via short dot notation, e.g. <code>Array1.t</code> or <code>Array2.sub</code>.</p>
+<p>Big arrays support all the OCaml ad-hoc polymorphic operations:</p>
+<ul><li><p>comparisons (<code>=</code>, <code>&lt;&gt;</code>, <code>&lt;=</code>, etc, as well as compare);</p>
+</li><li><p>hashing (module <code>Hash</code>);</p>
+</li><li><p>and structured input-output (the functions from the Marshal module, as well as output_value and input_value).</p>
+</li></ul><p>other items defined</p><div class='doc-item'><h4 id="Element-kinds">Element kinds</h4></div>
+
+<div class='doc-item'>failed to parse: File &quot;&quot;, line 10, characters 1-2:
+unpaired &#39;}&#39; (end of markup)</div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-float32_elt" id="type-float32_elt">float32_elt</a> = | Float32_elt</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-float64_elt" id="type-float64_elt">float64_elt</a> = | Float64_elt</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-int8_signed_elt" id="type-int8_signed_elt">int8_signed_elt</a> = | Int8_signed_elt</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-int8_unsigned_elt" id="type-int8_unsigned_elt">int8_unsigned_elt</a> = | Int8_unsigned_elt</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-int16_signed_elt" id="type-int16_signed_elt">int16_signed_elt</a> = | Int16_signed_elt</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-int16_unsigned_elt" id="type-int16_unsigned_elt">int16_unsigned_elt</a> = | Int16_unsigned_elt</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-int32_elt" id="type-int32_elt">int32_elt</a> = | Int32_elt</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-int64_elt" id="type-int64_elt">int64_elt</a> = | Int64_elt</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-int_elt" id="type-int_elt">int_elt</a> = | Int_elt</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-nativeint_elt" id="type-nativeint_elt">nativeint_elt</a> = | Nativeint_elt</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-complex32_elt" id="type-complex32_elt">complex32_elt</a> = | Complex32_elt</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-complex64_elt" id="type-complex64_elt">complex64_elt</a> = | Complex64_elt</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-kind" id="type-kind">kind</a>('a, 'b) = 
+  | Float32: <a href="#type-kind">kind</a>(float, <a href="#type-float32_elt">float32_elt</a>)
+  | Float64: <a href="#type-kind">kind</a>(float, <a href="#type-float64_elt">float64_elt</a>)
+  | Int8_signed: <a href="#type-kind">kind</a>(int, <a href="#type-int8_signed_elt">int8_signed_elt</a>)
+  | Int8_unsigned: <a href="#type-kind">kind</a>(int, <a href="#type-int8_unsigned_elt">int8_unsigned_elt</a>)
+  | Int16_signed: <a href="#type-kind">kind</a>(int, <a href="#type-int16_signed_elt">int16_signed_elt</a>)
+  | Int16_unsigned: <a href="#type-kind">kind</a>(int, <a href="#type-int16_unsigned_elt">int16_unsigned_elt</a>)
+  | Int32: <a href="#type-kind">kind</a>(int32, <a href="#type-int32_elt">int32_elt</a>)
+  | Int64: <a href="#type-kind">kind</a>(int64, <a href="#type-int64_elt">int64_elt</a>)
+  | Int: <a href="#type-kind">kind</a>(int, <a href="#type-int_elt">int_elt</a>)
+  | Nativeint: <a href="#type-kind">kind</a>(nativeint, <a href="#type-nativeint_elt">nativeint_elt</a>)
+  | Complex32: <a href="#type-kind">kind</a>(<a href="Complex.html">Complex</a>.<a href="Complex.html#type-t">t</a>, <a href="#type-complex32_elt">complex32_elt</a>)
+  | Complex64: <a href="#type-kind">kind</a>(<a href="Complex.html">Complex</a>.<a href="Complex.html#type-t">t</a>, <a href="#type-complex64_elt">complex64_elt</a>)
+  | Char: <a href="#type-kind">kind</a>(char, <a href="#type-int8_unsigned_elt">int8_unsigned_elt</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-float32" id="value-float32">float32</a>: <a href="#type-kind">kind</a>(float, <a href="#type-float32_elt">float32_elt</a>)</h4>
+
+<div class='body '><p>See char.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-float64" id="value-float64">float64</a>: <a href="#type-kind">kind</a>(float, <a href="#type-float64_elt">float64_elt</a>)</h4>
+
+<div class='body '><p>See char.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-complex32" id="value-complex32">complex32</a>: <a href="#type-kind">kind</a>(<a href="Complex.html">Complex</a>.<a href="Complex.html#type-t">t</a>, <a href="#type-complex32_elt">complex32_elt</a>)</h4>
+
+<div class='body '><p>See char.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-complex64" id="value-complex64">complex64</a>: <a href="#type-kind">kind</a>(<a href="Complex.html">Complex</a>.<a href="Complex.html#type-t">t</a>, <a href="#type-complex64_elt">complex64_elt</a>)</h4>
+
+<div class='body '><p>See char.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-int8_signed" id="value-int8_signed">int8_signed</a>: <a href="#type-kind">kind</a>(int, <a href="#type-int8_signed_elt">int8_signed_elt</a>)</h4>
+
+<div class='body '><p>See char.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-int8_unsigned" id="value-int8_unsigned">int8_unsigned</a>: <a href="#type-kind">kind</a>(int, <a href="#type-int8_unsigned_elt">int8_unsigned_elt</a>)</h4>
+
+<div class='body '><p>See char.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-int16_signed" id="value-int16_signed">int16_signed</a>: <a href="#type-kind">kind</a>(int, <a href="#type-int16_signed_elt">int16_signed_elt</a>)</h4>
+
+<div class='body '><p>See char.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-int16_unsigned" id="value-int16_unsigned">int16_unsigned</a>: <a href="#type-kind">kind</a>(int, <a href="#type-int16_unsigned_elt">int16_unsigned_elt</a>)</h4>
+
+<div class='body '><p>See char.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-int" id="value-int">int</a>: <a href="#type-kind">kind</a>(int, <a href="#type-int_elt">int_elt</a>)</h4>
+
+<div class='body '><p>See char.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-int32" id="value-int32">int32</a>: <a href="#type-kind">kind</a>(int32, <a href="#type-int32_elt">int32_elt</a>)</h4>
+
+<div class='body '><p>See char.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-int64" id="value-int64">int64</a>: <a href="#type-kind">kind</a>(int64, <a href="#type-int64_elt">int64_elt</a>)</h4>
+
+<div class='body '><p>See char.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-nativeint" id="value-nativeint">nativeint</a>: <a href="#type-kind">kind</a>(nativeint, <a href="#type-nativeint_elt">nativeint_elt</a>)</h4>
+
+<div class='body '><p>See char.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-char" id="value-char">char</a>: <a href="#type-kind">kind</a>(char, <a href="#type-int8_unsigned_elt">int8_unsigned_elt</a>)</h4>
+
+<div class='body '><p>As shown by the types of the values above, big arrays of kind <code>float32_elt</code> and <code>float64_elt</code> are accessed using the OCaml type <code>float</code>. Big arrays of complex kinds <code>complex32_elt</code>, <code>complex64_elt</code> are accessed with the OCaml type t. Big arrays of integer kinds are accessed using the smallest OCaml integer type large enough to represent the array elements: <code>int</code> for 8- and 16-bit integer bigarrays, as well as OCaml-integer bigarrays; <code>int32</code> for 32-bit integer bigarrays; <code>int64</code> for 64-bit integer bigarrays; and <code>nativeint</code> for platform-native integer bigarrays. Finally, big arrays of kind <code>int8_unsigned_elt</code> can also be accessed as arrays of characters instead of arrays of small integers, by using the kind value <code>char</code> instead of <code>int8_unsigned</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Array-layouts">Array layouts</h4></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-c_layout" id="type-c_layout">c_layout</a> = | C_layout_typ</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-fortran_layout" id="type-fortran_layout">fortran_layout</a> = | Fortran_layout_typ</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 id="Supported-layouts">Supported layouts</h4><p>The GADT type <code>&#39;a layout</code> represents one of the two supported memory layouts: C-style or Fortran-style. Its constructors are re-exported as values below for backward-compatibility reasons.</p>
+</div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-layout" id="type-layout">layout</a>('a) = 
+  | C_layout: <a href="#type-layout">layout</a>(<a href="#type-c_layout">c_layout</a>)
+  | Fortran_layout: <a href="#type-layout">layout</a>(<a href="#type-fortran_layout">fortran_layout</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-c_layout" id="value-c_layout">c_layout</a>: <a href="#type-layout">layout</a>(<a href="#type-c_layout">c_layout</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fortran_layout" id="value-fortran_layout">fortran_layout</a>: <a href="#type-layout">layout</a>(<a href="#type-fortran_layout">fortran_layout</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 id="Generic-arrays-of-arbitrarily-many-dimensions">Generic arrays (of arbitrarily many dimensions)</h4></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Genarray" id="module-Genarray">Genarray</a></h4><div class='body module-body'><p><span class='missing'>This module does not have a toplevel documentation block.</span></p>
+<div class='doc-item'><h4 class='item'>type <a href="#type-Genarray.t" id="type-Genarray.t">t</a>('a, 'b, 'c)</h4>
+
+<div class='body '><p>The type <code>Genarray.t</code> is the type of big arrays with variable numbers of dimensions. Any number of dimensions between 1 and 16 is supported.</p>
+<p>The three type parameters to <code>Genarray.t</code> identify the array element kind and layout, as follows:</p>
+<ul><li><p>the first parameter, <code>&#39;a</code>, is the OCaml type for accessing array elements (<code>float</code>, <code>int</code>, <code>int32</code>, <code>int64</code>, <code>nativeint</code>);</p>
+</li><li><p>the second parameter, <code>&#39;b</code>, is the actual kind of array elements (<code>float32_elt</code>, <code>float64_elt</code>, <code>int8_signed_elt</code>, <code>int8_unsigned_elt</code>, etc);</p>
+</li><li><p>the third parameter, <code>&#39;c</code>, identifies the array layout (<code>c_layout</code> or <code>fortran_layout</code>).</p>
+</li></ul><p>For instance, <code>(float, float32_elt, fortran_layout) Genarray.t</code> is the type of generic big arrays containing 32-bit floats in Fortran layout; reads and writes in this array use the OCaml type <code>float</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Genarray.create" id="value-Genarray.create">create</a>: (<a href="#type-kind">kind</a>('a, 'b), <a href="#type-layout">layout</a>('c), array(int)) => <a href="#type-Genarray.t">t</a>(
+  'a,
+  'b,
+  'c
+)</h4>
+
+<div class='body '><p><code>Genarray.create kind layout dimensions</code> returns a new big array whose element kind is determined by the parameter <code>kind</code> (one of <code>float32</code>, <code>float64</code>, <code>int8_signed</code>, etc) and whose layout is determined by the parameter <code>layout</code> (one of <code>c_layout</code> or <code>fortran_layout</code>). The <code>dimensions</code> parameter is an array of integers that indicate the size of the big array in each dimension. The length of <code>dimensions</code> determines the number of dimensions of the bigarray.</p>
+<p>For instance, <code>Genarray.create int32 c_layout [|4;6;8|]</code> returns a fresh big array of 32-bit integers, in C layout, having three dimensions, the three dimensions being 4, 6 and 8 respectively.</p>
+<p>Big arrays returned by <code>Genarray.create</code> are not initialized: the initial values of array elements is unspecified.</p>
+<p><code>Genarray.create</code> raises <code>Invalid_argument</code> if the number of dimensions is not in the range 1 to 16 inclusive, or if one of the dimensions is negative.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Genarray.num_dims" id="value-Genarray.num_dims">num_dims</a>: <a href="#type-Genarray.t">t</a>('a, 'b, 'c) => int</h4>
+
+<div class='body '><p>Return the number of dimensions of the given big array.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Genarray.dims" id="value-Genarray.dims">dims</a>: <a href="#type-Genarray.t">t</a>('a, 'b, 'c) => array(int)</h4>
+
+<div class='body '><p><code>Genarray.dims a</code> returns all dimensions of the big array <code>a</code>, as an array of integers of length <code>Genarray.num_dims a</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Genarray.nth_dim" id="value-Genarray.nth_dim">nth_dim</a>: (<a href="#type-Genarray.t">t</a>('a, 'b, 'c), int) => int</h4>
+
+<div class='body '><p><code>Genarray.nth_dim a n</code> returns the <code>n</code>-th dimension of the big array <code>a</code>. The first dimension corresponds to <code>n = 0</code>; the second dimension corresponds to <code>n = 1</code>; the last dimension, to <code>n = Genarray.num_dims a - 1</code>. Raise <code>Invalid_argument</code> if <code>n</code> is less than 0 or greater or equal than <code>Genarray.num_dims a</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Genarray.kind" id="value-Genarray.kind">kind</a>: <a href="#type-Genarray.t">t</a>('a, 'b, 'c) => <a href="#type-kind">kind</a>('a, 'b)</h4>
+
+<div class='body '><p>Return the kind of the given big array.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Genarray.layout" id="value-Genarray.layout">layout</a>: <a href="#type-Genarray.t">t</a>('a, 'b, 'c) => <a href="#type-layout">layout</a>('c)</h4>
+
+<div class='body '><p>Return the layout of the given big array.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Genarray.get" id="value-Genarray.get">get</a>: (<a href="#type-Genarray.t">t</a>('a, 'b, 'c), array(int)) => 'a</h4>
+
+<div class='body '><p>Read an element of a generic big array. <code>Genarray.get a [|i1; ...; iN|]</code> returns the element of <code>a</code> whose coordinates are <code>i1</code> in the first dimension, <code>i2</code> in the second dimension, ..., <code>iN</code> in the <code>N</code>-th dimension.</p>
+<p>If <code>a</code> has C layout, the coordinates must be greater or equal than 0 and strictly less than the corresponding dimensions of <code>a</code>. If <code>a</code> has Fortran layout, the coordinates must be greater or equal than 1 and less or equal than the corresponding dimensions of <code>a</code>. Raise <code>Invalid_argument</code> if the array <code>a</code> does not have exactly <code>N</code> dimensions, or if the coordinates are outside the array bounds.</p>
+<p>If <code>N &gt; 3</code>, alternate syntax is provided: you can write <code>a.{i1, i2, ..., iN}</code> instead of <code>Genarray.get a [|i1; ...; iN|]</code>. (The syntax <code>a.{...}</code> with one, two or three coordinates is reserved for accessing one-, two- and three-dimensional arrays as described below.)</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Genarray.set" id="value-Genarray.set">set</a>: (<a href="#type-Genarray.t">t</a>('a, 'b, 'c), array(int), 'a) => unit</h4>
+
+<div class='body '><p>Assign an element of a generic big array. <code>Genarray.set a [|i1; ...; iN|] v</code> stores the value <code>v</code> in the element of <code>a</code> whose coordinates are <code>i1</code> in the first dimension, <code>i2</code> in the second dimension, ..., <code>iN</code> in the <code>N</code>-th dimension.</p>
+<p>The array <code>a</code> must have exactly <code>N</code> dimensions, and all coordinates must lie inside the array bounds, as described for <code>Genarray.get</code>; otherwise, <code>Invalid_argument</code> is raised.</p>
+<p>If <code>N &gt; 3</code>, alternate syntax is provided: you can write <code>a.{i1, i2, ..., iN} &lt;- v</code> instead of <code>Genarray.set a [|i1; ...; iN|] v</code>. (The syntax <code>a.{...} &lt;- v</code> with one, two or three coordinates is reserved for updating one-, two- and three-dimensional arrays as described below.)</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Genarray.sub_left" id="value-Genarray.sub_left">sub_left</a>: (<a href="#type-Genarray.t">t</a>('a, 'b, <a href="#type-c_layout">c_layout</a>), int, int) => <a href="#type-Genarray.t">t</a>(
+  'a,
+  'b,
+  <a href="#type-c_layout">c_layout</a>
+)</h4>
+
+<div class='body '><p>Extract a sub-array of the given big array by restricting the first (left-most) dimension. <code>Genarray.sub_left a ofs len</code> returns a big array with the same number of dimensions as <code>a</code>, and the same dimensions as <code>a</code>, except the first dimension, which corresponds to the interval <code>[ofs ... ofs + len - 1]</code> of the first dimension of <code>a</code>. No copying of elements is involved: the sub-array and the original array share the same storage space. In other terms, the element at coordinates <code>[|i1; ...; iN|]</code> of the sub-array is identical to the element at coordinates <code>[|i1+ofs; ...; iN|]</code> of the original array <code>a</code>.</p>
+<p><code>Genarray.sub_left</code> applies only to big arrays in C layout. Raise <code>Invalid_argument</code> if <code>ofs</code> and <code>len</code> do not designate a valid sub-array of <code>a</code>, that is, if <code>ofs &lt; 0</code>, or <code>len &lt; 0</code>, or <code>ofs + len &gt; Genarray.nth_dim a 0</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Genarray.sub_right" id="value-Genarray.sub_right">sub_right</a>: (<a href="#type-Genarray.t">t</a>('a, 'b, <a href="#type-fortran_layout">fortran_layout</a>), int, int) => <a href="#type-Genarray.t">t</a>(
+  'a,
+  'b,
+  <a href="#type-fortran_layout">fortran_layout</a>
+)</h4>
+
+<div class='body '><p>Extract a sub-array of the given big array by restricting the last (right-most) dimension. <code>Genarray.sub_right a ofs len</code> returns a big array with the same number of dimensions as <code>a</code>, and the same dimensions as <code>a</code>, except the last dimension, which corresponds to the interval <code>[ofs ... ofs + len - 1]</code> of the last dimension of <code>a</code>. No copying of elements is involved: the sub-array and the original array share the same storage space. In other terms, the element at coordinates <code>[|i1; ...; iN|]</code> of the sub-array is identical to the element at coordinates <code>[|i1; ...; iN+ofs|]</code> of the original array <code>a</code>.</p>
+<p><code>Genarray.sub_right</code> applies only to big arrays in Fortran layout. Raise <code>Invalid_argument</code> if <code>ofs</code> and <code>len</code> do not designate a valid sub-array of <code>a</code>, that is, if <code>ofs &lt; 1</code>, or <code>len &lt; 0</code>, or <code>ofs + len &gt; Genarray.nth_dim a (Genarray.num_dims a - 1)</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Genarray.slice_left" id="value-Genarray.slice_left">slice_left</a>: (<a href="#type-Genarray.t">t</a>('a, 'b, <a href="#type-c_layout">c_layout</a>), array(int)) => <a href="#type-Genarray.t">t</a>(
+  'a,
+  'b,
+  <a href="#type-c_layout">c_layout</a>
+)</h4>
+
+<div class='body '><p>Extract a sub-array of lower dimension from the given big array by fixing one or several of the first (left-most) coordinates. <code>Genarray.slice_left a [|i1; ... ; iM|]</code> returns the &#39;slice&#39; of <code>a</code> obtained by setting the first <code>M</code> coordinates to <code>i1</code>, ..., <code>iM</code>. If <code>a</code> has <code>N</code> dimensions, the slice has dimension <code>N - M</code>, and the element at coordinates <code>[|j1; ...; j(N-M)|]</code> in the slice is identical to the element at coordinates <code>[|i1; ...; iM; j1; ...; j(N-M)|]</code> in the original array <code>a</code>. No copying of elements is involved: the slice and the original array share the same storage space.</p>
+<p><code>Genarray.slice_left</code> applies only to big arrays in C layout. Raise <code>Invalid_argument</code> if <code>M &gt;= N</code>, or if <code>[|i1; ... ; iM|]</code> is outside the bounds of <code>a</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Genarray.slice_right" id="value-Genarray.slice_right">slice_right</a>: (
+  <a href="#type-Genarray.t">t</a>('a, 'b, <a href="#type-fortran_layout">fortran_layout</a>),
+  array(int)
+) => <a href="#type-Genarray.t">t</a>('a, 'b, <a href="#type-fortran_layout">fortran_layout</a>)</h4>
+
+<div class='body '><p>Extract a sub-array of lower dimension from the given big array by fixing one or several of the last (right-most) coordinates. <code>Genarray.slice_right a [|i1; ... ; iM|]</code> returns the &#39;slice&#39; of <code>a</code> obtained by setting the last <code>M</code> coordinates to <code>i1</code>, ..., <code>iM</code>. If <code>a</code> has <code>N</code> dimensions, the slice has dimension <code>N - M</code>, and the element at coordinates <code>[|j1; ...; j(N-M)|]</code> in the slice is identical to the element at coordinates <code>[|j1; ...; j(N-M); i1; ...; iM|]</code> in the original array <code>a</code>. No copying of elements is involved: the slice and the original array share the same storage space.</p>
+<p><code>Genarray.slice_right</code> applies only to big arrays in Fortran layout. Raise <code>Invalid_argument</code> if <code>M &gt;= N</code>, or if <code>[|i1; ... ; iM|]</code> is outside the bounds of <code>a</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Genarray.blit" id="value-Genarray.blit">blit</a>: (<a href="#type-Genarray.t">t</a>('a, 'b, 'c), <a href="#type-Genarray.t">t</a>('a, 'b, 'c)) => unit</h4>
+
+<div class='body '><p>Copy all elements of a big array in another big array. <code>Genarray.blit src dst</code> copies all elements of <code>src</code> into <code>dst</code>. Both arrays <code>src</code> and <code>dst</code> must have the same number of dimensions and equal dimensions. Copying a sub-array of <code>src</code> to a sub-array of <code>dst</code> can be achieved by applying <code>Genarray.blit</code> to sub-array or slices of <code>src</code> and <code>dst</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Genarray.fill" id="value-Genarray.fill">fill</a>: (<a href="#type-Genarray.t">t</a>('a, 'b, 'c), 'a) => unit</h4>
+
+<div class='body '><p>Set all elements of a big array to a given value. <code>Genarray.fill a v</code> stores the value <code>v</code> in all elements of the big array <code>a</code>. Setting only some elements of <code>a</code> to <code>v</code> can be achieved by applying <code>Genarray.fill</code> to a sub-array or a slice of <code>a</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Genarray.map_file" id="value-Genarray.map_file">map_file</a>: (
+  <a href="Unix.html#type-file_descr" title="Unix.file_descr">file_descr</a>,
+  ~?pos: option(int64),
+  <a href="#type-kind">kind</a>('a, 'b),
+  <a href="#type-layout">layout</a>('c),
+  bool,
+  array(int)
+) => <a href="#type-Genarray.t">t</a>('a, 'b, 'c)</h4>
+
+<div class='body '><p>Memory mapping of a file as a big array. <code>Genarray.map_file fd kind layout shared dims</code> returns a big array of kind <code>kind</code>, layout <code>layout</code>, and dimensions as specified in <code>dims</code>. The data contained in this big array are the contents of the file referred to by the file descriptor <code>fd</code> (as opened previously with <code>Unix.openfile</code>, for example). The optional <code>pos</code> parameter is the byte offset in the file of the data being mapped; it defaults to 0 (map from the beginning of the file).</p>
+<p>If <code>shared</code> is <code>true</code>, all modifications performed on the array are reflected in the file. This requires that <code>fd</code> be opened with write permissions. If <code>shared</code> is <code>false</code>, modifications performed on the array are done in memory only, using copy-on-write of the modified pages; the underlying file is not affected.</p>
+<p><code>Genarray.map_file</code> is much more efficient than reading the whole file in a big array, modifying that big array, and writing it afterwards.</p>
+<p>To adjust automatically the dimensions of the big array to the actual size of the file, the major dimension (that is, the first dimension for an array with C layout, and the last dimension for an array with Fortran layout) can be given as <code>-1</code>. <code>Genarray.map_file</code> then determines the major dimension from the size of the file. The file must contain an integral number of sub-arrays as determined by the non-major dimensions, otherwise <code>Failure</code> is raised.</p>
+<p>If all dimensions of the big array are given, the file size is matched against the size of the big array. If the file is larger than the big array, only the initial portion of the file is mapped to the big array. If the file is smaller than the big array, the file is automatically grown to the size of the big array. This requires write permissions on <code>fd</code>.</p>
+<p>Array accesses are bounds-checked, but the bounds are determined by the initial call to <code>map_file</code>. Therefore, you should make sure no other process modifies the mapped file while you&#39;re accessing it, or a SIGBUS signal may be raised. This happens, for instance, if the file is shrunk.</p>
+<p>This function raises <code>Sys_error</code> in the case of any errors from the underlying system calls. <code>Invalid_argument</code> or <code>Failure</code> may be raised in cases where argument validation fails.</p>
+</div></div>
+</div></div>
+
+<div class='doc-item'><h4 id="One-dimensional-arrays">One-dimensional arrays</h4></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Array1" id="module-Array1">Array1</a></h4><div class='body module-body'><p>One-dimensional arrays. The <code>Array1</code> structure provides operations similar to those of Genarray, but specialized to the case of one-dimensional arrays. (The <code>Array2</code> and <code>Array3</code> structures below provide operations specialized for two- and three-dimensional arrays.) Statically knowing the number of dimensions of the array allows faster operations, and more precise static type-checking.</p>
+<p>other items defined</p><div class='doc-item'><h4 class='item'>type <a href="#type-Array1.t" id="type-Array1.t">t</a>('a, 'b, 'c)</h4>
+
+<div class='body '><p>The type of one-dimensional big arrays whose elements have OCaml type <code>&#39;a</code>, representation kind <code>&#39;b</code>, and memory layout <code>&#39;c</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array1.create" id="value-Array1.create">create</a>: (<a href="#type-kind">kind</a>('a, 'b), <a href="#type-layout">layout</a>('c), int) => <a href="#type-Array1.t">t</a>('a, 'b, 'c)</h4>
+
+<div class='body '><p><code>Array1.create kind layout dim</code> returns a new bigarray of one dimension, whose size is <code>dim</code>. <code>kind</code> and <code>layout</code> determine the array element kind and the array layout as described for <code>Genarray.create</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array1.dim" id="value-Array1.dim">dim</a>: <a href="#type-Array1.t">t</a>('a, 'b, 'c) => int</h4>
+
+<div class='body '><p>Return the size (dimension) of the given one-dimensional big array.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array1.kind" id="value-Array1.kind">kind</a>: <a href="#type-Array1.t">t</a>('a, 'b, 'c) => <a href="#type-kind">kind</a>('a, 'b)</h4>
+
+<div class='body '><p>Return the kind of the given big array.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array1.layout" id="value-Array1.layout">layout</a>: <a href="#type-Array1.t">t</a>('a, 'b, 'c) => <a href="#type-layout">layout</a>('c)</h4>
+
+<div class='body '><p>Return the layout of the given big array.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array1.get" id="value-Array1.get">get</a>: (<a href="#type-Array1.t">t</a>('a, 'b, 'c), int) => 'a</h4>
+
+<div class='body '><p><code>Array1.get a x</code>, or alternatively <code>a.{x}</code>, returns the element of <code>a</code> at index <code>x</code>. <code>x</code> must be greater or equal than <code>0</code> and strictly less than <code>Array1.dim a</code> if <code>a</code> has C layout. If <code>a</code> has Fortran layout, <code>x</code> must be greater or equal than <code>1</code> and less or equal than <code>Array1.dim a</code>. Otherwise, <code>Invalid_argument</code> is raised.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array1.set" id="value-Array1.set">set</a>: (<a href="#type-Array1.t">t</a>('a, 'b, 'c), int, 'a) => unit</h4>
+
+<div class='body '><p><code>Array1.set a x v</code>, also written <code>a.{x} &lt;- v</code>, stores the value <code>v</code> at index <code>x</code> in <code>a</code>. <code>x</code> must be inside the bounds of <code>a</code> as described in get; otherwise, <code>Invalid_argument</code> is raised.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array1.sub" id="value-Array1.sub">sub</a>: (<a href="#type-Array1.t">t</a>('a, 'b, 'c), int, int) => <a href="#type-Array1.t">t</a>('a, 'b, 'c)</h4>
+
+<div class='body '><p>Extract a sub-array of the given one-dimensional big array. See <code>Genarray.sub_left</code> for more details.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array1.blit" id="value-Array1.blit">blit</a>: (<a href="#type-Array1.t">t</a>('a, 'b, 'c), <a href="#type-Array1.t">t</a>('a, 'b, 'c)) => unit</h4>
+
+<div class='body '><p>Copy the first big array to the second big array. See <code>Genarray.blit</code> for more details.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array1.fill" id="value-Array1.fill">fill</a>: (<a href="#type-Array1.t">t</a>('a, 'b, 'c), 'a) => unit</h4>
+
+<div class='body '><p>Fill the given big array with the given value. See <code>Genarray.fill</code> for more details.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array1.of_array" id="value-Array1.of_array">of_array</a>: (<a href="#type-kind">kind</a>('a, 'b), <a href="#type-layout">layout</a>('c), array('a)) => <a href="#type-Array1.t">t</a>(
+  'a,
+  'b,
+  'c
+)</h4>
+
+<div class='body '><p>Build a one-dimensional big array initialized from the given array.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array1.map_file" id="value-Array1.map_file">map_file</a>: (
+  <a href="Unix.html#type-file_descr" title="Unix.file_descr">file_descr</a>,
+  ~?pos: option(int64),
+  <a href="#type-kind">kind</a>('a, 'b),
+  <a href="#type-layout">layout</a>('c),
+  bool,
+  int
+) => <a href="#type-Array1.t">t</a>('a, 'b, 'c)</h4>
+
+<div class='body '><p>Memory mapping of a file as a one-dimensional big array. See map_file for more details.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array1.unsafe_get" id="value-Array1.unsafe_get">unsafe_get</a>: (<a href="#type-Array1.t">t</a>('a, 'b, 'c), int) => 'a</h4>
+
+<div class='body '><p>Like get, but bounds checking is not always performed. Use with caution and only when the program logic guarantees that the access is within bounds.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array1.unsafe_set" id="value-Array1.unsafe_set">unsafe_set</a>: (<a href="#type-Array1.t">t</a>('a, 'b, 'c), int, 'a) => unit</h4>
+
+<div class='body '><p>Like set, but bounds checking is not always performed. Use with caution and only when the program logic guarantees that the access is within bounds.</p>
+</div></div></div></div>
+
+<div class='doc-item'><h4 id="Two-dimensional-arrays">Two-dimensional arrays</h4></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Array2" id="module-Array2">Array2</a></h4><div class='body module-body'><p>Two-dimensional arrays. The <code>Array2</code> structure provides operations similar to those of Genarray, but specialized to the case of two-dimensional arrays.</p>
+<p>other items defined</p><div class='doc-item'><h4 class='item'>type <a href="#type-Array2.t" id="type-Array2.t">t</a>('a, 'b, 'c)</h4>
+
+<div class='body '><p>The type of two-dimensional big arrays whose elements have OCaml type <code>&#39;a</code>, representation kind <code>&#39;b</code>, and memory layout <code>&#39;c</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array2.create" id="value-Array2.create">create</a>: (<a href="#type-kind">kind</a>('a, 'b), <a href="#type-layout">layout</a>('c), int, int) => <a href="#type-Array2.t">t</a>(
+  'a,
+  'b,
+  'c
+)</h4>
+
+<div class='body '><p><code>Array2.create kind layout dim1 dim2</code> returns a new bigarray of two dimension, whose size is <code>dim1</code> in the first dimension and <code>dim2</code> in the second dimension. <code>kind</code> and <code>layout</code> determine the array element kind and the array layout as described for create.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array2.dim1" id="value-Array2.dim1">dim1</a>: <a href="#type-Array2.t">t</a>('a, 'b, 'c) => int</h4>
+
+<div class='body '><p>Return the first dimension of the given two-dimensional big array.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array2.dim2" id="value-Array2.dim2">dim2</a>: <a href="#type-Array2.t">t</a>('a, 'b, 'c) => int</h4>
+
+<div class='body '><p>Return the second dimension of the given two-dimensional big array.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array2.kind" id="value-Array2.kind">kind</a>: <a href="#type-Array2.t">t</a>('a, 'b, 'c) => <a href="#type-kind">kind</a>('a, 'b)</h4>
+
+<div class='body '><p>Return the kind of the given big array.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array2.layout" id="value-Array2.layout">layout</a>: <a href="#type-Array2.t">t</a>('a, 'b, 'c) => <a href="#type-layout">layout</a>('c)</h4>
+
+<div class='body '><p>Return the layout of the given big array.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array2.get" id="value-Array2.get">get</a>: (<a href="#type-Array2.t">t</a>('a, 'b, 'c), int, int) => 'a</h4>
+
+<div class='body '><p><code>Array2.get a x y</code>, also written <code>a.{x,y}</code>, returns the element of <code>a</code> at coordinates (<code>x</code>, <code>y</code>). <code>x</code> and <code>y</code> must be within the bounds of <code>a</code>, as described for get; otherwise, <code>Invalid_argument</code> is raised.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array2.set" id="value-Array2.set">set</a>: (<a href="#type-Array2.t">t</a>('a, 'b, 'c), int, int, 'a) => unit</h4>
+
+<div class='body '><p><code>Array2.set a x y v</code>, or alternatively <code>a.{x,y} &lt;- v</code>, stores the value <code>v</code> at coordinates (<code>x</code>, <code>y</code>) in <code>a</code>. <code>x</code> and <code>y</code> must be within the bounds of <code>a</code>, as described for set; otherwise, <code>Invalid_argument</code> is raised.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array2.sub_left" id="value-Array2.sub_left">sub_left</a>: (<a href="#type-Array2.t">t</a>('a, 'b, <a href="#type-c_layout">c_layout</a>), int, int) => <a href="#type-Array2.t">t</a>(
+  'a,
+  'b,
+  <a href="#type-c_layout">c_layout</a>
+)</h4>
+
+<div class='body '><p>Extract a two-dimensional sub-array of the given two-dimensional big array by restricting the first dimension. See sub_left for more details. <code>Array2.sub_left</code> applies only to arrays with C layout.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array2.sub_right" id="value-Array2.sub_right">sub_right</a>: (<a href="#type-Array2.t">t</a>('a, 'b, <a href="#type-fortran_layout">fortran_layout</a>), int, int) => <a href="#type-Array2.t">t</a>(
+  'a,
+  'b,
+  <a href="#type-fortran_layout">fortran_layout</a>
+)</h4>
+
+<div class='body '><p>Extract a two-dimensional sub-array of the given two-dimensional big array by restricting the second dimension. See sub_right for more details. <code>Array2.sub_right</code> applies only to arrays with Fortran layout.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array2.slice_left" id="value-Array2.slice_left">slice_left</a>: (<a href="#type-Array2.t">t</a>('a, 'b, <a href="#type-c_layout">c_layout</a>), int) => <a href="#module-Array1">Array1</a>.<a href="#type-Array1.t">t</a>(
+  'a,
+  'b,
+  <a href="#type-c_layout">c_layout</a>
+)</h4>
+
+<div class='body '><p>Extract a row (one-dimensional slice) of the given two-dimensional big array. The integer parameter is the index of the row to extract. See slice_left for more details. <code>Array2.slice_left</code> applies only to arrays with C layout.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array2.slice_right" id="value-Array2.slice_right">slice_right</a>: (
+  <a href="#type-Array2.t">t</a>('a, 'b, <a href="#type-fortran_layout">fortran_layout</a>),
+  int
+) => <a href="#module-Array1">Array1</a>.<a href="#type-Array1.t">t</a>('a, 'b, <a href="#type-fortran_layout">fortran_layout</a>)</h4>
+
+<div class='body '><p>Extract a column (one-dimensional slice) of the given two-dimensional big array. The integer parameter is the index of the column to extract. See slice_right for more details. <code>Array2.slice_right</code> applies only to arrays with Fortran layout.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array2.blit" id="value-Array2.blit">blit</a>: (<a href="#type-Array2.t">t</a>('a, 'b, 'c), <a href="#type-Array2.t">t</a>('a, 'b, 'c)) => unit</h4>
+
+<div class='body '><p>Copy the first big array to the second big array. See blit for more details.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array2.fill" id="value-Array2.fill">fill</a>: (<a href="#type-Array2.t">t</a>('a, 'b, 'c), 'a) => unit</h4>
+
+<div class='body '><p>Fill the given big array with the given value. See fill for more details.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array2.of_array" id="value-Array2.of_array">of_array</a>: (
+  <a href="#type-kind">kind</a>('a, 'b),
+  <a href="#type-layout">layout</a>('c),
+  array(array('a))
+) => <a href="#type-Array2.t">t</a>('a, 'b, 'c)</h4>
+
+<div class='body '><p>Build a two-dimensional big array initialized from the given array of arrays.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array2.map_file" id="value-Array2.map_file">map_file</a>: (
+  <a href="Unix.html#type-file_descr" title="Unix.file_descr">file_descr</a>,
+  ~?pos: option(int64),
+  <a href="#type-kind">kind</a>('a, 'b),
+  <a href="#type-layout">layout</a>('c),
+  bool,
+  int,
+  int
+) => <a href="#type-Array2.t">t</a>('a, 'b, 'c)</h4>
+
+<div class='body '><p>Memory mapping of a file as a two-dimensional big array. See map_file for more details.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array2.unsafe_get" id="value-Array2.unsafe_get">unsafe_get</a>: (<a href="#type-Array2.t">t</a>('a, 'b, 'c), int, int) => 'a</h4>
+
+<div class='body '><p>Like get, but bounds checking is not always performed.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array2.unsafe_set" id="value-Array2.unsafe_set">unsafe_set</a>: (<a href="#type-Array2.t">t</a>('a, 'b, 'c), int, int, 'a) => unit</h4>
+
+<div class='body '><p>Like set, but bounds checking is not always performed.</p>
+</div></div></div></div>
+
+<div class='doc-item'><h4 id="Three-dimensional-arrays">Three-dimensional arrays</h4></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Array3" id="module-Array3">Array3</a></h4><div class='body module-body'><p>Three-dimensional arrays. The <code>Array3</code> structure provides operations similar to those of Genarray, but specialized to the case of three-dimensional arrays.</p>
+<p>other items defined</p><div class='doc-item'><h4 class='item'>type <a href="#type-Array3.t" id="type-Array3.t">t</a>('a, 'b, 'c)</h4>
+
+<div class='body '><p>The type of three-dimensional big arrays whose elements have OCaml type <code>&#39;a</code>, representation kind <code>&#39;b</code>, and memory layout <code>&#39;c</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array3.create" id="value-Array3.create">create</a>: (<a href="#type-kind">kind</a>('a, 'b), <a href="#type-layout">layout</a>('c), int, int, int) => <a href="#type-Array3.t">t</a>(
+  'a,
+  'b,
+  'c
+)</h4>
+
+<div class='body '><p><code>Array3.create kind layout dim1 dim2 dim3</code> returns a new bigarray of three dimension, whose size is <code>dim1</code> in the first dimension, <code>dim2</code> in the second dimension, and <code>dim3</code> in the third. <code>kind</code> and <code>layout</code> determine the array element kind and the array layout as described for create.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array3.dim1" id="value-Array3.dim1">dim1</a>: <a href="#type-Array3.t">t</a>('a, 'b, 'c) => int</h4>
+
+<div class='body '><p>Return the first dimension of the given three-dimensional big array.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array3.dim2" id="value-Array3.dim2">dim2</a>: <a href="#type-Array3.t">t</a>('a, 'b, 'c) => int</h4>
+
+<div class='body '><p>Return the second dimension of the given three-dimensional big array.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array3.dim3" id="value-Array3.dim3">dim3</a>: <a href="#type-Array3.t">t</a>('a, 'b, 'c) => int</h4>
+
+<div class='body '><p>Return the third dimension of the given three-dimensional big array.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array3.kind" id="value-Array3.kind">kind</a>: <a href="#type-Array3.t">t</a>('a, 'b, 'c) => <a href="#type-kind">kind</a>('a, 'b)</h4>
+
+<div class='body '><p>Return the kind of the given big array.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array3.layout" id="value-Array3.layout">layout</a>: <a href="#type-Array3.t">t</a>('a, 'b, 'c) => <a href="#type-layout">layout</a>('c)</h4>
+
+<div class='body '><p>Return the layout of the given big array.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array3.get" id="value-Array3.get">get</a>: (<a href="#type-Array3.t">t</a>('a, 'b, 'c), int, int, int) => 'a</h4>
+
+<div class='body '><p><code>Array3.get a x y z</code>, also written <code>a.{x,y,z}</code>, returns the element of <code>a</code> at coordinates (<code>x</code>, <code>y</code>, <code>z</code>). <code>x</code>, <code>y</code> and <code>z</code> must be within the bounds of <code>a</code>, as described for get; otherwise, <code>Invalid_argument</code> is raised.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array3.set" id="value-Array3.set">set</a>: (<a href="#type-Array3.t">t</a>('a, 'b, 'c), int, int, int, 'a) => unit</h4>
+
+<div class='body '><p><code>Array3.set a x y v</code>, or alternatively <code>a.{x,y,z} &lt;- v</code>, stores the value <code>v</code> at coordinates (<code>x</code>, <code>y</code>, <code>z</code>) in <code>a</code>. <code>x</code>, <code>y</code> and <code>z</code> must be within the bounds of <code>a</code>, as described for set; otherwise, <code>Invalid_argument</code> is raised.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array3.sub_left" id="value-Array3.sub_left">sub_left</a>: (<a href="#type-Array3.t">t</a>('a, 'b, <a href="#type-c_layout">c_layout</a>), int, int) => <a href="#type-Array3.t">t</a>(
+  'a,
+  'b,
+  <a href="#type-c_layout">c_layout</a>
+)</h4>
+
+<div class='body '><p>Extract a three-dimensional sub-array of the given three-dimensional big array by restricting the first dimension. See sub_left for more details. <code>Array3.sub_left</code> applies only to arrays with C layout.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array3.sub_right" id="value-Array3.sub_right">sub_right</a>: (<a href="#type-Array3.t">t</a>('a, 'b, <a href="#type-fortran_layout">fortran_layout</a>), int, int) => <a href="#type-Array3.t">t</a>(
+  'a,
+  'b,
+  <a href="#type-fortran_layout">fortran_layout</a>
+)</h4>
+
+<div class='body '><p>Extract a three-dimensional sub-array of the given three-dimensional big array by restricting the second dimension. See sub_right for more details. <code>Array3.sub_right</code> applies only to arrays with Fortran layout.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array3.slice_left_1" id="value-Array3.slice_left_1">slice_left_1</a>: (
+  <a href="#type-Array3.t">t</a>('a, 'b, <a href="#type-c_layout">c_layout</a>),
+  int,
+  int
+) => <a href="#module-Array1">Array1</a>.<a href="#type-Array1.t">t</a>('a, 'b, <a href="#type-c_layout">c_layout</a>)</h4>
+
+<div class='body '><p>Extract a one-dimensional slice of the given three-dimensional big array by fixing the first two coordinates. The integer parameters are the coordinates of the slice to extract. See slice_left for more details. <code>Array3.slice_left_1</code> applies only to arrays with C layout.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array3.slice_right_1" id="value-Array3.slice_right_1">slice_right_1</a>: (
+  <a href="#type-Array3.t">t</a>('a, 'b, <a href="#type-fortran_layout">fortran_layout</a>),
+  int,
+  int
+) => <a href="#module-Array1">Array1</a>.<a href="#type-Array1.t">t</a>('a, 'b, <a href="#type-fortran_layout">fortran_layout</a>)</h4>
+
+<div class='body '><p>Extract a one-dimensional slice of the given three-dimensional big array by fixing the last two coordinates. The integer parameters are the coordinates of the slice to extract. See slice_right for more details. <code>Array3.slice_right_1</code> applies only to arrays with Fortran layout.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array3.slice_left_2" id="value-Array3.slice_left_2">slice_left_2</a>: (<a href="#type-Array3.t">t</a>('a, 'b, <a href="#type-c_layout">c_layout</a>), int) => <a href="#module-Array2">Array2</a>.<a href="#type-Array2.t">t</a>(
+  'a,
+  'b,
+  <a href="#type-c_layout">c_layout</a>
+)</h4>
+
+<div class='body '><p>Extract a two-dimensional slice of the given three-dimensional big array by fixing the first coordinate. The integer parameter is the first coordinate of the slice to extract. See slice_left for more details. <code>Array3.slice_left_2</code> applies only to arrays with C layout.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array3.slice_right_2" id="value-Array3.slice_right_2">slice_right_2</a>: (
+  <a href="#type-Array3.t">t</a>('a, 'b, <a href="#type-fortran_layout">fortran_layout</a>),
+  int
+) => <a href="#module-Array2">Array2</a>.<a href="#type-Array2.t">t</a>('a, 'b, <a href="#type-fortran_layout">fortran_layout</a>)</h4>
+
+<div class='body '><p>Extract a two-dimensional slice of the given three-dimensional big array by fixing the last coordinate. The integer parameter is the coordinate of the slice to extract. See slice_right for more details. <code>Array3.slice_right_2</code> applies only to arrays with Fortran layout.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array3.blit" id="value-Array3.blit">blit</a>: (<a href="#type-Array3.t">t</a>('a, 'b, 'c), <a href="#type-Array3.t">t</a>('a, 'b, 'c)) => unit</h4>
+
+<div class='body '><p>Copy the first big array to the second big array. See blit for more details.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array3.fill" id="value-Array3.fill">fill</a>: (<a href="#type-Array3.t">t</a>('a, 'b, 'c), 'a) => unit</h4>
+
+<div class='body '><p>Fill the given big array with the given value. See fill for more details.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array3.of_array" id="value-Array3.of_array">of_array</a>: (
+  <a href="#type-kind">kind</a>('a, 'b),
+  <a href="#type-layout">layout</a>('c),
+  array(array(array('a)))
+) => <a href="#type-Array3.t">t</a>('a, 'b, 'c)</h4>
+
+<div class='body '><p>Build a three-dimensional big array initialized from the given array of arrays of arrays.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array3.map_file" id="value-Array3.map_file">map_file</a>: (
+  <a href="Unix.html#type-file_descr" title="Unix.file_descr">file_descr</a>,
+  ~?pos: option(int64),
+  <a href="#type-kind">kind</a>('a, 'b),
+  <a href="#type-layout">layout</a>('c),
+  bool,
+  int,
+  int,
+  int
+) => <a href="#type-Array3.t">t</a>('a, 'b, 'c)</h4>
+
+<div class='body '><p>Memory mapping of a file as a three-dimensional big array. See map_file for more details.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array3.unsafe_get" id="value-Array3.unsafe_get">unsafe_get</a>: (<a href="#type-Array3.t">t</a>('a, 'b, 'c), int, int, int) => 'a</h4>
+
+<div class='body '><p>Like get, but bounds checking is not always performed.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-Array3.unsafe_set" id="value-Array3.unsafe_set">unsafe_set</a>: (<a href="#type-Array3.t">t</a>('a, 'b, 'c), int, int, int, 'a) => unit</h4>
+
+<div class='body '><p>Like set, but bounds checking is not always performed.</p>
+</div></div></div></div>
+
+<div class='doc-item'><h4 id="Coercions-between-generic-big-arrays-and-fixed-dimension-big-arrays">Coercions between generic big arrays and fixed-dimension big arrays</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-genarray_of_array1" id="value-genarray_of_array1">genarray_of_array1</a>: <a href="#module-Array1">Array1</a>.<a href="#type-Array1.t">t</a>('a, 'b, 'c) => <a href="#module-Genarray">Genarray</a>.<a href="#type-Genarray.t">t</a>(
+  'a,
+  'b,
+  'c
+)</h4>
+
+<div class='body '><p>Return the generic big array corresponding to the given one-dimensional big array.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-genarray_of_array2" id="value-genarray_of_array2">genarray_of_array2</a>: <a href="#module-Array2">Array2</a>.<a href="#type-Array2.t">t</a>('a, 'b, 'c) => <a href="#module-Genarray">Genarray</a>.<a href="#type-Genarray.t">t</a>(
+  'a,
+  'b,
+  'c
+)</h4>
+
+<div class='body '><p>Return the generic big array corresponding to the given two-dimensional big array.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-genarray_of_array3" id="value-genarray_of_array3">genarray_of_array3</a>: <a href="#module-Array3">Array3</a>.<a href="#type-Array3.t">t</a>('a, 'b, 'c) => <a href="#module-Genarray">Genarray</a>.<a href="#type-Genarray.t">t</a>(
+  'a,
+  'b,
+  'c
+)</h4>
+
+<div class='body '><p>Return the generic big array corresponding to the given three-dimensional big array.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-array1_of_genarray" id="value-array1_of_genarray">array1_of_genarray</a>: <a href="#module-Genarray">Genarray</a>.<a href="#type-Genarray.t">t</a>('a, 'b, 'c) => <a href="#module-Array1">Array1</a>.<a href="#type-Array1.t">t</a>(
+  'a,
+  'b,
+  'c
+)</h4>
+
+<div class='body '><p>Return the one-dimensional big array corresponding to the given generic big array. Raise <code>Invalid_argument</code> if the generic big array does not have exactly one dimension.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-array2_of_genarray" id="value-array2_of_genarray">array2_of_genarray</a>: <a href="#module-Genarray">Genarray</a>.<a href="#type-Genarray.t">t</a>('a, 'b, 'c) => <a href="#module-Array2">Array2</a>.<a href="#type-Array2.t">t</a>(
+  'a,
+  'b,
+  'c
+)</h4>
+
+<div class='body '><p>Return the two-dimensional big array corresponding to the given generic big array. Raise <code>Invalid_argument</code> if the generic big array does not have exactly two dimensions.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-array3_of_genarray" id="value-array3_of_genarray">array3_of_genarray</a>: <a href="#module-Genarray">Genarray</a>.<a href="#type-Genarray.t">t</a>('a, 'b, 'c) => <a href="#module-Array3">Array3</a>.<a href="#type-Array3.t">t</a>(
+  'a,
+  'b,
+  'c
+)</h4>
+
+<div class='body '><p>Return the three-dimensional big array corresponding to the given generic big array. Raise <code>Invalid_argument</code> if the generic big array does not have exactly three dimensions.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Re-shaping-big-arrays">Re-shaping big arrays</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-reshape" id="value-reshape">reshape</a>: (
+  <a href="#module-Genarray">Genarray</a>.<a href="#type-Genarray.t">t</a>('a, 'b, 'c),
+  array(int)
+) => <a href="#module-Genarray">Genarray</a>.<a href="#type-Genarray.t">t</a>('a, 'b, 'c)</h4>
+
+<div class='body '><p><code>reshape b [|d1;...;dN|]</code> converts the big array <code>b</code> to a <code>N</code>-dimensional array of dimensions <code>d1</code>...<code>dN</code>. The returned array and the original array <code>b</code> share their data and have the same layout. For instance, assuming that <code>b</code> is a one-dimensional array of dimension 12, <code>reshape b [|3;4|]</code> returns a two-dimensional array <code>b&#39;</code> of dimensions 3 and 4. If <code>b</code> has C layout, the element <code>(x,y)</code> of <code>b&#39;</code> corresponds to the element <code>x * 3 + y</code> of <code>b</code>. If <code>b</code> has Fortran layout, the element <code>(x,y)</code> of <code>b&#39;</code> corresponds to the element <code>x + (y - 1) * 4</code> of <code>b</code>. The returned big array must have exactly the same number of elements as the original big array <code>b</code>. That is, the product of the dimensions of <code>b</code> must be equal to <code>i1 * ... * iN</code>. Otherwise, <code>Invalid_argument</code> is raised.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-reshape_1" id="value-reshape_1">reshape_1</a>: (<a href="#module-Genarray">Genarray</a>.<a href="#type-Genarray.t">t</a>('a, 'b, 'c), int) => <a href="#module-Array1">Array1</a>.<a href="#type-Array1.t">t</a>(
+  'a,
+  'b,
+  'c
+)</h4>
+
+<div class='body '><p>Specialized version of reshape for reshaping to one-dimensional arrays.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-reshape_2" id="value-reshape_2">reshape_2</a>: (
+  <a href="#module-Genarray">Genarray</a>.<a href="#type-Genarray.t">t</a>('a, 'b, 'c),
+  int,
+  int
+) => <a href="#module-Array2">Array2</a>.<a href="#type-Array2.t">t</a>('a, 'b, 'c)</h4>
+
+<div class='body '><p>Specialized version of reshape for reshaping to two-dimensional arrays.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-reshape_3" id="value-reshape_3">reshape_3</a>: (
+  <a href="#module-Genarray">Genarray</a>.<a href="#type-Genarray.t">t</a>('a, 'b, 'c),
+  int,
+  int,
+  int
+) => <a href="#module-Array3">Array3</a>.<a href="#type-Array3.t">t</a>('a, 'b, 'c)</h4>
+
+<div class='body '><p>Specialized version of reshape for reshaping to three-dimensional arrays.</p>
+</div></div>
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

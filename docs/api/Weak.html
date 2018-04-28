@@ -1,0 +1,236 @@
+
+    
+<!doctype html>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Weak</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
+</div>
+
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#type-t" class='level-0 type'>t</a>
+<a href="#value-create" class='level-0 value'>create</a>
+<a href="#value-length" class='level-0 value'>length</a>
+<a href="#value-set" class='level-0 value'>set</a>
+<a href="#value-get" class='level-0 value'>get</a>
+<a href="#value-get_copy" class='level-0 value'>get_copy</a>
+<a href="#value-check" class='level-0 value'>check</a>
+<a href="#value-fill" class='level-0 value'>fill</a>
+<a href="#value-blit" class='level-0 value'>blit</a>
+<a href="#module-Make" class='level-0 module'>Make</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Js.html">Js</a>
+<a href="Arg.html">Arg</a>
+<a href="Array.html">Array</a>
+<a href="ArrayLabels.html">ArrayLabels</a>
+<a href="Bigarray.html">Bigarray</a>
+<a href="Buffer.html">Buffer</a>
+<a href="Bytes.html">Bytes</a>
+<a href="BytesLabels.html">BytesLabels</a>
+<a href="Callback.html">Callback</a>
+<a href="CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="CamlinternalMod.html">CamlinternalMod</a>
+<a href="CamlinternalOO.html">CamlinternalOO</a>
+<a href="Char.html">Char</a>
+<a href="Complex.html">Complex</a>
+<a href="Digest.html">Digest</a>
+<a href="Filename.html">Filename</a>
+<a href="Format.html">Format</a>
+<a href="Gc.html">Gc</a>
+<a href="Genlex.html">Genlex</a>
+<a href="Hashtbl.html">Hashtbl</a>
+<a href="Int32.html">Int32</a>
+<a href="Int64.html">Int64</a>
+<a href="Lazy.html">Lazy</a>
+<a href="Lexing.html">Lexing</a>
+<a href="List.html">List</a>
+<a href="ListLabels.html">ListLabels</a>
+<a href="Map.html">Map</a>
+<a href="Marshal.html">Marshal</a>
+<a href="MoreLabels.html">MoreLabels</a>
+<a href="Nativeint.html">Nativeint</a>
+<a href="Obj.html">Obj</a>
+<a href="Oo.html">Oo</a>
+<a href="Parsing.html">Parsing</a>
+<a href="Pervasives.html">Pervasives</a>
+<a href="Printexc.html">Printexc</a>
+<a href="Printf.html">Printf</a>
+<a href="Queue.html">Queue</a>
+<a href="Random.html">Random</a>
+<a href="Scanf.html">Scanf</a>
+<a href="Set.html">Set</a>
+<a href="Sort.html">Sort</a>
+<a href="Stack.html">Stack</a>
+<a href="Std_exit.html">Std_exit</a>
+<a href="StdLabels.html">StdLabels</a>
+<a href="Stream.html">Stream</a>
+<a href="String.html">String</a>
+<a href="StringLabels.html">StringLabels</a>
+<a href="Sys.html">Sys</a>
+<a href="Unix.html">Unix</a>
+<a href="UnixLabels.html">UnixLabels</a>
+<a href="Weak.html">Weak</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/stdlib/weak.ml" class="edit-link">Edit</a>
+    <p>Arrays of weak pointers and hash tables of weak pointers.</p>
+<p>other items defined</p><div class='doc-item'><h4 id="Low-level-functions">Low-level functions</h4></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-t" id="type-t">t</a>('a)</h4>
+
+<div class='body '><p>The type of arrays of weak pointers (weak arrays). A weak pointer is a value that the garbage collector may erase whenever the value is not used any more (through normal pointers) by the program. Note that finalisation functions are run after the weak pointers are erased.</p>
+<p>A weak pointer is said to be full if it points to a value, empty if the value was erased by the GC.</p>
+<p>Notes:</p>
+<ul><li><p>Integers are not allocated and cannot be stored in weak arrays.</p>
+</li><li><p>Weak arrays cannot be marshaled using output_value nor the functions of the Marshal module.</p>
+</li></ul></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-create" id="value-create">create</a>: int => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body '><p><code>Weak.create n</code> returns a new weak array of length <code>n</code>. All the pointers are initially empty. Raise <code>Invalid_argument</code> if <code>n</code> is negative or greater than max_array_length<code>-1</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-length" id="value-length">length</a>: <a href="#type-t">t</a>('a) => int</h4>
+
+<div class='body '><p><code>Weak.length ar</code> returns the length (number of elements) of <code>ar</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-set" id="value-set">set</a>: (<a href="#type-t">t</a>('a), int, option('a)) => unit</h4>
+
+<div class='body '><p><code>Weak.set ar n (Some el)</code> sets the <code>n</code>th cell of <code>ar</code> to be a (full) pointer to <code>el</code>; <code>Weak.set ar n None</code> sets the <code>n</code>th cell of <code>ar</code> to empty. Raise <code>Invalid_argument &quot;Weak.set&quot;</code> if <code>n</code> is not in the range 0 to length<code> a - 1</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-get" id="value-get">get</a>: (<a href="#type-t">t</a>('a), int) => option('a)</h4>
+
+<div class='body '><p><code>Weak.get ar n</code> returns None if the <code>n</code>th cell of <code>ar</code> is empty, <code>Some x</code> (where <code>x</code> is the value) if it is full. Raise <code>Invalid_argument &quot;Weak.get&quot;</code> if <code>n</code> is not in the range 0 to length<code> a - 1</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-get_copy" id="value-get_copy">get_copy</a>: (<a href="#type-t">t</a>('a), int) => option('a)</h4>
+
+<div class='body '><p><code>Weak.get_copy ar n</code> returns None if the <code>n</code>th cell of <code>ar</code> is empty, <code>Some x</code> (where <code>x</code> is a (shallow) copy of the value) if it is full. In addition to pitfalls with mutable values, the interesting difference with <code>get</code> is that <code>get_copy</code> does not prevent the incremental GC from erasing the value in its current cycle (<code>get</code> may delay the erasure to the next GC cycle). Raise <code>Invalid_argument &quot;Weak.get&quot;</code> if <code>n</code> is not in the range 0 to length<code> a - 1</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-check" id="value-check">check</a>: (<a href="#type-t">t</a>('a), int) => bool</h4>
+
+<div class='body '><p><code>Weak.check ar n</code> returns <code>true</code> if the <code>n</code>th cell of <code>ar</code> is full, <code>false</code> if it is empty. Note that even if <code>Weak.check ar n</code> returns <code>true</code>, a subsequent get<code> ar n</code> can return <code>None</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fill" id="value-fill">fill</a>: (<a href="#type-t">t</a>('a), int, int, option('a)) => unit</h4>
+
+<div class='body '><p><code>Weak.fill ar ofs len el</code> sets to <code>el</code> all pointers of <code>ar</code> from <code>ofs</code> to <code>ofs + len - 1</code>. Raise <code>Invalid_argument &quot;Weak.fill&quot;</code> if <code>ofs</code> and <code>len</code> do not designate a valid subarray of <code>a</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-blit" id="value-blit">blit</a>: (<a href="#type-t">t</a>('a), int, <a href="#type-t">t</a>('a), int, int) => unit</h4>
+
+<div class='body '><p><code>Weak.blit ar1 off1 ar2 off2 len</code> copies <code>len</code> weak pointers from <code>ar1</code> (starting at <code>off1</code>) to <code>ar2</code> (starting at <code>off2</code>). It works correctly even if <code>ar1</code> and <code>ar2</code> are the same. Raise <code>Invalid_argument &quot;Weak.blit&quot;</code> if <code>off1</code> and <code>len</code> do not designate a valid subarray of <code>ar1</code>, or if <code>off2</code> and <code>len</code> do not designate a valid subarray of <code>ar2</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Weak-hash-tables">Weak hash tables</h4></div>
+
+<div class='doc-item'><p>A weak hash table is a hashed set of values. Each value may magically disappear from the set when it is not used by the rest of the program any more. This is normally used to share data structures without inducing memory leaks. Weak hash tables are defined on values from a HashedType module; the <code>equal</code> relation and <code>hash</code> function are taken from that module. We will say that <code>v</code> is an instance of <code>x</code> if <code>equal x v</code> is <code>true</code>.</p>
+<p>The <code>equal</code> relation must be able to work on a shallow copy of the values and give the same result as with the values themselves.</p>
+</div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Make" id="module-Make">Make</a> : S</h4></div>
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

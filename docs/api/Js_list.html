@@ -1,152 +1,304 @@
+
+    
 <!doctype html>
-<html>
-<head>
-                 <link rel="stylesheet" href="../api_static/tomorrow-night.css">
-                 <link rel="stylesheet" href="../api_static/style.css" type="text/css">
-                 <script src="../api_static//highlight.pack.js"></script>
-                 <script src="../api_static//script.js"></script>
-                 <script>hljs.initHighlightingOnLoad();</script> 
-                 <meta charset="utf8">
-                 <link rel="previous" href="Js_json.html"><link rel="next" href="Js_mapperRt.html">
-                 <title> Js_list </title></head> 
-               <body>
-<nav class="module-index"><ul><li><a href="Belt.html">Belt</a></li>
-<li><a href="Belt_Array.html">Belt_Array</a></li>
-<li><a href="Belt_HashMap.html">Belt_HashMap</a></li>
-<li><a href="Belt_HashMapInt.html">Belt_HashMapInt</a></li>
-<li><a href="Belt_HashMapString.html">Belt_HashMapString</a></li>
-<li><a href="Belt_HashSet.html">Belt_HashSet</a></li>
-<li><a href="Belt_HashSetInt.html">Belt_HashSetInt</a></li>
-<li><a href="Belt_HashSetString.html">Belt_HashSetString</a></li>
-<li><a href="Belt_Id.html">Belt_Id</a></li>
-<li><a href="Belt_List.html">Belt_List</a></li>
-<li><a href="Belt_Map.html">Belt_Map</a></li>
-<li><a href="Belt_MapDict.html">Belt_MapDict</a></li>
-<li><a href="Belt_MapInt.html">Belt_MapInt</a></li>
-<li><a href="Belt_MapString.html">Belt_MapString</a></li>
-<li><a href="Belt_MutableMap.html">Belt_MutableMap</a></li>
-<li><a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a></li>
-<li><a href="Belt_MutableMapString.html">Belt_MutableMapString</a></li>
-<li><a href="Belt_MutableQueue.html">Belt_MutableQueue</a></li>
-<li><a href="Belt_MutableSet.html">Belt_MutableSet</a></li>
-<li><a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a></li>
-<li><a href="Belt_MutableSetString.html">Belt_MutableSetString</a></li>
-<li><a href="Belt_MutableStack.html">Belt_MutableStack</a></li>
-<li><a href="Belt_Option.html">Belt_Option</a></li>
-<li><a href="Belt_Range.html">Belt_Range</a></li>
-<li><a href="Belt_Set.html">Belt_Set</a></li>
-<li><a href="Belt_SetDict.html">Belt_SetDict</a></li>
-<li><a href="Belt_SetInt.html">Belt_SetInt</a></li>
-<li><a href="Belt_SetString.html">Belt_SetString</a></li>
-<li><a href="Belt_SortArray.html">Belt_SortArray</a></li>
-<li><a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a></li>
-<li><a href="Belt_SortArrayString.html">Belt_SortArrayString</a></li>
-<li><a href="Belt_internalAVLset.html">Belt_internalAVLset</a></li>
-<li><a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a></li>
-<li><a href="Belt_internalBuckets.html">Belt_internalBuckets</a></li>
-<li><a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a></li>
-<li><a href="Belt_internalMapInt.html">Belt_internalMapInt</a></li>
-<li><a href="Belt_internalMapString.html">Belt_internalMapString</a></li>
-<li><a href="Belt_internalMutableAVLMap.html">Belt_internalMutableAVLMap</a></li>
-<li><a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a></li>
-<li><a href="Belt_internalSetInt.html">Belt_internalSetInt</a></li>
-<li><a href="Belt_internalSetString.html">Belt_internalSetString</a></li>
-<li><a href="Dom.html">Dom</a></li>
-<li><a href="Dom_storage.html">Dom_storage</a></li>
-<li><a href="Js.html">Js</a></li>
-<li><a href="Js_array.html">Js_array</a></li>
-<li><a href="Js_boolean.html">Js_boolean</a></li>
-<li><a href="Js_cast.html">Js_cast</a></li>
-<li><a href="Js_console.html">Js_console</a></li>
-<li><a href="Js_date.html">Js_date</a></li>
-<li><a href="Js_dict.html">Js_dict</a></li>
-<li><a href="Js_exn.html">Js_exn</a></li>
-<li><a href="Js_float.html">Js_float</a></li>
-<li><a href="Js_global.html">Js_global</a></li>
-<li><a href="Js_int.html">Js_int</a></li>
-<li><a href="Js_int64.html">Js_int64</a></li>
-<li><a href="Js_internal.html">Js_internal</a></li>
-<li><a href="Js_json.html">Js_json</a></li>
-<li><a href="Js_list.html">Js_list</a></li>
-<li><a href="Js_mapperRt.html">Js_mapperRt</a></li>
-<li><a href="Js_math.html">Js_math</a></li>
-<li><a href="Js_nativeint.html">Js_nativeint</a></li>
-<li><a href="Js_null.html">Js_null</a></li>
-<li><a href="Js_null_undefined.html">Js_null_undefined</a></li>
-<li><a href="Js_obj.html">Js_obj</a></li>
-<li><a href="Js_option.html">Js_option</a></li>
-<li><a href="Js_primitive.html">Js_primitive</a></li>
-<li><a href="Js_promise.html">Js_promise</a></li>
-<li><a href="Js_re.html">Js_re</a></li>
-<li><a href="Js_result.html">Js_result</a></li>
-<li><a href="Js_string.html">Js_string</a></li>
-<li><a href="Js_typed_array.html">Js_typed_array</a></li>
-<li><a href="Js_types.html">Js_types</a></li>
-<li><a href="Js_undefined.html">Js_undefined</a></li>
-<li><a href="Js_unsafe.html">Js_unsafe</a></li>
-<li><a href="Js_vector.html">Js_vector</a></li>
-<li><a href="Node.html">Node</a></li>
-<li><a href="Node_buffer.html">Node_buffer</a></li>
-<li><a href="Node_child_process.html">Node_child_process</a></li>
-<li><a href="Node_fs.html">Node_fs</a></li>
-<li><a href="Node_module.html">Node_module</a></li>
-<li><a href="Node_path.html">Node_path</a></li>
-<li><a href="Node_process.html">Node_process</a></li></ul></nav>
-<div class="navbar"><a class="pre" href="Js_json.html" title="Js_json">Previous</a>
-&nbsp;<a class="up" href="index.html" title="Index">Up</a>
-&nbsp;<a class="post" href="Js_mapperRt.html" title="Js_mapperRt">Next</a>
-</div>
-<h1>Module <a href="type_Js_list.html">Js_list</a></h1>
-
-<pre><span class="keyword">module</span> Js_list: <code class="code">sig</code> <a href="Js_list.html">..</a> <code class="code">end</code></pre><div class="info module top">
-                    <div class="not-examples">
-                    Application order is left to right, tail recurisve<br>
- 
-                    </div>
-                    
-                    </div>
-
-                  <hr width="100%">
-<div class="type-declaration">
-<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type">'a</code> t</span> = <code class="type">'a list</code> </pre>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Js_list</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
 </div>
 
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#Js_list" class='level-1 header'>Js_list</a>
+<a href="#type-t" class='level-2 type'>t</a>
+<a href="#value-length" class='level-2 value'>length</a>
+<a href="#value-cons" class='level-2 value'>cons</a>
+<a href="#value-isEmpty" class='level-2 value'>isEmpty</a>
+<a href="#value-hd" class='level-2 value'>hd</a>
+<a href="#value-tl" class='level-2 value'>tl</a>
+<a href="#value-nth" class='level-2 value'>nth</a>
+<a href="#value-revAppend" class='level-2 value'>revAppend</a>
+<a href="#value-rev" class='level-2 value'>rev</a>
+<a href="#value-mapRev" class='level-2 value'>mapRev</a>
+<a href="#value-map" class='level-2 value'>map</a>
+<a href="#value-iter" class='level-2 value'>iter</a>
+<a href="#value-iteri" class='level-2 value'>iteri</a>
+<a href="#value-foldLeft" class='level-2 value'>foldLeft</a>
+<a href="#value-foldRight" class='level-2 value'>foldRight</a>
+<a href="#value-flatten" class='level-2 value'>flatten</a>
+<a href="#value-filter" class='level-2 value'>filter</a>
+<a href="#value-filterMap" class='level-2 value'>filterMap</a>
+<a href="#value-countBy" class='level-2 value'>countBy</a>
+<a href="#value-init" class='level-2 value'>init</a>
+<a href="#value-toVector" class='level-2 value'>toVector</a>
+<a href="#value-equal" class='level-2 value'>equal</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Js.html">Js</a>
+<a href="Arg.html">Arg</a>
+<a href="Array.html">Array</a>
+<a href="ArrayLabels.html">ArrayLabels</a>
+<a href="Bigarray.html">Bigarray</a>
+<a href="Buffer.html">Buffer</a>
+<a href="Bytes.html">Bytes</a>
+<a href="BytesLabels.html">BytesLabels</a>
+<a href="Callback.html">Callback</a>
+<a href="CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="CamlinternalMod.html">CamlinternalMod</a>
+<a href="CamlinternalOO.html">CamlinternalOO</a>
+<a href="Char.html">Char</a>
+<a href="Complex.html">Complex</a>
+<a href="Digest.html">Digest</a>
+<a href="Filename.html">Filename</a>
+<a href="Format.html">Format</a>
+<a href="Gc.html">Gc</a>
+<a href="Genlex.html">Genlex</a>
+<a href="Hashtbl.html">Hashtbl</a>
+<a href="Int32.html">Int32</a>
+<a href="Int64.html">Int64</a>
+<a href="Lazy.html">Lazy</a>
+<a href="Lexing.html">Lexing</a>
+<a href="List.html">List</a>
+<a href="ListLabels.html">ListLabels</a>
+<a href="Map.html">Map</a>
+<a href="Marshal.html">Marshal</a>
+<a href="MoreLabels.html">MoreLabels</a>
+<a href="Nativeint.html">Nativeint</a>
+<a href="Obj.html">Obj</a>
+<a href="Oo.html">Oo</a>
+<a href="Parsing.html">Parsing</a>
+<a href="Pervasives.html">Pervasives</a>
+<a href="Printexc.html">Printexc</a>
+<a href="Printf.html">Printf</a>
+<a href="Queue.html">Queue</a>
+<a href="Random.html">Random</a>
+<a href="Scanf.html">Scanf</a>
+<a href="Set.html">Set</a>
+<a href="Sort.html">Sort</a>
+<a href="Stack.html">Stack</a>
+<a href="Std_exit.html">Std_exit</a>
+<a href="StdLabels.html">StdLabels</a>
+<a href="Stream.html">Stream</a>
+<a href="String.html">String</a>
+<a href="StringLabels.html">StringLabels</a>
+<a href="Sys.html">Sys</a>
+<a href="Unix.html">Unix</a>
+<a href="UnixLabels.html">UnixLabels</a>
+<a href="Weak.html">Weak</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/others/js_list.ml" class="edit-link">Edit</a>
+    <a href="#Js_list" id="Js_list"><h1>Js_list</h1></a>
 
-<pre><span id="VALlength"><span class="keyword">val</span> length</span> : <code class="type">'a <a href="Js_list.html#TYPEt">t</a> -> int</code></pre>
-<pre><span id="VALcons"><span class="keyword">val</span> cons</span> : <code class="type">'a -> 'a <a href="Js_list.html#TYPEt">t</a> -> 'a <a href="Js_list.html#TYPEt">t</a></code></pre>
-<pre><span id="VALisEmpty"><span class="keyword">val</span> isEmpty</span> : <code class="type">'a <a href="Js_list.html#TYPEt">t</a> -> bool</code></pre>
-<pre><span id="VALhd"><span class="keyword">val</span> hd</span> : <code class="type">'a <a href="Js_list.html#TYPEt">t</a> -> 'a option</code></pre>
-<pre><span id="VALtl"><span class="keyword">val</span> tl</span> : <code class="type">'a <a href="Js_list.html#TYPEt">t</a> -> 'a <a href="Js_list.html#TYPEt">t</a> option</code></pre>
-<pre><span id="VALnth"><span class="keyword">val</span> nth</span> : <code class="type">'a <a href="Js_list.html#TYPEt">t</a> -> int -> 'a option</code></pre>
-<pre><span id="VALrevAppend"><span class="keyword">val</span> revAppend</span> : <code class="type">'a <a href="Js_list.html#TYPEt">t</a> -> 'a <a href="Js_list.html#TYPEt">t</a> -> 'a <a href="Js_list.html#TYPEt">t</a></code></pre>
-<pre><span id="VALrev"><span class="keyword">val</span> rev</span> : <code class="type">'a <a href="Js_list.html#TYPEt">t</a> -> 'a <a href="Js_list.html#TYPEt">t</a></code></pre>
-<pre><span id="VALmapRev"><span class="keyword">val</span> mapRev</span> : <code class="type">('a -> 'b [@bs]) -> 'a <a href="Js_list.html#TYPEt">t</a> -> 'b <a href="Js_list.html#TYPEt">t</a></code></pre>
-<pre><span id="VALmap"><span class="keyword">val</span> map</span> : <code class="type">('a -> 'b [@bs]) -> 'a <a href="Js_list.html#TYPEt">t</a> -> 'b <a href="Js_list.html#TYPEt">t</a></code></pre>
-<pre><span id="VALiter"><span class="keyword">val</span> iter</span> : <code class="type">('a -> unit [@bs]) -> 'a <a href="Js_list.html#TYPEt">t</a> -> unit</code></pre>
-<pre><span id="VALiteri"><span class="keyword">val</span> iteri</span> : <code class="type">(int -> 'a -> unit [@bs]) -> 'a <a href="Js_list.html#TYPEt">t</a> -> unit</code></pre>
-<pre><span id="VALfoldLeft"><span class="keyword">val</span> foldLeft</span> : <code class="type">('a -> 'b -> 'a [@bs]) -> 'a -> 'b list -> 'a</code></pre><div class="info ">
-                    <div class="not-examples">
-                    Application order is left to right, tail recurisve<br>
- 
-                    </div>
-                    
-                    </div>
+<p><span class='missing'>This module does not have a toplevel documentation block.</span></p>
+<div class='doc-item'><h4 class='item'>type <a href="#type-t" id="type-t">t</a>('a) = list('a)</h4>
 
-                  
-<pre><span id="VALfoldRight"><span class="keyword">val</span> foldRight</span> : <code class="type">('a -> 'b -> 'b [@bs]) -> 'a list -> 'b -> 'b</code></pre><div class="info ">
-                    <div class="not-examples">
-                    Application order is right to left
-    tail-recursive.<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body body-empty'></div></div>
 
-                  
-<pre><span id="VALflatten"><span class="keyword">val</span> flatten</span> : <code class="type">'a <a href="Js_list.html#TYPEt">t</a> <a href="Js_list.html#TYPEt">t</a> -> 'a <a href="Js_list.html#TYPEt">t</a></code></pre>
-<pre><span id="VALfilter"><span class="keyword">val</span> filter</span> : <code class="type">('a -> bool [@bs]) -> 'a <a href="Js_list.html#TYPEt">t</a> -> 'a <a href="Js_list.html#TYPEt">t</a></code></pre>
-<pre><span id="VALfilterMap"><span class="keyword">val</span> filterMap</span> : <code class="type">('a -> 'b option [@bs]) -> 'a <a href="Js_list.html#TYPEt">t</a> -> 'b <a href="Js_list.html#TYPEt">t</a></code></pre>
-<pre><span id="VALcountBy"><span class="keyword">val</span> countBy</span> : <code class="type">('a -> bool [@bs]) -> 'a list -> int</code></pre>
-<pre><span id="VALinit"><span class="keyword">val</span> init</span> : <code class="type">int -> (int -> 'a [@bs]) -> 'a <a href="Js_list.html#TYPEt">t</a></code></pre>
-<pre><span id="VALtoVector"><span class="keyword">val</span> toVector</span> : <code class="type">'a <a href="Js_list.html#TYPEt">t</a> -> 'a <a href="Js_vector.html#TYPEt">Js_vector.t</a></code></pre>
-<pre><span id="VALequal"><span class="keyword">val</span> equal</span> : <code class="type">('a -> 'a -> bool [@bs]) -> 'a list -> 'a list -> bool</code></pre></body></html>
+<div class='doc-item'><h4 class='item'>let <a href="#value-length" id="value-length">length</a>: <a href="#type-t">t</a>('a) => int</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-cons" id="value-cons">cons</a>: ('a, <a href="#type-t">t</a>('a)) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-isEmpty" id="value-isEmpty">isEmpty</a>: <a href="#type-t">t</a>('a) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-hd" id="value-hd">hd</a>: <a href="#type-t">t</a>('a) => option('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-tl" id="value-tl">tl</a>: <a href="#type-t">t</a>('a) => option(<a href="#type-t">t</a>('a))</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-nth" id="value-nth">nth</a>: (<a href="#type-t">t</a>('a), int) => option('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-revAppend" id="value-revAppend">revAppend</a>: (<a href="#type-t">t</a>('a), <a href="#type-t">t</a>('a)) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-rev" id="value-rev">rev</a>: <a href="#type-t">t</a>('a) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-mapRev" id="value-mapRev">mapRev</a>: (<a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_1 of 'a16 ], 'b), <a href="#type-t">t</a>('a)) => <a href="#type-t">t</a>('b)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-map" id="value-map">map</a>: (<a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_1 of 'a15 ], 'b), <a href="#type-t">t</a>('a)) => <a href="#type-t">t</a>('b)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-iter" id="value-iter">iter</a>: (<a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_1 of 'a14 ], unit), <a href="#type-t">t</a>('a)) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-iteri" id="value-iteri">iteri</a>: (
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of int * 'a13 ], unit),
+  <a href="#type-t">t</a>('a)
+) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-foldLeft" id="value-foldLeft">foldLeft</a>: (
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of 'a12 * 'b3 ], 'a),
+  'a,
+  list('b)
+) => 'a</h4>
+
+<div class='body '><p>Application order is left to right, tail recurisve</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-foldRight" id="value-foldRight">foldRight</a>: (
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of 'a11 * 'b2 ], 'b),
+  list('a),
+  'b
+) => 'b</h4>
+
+<div class='body '><p>Application order is right to left tail-recursive.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-flatten" id="value-flatten">flatten</a>: <a href="#type-t">t</a>(<a href="#type-t">t</a>('a)) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-filter" id="value-filter">filter</a>: (<a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_1 of 'a10 ], bool), <a href="#type-t">t</a>('a)) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-filterMap" id="value-filterMap">filterMap</a>: (
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_1 of 'a9 ], option('b)),
+  <a href="#type-t">t</a>('a)
+) => <a href="#type-t">t</a>('b)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-countBy" id="value-countBy">countBy</a>: (
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_1 of 'a8 ], bool),
+  list('a)
+) => int</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-init" id="value-init">init</a>: (int, <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_1 of int ], 'a)) => <a href="#type-t">t</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-toVector" id="value-toVector">toVector</a>: <a href="#type-t">t</a>('a) => <a href="Js_vector.html">Js_vector</a>.<a href="Js_vector.html#type-t">t</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-equal" id="value-equal">equal</a>: (
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of 'a7 * 'a7 ], bool),
+  list('a),
+  list('a)
+) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

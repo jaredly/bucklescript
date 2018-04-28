@@ -1,0 +1,731 @@
+
+    
+<!doctype html>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Bytes</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
+</div>
+
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#value-length" class='level-0 value'>length</a>
+<a href="#value-get" class='level-0 value'>get</a>
+<a href="#value-set" class='level-0 value'>set</a>
+<a href="#value-create" class='level-0 value'>create</a>
+<a href="#value-make" class='level-0 value'>make</a>
+<a href="#value-init" class='level-0 value'>init</a>
+<a href="#value-empty" class='level-0 value'>empty</a>
+<a href="#value-copy" class='level-0 value'>copy</a>
+<a href="#value-of_string" class='level-0 value'>of_string</a>
+<a href="#value-to_string" class='level-0 value'>to_string</a>
+<a href="#value-sub" class='level-0 value'>sub</a>
+<a href="#value-sub_string" class='level-0 value'>sub_string</a>
+<a href="#value-extend" class='level-0 value'>extend</a>
+<a href="#value-fill" class='level-0 value'>fill</a>
+<a href="#value-blit" class='level-0 value'>blit</a>
+<a href="#value-blit_string" class='level-0 value'>blit_string</a>
+<a href="#value-concat" class='level-0 value'>concat</a>
+<a href="#value-cat" class='level-0 value'>cat</a>
+<a href="#value-iter" class='level-0 value'>iter</a>
+<a href="#value-iteri" class='level-0 value'>iteri</a>
+<a href="#value-map" class='level-0 value'>map</a>
+<a href="#value-mapi" class='level-0 value'>mapi</a>
+<a href="#value-trim" class='level-0 value'>trim</a>
+<a href="#value-escaped" class='level-0 value'>escaped</a>
+<a href="#value-index" class='level-0 value'>index</a>
+<a href="#value-rindex" class='level-0 value'>rindex</a>
+<a href="#value-index_from" class='level-0 value'>index_from</a>
+<a href="#value-rindex_from" class='level-0 value'>rindex_from</a>
+<a href="#value-contains" class='level-0 value'>contains</a>
+<a href="#value-contains_from" class='level-0 value'>contains_from</a>
+<a href="#value-rcontains_from" class='level-0 value'>rcontains_from</a>
+<a href="#value-uppercase" class='level-0 value'>uppercase</a>
+<a href="#value-lowercase" class='level-0 value'>lowercase</a>
+<a href="#value-capitalize" class='level-0 value'>capitalize</a>
+<a href="#value-uncapitalize" class='level-0 value'>uncapitalize</a>
+<a href="#type-t" class='level-0 type'>t</a>
+<a href="#value-compare" class='level-0 value'>compare</a>
+<a href="#value-unsafe_to_string" class='level-0 value'>unsafe_to_string</a>
+<a href="#value-unsafe_of_string" class='level-0 value'>unsafe_of_string</a>
+<a href="#value-unsafe_get" class='level-0 value'>unsafe_get</a>
+<a href="#value-unsafe_set" class='level-0 value'>unsafe_set</a>
+<a href="#value-unsafe_blit" class='level-0 value'>unsafe_blit</a>
+<a href="#value-unsafe_fill" class='level-0 value'>unsafe_fill</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Js.html">Js</a>
+<a href="Arg.html">Arg</a>
+<a href="Array.html">Array</a>
+<a href="ArrayLabels.html">ArrayLabels</a>
+<a href="Bigarray.html">Bigarray</a>
+<a href="Buffer.html">Buffer</a>
+<a href="Bytes.html">Bytes</a>
+<a href="BytesLabels.html">BytesLabels</a>
+<a href="Callback.html">Callback</a>
+<a href="CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="CamlinternalMod.html">CamlinternalMod</a>
+<a href="CamlinternalOO.html">CamlinternalOO</a>
+<a href="Char.html">Char</a>
+<a href="Complex.html">Complex</a>
+<a href="Digest.html">Digest</a>
+<a href="Filename.html">Filename</a>
+<a href="Format.html">Format</a>
+<a href="Gc.html">Gc</a>
+<a href="Genlex.html">Genlex</a>
+<a href="Hashtbl.html">Hashtbl</a>
+<a href="Int32.html">Int32</a>
+<a href="Int64.html">Int64</a>
+<a href="Lazy.html">Lazy</a>
+<a href="Lexing.html">Lexing</a>
+<a href="List.html">List</a>
+<a href="ListLabels.html">ListLabels</a>
+<a href="Map.html">Map</a>
+<a href="Marshal.html">Marshal</a>
+<a href="MoreLabels.html">MoreLabels</a>
+<a href="Nativeint.html">Nativeint</a>
+<a href="Obj.html">Obj</a>
+<a href="Oo.html">Oo</a>
+<a href="Parsing.html">Parsing</a>
+<a href="Pervasives.html">Pervasives</a>
+<a href="Printexc.html">Printexc</a>
+<a href="Printf.html">Printf</a>
+<a href="Queue.html">Queue</a>
+<a href="Random.html">Random</a>
+<a href="Scanf.html">Scanf</a>
+<a href="Set.html">Set</a>
+<a href="Sort.html">Sort</a>
+<a href="Stack.html">Stack</a>
+<a href="Std_exit.html">Std_exit</a>
+<a href="StdLabels.html">StdLabels</a>
+<a href="Stream.html">Stream</a>
+<a href="String.html">String</a>
+<a href="StringLabels.html">StringLabels</a>
+<a href="Sys.html">Sys</a>
+<a href="Unix.html">Unix</a>
+<a href="UnixLabels.html">UnixLabels</a>
+<a href="Weak.html">Weak</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/stdlib/bytes.ml" class="edit-link">Edit</a>
+    <p>Byte sequence operations.</p>
+<p>A byte sequence is a mutable data structure that contains a fixed-length sequence of bytes. Each byte can be indexed in constant time for reading or writing.</p>
+<p>Given a byte sequence <code>s</code> of length <code>l</code>, we can access each of the <code>l</code> bytes of <code>s</code> via its index in the sequence. Indexes start at <code>0</code>, and we will call an index valid in <code>s</code> if it falls within the range <code>[0...l-1]</code> (inclusive). A position is the point between two bytes or at the beginning or end of the sequence. We call a position valid in <code>s</code> if it falls within the range <code>[0...l]</code> (inclusive). Note that the byte at index <code>n</code> is between positions <code>n</code> and <code>n+1</code>.</p>
+<p>Two parameters <code>start</code> and <code>len</code> are said to designate a valid range of <code>s</code> if <code>len &gt;= 0</code> and <code>start</code> and <code>start+len</code> are valid positions in <code>s</code>.</p>
+<p>Byte sequences can be modified in place, for instance via the <code>set</code> and <code>blit</code> functions described below. See also strings (module String), which are almost the same data structure, but cannot be modified in place.</p>
+<p>Bytes are represented by the OCaml type <code>char</code>.</p>
+Since: 4.02.0<p>other items defined</p><div class='doc-item'><h4 class='item'>let <a href="#value-length" id="value-length">length</a>: bytes => int</h4>
+
+<div class='body '><p>Return the length (number of bytes) of the argument.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-get" id="value-get">get</a>: (bytes, int) => char</h4>
+
+<div class='body '><p><code>get s n</code> returns the byte at index <code>n</code> in argument <code>s</code>.</p>
+<p>Raise <code>Invalid_argument</code> if <code>n</code> not a valid index in <code>s</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-set" id="value-set">set</a>: (bytes, int, char) => unit</h4>
+
+<div class='body '><p><code>set s n c</code> modifies <code>s</code> in place, replacing the byte at index <code>n</code> with <code>c</code>.</p>
+<p>Raise <code>Invalid_argument</code> if <code>n</code> is not a valid index in <code>s</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-create" id="value-create">create</a>: int => bytes</h4>
+
+<div class='body '><p><code>create n</code> returns a new byte sequence of length <code>n</code>. The sequence is uninitialized and contains arbitrary bytes.</p>
+<p>Raise <code>Invalid_argument</code> if <code>n &lt; 0</code> or <code>n &gt; </code>max_string_length.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-make" id="value-make">make</a>: (int, char) => bytes</h4>
+
+<div class='body '><p><code>make n c</code> returns a new byte sequence of length <code>n</code>, filled with the byte <code>c</code>.</p>
+<p>Raise <code>Invalid_argument</code> if <code>n &lt; 0</code> or <code>n &gt; </code>max_string_length.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-init" id="value-init">init</a>: (int, int => char) => bytes</h4>
+
+<div class='body '><p><code>Bytes.init n f</code> returns a fresh byte sequence of length <code>n</code>, with character <code>i</code> initialized to the result of <code>f i</code> (in increasing index order).</p>
+<p>Raise <code>Invalid_argument</code> if <code>n &lt; 0</code> or <code>n &gt; </code>max_string_length.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-empty" id="value-empty">empty</a>: bytes</h4>
+
+<div class='body '><p>A byte sequence of size 0.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-copy" id="value-copy">copy</a>: bytes => bytes</h4>
+
+<div class='body '><p>Return a new byte sequence that contains the same bytes as the argument.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-of_string" id="value-of_string">of_string</a>: string => bytes</h4>
+
+<div class='body '><p>Return a new byte sequence that contains the same bytes as the given string.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-to_string" id="value-to_string">to_string</a>: bytes => string</h4>
+
+<div class='body '><p>Return a new string that contains the same bytes as the given byte sequence.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sub" id="value-sub">sub</a>: (bytes, int, int) => bytes</h4>
+
+<div class='body '><p><code>sub s start len</code> returns a new byte sequence of length <code>len</code>, containing the subsequence of <code>s</code> that starts at position <code>start</code> and has length <code>len</code>.</p>
+<p>Raise <code>Invalid_argument</code> if <code>start</code> and <code>len</code> do not designate a valid range of <code>s</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sub_string" id="value-sub_string">sub_string</a>: (bytes, int, int) => string</h4>
+
+<div class='body '><p>Same as <code>sub</code> but return a string instead of a byte sequence.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-extend" id="value-extend">extend</a>: (bytes, int, int) => bytes</h4>
+
+<div class='body '><p><code>extend s left right</code> returns a new byte sequence that contains the bytes of <code>s</code>, with <code>left</code> uninitialized bytes prepended and <code>right</code> uninitialized bytes appended to it. If <code>left</code> or <code>right</code> is negative, then bytes are removed (instead of appended) from the corresponding side of <code>s</code>.</p>
+<p>Raise <code>Invalid_argument</code> if the result length is negative or longer than max_string_length bytes.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fill" id="value-fill">fill</a>: (bytes, int, int, char) => unit</h4>
+
+<div class='body '><p><code>fill s start len c</code> modifies <code>s</code> in place, replacing <code>len</code> characters with <code>c</code>, starting at <code>start</code>.</p>
+<p>Raise <code>Invalid_argument</code> if <code>start</code> and <code>len</code> do not designate a valid range of <code>s</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-blit" id="value-blit">blit</a>: (bytes, int, bytes, int, int) => unit</h4>
+
+<div class='body '><p><code>blit src srcoff dst dstoff len</code> copies <code>len</code> bytes from sequence <code>src</code>, starting at index <code>srcoff</code>, to sequence <code>dst</code>, starting at index <code>dstoff</code>. It works correctly even if <code>src</code> and <code>dst</code> are the same byte sequence, and the source and destination intervals overlap.</p>
+<p>Raise <code>Invalid_argument</code> if <code>srcoff</code> and <code>len</code> do not designate a valid range of <code>src</code>, or if <code>dstoff</code> and <code>len</code> do not designate a valid range of <code>dst</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-blit_string" id="value-blit_string">blit_string</a>: (string, int, bytes, int, int) => unit</h4>
+
+<div class='body '><p><code>blit src srcoff dst dstoff len</code> copies <code>len</code> bytes from string <code>src</code>, starting at index <code>srcoff</code>, to byte sequence <code>dst</code>, starting at index <code>dstoff</code>.</p>
+<p>Raise <code>Invalid_argument</code> if <code>srcoff</code> and <code>len</code> do not designate a valid range of <code>src</code>, or if <code>dstoff</code> and <code>len</code> do not designate a valid range of <code>dst</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-concat" id="value-concat">concat</a>: (bytes, list(bytes)) => bytes</h4>
+
+<div class='body '><p><code>concat sep sl</code> concatenates the list of byte sequences <code>sl</code>, inserting the separator byte sequence <code>sep</code> between each, and returns the result as a new byte sequence.</p>
+<p>Raise <code>Invalid_argument</code> if the result is longer than max_string_length bytes.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-cat" id="value-cat">cat</a>: (bytes, bytes) => bytes</h4>
+
+<div class='body '><p><code>cat s1 s2</code> concatenates <code>s1</code> and <code>s2</code> and returns the result as new byte sequence.</p>
+<p>Raise <code>Invalid_argument</code> if the result is longer than max_string_length bytes.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-iter" id="value-iter">iter</a>: (char => unit, bytes) => unit</h4>
+
+<div class='body '><p><code>iter f s</code> applies function <code>f</code> in turn to all the bytes of <code>s</code>. It is equivalent to <code>f (get s 0); f (get s 1); ...; f (get s
+    (length s - 1)); ()</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-iteri" id="value-iteri">iteri</a>: ((int, char) => unit, bytes) => unit</h4>
+
+<div class='body '><p>Same as iter, but the function is applied to the index of the byte as first argument and the byte itself as second argument.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-map" id="value-map">map</a>: (char => char, bytes) => bytes</h4>
+
+<div class='body '><p><code>map f s</code> applies function <code>f</code> in turn to all the bytes of <code>s</code> (in increasing index order) and stores the resulting bytes in a new sequence that is returned as the result.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-mapi" id="value-mapi">mapi</a>: ((int, char) => char, bytes) => bytes</h4>
+
+<div class='body '><p><code>mapi f s</code> calls <code>f</code> with each character of <code>s</code> and its index (in increasing index order) and stores the resulting bytes in a new sequence that is returned as the result.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-trim" id="value-trim">trim</a>: bytes => bytes</h4>
+
+<div class='body '><p>Return a copy of the argument, without leading and trailing whitespace. The bytes regarded as whitespace are the ASCII characters <code>&#39; &#39;</code>, <code>&#39;\012&#39;</code>, <code>&#39;\n&#39;</code>, <code>&#39;\r&#39;</code>, and <code>&#39;\t&#39;</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-escaped" id="value-escaped">escaped</a>: bytes => bytes</h4>
+
+<div class='body '><p>Return a copy of the argument, with special characters represented by escape sequences, following the lexical conventions of OCaml.</p>
+<p>Raise <code>Invalid_argument</code> if the result is longer than max_string_length bytes.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-index" id="value-index">index</a>: (bytes, char) => int</h4>
+
+<div class='body '><p><code>index s c</code> returns the index of the first occurrence of byte <code>c</code> in <code>s</code>.</p>
+<p>Raise <code>Not_found</code> if <code>c</code> does not occur in <code>s</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-rindex" id="value-rindex">rindex</a>: (bytes, char) => int</h4>
+
+<div class='body '><p><code>rindex s c</code> returns the index of the last occurrence of byte <code>c</code> in <code>s</code>.</p>
+<p>Raise <code>Not_found</code> if <code>c</code> does not occur in <code>s</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-index_from" id="value-index_from">index_from</a>: (bytes, int, char) => int</h4>
+
+<div class='body '><p><code>index_from s i c</code> returns the index of the first occurrence of byte <code>c</code> in <code>s</code> after position <code>i</code>. <code>Bytes.index s c</code> is equivalent to <code>Bytes.index_from s 0 c</code>.</p>
+<p>Raise <code>Invalid_argument</code> if <code>i</code> is not a valid position in <code>s</code>. Raise <code>Not_found</code> if <code>c</code> does not occur in <code>s</code> after position <code>i</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-rindex_from" id="value-rindex_from">rindex_from</a>: (bytes, int, char) => int</h4>
+
+<div class='body '><p><code>rindex_from s i c</code> returns the index of the last occurrence of byte <code>c</code> in <code>s</code> before position <code>i+1</code>. <code>rindex s c</code> is equivalent to <code>rindex_from s (Bytes.length s - 1) c</code>.</p>
+<p>Raise <code>Invalid_argument</code> if <code>i+1</code> is not a valid position in <code>s</code>. Raise <code>Not_found</code> if <code>c</code> does not occur in <code>s</code> before position <code>i+1</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-contains" id="value-contains">contains</a>: (bytes, char) => bool</h4>
+
+<div class='body '><p><code>contains s c</code> tests if byte <code>c</code> appears in <code>s</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-contains_from" id="value-contains_from">contains_from</a>: (bytes, int, char) => bool</h4>
+
+<div class='body '><p><code>contains_from s start c</code> tests if byte <code>c</code> appears in <code>s</code> after position <code>start</code>. <code>contains s c</code> is equivalent to <code>contains_from
+    s 0 c</code>.</p>
+<p>Raise <code>Invalid_argument</code> if <code>start</code> is not a valid position in <code>s</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-rcontains_from" id="value-rcontains_from">rcontains_from</a>: (bytes, int, char) => bool</h4>
+
+<div class='body '><p><code>rcontains_from s stop c</code> tests if byte <code>c</code> appears in <code>s</code> before position <code>stop+1</code>.</p>
+<p>Raise <code>Invalid_argument</code> if <code>stop &lt; 0</code> or <code>stop+1</code> is not a valid position in <code>s</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-uppercase" id="value-uppercase">uppercase</a>: bytes => bytes</h4>
+
+<div class='body '><p>Return a copy of the argument, with all lowercase letters translated to uppercase, including accented letters of the ISO Latin-1 (8859-1) character set.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-lowercase" id="value-lowercase">lowercase</a>: bytes => bytes</h4>
+
+<div class='body '><p>Return a copy of the argument, with all uppercase letters translated to lowercase, including accented letters of the ISO Latin-1 (8859-1) character set.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-capitalize" id="value-capitalize">capitalize</a>: bytes => bytes</h4>
+
+<div class='body '><p>Return a copy of the argument, with the first byte set to uppercase.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-uncapitalize" id="value-uncapitalize">uncapitalize</a>: bytes => bytes</h4>
+
+<div class='body '><p>Return a copy of the argument, with the first byte set to lowercase.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-t" id="type-t">t</a> = bytes</h4>
+
+<div class='body '><p>An alias for the type of byte sequences.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-compare" id="value-compare">compare</a>: (<a href="#type-t">t</a>, <a href="#type-t">t</a>) => int</h4>
+
+<div class='body '><p>The comparison function for byte sequences, with the same specification as compare. Along with the type <code>t</code>, this function <code>compare</code> allows the module <code>Bytes</code> to be passed as argument to the functors Make and Make.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Unsafe-conversions-for-advanced-users">Unsafe conversions (for advanced users)</h4><p>This section describes unsafe, low-level conversion functions between <code>bytes</code> and <code>string</code>. They do not copy the internal data; used improperly, they can break the immutability invariant on strings provided by the <code>-safe-string</code> option. They are available for expert library authors, but for most purposes you should use the always-correct to_string and of_string instead.</p>
+</div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-unsafe_to_string" id="value-unsafe_to_string">unsafe_to_string</a>: bytes => string</h4>
+
+<div class='body '><p>Unsafely convert a byte sequence into a string.</p>
+<p>To reason about the use of <code>unsafe_to_string</code>, it is convenient to consider an &quot;ownership&quot; discipline. A piece of code that manipulates some data &quot;owns&quot; it; there are several disjoint ownership modes, including:</p>
+<ul><li><p>Unique ownership: the data may be accessed and mutated</p>
+</li><li><p>Shared ownership: the data has several owners, that may only access it, not mutate it.</p>
+</li></ul><p>Unique ownership is linear: passing the data to another piece of code means giving up ownership (we cannot write the data again). A unique owner may decide to make the data shared (giving up mutation rights on it), but shared data may not become uniquely-owned again.</p>
+<p><code>unsafe_to_string s</code> can only be used when the caller owns the byte sequence <code>s</code> -- either uniquely or as shared immutable data. The caller gives up ownership of <code>s</code>, and gains ownership of the returned string.</p>
+<p>There are two valid use-cases that respect this ownership discipline:</p>
+<p>1. Creating a string by initializing and mutating a byte sequence that is never changed after initialization is performed.</p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='138' id='block-138'><code>let <span class='pattern-ident' data-type="(int, int => char) => string">string_init</span> <span class='pattern-ident' data-type="int">len</span> <span class='pattern-ident' data-type="int => char">f</span> : <span class='type-constructor'>string</span> =
+  let <span class='pattern-ident' data-type="bytes">s</span> = <span class='ident' data-type="int => bytes">Bytes.create</span> <span class='ident' data-type="int">len</span> in
+  for i = <span class='int' data-type="int">0</span> to <span class='ident' data-type="int">len</span> <span class='operator' data-type="(int, int) => int">-</span> <span class='int' data-type="int">1</span> do <span class='ident' data-type="(bytes, int, char) => unit">Bytes.set</span> <span class='ident' data-type="bytes">s</span> <span class='ident' data-type="int">i</span> (<span class='ident' data-type="int => char">f</span> <span class='ident' data-type="int">i</span>) done;
+  <span class='ident' data-type="bytes => string">Bytes.unsafe_to_string</span> <span class='ident' data-type="bytes">s</span></code></pre>
+  
+  <script type='docre-source' data-block-id="138">#open Bytes
+let string_init len f : string =
+  let s = Bytes.create len in
+  for i = 0 to len - 1 do Bytes.set s i (f i) done;
+  Bytes.unsafe_to_string s</script>
+  <div data-block-id='138' data-context="normal" data-block-syntax="ml" class='block-target'></div><script type='docre-bundle' data-block-id='138'>
+;(function() { // generated by pack.re
+let modules = {}
+let initializers = {
+    1: function(module, exports, require) {// Generated by BUCKLESCRIPT VERSION 2.2.3, PLEASE EDIT WITH CARE
+'use strict';
+
+var Bytes = window.packRequire("./lib/js/bytes.js");
+var Curry = window.packRequire("./lib/js/curry.js");
+var Caml_string = window.packRequire("./lib/js/caml_string.js");
+
+function string_init(len, f) {
+  var s = Caml_string.caml_create_string(len);
+  for(var i = 0 ,i_finish = len - 1 | 0; i <= i_finish; ++i){
+    s[i] = Curry._1(f, i);
+  }
+  return Bytes.unsafe_to_string(s);
+}
+
+exports.string_init = string_init;
+/* No side effect */
+//# sourceURL=./node_modules/.docre/Bucklescript__Bytes_CODE_BLOCK_138.re_ppx.js
+}
+};
+let nameMap = {
+  "./node_modules/.docre/Bucklescript__Bytes_CODE_BLOCK_138.re_ppx.js": 1
+}
+let require = (id) => {
+  if (!modules[id]) {
+    modules[id] = {exports: {}}
+    initializers[id](modules[id], modules[id].exports, require)
+  }
+  return modules[id].exports
+};
+  require(1)})();</script>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='138-alt' id='block-138-alt'><code>open Bytes;
+
+let <span class='pattern-ident' data-type="(int, int => char) => string">string_init</span> = (<span class='pattern-ident' data-type="int">len</span>, <span class='pattern-ident' data-type="int => char">f</span>) : <span class='type-constructor'>string</span> =&gt; {
+  let <span class='pattern-ident' data-type="bytes">s</span> = <span class='ident' data-type="int => bytes">Bytes.create</span>(<span class='ident' data-type="int">len</span>);
+  for (i in <span class='int' data-type="int">0</span> to <span class='ident' data-type="int">len</span> <span class='operator' data-type="(int, int) => int">-</span> <span class='int' data-type="int">1</span>) {
+    <span class='ident' data-type="(bytes, int, char) => unit">Bytes.set</span>(<span class='ident' data-type="bytes">s</span>, <span class='ident' data-type="int">i</span>, <span class='ident' data-type="int => char">f</span>(<span class='ident' data-type="int">i</span>));
+  };
+  <span class='ident' data-type="bytes => string">Bytes.unsafe_to_string</span>(<span class='ident' data-type="bytes">s</span>);
+};</code></pre>
+  
+  <script type='docre-source' data-block-id="138-alt">open Bytes;
+
+let string_init = (len, f) : string => {
+  let s = Bytes.create(len);
+  for (i in 0 to len - 1) {
+    Bytes.set(s, i, f(i));
+  };
+  Bytes.unsafe_to_string(s);
+};</script>
+  <div data-block-id='138-alt' data-context="normal" data-block-syntax="re" class='block-target'></div><script type='docre-bundle' data-block-id='138-alt'>
+;(function() { // generated by pack.re
+let modules = {}
+let initializers = {
+    1: function(module, exports, require) {// Generated by BUCKLESCRIPT VERSION 2.2.3, PLEASE EDIT WITH CARE
+'use strict';
+
+var Bytes = window.packRequire("./lib/js/bytes.js");
+var Curry = window.packRequire("./lib/js/curry.js");
+var Caml_string = window.packRequire("./lib/js/caml_string.js");
+
+function string_init(len, f) {
+  var s = Caml_string.caml_create_string(len);
+  for(var i = 0 ,i_finish = len - 1 | 0; i <= i_finish; ++i){
+    s[i] = Curry._1(f, i);
+  }
+  return Bytes.unsafe_to_string(s);
+}
+
+exports.string_init = string_init;
+/* No side effect */
+//# sourceURL=./node_modules/.docre/Bucklescript__Bytes_CODE_BLOCK_138_alt.re_ppx.js
+}
+};
+let nameMap = {
+  "./node_modules/.docre/Bucklescript__Bytes_CODE_BLOCK_138_alt.re_ppx.js": 1
+}
+let require = (id) => {
+  if (!modules[id]) {
+    modules[id] = {exports: {}}
+    initializers[id](modules[id], modules[id].exports, require)
+  }
+  return modules[id].exports
+};
+  require(1)})();</script>
+</div><p>This function is safe because the byte sequence <code>s</code> will never be accessed or mutated after <code>unsafe_to_string</code> is called. The <code>string_init</code> code gives up ownership of <code>s</code>, and returns the ownership of the resulting string to its caller.</p>
+<p>Note that it would be unsafe if <code>s</code> was passed as an additional parameter to the function <code>f</code> as it could escape this way and be mutated in the future -- <code>string_init</code> would give up ownership of <code>s</code> to pass it to <code>f</code>, and could not call <code>unsafe_to_string</code> safely.</p>
+<p>We have provided the init, map and mapi functions to cover most cases of building new strings. You should prefer those over <code>to_string</code> or <code>unsafe_to_string</code> whenever applicable.</p>
+<p>2. Temporarily giving ownership of a byte sequence to a function that expects a uniquely owned string and returns ownership back, so that we can mutate the sequence again after the call ended.</p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='137' id='block-137'><code>let <span class='pattern-ident' data-type="bytes => int">bytes_length</span> (s : <span class='type-constructor'>bytes</span>) =
+  <span class='ident' data-type="string => int">String.length</span> (<span class='ident' data-type="bytes => string">Bytes.unsafe_to_string</span> <span class='ident' data-type="bytes">s</span>)</code></pre>
+  
+  <script type='docre-source' data-block-id="137">#open Bytes
+let bytes_length (s : bytes) =
+  String.length (Bytes.unsafe_to_string s)</script>
+  <div data-block-id='137' data-context="normal" data-block-syntax="ml" class='block-target'></div><script type='docre-bundle' data-block-id='137'>
+;(function() { // generated by pack.re
+let modules = {}
+let initializers = {
+    1: function(module, exports, require) {// Generated by BUCKLESCRIPT VERSION 2.2.3, PLEASE EDIT WITH CARE
+'use strict';
+
+var Bytes = window.packRequire("./lib/js/bytes.js");
+
+function bytes_length(s) {
+  return Bytes.unsafe_to_string(s).length;
+}
+
+exports.bytes_length = bytes_length;
+/* No side effect */
+//# sourceURL=./node_modules/.docre/Bucklescript__Bytes_CODE_BLOCK_137.re_ppx.js
+}
+};
+let nameMap = {
+  "./node_modules/.docre/Bucklescript__Bytes_CODE_BLOCK_137.re_ppx.js": 1
+}
+let require = (id) => {
+  if (!modules[id]) {
+    modules[id] = {exports: {}}
+    initializers[id](modules[id], modules[id].exports, require)
+  }
+  return modules[id].exports
+};
+  require(1)})();</script>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='137-alt' id='block-137-alt'><code>open Bytes;
+
+let <span class='pattern-ident' data-type="bytes => int">bytes_length</span> = (s: <span class='type-constructor'>bytes</span>) =&gt; <span class='ident' data-type="string => int">String.length</span>(<span class='ident' data-type="bytes => string">Bytes.unsafe_to_string</span>(<span class='ident' data-type="bytes">s</span>));</code></pre>
+  
+  <script type='docre-source' data-block-id="137-alt">open Bytes;
+
+let bytes_length = (s: bytes) => String.length(Bytes.unsafe_to_string(s));</script>
+  <div data-block-id='137-alt' data-context="normal" data-block-syntax="re" class='block-target'></div><script type='docre-bundle' data-block-id='137-alt'>
+;(function() { // generated by pack.re
+let modules = {}
+let initializers = {
+    1: function(module, exports, require) {// Generated by BUCKLESCRIPT VERSION 2.2.3, PLEASE EDIT WITH CARE
+'use strict';
+
+var Bytes = window.packRequire("./lib/js/bytes.js");
+
+function bytes_length(s) {
+  return Bytes.unsafe_to_string(s).length;
+}
+
+exports.bytes_length = bytes_length;
+/* No side effect */
+//# sourceURL=./node_modules/.docre/Bucklescript__Bytes_CODE_BLOCK_137_alt.re_ppx.js
+}
+};
+let nameMap = {
+  "./node_modules/.docre/Bucklescript__Bytes_CODE_BLOCK_137_alt.re_ppx.js": 1
+}
+let require = (id) => {
+  if (!modules[id]) {
+    modules[id] = {exports: {}}
+    initializers[id](modules[id], modules[id].exports, require)
+  }
+  return modules[id].exports
+};
+  require(1)})();</script>
+</div><p>In this use-case, we do not promise that <code>s</code> will never be mutated after the call to <code>bytes_length s</code>. The length function temporarily borrows unique ownership of the byte sequence (and sees it as a <code>string</code>), but returns this ownership back to the caller, which may assume that <code>s</code> is still a valid byte sequence after the call. Note that this is only correct because we know that length does not capture its argument -- it could escape by a side-channel such as a memoization combinator.</p>
+<p>The caller may not mutate <code>s</code> while the string is borrowed (it has temporarily given up ownership). This affects concurrent programs, but also higher-order functions: if <code>String.length</code> returned a closure to be called later, <code>s</code> should not be mutated until this closure is fully applied and returns ownership.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-unsafe_of_string" id="value-unsafe_of_string">unsafe_of_string</a>: string => bytes</h4>
+
+<div class='body '><p>Unsafely convert a shared string to a byte sequence that should not be mutated.</p>
+<p>The same ownership discipline that makes <code>unsafe_to_string</code> correct applies to <code>unsafe_of_string</code>: you may use it if you were the owner of the <code>string</code> value, and you will own the return <code>bytes</code> in the same mode.</p>
+<p>In practice, unique ownership of string values is extremely difficult to reason about correctly. You should always assume strings are shared, never uniquely owned.</p>
+<p>For example, string literals are implicitly shared by the compiler, so you never uniquely own them.</p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='139' id='block-139'><code>let <span class='pattern-ident' data-type="bytes">incorrect</span> = <span class='ident' data-type="string => bytes">Bytes.unsafe_of_string</span> <span class='string' data-type="string">&quot;hello&quot;</span>
+let <span class='pattern-ident' data-type="bytes">s</span> = <span class='ident' data-type="string => bytes">Bytes.of_string</span> <span class='string' data-type="string">&quot;hello&quot;</span></code></pre>
+  
+  <script type='docre-source' data-block-id="139">#open Bytes
+let incorrect = Bytes.unsafe_of_string "hello"
+let s = Bytes.of_string "hello"</script>
+  <div data-block-id='139' data-context="normal" data-block-syntax="ml" class='block-target'></div><script type='docre-bundle' data-block-id='139'>
+;(function() { // generated by pack.re
+let modules = {}
+let initializers = {
+    1: function(module, exports, require) {// Generated by BUCKLESCRIPT VERSION 2.2.3, PLEASE EDIT WITH CARE
+'use strict';
+
+var Bytes = window.packRequire("./lib/js/bytes.js");
+
+var incorrect = Bytes.unsafe_of_string("hello");
+
+var s = Bytes.of_string("hello");
+
+exports.incorrect = incorrect;
+exports.s = s;
+/* incorrect Not a pure module */
+//# sourceURL=./node_modules/.docre/Bucklescript__Bytes_CODE_BLOCK_139.re_ppx.js
+}
+};
+let nameMap = {
+  "./node_modules/.docre/Bucklescript__Bytes_CODE_BLOCK_139.re_ppx.js": 1
+}
+let require = (id) => {
+  if (!modules[id]) {
+    modules[id] = {exports: {}}
+    initializers[id](modules[id], modules[id].exports, require)
+  }
+  return modules[id].exports
+};
+  require(1)})();</script>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='139-alt' id='block-139-alt'><code>open Bytes;
+
+let <span class='pattern-ident' data-type="bytes">incorrect</span> = <span class='ident' data-type="string => bytes">Bytes.unsafe_of_string</span>(<span class='string' data-type="string">&quot;hello&quot;</span>);
+
+let <span class='pattern-ident' data-type="bytes">s</span> = <span class='ident' data-type="string => bytes">Bytes.of_string</span>(<span class='string' data-type="string">&quot;hello&quot;</span>);</code></pre>
+  
+  <script type='docre-source' data-block-id="139-alt">open Bytes;
+
+let incorrect = Bytes.unsafe_of_string("hello");
+
+let s = Bytes.of_string("hello");</script>
+  <div data-block-id='139-alt' data-context="normal" data-block-syntax="re" class='block-target'></div><script type='docre-bundle' data-block-id='139-alt'>
+;(function() { // generated by pack.re
+let modules = {}
+let initializers = {
+    1: function(module, exports, require) {// Generated by BUCKLESCRIPT VERSION 2.2.3, PLEASE EDIT WITH CARE
+'use strict';
+
+var Bytes = window.packRequire("./lib/js/bytes.js");
+
+var incorrect = Bytes.unsafe_of_string("hello");
+
+var s = Bytes.of_string("hello");
+
+exports.incorrect = incorrect;
+exports.s = s;
+/* incorrect Not a pure module */
+//# sourceURL=./node_modules/.docre/Bucklescript__Bytes_CODE_BLOCK_139_alt.re_ppx.js
+}
+};
+let nameMap = {
+  "./node_modules/.docre/Bucklescript__Bytes_CODE_BLOCK_139_alt.re_ppx.js": 1
+}
+let require = (id) => {
+  if (!modules[id]) {
+    modules[id] = {exports: {}}
+    initializers[id](modules[id], modules[id].exports, require)
+  }
+  return modules[id].exports
+};
+  require(1)})();</script>
+</div><p>The first declaration is incorrect, because the string literal <code>&quot;hello&quot;</code> could be shared by the compiler with other parts of the program, and mutating <code>incorrect</code> is a bug. You must always use the second version, which performs a copy and is thus correct.</p>
+<p>Assuming unique ownership of strings that are not string literals, but are (partly) built from string literals, is also incorrect. For example, mutating <code>unsafe_of_string (&quot;foo&quot; ^ s)</code> could mutate the shared string <code>&quot;foo&quot;</code> -- assuming a rope-like representation of strings. More generally, functions operating on strings will assume shared ownership, they do not preserve unique ownership. It is thus incorrect to assume unique ownership of the result of <code>unsafe_of_string</code>.</p>
+<p>The only case we have reasonable confidence is safe is if the produced <code>bytes</code> is shared -- used as an immutable byte sequence. This is possibly useful for incremental migration of low-level programs that manipulate immutable sequences of bytes (for example from_bytes) and previously used the <code>string</code> type for this purpose.</p>
+</div></div>
+
+<div class='doc-item'><p>/*</p>
+</div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-unsafe_get" id="value-unsafe_get">unsafe_get</a>: (bytes, int) => char</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-unsafe_set" id="value-unsafe_set">unsafe_set</a>: (bytes, int, char) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-unsafe_blit" id="value-unsafe_blit">unsafe_blit</a>: (bytes, int, bytes, int, int) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-unsafe_fill" id="value-unsafe_fill">unsafe_fill</a>: (bytes, int, int, char) => unit</h4>
+
+<div class='body body-empty'></div></div>
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

@@ -1,154 +1,313 @@
-<!DOCTYPE html>
-<!--
-  ~ Copyright 2013 Laurent Bovet <laurent.bovet@windmaster.ch>
-  ~
-  ~ Licensed under the Apache License, Version 2.0 (the "License");
-  ~ you may not use this file except in compliance with the License.
-  ~ You may obtain a copy of the License at
-  ~
-  ~      http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~ Unless required by applicable law or agreed to in writing, software
-  ~ distributed under the License is distributed on an "AS IS" BASIS,
-  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~ See the License for the specific language governing permissions and
-  ~ limitations under the License.
-  -->
-<html>
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="css/docson.css">
-    <script src="lib/require.js"></script>
-    <script>
-        require(["docson", "lib/jquery"], function(docson) {
-            $(function () {
-                var embedded = window.parent !== window;
-                if (embedded) {
-                    $("body").addClass("embedded");
-                    $("doc").addClass("embedded");
-                    $("#form").hide();
-                }
-                $("#url").keypress(function (event) {
-                    if (event.keyCode == 13) {
-                        window.location.hash = $(this).val();
-                    }
-                });
-                $(window).on('hashchange', function () {
-                    update();
-                });
-                update();
-                var url;
-                function update() {
-                    if (window.location.hash) {
-                        $("#form").hide();
-                        url = decodeURIComponent(window.location.hash.substring(1));
-                        var segments = url.split("$");
-                        if(segments[0]) {
-                            function render(schema) {
-                                try {
-                                    docson.doc("doc", schema, segments[1], segments[0].replace(/\/[^\/]*\/?$/, '/')).done(function() {
-                                        maybeExpand(segments);
-                                    });
-                                } catch (e) {
-                                    error("Could not parse schema: " + e.message + "<pre>" + $('<pre/>').text(schema).html() + "</pre>");
-                                }
-                            }
 
-                            if(/\.ts$/.test(segments[0])) {
-                                require.config( { baseUrl: "../typson" } );
-                                require(["lib/typson-schema"], function(typson) {
-                                    typson.definitions(segments[0]).done(render);
-                                });
-                            } else {
-                                $.get(segments[0])
-                                        .done(render)
-                                        .fail(function (xhr, status, err) {
-                                            error("Could not load " + segments[0].replace(/[\u00A0-\u9999<>\&]/gim, function(i) {
-                                                   return '&#'+i.charCodeAt(0)+';';
-                                            }) + ": " + status + " " + err);
-                                        });
-                            }
-                        }
-                        function receiveMessage(event) {
-                            console.log(">", event)
-                            if(event.data.id && event.data.id == "docson") {
-                                if(event.data.type) {
-                                    try {
-                                        docson.doc("doc", event.data.definitions, event.data.type).done(function() {
-                                            maybeExpand(segments);
-                                        });
-                                    } catch (e) {
-                                        error("Could not parse schema: " + e.message + "<pre>" + $('<pre/>').text(event.data.definitions).html() + "</pre>");
-                                    }
-                                }
-                                if(event.data.action == "resize") {
-                                    $("#doc").get(0).resized();
-                                }
-                                if(event.data.font) {
-                                    console.log(event.data.font)
-                                    $("#doc").css("font-family", event.data.font);
-                                }
-                            }
-                        }
-                        window.addEventListener("message", receiveMessage, false);
-                        var host = window.opener || window.parent;
-                        host.postMessage( { id: "docson", action: "ready", url: url}, "*");
-                    } else {
-                        $("#doc").empty();
-                        $("#form").show();
-                    }
-                }
-
-                function maybeExpand(segments) {
-                    if(segments.indexOf("expand") >0 ) {
-                        $("#doc").find(".expand-button").html(" - ").attr("title", "Collapse all");
-                        $("#doc").find(".signature-type-expandable").addClass("signature-type-expanded");
-                        $("#doc").find(".box-container").show();
-                        $("#doc").find(".expand-button").attr("expanded", true);
-                    }
-                }
-
-                function error(message) {
-                    $("#form").show();
-                    $("#doc").html($("<div/>").addClass("error")
-                            .html(message));
-                }
-
-                var doc = $('#doc').get(0);
-                if(embedded) {
-                    doc.onresize =  function(width, height) {
-                        window.parent.postMessage( { id: "docson", action: "resized", url: url, width: width, height: height}, "*");
-                    }
-                }
-            });
-        });
-    </script>
-    <style>
-        body {
-            font-family: verdana, helvetica;
-        }
-
-        #form {
-            display: none;
-        }
-
-        #form input[type=text] {
-            border-radius: 6px;
-            -moz-border-radius: 6px;
-            -webkit-border-radius: 6px;
-        }
-
-        .embedded {
-            margin: 0px;
-            padding: 0px;
-        }
-    </style>
-</head>
+    
+<!doctype html>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>docson</title>
 <body>
-<div id="form">
-    Please enter a schema URL:
-    <input type="text" id="url" size="60">
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
 </div>
-<div id="doc"></div>
-</body>
-</html>
+
+    
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="./index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#docson" class='level-1 header'>Docson</a>
+<a href="#features" class='level-2 header'>Features</a>
+<a href="#installation" class='level-2 header'>Installation</a>
+<a href="#usage" class='level-2 header'>Usage</a>
+<a href="#typson" class='level-2 header'>Typson</a>
+<a href="#widget" class='level-2 header'>Widget</a>
+<a href="#swagger" class='level-2 header'>Swagger</a>
+<a href="#integration" class='level-2 header'>Integration</a>
+<a href="#limitations" class='level-2 header'>Limitations</a>
+<a href="#development" class='level-2 header'>Development</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="../api/Js.html">Js</a>
+<a href="../api/Arg.html">Arg</a>
+<a href="../api/Array.html">Array</a>
+<a href="../api/ArrayLabels.html">ArrayLabels</a>
+<a href="../api/Bigarray.html">Bigarray</a>
+<a href="../api/Buffer.html">Buffer</a>
+<a href="../api/Bytes.html">Bytes</a>
+<a href="../api/BytesLabels.html">BytesLabels</a>
+<a href="../api/Callback.html">Callback</a>
+<a href="../api/CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="../api/CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="../api/CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="../api/CamlinternalMod.html">CamlinternalMod</a>
+<a href="../api/CamlinternalOO.html">CamlinternalOO</a>
+<a href="../api/Char.html">Char</a>
+<a href="../api/Complex.html">Complex</a>
+<a href="../api/Digest.html">Digest</a>
+<a href="../api/Filename.html">Filename</a>
+<a href="../api/Format.html">Format</a>
+<a href="../api/Gc.html">Gc</a>
+<a href="../api/Genlex.html">Genlex</a>
+<a href="../api/Hashtbl.html">Hashtbl</a>
+<a href="../api/Int32.html">Int32</a>
+<a href="../api/Int64.html">Int64</a>
+<a href="../api/Lazy.html">Lazy</a>
+<a href="../api/Lexing.html">Lexing</a>
+<a href="../api/List.html">List</a>
+<a href="../api/ListLabels.html">ListLabels</a>
+<a href="../api/Map.html">Map</a>
+<a href="../api/Marshal.html">Marshal</a>
+<a href="../api/MoreLabels.html">MoreLabels</a>
+<a href="../api/Nativeint.html">Nativeint</a>
+<a href="../api/Obj.html">Obj</a>
+<a href="../api/Oo.html">Oo</a>
+<a href="../api/Parsing.html">Parsing</a>
+<a href="../api/Pervasives.html">Pervasives</a>
+<a href="../api/Printexc.html">Printexc</a>
+<a href="../api/Printf.html">Printf</a>
+<a href="../api/Queue.html">Queue</a>
+<a href="../api/Random.html">Random</a>
+<a href="../api/Scanf.html">Scanf</a>
+<a href="../api/Set.html">Set</a>
+<a href="../api/Sort.html">Sort</a>
+<a href="../api/Stack.html">Stack</a>
+<a href="../api/Std_exit.html">Std_exit</a>
+<a href="../api/StdLabels.html">StdLabels</a>
+<a href="../api/Stream.html">Stream</a>
+<a href="../api/String.html">String</a>
+<a href="../api/StringLabels.html">StringLabels</a>
+<a href="../api/Sys.html">Sys</a>
+<a href="../api/Unix.html">Unix</a>
+<a href="../api/UnixLabels.html">UnixLabels</a>
+<a href="../api/Weak.html">Weak</a>
+<a href="../api/Belt.html">Belt</a>
+<a href="../api/Belt_Array.html">Belt_Array</a>
+<a href="../api/Belt_HashMap.html">Belt_HashMap</a>
+<a href="../api/Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="../api/Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="../api/Belt_HashSet.html">Belt_HashSet</a>
+<a href="../api/Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="../api/Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="../api/Belt_Id.html">Belt_Id</a>
+<a href="../api/Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="../api/Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="../api/Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="../api/Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="../api/Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="../api/Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="../api/Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="../api/Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="../api/Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="../api/Belt_List.html">Belt_List</a>
+<a href="../api/Belt_Map.html">Belt_Map</a>
+<a href="../api/Belt_MapDict.html">Belt_MapDict</a>
+<a href="../api/Belt_MapInt.html">Belt_MapInt</a>
+<a href="../api/Belt_MapString.html">Belt_MapString</a>
+<a href="../api/Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="../api/Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="../api/Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="../api/Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="../api/Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="../api/Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="../api/Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="../api/Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="../api/Belt_Option.html">Belt_Option</a>
+<a href="../api/Belt_Range.html">Belt_Range</a>
+<a href="../api/Belt_Set.html">Belt_Set</a>
+<a href="../api/Belt_SetDict.html">Belt_SetDict</a>
+<a href="../api/Belt_SetInt.html">Belt_SetInt</a>
+<a href="../api/Belt_SetString.html">Belt_SetString</a>
+<a href="../api/Belt_SortArray.html">Belt_SortArray</a>
+<a href="../api/Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="../api/Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="../api/Dom.html">Dom</a>
+<a href="../api/Dom_storage.html">Dom_storage</a>
+<a href="../api/Js_array.html">Js_array</a>
+<a href="../api/Js_boolean.html">Js_boolean</a>
+<a href="../api/Js_cast.html">Js_cast</a>
+<a href="../api/Js_console.html">Js_console</a>
+<a href="../api/Js_date.html">Js_date</a>
+<a href="../api/Js_dict.html">Js_dict</a>
+<a href="../api/Js_global.html">Js_global</a>
+<a href="../api/Js_json.html">Js_json</a>
+<a href="../api/Js_list.html">Js_list</a>
+<a href="../api/Js_mapperRt.html">Js_mapperRt</a>
+<a href="../api/Js_math.html">Js_math</a>
+<a href="../api/Js_null_undefined.html">Js_null_undefined</a>
+<a href="../api/Js_obj.html">Js_obj</a>
+<a href="../api/Js_option.html">Js_option</a>
+<a href="../api/Js_promise.html">Js_promise</a>
+<a href="../api/Js_re.html">Js_re</a>
+<a href="../api/Js_result.html">Js_result</a>
+<a href="../api/Js_string.html">Js_string</a>
+<a href="../api/Js_types.html">Js_types</a>
+<a href="../api/Js_vector.html">Js_vector</a>
+<a href="../api/Node.html">Node</a>
+<a href="../api/Node_buffer.html">Node_buffer</a>
+<a href="../api/Node_child_process.html">Node_child_process</a>
+<a href="../api/Node_fs.html">Node_fs</a>
+<a href="../api/Node_module.html">Node_module</a>
+<a href="../api/Node_path.html">Node_path</a>
+<a href="../api/Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/docs/docson/README.md" class="edit-link">Edit</a>
+    <p align='right'>A <a href='http://www.swisspush.org'>swisspush</a> project <a href="http://www.swisspush.org" border=0><img align="top"  src='https://1.gravatar.com/avatar/cf7292487846085732baf808def5685a?s=32'></a></p><a href="#docson" id="docson"><h1>Docson</h1></a>
+
+<p>Documentation for your JSON types.</p>
+<p>Give Docson a JSON schema and it will generate a <a href="http://lbovet.github.io/docson/index.html#/docson/examples/example.json" target="_blank" rel="noopener nofollow" title="" class="external-link">beautiful documentation</a>.</p>
+<a href="#features" id="features"><h2>Features</h2></a><ul><li><a href="http://json-schema.org/" target="_blank" rel="noopener nofollow" title="" class="external-link">JSON schema</a> v4 keywords.</li><li>Runs entirely in the browser.</li><li>Render schema descriptions with markdown</li></ul>
+
+<a href="#installation" id="installation"><h2>Installation</h2></a>
+
+<ul><li>Place the Docson distribution on the web server serving the schemas (to avoid cross-origin issues).</li></ul>
+
+<a href="#usage" id="usage"><h2>Usage</h2></a>
+
+<ul><li>Open <a href="http://lbovet.github.io/docson/index.html" target="_blank" rel="noopener nofollow" title="" class="external-link">index.html</a> and enter the schema path in the form field.</li><li>Or give the schema path directly as hash parameter: <a href="http://lbovet.github.io/docson/index.html#/docson/examples/example.json" target="_blank" rel="noopener nofollow" title="" class="external-link">index.html#/docson/examples/example.json</a></li></ul>
+
+<p>Note that you can refer to a sub-schema by adding a json-pointer path as &#39;dollar-parameter&#39;: <a href="http://lbovet.github.io/docson/index.html#/docson/examples/example.json$items" target="_blank" rel="noopener nofollow" title="" class="external-link">index.html#/docson/examples/example.json$items</a></p>
+<a href="#typson" id="typson"><h2>Typson</h2></a>
+
+<p>You can directly reference your JSON types defined as TypeScript interfaces. If the path ends with <code>.ts</code>, Docson will use <a href="https://github.com/lbovet/typson" target="_blank" rel="noopener nofollow" title="" class="external-link">Typson</a> to convert the Type Scripts to schema in order to generate the documentation.</p>
+<p>For example, <a href="http://lbovet.github.io/docson/index.html#/typson/example/invoice/line.ts$InvoiceLine" target="_blank" rel="noopener nofollow" title="" class="external-link">index.html#/typson/example/invoice/line.ts$InvoiceLine</a> is the documentation of <a href="https://github.com/lbovet/typson/blob/master/example/invoice/line.ts" target="_blank" rel="noopener nofollow" title="" class="external-link">line.ts</a>.</p>
+<p>You need to install <a href="https://github.com/lbovet/typson" target="_blank" rel="noopener nofollow" title="" class="external-link">Typson</a> by yourself on your server. It must be in a directory named <code>typson</code> located at the same level as the <code>docson</code> directory.</p>
+<a href="#widget" id="widget"><h2>Widget</h2></a>
+
+<p>To include a Docson schema documentations on any page (wiki, ...) without worrying about messing up with javascript libraries and cross-origin issues:</p>
+<ul><li>Install Docson somewhere as described above.</li><li>Place the following <code>script</code> tags in the including page, nothing else is needed:</li></ul>
+
+<div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='31' id='block-31'><code>&lt;script src=&quot;http://somewhere/path-to-docson/widget.js&quot; data-schema=&quot;/path-to-schema&quot;&gt;
+&lt;/script&gt;</code></pre>
+  
+  
+  
+</div><div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='31-alt' id='block-31-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div>
+
+<p>See the <a href="http://jsfiddle.net/3kXu2/3/" target="_blank" rel="noopener nofollow" title="" class="external-link">widget example</a> on jsfiddle.</p>
+<a href="#swagger" id="swagger"><h2>Swagger</h2></a>
+
+<p>You can adapt <a href="https://github.com/wordnik/swagger-ui" target="_blank" rel="noopener nofollow" title="" class="external-link">Swagger UI</a> to display Docson-generated model documentation instead of the builtin signatures.</p>
+<p>See how it looks like in the <a href="http://lbovet.github.io/swagger-ui/dist/index.html" target="_blank" rel="noopener nofollow" title="" class="external-link">Swagger Docson example</a></p>
+<p>In Swagger UI&#39;s <code>index.html</code>, include the <a href="https://github.com/lbovet/swagger-ui/blob/3f37722b03db6c48cc2a8460df26dda5f4d6f8e4/src/main/html/index.html#L19" target="_blank" rel="noopener nofollow" title="" class="external-link">Swagger integration script after other script tags</a>:</p>
+<div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='30' id='block-30'><code>  &lt;script src=&#39;/path-to-docson/docson-swagger.js&#39; type=&#39;text/javascript&#39;&gt;&lt;/script&gt;</code></pre>
+  
+  
+  
+</div><div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='30-alt' id='block-30-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div>
+
+<p>Also, you will need a patched version of <a href="https://github.com/lbovet/swagger-js/blob/models-exposed/lib/swagger.js" target="_blank" rel="noopener nofollow" title="" class="external-link">Swagger Client</a> so that the raw json-schema model is visible from Docson. Either replace the <code>swagger.js</code> file in your Swagger UI disctribution or take it directly from github by replacing</p>
+<div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='29' id='block-29'><code>   &lt;script src=&#39;/lib/swagger.js&#39; type=&#39;text/javascript&#39;&gt;&lt;/script&gt;</code></pre>
+  
+  
+  
+</div><div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='29-alt' id='block-29-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div>
+
+<p>with</p>
+<div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='28' id='block-28'><code>  &lt;script src=&#39;https://raw2.github.com/lbovet/swagger-js/models-exposed/lib/swagger.js&#39; type=&#39;text/javascript&#39;&gt;&lt;/script&gt;</code></pre>
+  
+  
+  
+</div><div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='28-alt' id='block-28-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div>
+
+<p>For a better layout of parameter models, you may <a href="https://github.com/lbovet/swagger-ui/blob/3f37722b03db6c48cc2a8460df26dda5f4d6f8e4/src/main/html/index.html#L20-L27" target="_blank" rel="noopener nofollow" title="" class="external-link">want to change the width of some elements</a>:</p>
+<div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='27' id='block-27'><code>  &lt;style&gt;
+      .swagger-ui-wrap {
+          max-width: 1200px;
+      }
+      .swagger-ui-wrap .body-textarea {
+          width: 200px;
+      }
+  &lt;/style&gt;</code></pre>
+  
+  
+  
+</div><div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='27-alt' id='block-27-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div>
+
+<a href="#integration" id="integration"><h2>Integration</h2></a>
+
+<p>You can also integrate Docson in your application and use its javascript API:</p>
+<pre class='javascript'><code class='javascript'>docson.doc(element, schema, ref)</code></pre>
+
+<ul><li><code>element</code> is the element which will host the documentation. Either a DOM element (id or object) or jQuery element.</li><li><code>schema</code> is the URI or path to the schema or a string containing the schema source itself.</li><li><code>ref</code> is an optional json-pointer path to a sub-schema.</li></ul>
+
+<p>Examples:</p>
+<ul><li><a href="http://lbovet.github.io/docson/examples/example.html" target="_blank" rel="noopener nofollow" title="" class="external-link">Simple integration example</a></li><li><a href="http://lbovet.github.io/typson-demo/" target="_blank" rel="noopener nofollow" title="" class="external-link">See it in action</a> with its buddy <a href="https://github.com/lbovet/typson" target="_blank" rel="noopener nofollow" title="" class="external-link">typson</a>.</li></ul>
+
+<a href="#limitations" id="limitations"><h2>Limitations</h2></a>
+
+<ul><li>Mixing unrelated keywords can lead to unexpected results.</li></ul>
+
+<p>Not implemented:</p>
+<ul><li>Non-primitive values in enums and default values</li><li>dependencies, additionalItems, patternProperties</li></ul>
+
+<a href="#development" id="development"><h2>Development</h2></a>
+
+<ul><li><a href="http://lbovet.github.io/docson/tests/test.html" target="_blank" rel="noopener nofollow" title="" class="external-link">All tests</a></li></ul>
+
+<p>Please pull-request your failing schemas in the <code>tests/</code> folder and open an issue describing the expected result.</p>
+<p><a href="https://bitdeli.com/free" target="_blank" rel="noopener nofollow" title="Bitdeli Badge" class="external-link"><img src='https://d2weczhvl823v0.cloudfront.net/lbovet/docson/trend.png' alt='Bitdeli Badge' /></a></p>
+
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

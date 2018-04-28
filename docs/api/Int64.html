@@ -1,0 +1,390 @@
+
+    
+<!doctype html>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Int64</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
+</div>
+
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#value-zero" class='level-0 value'>zero</a>
+<a href="#value-one" class='level-0 value'>one</a>
+<a href="#value-minus_one" class='level-0 value'>minus_one</a>
+<a href="#value-neg" class='level-0 value'>neg</a>
+<a href="#value-add" class='level-0 value'>add</a>
+<a href="#value-sub" class='level-0 value'>sub</a>
+<a href="#value-mul" class='level-0 value'>mul</a>
+<a href="#value-div" class='level-0 value'>div</a>
+<a href="#value-rem" class='level-0 value'>rem</a>
+<a href="#value-succ" class='level-0 value'>succ</a>
+<a href="#value-pred" class='level-0 value'>pred</a>
+<a href="#value-abs" class='level-0 value'>abs</a>
+<a href="#value-max_int" class='level-0 value'>max_int</a>
+<a href="#value-min_int" class='level-0 value'>min_int</a>
+<a href="#value-logand" class='level-0 value'>logand</a>
+<a href="#value-logor" class='level-0 value'>logor</a>
+<a href="#value-logxor" class='level-0 value'>logxor</a>
+<a href="#value-lognot" class='level-0 value'>lognot</a>
+<a href="#value-shift_left" class='level-0 value'>shift_left</a>
+<a href="#value-shift_right" class='level-0 value'>shift_right</a>
+<a href="#value-shift_right_logical" class='level-0 value'>shift_right_logical</a>
+<a href="#value-of_int" class='level-0 value'>of_int</a>
+<a href="#value-to_int" class='level-0 value'>to_int</a>
+<a href="#value-of_float" class='level-0 value'>of_float</a>
+<a href="#value-to_float" class='level-0 value'>to_float</a>
+<a href="#value-of_int32" class='level-0 value'>of_int32</a>
+<a href="#value-to_int32" class='level-0 value'>to_int32</a>
+<a href="#value-of_nativeint" class='level-0 value'>of_nativeint</a>
+<a href="#value-to_nativeint" class='level-0 value'>to_nativeint</a>
+<a href="#value-of_string" class='level-0 value'>of_string</a>
+<a href="#value-to_string" class='level-0 value'>to_string</a>
+<a href="#value-bits_of_float" class='level-0 value'>bits_of_float</a>
+<a href="#value-float_of_bits" class='level-0 value'>float_of_bits</a>
+<a href="#type-t" class='level-0 type'>t</a>
+<a href="#value-compare" class='level-0 value'>compare</a>
+<a href="#value-format" class='level-0 value'>format</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Js.html">Js</a>
+<a href="Arg.html">Arg</a>
+<a href="Array.html">Array</a>
+<a href="ArrayLabels.html">ArrayLabels</a>
+<a href="Bigarray.html">Bigarray</a>
+<a href="Buffer.html">Buffer</a>
+<a href="Bytes.html">Bytes</a>
+<a href="BytesLabels.html">BytesLabels</a>
+<a href="Callback.html">Callback</a>
+<a href="CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="CamlinternalMod.html">CamlinternalMod</a>
+<a href="CamlinternalOO.html">CamlinternalOO</a>
+<a href="Char.html">Char</a>
+<a href="Complex.html">Complex</a>
+<a href="Digest.html">Digest</a>
+<a href="Filename.html">Filename</a>
+<a href="Format.html">Format</a>
+<a href="Gc.html">Gc</a>
+<a href="Genlex.html">Genlex</a>
+<a href="Hashtbl.html">Hashtbl</a>
+<a href="Int32.html">Int32</a>
+<a href="Int64.html">Int64</a>
+<a href="Lazy.html">Lazy</a>
+<a href="Lexing.html">Lexing</a>
+<a href="List.html">List</a>
+<a href="ListLabels.html">ListLabels</a>
+<a href="Map.html">Map</a>
+<a href="Marshal.html">Marshal</a>
+<a href="MoreLabels.html">MoreLabels</a>
+<a href="Nativeint.html">Nativeint</a>
+<a href="Obj.html">Obj</a>
+<a href="Oo.html">Oo</a>
+<a href="Parsing.html">Parsing</a>
+<a href="Pervasives.html">Pervasives</a>
+<a href="Printexc.html">Printexc</a>
+<a href="Printf.html">Printf</a>
+<a href="Queue.html">Queue</a>
+<a href="Random.html">Random</a>
+<a href="Scanf.html">Scanf</a>
+<a href="Set.html">Set</a>
+<a href="Sort.html">Sort</a>
+<a href="Stack.html">Stack</a>
+<a href="Std_exit.html">Std_exit</a>
+<a href="StdLabels.html">StdLabels</a>
+<a href="Stream.html">Stream</a>
+<a href="String.html">String</a>
+<a href="StringLabels.html">StringLabels</a>
+<a href="Sys.html">Sys</a>
+<a href="Unix.html">Unix</a>
+<a href="UnixLabels.html">UnixLabels</a>
+<a href="Weak.html">Weak</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/stdlib/int64.ml" class="edit-link">Edit</a>
+    <p>64-bit integers.</p>
+<p>This module provides operations on the type <code>int64</code> of signed 64-bit integers. Unlike the built-in <code>int</code> type, the type <code>int64</code> is guaranteed to be exactly 64-bit wide on all platforms. All arithmetic operations over <code>int64</code> are taken modulo 2Superscript</p>
+<p>Performance notice: values of type <code>int64</code> occupy more memory space than values of type <code>int</code>, and arithmetic operations on <code>int64</code> are generally slower than those on <code>int</code>. Use <code>int64</code> only when the application requires exact 64-bit arithmetic.</p>
+<p>other items defined</p><div class='doc-item'><h4 class='item'>let <a href="#value-zero" id="value-zero">zero</a>: int64</h4>
+
+<div class='body '><p>The 64-bit integer 0.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-one" id="value-one">one</a>: int64</h4>
+
+<div class='body '><p>The 64-bit integer 1.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-minus_one" id="value-minus_one">minus_one</a>: int64</h4>
+
+<div class='body '><p>The 64-bit integer -1.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-neg" id="value-neg">neg</a>: int64 => int64</h4>
+
+<div class='body '><p>Unary negation.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-add" id="value-add">add</a>: (int64, int64) => int64</h4>
+
+<div class='body '><p>Addition.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sub" id="value-sub">sub</a>: (int64, int64) => int64</h4>
+
+<div class='body '><p>Subtraction.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-mul" id="value-mul">mul</a>: (int64, int64) => int64</h4>
+
+<div class='body '><p>Multiplication.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-div" id="value-div">div</a>: (int64, int64) => int64</h4>
+
+<div class='body '><p>Integer division. Raise <code>Division_by_zero</code> if the second argument is zero. This division rounds the real quotient of its arguments towards zero, as specified for (/).</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-rem" id="value-rem">rem</a>: (int64, int64) => int64</h4>
+
+<div class='body '><p>Integer remainder. If <code>y</code> is not zero, the result of <code>Int64.rem x y</code> satisfies the following property: <code>x = Int64.add (Int64.mul (Int64.div x y) y) (Int64.rem x y)</code>. If <code>y = 0</code>, <code>Int64.rem x y</code> raises <code>Division_by_zero</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-succ" id="value-succ">succ</a>: int64 => int64</h4>
+
+<div class='body '><p>Successor. <code>Int64.succ x</code> is <code>Int64.add x Int64.one</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pred" id="value-pred">pred</a>: int64 => int64</h4>
+
+<div class='body '><p>Predecessor. <code>Int64.pred x</code> is <code>Int64.sub x Int64.one</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-abs" id="value-abs">abs</a>: int64 => int64</h4>
+
+<div class='body '><p>Return the absolute value of its argument.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-max_int" id="value-max_int">max_int</a>: int64</h4>
+
+<div class='body '><p>The greatest representable 64-bit integer, 2Superscript - 1.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-min_int" id="value-min_int">min_int</a>: int64</h4>
+
+<div class='body '><p>The smallest representable 64-bit integer, -2Superscript.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-logand" id="value-logand">logand</a>: (int64, int64) => int64</h4>
+
+<div class='body '><p>Bitwise logical and.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-logor" id="value-logor">logor</a>: (int64, int64) => int64</h4>
+
+<div class='body '><p>Bitwise logical or.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-logxor" id="value-logxor">logxor</a>: (int64, int64) => int64</h4>
+
+<div class='body '><p>Bitwise logical exclusive or.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-lognot" id="value-lognot">lognot</a>: int64 => int64</h4>
+
+<div class='body '><p>Bitwise logical negation</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-shift_left" id="value-shift_left">shift_left</a>: (int64, int) => int64</h4>
+
+<div class='body '><p><code>Int64.shift_left x y</code> shifts <code>x</code> to the left by <code>y</code> bits. The result is unspecified if <code>y &lt; 0</code> or <code>y &gt;= 64</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-shift_right" id="value-shift_right">shift_right</a>: (int64, int) => int64</h4>
+
+<div class='body '><p><code>Int64.shift_right x y</code> shifts <code>x</code> to the right by <code>y</code> bits. This is an arithmetic shift: the sign bit of <code>x</code> is replicated and inserted in the vacated bits. The result is unspecified if <code>y &lt; 0</code> or <code>y &gt;= 64</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-shift_right_logical" id="value-shift_right_logical">shift_right_logical</a>: (int64, int) => int64</h4>
+
+<div class='body '><p><code>Int64.shift_right_logical x y</code> shifts <code>x</code> to the right by <code>y</code> bits. This is a logical shift: zeroes are inserted in the vacated bits regardless of the sign of <code>x</code>. The result is unspecified if <code>y &lt; 0</code> or <code>y &gt;= 64</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-of_int" id="value-of_int">of_int</a>: int => int64</h4>
+
+<div class='body '><p>Convert the given integer (type <code>int</code>) to a 64-bit integer (type <code>int64</code>).</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-to_int" id="value-to_int">to_int</a>: int64 => int</h4>
+
+<div class='body '><p>Convert the given 64-bit integer (type <code>int64</code>) to an integer (type <code>int</code>). On 64-bit platforms, the 64-bit integer is taken modulo 2Superscript, i.e. the high-order bit is lost during the conversion. On 32-bit platforms, the 64-bit integer is taken modulo 2Superscript, i.e. the top 33 bits are lost during the conversion.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-of_float" id="value-of_float">of_float</a>: float => int64</h4>
+
+<div class='body '><p>Convert the given floating-point number to a 64-bit integer, discarding the fractional part (truncate towards 0). The result of the conversion is undefined if, after truncation, the number is outside the range [min_int, max_int].</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-to_float" id="value-to_float">to_float</a>: int64 => float</h4>
+
+<div class='body '><p>Convert the given 64-bit integer to a floating-point number.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-of_int32" id="value-of_int32">of_int32</a>: int32 => int64</h4>
+
+<div class='body '><p>Convert the given 32-bit integer (type <code>int32</code>) to a 64-bit integer (type <code>int64</code>).</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-to_int32" id="value-to_int32">to_int32</a>: int64 => int32</h4>
+
+<div class='body '><p>Convert the given 64-bit integer (type <code>int64</code>) to a 32-bit integer (type <code>int32</code>). The 64-bit integer is taken modulo 2Superscript, i.e. the top 32 bits are lost during the conversion.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-of_nativeint" id="value-of_nativeint">of_nativeint</a>: nativeint => int64</h4>
+
+<div class='body '><p>Convert the given native integer (type <code>nativeint</code>) to a 64-bit integer (type <code>int64</code>).</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-to_nativeint" id="value-to_nativeint">to_nativeint</a>: int64 => nativeint</h4>
+
+<div class='body '><p>Convert the given 64-bit integer (type <code>int64</code>) to a native integer. On 32-bit platforms, the 64-bit integer is taken modulo 2Superscript. On 64-bit platforms, the conversion is exact.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-of_string" id="value-of_string">of_string</a>: string => int64</h4>
+
+<div class='body '><p>Convert the given string to a 64-bit integer. The string is read in decimal (by default) or in hexadecimal, octal or binary if the string begins with <code>0x</code>, <code>0o</code> or <code>0b</code> respectively. Raise <code>Failure &quot;int_of_string&quot;</code> if the given string is not a valid representation of an integer, or if the integer represented exceeds the range of integers representable in type <code>int64</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-to_string" id="value-to_string">to_string</a>: int64 => string</h4>
+
+<div class='body '><p>Return the string representation of its argument, in decimal.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-bits_of_float" id="value-bits_of_float">bits_of_float</a>: float => int64</h4>
+
+<div class='body '><p>Return the internal representation of the given float according to the IEEE 754 floating-point &#39;double format&#39; bit layout. Bit 63 of the result represents the sign of the float; bits 62 to 52 represent the (biased) exponent; bits 51 to 0 represent the mantissa.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-float_of_bits" id="value-float_of_bits">float_of_bits</a>: int64 => float</h4>
+
+<div class='body '><p>Return the floating-point number whose internal representation, according to the IEEE 754 floating-point &#39;double format&#39; bit layout, is the given <code>int64</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-t" id="type-t">t</a> = int64</h4>
+
+<div class='body '><p>An alias for the type of 64-bit integers.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-compare" id="value-compare">compare</a>: (<a href="#type-t">t</a>, <a href="#type-t">t</a>) => int</h4>
+
+<div class='body '><p>The comparison function for 64-bit integers, with the same specification as compare. Along with the type <code>t</code>, this function <code>compare</code> allows the module <code>Int64</code> to be passed as argument to the functors Make and Make.</p>
+</div></div>
+
+<div class='doc-item'><p>/*</p>
+</div>
+
+<div class='doc-item'><h4 id="Deprecated-functions">Deprecated functions</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-format" id="value-format">format</a>: (string, int64) => string</h4>
+
+<div class='body '><p>Do not use this deprecated function. Instead, used sprintf with a <code>%L...</code> format.</p>
+</div></div>
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

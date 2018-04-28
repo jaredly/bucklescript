@@ -1,643 +1,835 @@
+
+    
 <!doctype html>
-<html>
-<head>
-                 <link rel="stylesheet" href="../api_static/tomorrow-night.css">
-                 <link rel="stylesheet" href="../api_static/style.css" type="text/css">
-                 <script src="../api_static//highlight.pack.js"></script>
-                 <script src="../api_static//script.js"></script>
-                 <script>hljs.initHighlightingOnLoad();</script> 
-                 <meta charset="utf8">
-                 <link rel="previous" href="Belt_Range.html"><link rel="next" href="Belt_SetDict.html">
-                 <title> Belt_Set </title></head> 
-               <body>
-<nav class="module-index"><ul><li><a href="Belt.html">Belt</a></li>
-<li><a href="Belt_Array.html">Belt_Array</a></li>
-<li><a href="Belt_HashMap.html">Belt_HashMap</a></li>
-<li><a href="Belt_HashMapInt.html">Belt_HashMapInt</a></li>
-<li><a href="Belt_HashMapString.html">Belt_HashMapString</a></li>
-<li><a href="Belt_HashSet.html">Belt_HashSet</a></li>
-<li><a href="Belt_HashSetInt.html">Belt_HashSetInt</a></li>
-<li><a href="Belt_HashSetString.html">Belt_HashSetString</a></li>
-<li><a href="Belt_Id.html">Belt_Id</a></li>
-<li><a href="Belt_List.html">Belt_List</a></li>
-<li><a href="Belt_Map.html">Belt_Map</a></li>
-<li><a href="Belt_MapDict.html">Belt_MapDict</a></li>
-<li><a href="Belt_MapInt.html">Belt_MapInt</a></li>
-<li><a href="Belt_MapString.html">Belt_MapString</a></li>
-<li><a href="Belt_MutableMap.html">Belt_MutableMap</a></li>
-<li><a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a></li>
-<li><a href="Belt_MutableMapString.html">Belt_MutableMapString</a></li>
-<li><a href="Belt_MutableQueue.html">Belt_MutableQueue</a></li>
-<li><a href="Belt_MutableSet.html">Belt_MutableSet</a></li>
-<li><a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a></li>
-<li><a href="Belt_MutableSetString.html">Belt_MutableSetString</a></li>
-<li><a href="Belt_MutableStack.html">Belt_MutableStack</a></li>
-<li><a href="Belt_Option.html">Belt_Option</a></li>
-<li><a href="Belt_Range.html">Belt_Range</a></li>
-<li><a href="Belt_Set.html">Belt_Set</a></li>
-<li><a href="Belt_SetDict.html">Belt_SetDict</a></li>
-<li><a href="Belt_SetInt.html">Belt_SetInt</a></li>
-<li><a href="Belt_SetString.html">Belt_SetString</a></li>
-<li><a href="Belt_SortArray.html">Belt_SortArray</a></li>
-<li><a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a></li>
-<li><a href="Belt_SortArrayString.html">Belt_SortArrayString</a></li>
-<li><a href="Belt_internalAVLset.html">Belt_internalAVLset</a></li>
-<li><a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a></li>
-<li><a href="Belt_internalBuckets.html">Belt_internalBuckets</a></li>
-<li><a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a></li>
-<li><a href="Belt_internalMapInt.html">Belt_internalMapInt</a></li>
-<li><a href="Belt_internalMapString.html">Belt_internalMapString</a></li>
-<li><a href="Belt_internalMutableAVLMap.html">Belt_internalMutableAVLMap</a></li>
-<li><a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a></li>
-<li><a href="Belt_internalSetInt.html">Belt_internalSetInt</a></li>
-<li><a href="Belt_internalSetString.html">Belt_internalSetString</a></li>
-<li><a href="Dom.html">Dom</a></li>
-<li><a href="Dom_storage.html">Dom_storage</a></li>
-<li><a href="Js.html">Js</a></li>
-<li><a href="Js_array.html">Js_array</a></li>
-<li><a href="Js_boolean.html">Js_boolean</a></li>
-<li><a href="Js_cast.html">Js_cast</a></li>
-<li><a href="Js_console.html">Js_console</a></li>
-<li><a href="Js_date.html">Js_date</a></li>
-<li><a href="Js_dict.html">Js_dict</a></li>
-<li><a href="Js_exn.html">Js_exn</a></li>
-<li><a href="Js_float.html">Js_float</a></li>
-<li><a href="Js_global.html">Js_global</a></li>
-<li><a href="Js_int.html">Js_int</a></li>
-<li><a href="Js_int64.html">Js_int64</a></li>
-<li><a href="Js_internal.html">Js_internal</a></li>
-<li><a href="Js_json.html">Js_json</a></li>
-<li><a href="Js_list.html">Js_list</a></li>
-<li><a href="Js_mapperRt.html">Js_mapperRt</a></li>
-<li><a href="Js_math.html">Js_math</a></li>
-<li><a href="Js_nativeint.html">Js_nativeint</a></li>
-<li><a href="Js_null.html">Js_null</a></li>
-<li><a href="Js_null_undefined.html">Js_null_undefined</a></li>
-<li><a href="Js_obj.html">Js_obj</a></li>
-<li><a href="Js_option.html">Js_option</a></li>
-<li><a href="Js_primitive.html">Js_primitive</a></li>
-<li><a href="Js_promise.html">Js_promise</a></li>
-<li><a href="Js_re.html">Js_re</a></li>
-<li><a href="Js_result.html">Js_result</a></li>
-<li><a href="Js_string.html">Js_string</a></li>
-<li><a href="Js_typed_array.html">Js_typed_array</a></li>
-<li><a href="Js_types.html">Js_types</a></li>
-<li><a href="Js_undefined.html">Js_undefined</a></li>
-<li><a href="Js_unsafe.html">Js_unsafe</a></li>
-<li><a href="Js_vector.html">Js_vector</a></li>
-<li><a href="Node.html">Node</a></li>
-<li><a href="Node_buffer.html">Node_buffer</a></li>
-<li><a href="Node_child_process.html">Node_child_process</a></li>
-<li><a href="Node_fs.html">Node_fs</a></li>
-<li><a href="Node_module.html">Node_module</a></li>
-<li><a href="Node_path.html">Node_path</a></li>
-<li><a href="Node_process.html">Node_process</a></li></ul></nav>
-<div class="navbar"><a class="pre" href="Belt_Range.html" title="Belt_Range">Previous</a>
-&nbsp;<a class="up" href="index.html" title="Index">Up</a>
-&nbsp;<a class="post" href="Belt_SetDict.html" title="Belt_SetDict">Next</a>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Belt_Set</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
 </div>
-<h1>Module <a href="type_Belt_Set.html">Belt_Set</a></h1>
 
-<pre><span class="keyword">module</span> Belt_Set: <code class="code">sig</code> <a href="Belt_Set.html">..</a> <code class="code">end</code></pre><div class="info module top">
-                    <div class="not-examples">
-                    A <i>immutable</i> sorted set module which allows customize <i>compare</i> behavior.
-<p>
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#module-Int" class='level-0 module'>Int</a>
+<a href="#module-String" class='level-0 module'>String</a>
+<a href="#module-Dict" class='level-0 module'>Dict</a>
+<a href="#type-t" class='level-0 type'>t</a>
+<a href="#type-id" class='level-0 type'>id</a>
+<a href="#value-make" class='level-0 value'>make</a>
+<a href="#value-ofArray" class='level-0 value'>ofArray</a>
+<a href="#value-fromArray" class='level-0 value'>fromArray</a>
+<a href="#value-ofSortedArrayUnsafe" class='level-0 value'>ofSortedArrayUnsafe</a>
+<a href="#value-fromSortedArrayUnsafe" class='level-0 value'>fromSortedArrayUnsafe</a>
+<a href="#value-isEmpty" class='level-0 value'>isEmpty</a>
+<a href="#value-has" class='level-0 value'>has</a>
+<a href="#value-add" class='level-0 value'>add</a>
+<a href="#value-mergeMany" class='level-0 value'>mergeMany</a>
+<a href="#value-remove" class='level-0 value'>remove</a>
+<a href="#value-removeMany" class='level-0 value'>removeMany</a>
+<a href="#value-union" class='level-0 value'>union</a>
+<a href="#value-intersect" class='level-0 value'>intersect</a>
+<a href="#value-diff" class='level-0 value'>diff</a>
+<a href="#value-subset" class='level-0 value'>subset</a>
+<a href="#value-cmp" class='level-0 value'>cmp</a>
+<a href="#value-eq" class='level-0 value'>eq</a>
+<a href="#value-forEachU" class='level-0 value'>forEachU</a>
+<a href="#value-forEach" class='level-0 value'>forEach</a>
+<a href="#value-reduceU" class='level-0 value'>reduceU</a>
+<a href="#value-reduce" class='level-0 value'>reduce</a>
+<a href="#value-everyU" class='level-0 value'>everyU</a>
+<a href="#value-every" class='level-0 value'>every</a>
+<a href="#value-someU" class='level-0 value'>someU</a>
+<a href="#value-some" class='level-0 value'>some</a>
+<a href="#value-keepU" class='level-0 value'>keepU</a>
+<a href="#value-keep" class='level-0 value'>keep</a>
+<a href="#value-partitionU" class='level-0 value'>partitionU</a>
+<a href="#value-partition" class='level-0 value'>partition</a>
+<a href="#value-size" class='level-0 value'>size</a>
+<a href="#value-toArray" class='level-0 value'>toArray</a>
+<a href="#value-toList" class='level-0 value'>toList</a>
+<a href="#value-minimum" class='level-0 value'>minimum</a>
+<a href="#value-minUndefined" class='level-0 value'>minUndefined</a>
+<a href="#value-maximum" class='level-0 value'>maximum</a>
+<a href="#value-maxUndefined" class='level-0 value'>maxUndefined</a>
+<a href="#value-get" class='level-0 value'>get</a>
+<a href="#value-getUndefined" class='level-0 value'>getUndefined</a>
+<a href="#value-getExn" class='level-0 value'>getExn</a>
+<a href="#value-split" class='level-0 value'>split</a>
+<a href="#value-checkInvariantInternal" class='level-0 value'>checkInvariantInternal</a>
+<a href="#value-getData" class='level-0 value'>getData</a>
+<a href="#value-getId" class='level-0 value'>getId</a>
+<a href="#value-packIdData" class='level-0 value'>packIdData</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Js.html">Js</a>
+<a href="Arg.html">Arg</a>
+<a href="Array.html">Array</a>
+<a href="ArrayLabels.html">ArrayLabels</a>
+<a href="Bigarray.html">Bigarray</a>
+<a href="Buffer.html">Buffer</a>
+<a href="Bytes.html">Bytes</a>
+<a href="BytesLabels.html">BytesLabels</a>
+<a href="Callback.html">Callback</a>
+<a href="CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="CamlinternalMod.html">CamlinternalMod</a>
+<a href="CamlinternalOO.html">CamlinternalOO</a>
+<a href="Char.html">Char</a>
+<a href="Complex.html">Complex</a>
+<a href="Digest.html">Digest</a>
+<a href="Filename.html">Filename</a>
+<a href="Format.html">Format</a>
+<a href="Gc.html">Gc</a>
+<a href="Genlex.html">Genlex</a>
+<a href="Hashtbl.html">Hashtbl</a>
+<a href="Int32.html">Int32</a>
+<a href="Int64.html">Int64</a>
+<a href="Lazy.html">Lazy</a>
+<a href="Lexing.html">Lexing</a>
+<a href="List.html">List</a>
+<a href="ListLabels.html">ListLabels</a>
+<a href="Map.html">Map</a>
+<a href="Marshal.html">Marshal</a>
+<a href="MoreLabels.html">MoreLabels</a>
+<a href="Nativeint.html">Nativeint</a>
+<a href="Obj.html">Obj</a>
+<a href="Oo.html">Oo</a>
+<a href="Parsing.html">Parsing</a>
+<a href="Pervasives.html">Pervasives</a>
+<a href="Printexc.html">Printexc</a>
+<a href="Printf.html">Printf</a>
+<a href="Queue.html">Queue</a>
+<a href="Random.html">Random</a>
+<a href="Scanf.html">Scanf</a>
+<a href="Set.html">Set</a>
+<a href="Sort.html">Sort</a>
+<a href="Stack.html">Stack</a>
+<a href="Std_exit.html">Std_exit</a>
+<a href="StdLabels.html">StdLabels</a>
+<a href="Stream.html">Stream</a>
+<a href="String.html">String</a>
+<a href="StringLabels.html">StringLabels</a>
+<a href="Sys.html">Sys</a>
+<a href="Unix.html">Unix</a>
+<a href="UnixLabels.html">UnixLabels</a>
+<a href="Weak.html">Weak</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/others/belt_Set.ml" class="edit-link">Edit</a>
+    <p>A <em>immutable</em> sorted set module which allows customize <em>compare</em> behavior.</p>
+<p>uses balanced binary trees, and therefore searching time logarithmic in the size of the map.</p>
+<p>is module&#39;s usage of identity, `make` and others, please see entation of Belt, <strong>A special encoding for collection safety</strong>.</p>
+<p>ator = Belt.Id.MakeComparable(struct int ) (b0, b1) = ves.compare a0 b0 with ives.compare a1 b1</p>
+<p>Set.make ~id:(module PairComparator) .Set.add mySet (1, 2)</p>
+<p>on below will assume a predeclared comparator module for integers, IntCmp</p>
+<p>other items defined</p><div class='doc-item'><h4 class='item module'>module <a href="#module-Int" id="module-Int">Int</a> : <a href="Belt_SetInt.html">Belt_SetInt</a></h4><div class='body module-body'><p>Specalized when value type is <code>int</code>, more efficient than the gerneic type, its compare behavior is fixed using the built-in comparison</p>
+</div></div>
 
-   The implementation uses balanced binary trees, and therefore searching
-   and insertion take time logarithmic in the size of the map.
-<p>
+<div class='doc-item'><h4 class='item module'>module <a href="#module-String" id="module-String">String</a> : <a href="Belt_SetString.html">Belt_SetString</a></h4><div class='body module-body'><p>Specalized when value type is <code>string</code>, more efficient than the gerneic type, its compare behavior is fixed using the built-in comparison</p>
+</div></div>
 
-  For more info on this module's usage of identity, `make` and others, please see
-  the top level documentation of Belt, <b>A special encoding for collection safety</b>.
-<p>
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Dict" id="module-Dict">Dict</a> : <a href="Belt_SetDict.html">Belt_SetDict</a></h4><div class='body module-body'><p>This module seprate identity from data, it is a bit more verbsoe but slightly more efficient due to the fact that there is no need to pack identity and data back after each operation</p>
+</div></div>
 
-  Example usage:<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">    module PairComparator = Belt.Id.MakeComparable(struct
-      type t = int * int
-      let cmp (a0, a1) (b0, b1) =
-        match Pervasives.compare a0 b0 with
-        | 0 -&gt; Pervasives.compare a1 b1
-        | c -&gt; c
-    end)
+<div class='doc-item'><h4 class='item'>type <a href="#type-t" id="type-t">t</a>('value, 'identity)</h4>
 
-    let mySet = Belt.Set.make ~id:(module PairComparator)
-    let mySet2 = Belt.Set.add mySet (1, 2)
-  </code></pre>
-<p>
+<div class='body '><p><code>(&#39;value, &#39;identity) t</code></p>
+<p><code>&#39;value</code> is the element type</p>
+<p><code>&#39;identity</code> the identity of the collection</p>
+</div></div>
 
-  The API documentation below will assume a predeclared comparator module for integers, IntCmp  </pre>
-                    </div>
-                    </div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-id" id="type-id">id</a>('value, 'id) = <a href="Belt_Id.html#type-comparable" title="Belt_Id.comparable">comparable</a>('value, 'id)</h4>
 
-                  <hr width="100%">
+<div class='body '><p>The identity needed for making a set from scratch</p>
+</div></div>
 
-<pre><span class="keyword">module</span> <a href="Belt_Set.Int.html">Int</a>: <code class="type"><a href="Belt_SetInt.html">Belt_SetInt</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Specalized when value type is <code class="code">int</code>, more efficient
-    than the gerneic type, its compare behavior is fixed using the built-in comparison<br>
- 
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Belt_Set.String.html">String</a>: <code class="type"><a href="Belt_SetString.html">Belt_SetString</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    Specalized when value type is <code class="code">string</code>, more efficient
-    than the gerneic type, its compare behavior is fixed using the built-in comparison<br>
- 
-                </div>
-                </div> 
-<pre><span class="keyword">module</span> <a href="Belt_Set.Dict.html">Dict</a>: <code class="type"><a href="Belt_SetDict.html">Belt_SetDict</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                    This module seprate identity from data, it is a bit more verbsoe but slightly
-    more efficient due to the fact that there is no need to pack identity and data back
-    after each operation<br>
- 
-                </div>
-                </div> <div class="type-declaration">
-<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type">('value, 'identity)</code> t</span> </pre>
+<div class='doc-item'><h4 class='item'>let <a href="#value-make" id="value-make">make</a>: (~id: <a href="#type-id">id</a>('value, 'id)) => <a href="#type-t">t</a>('value, 'id)</h4>
+
+<div class='body '><p><code>make ~id</code> creates a new set by taking in the comparator</p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='45' id='block-45'><code>let <span class='pattern-ident' data-type="'a">s</span> = <span class='ident' data-type="(~id: Belt_Set.id('a, 'a)) => Belt_Set.t('a, 'a)">make</span> ~id:(module IntCmp)</code></pre>
+  
+  <script type='docre-source' data-block-id="45">#open Belt_Set
+let s = make ~id:(module IntCmp)
+</script>
+  <div class='type-error'>Type Error:
+File &quot;&quot;, line 2, characters 25-31:
+Error: Unbound module IntCmp</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='45-alt' id='block-45-alt'><code>open Belt_Set;
+
+let <span class='pattern-ident' data-type="'a">s</span> = <span class='ident' data-type="(~id: Belt_Set.id('a, 'a)) => Belt_Set.t('a, 'a)">make</span>(~id=(module IntCmp));</code></pre>
+  
+  <script type='docre-source' data-block-id="45-alt">open Belt_Set;
+
+let s = make(~id=(module IntCmp));</script>
+  <div class='type-error'>Type Error:
+File &quot;&quot;, line 3, characters 25-31:
+Error: Unbound module IntCmp</div>
+</div></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-ofArray" id="value-ofArray">ofArray</a>: (array('value), ~id: <a href="#type-id">id</a>('value, 'id)) => <a href="#type-t">t</a>(
+  'value,
+  'id
+)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fromArray" id="value-fromArray">fromArray</a>: (array('value), ~id: <a href="#type-id">id</a>('value, 'id)) => <a href="#type-t">t</a>(
+  'value,
+  'id
+)</h4>
+
+<div class='body '><p><code>fromArray xs ~id</code></p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='46' id='block-46'><code>toArray (fromArray [1;3;2;4] (module IntCmp)) = [1;2;3;4]</code></pre>
+  
+  <script type='docre-source' data-block-id="46">#open Belt_Set
+toArray (fromArray [1;3;2;4] (module IntCmp)) = [1;2;3;4]
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 0-7:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='46-alt' id='block-46-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-ofSortedArrayUnsafe" id="value-ofSortedArrayUnsafe">ofSortedArrayUnsafe</a>: (
+  array('value),
+  ~id: <a href="#type-id">id</a>('value, 'id)
+) => <a href="#type-t">t</a>('value, 'id)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fromSortedArrayUnsafe" id="value-fromSortedArrayUnsafe">fromSortedArrayUnsafe</a>: (
+  array('value),
+  ~id: <a href="#type-id">id</a>('value, 'id)
+) => <a href="#type-t">t</a>('value, 'id)</h4>
+
+<div class='body '><p><code>fromSortedArrayUnsafe xs ~id</code></p>
+<p>The same as fromArray except it is after assuming the input array <code>x</code> is already sorted</p>
+<p><strong>Unsafe</strong></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-isEmpty" id="value-isEmpty">isEmpty</a>: <a href="#type-t">t</a>('a, 'a) => bool</h4>
+
+<div class='body '><div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='48' id='block-48'><code>isEmpty (fromArray [||] ~id:(module IntCmp)) = true;;
+isEmpty (fromArray [|1|] ~id:(module IntCmp)) = true;;</code></pre>
+  
+  <script type='docre-source' data-block-id="48">#open Belt_Set
+isEmpty (fromArray [||] ~id:(module IntCmp)) = true;;
+isEmpty (fromArray [|1|] ~id:(module IntCmp)) = true;;
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 0-7:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='48-alt' id='block-48-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-has" id="value-has">has</a>: (<a href="#type-t">t</a>('value, 'id), 'value) => bool</h4>
+
+<div class='body '><div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='48' id='block-48'><code>isEmpty (fromArray [||] ~id:(module IntCmp)) = true;;
+isEmpty (fromArray [|1|] ~id:(module IntCmp)) = true;;</code></pre>
+  
+  <script type='docre-source' data-block-id="48">#open Belt_Set
+isEmpty (fromArray [||] ~id:(module IntCmp)) = true;;
+isEmpty (fromArray [|1|] ~id:(module IntCmp)) = true;;
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 0-7:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='48-alt' id='block-48-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-add" id="value-add">add</a>: (<a href="#type-t">t</a>('value, 'id), 'value) => <a href="#type-t">t</a>('value, 'id)</h4>
+
+<div class='body '><p><code>add s x</code> If <code>x</code> was already in <code>s</code>, <code>s</code> is returned unchanged.</p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='49' id='block-49'><code>let <span class='pattern-ident' data-type="'a">s0</span> = <span class='ident' data-type="(~id: Belt_Set.id('a, 'a)) => Belt_Set.t('a, 'a)">make</span> ~id:(module IntCmp);;
+let s1 = add s0 1 ;;
+let s2 = add s1 2;;
+let s3 = add s2 2;;
+toArray s0 = [||];;
+toArray s1 = [|1|];;
+toArray s2 = [|1;2|];;
+toArray s3 = [|1;2|];;
+s2 == s3;;</code></pre>
+  
+  <script type='docre-source' data-block-id="49">#open Belt_Set
+let s0 = make ~id:(module IntCmp);;
+let s1 = add s0 1 ;;
+let s2 = add s1 2;;
+let s3 = add s2 2;;
+toArray s0 = [||];;
+toArray s1 = [|1|];;
+toArray s2 = [|1;2|];;
+toArray s3 = [|1;2|];;
+s2 == s3;;
+</script>
+  <div class='type-error'>Type Error:
+File &quot;&quot;, line 2, characters 26-32:
+Error: Unbound module IntCmp</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='49-alt' id='block-49-alt'><code>open Belt_Set;
+
+let <span class='pattern-ident' data-type="'a">s0</span> = <span class='ident' data-type="(~id: Belt_Set.id('a, 'a)) => Belt_Set.t('a, 'a)">make</span>(~id=(module IntCmp));
+
+let s1 = add(s0, 1);
+
+let s2 = add(s1, 2);
+
+let s3 = add(s2, 2);
+
+toArray(s0) == [||];
+
+toArray(s1) == [|1|];
+
+toArray(s2) == [|1, 2|];
+
+toArray(s3) == [|1, 2|];
+
+s2 === s3;</code></pre>
+  
+  <script type='docre-source' data-block-id="49-alt">open Belt_Set;
+
+let s0 = make(~id=(module IntCmp));
+
+let s1 = add(s0, 1);
+
+let s2 = add(s1, 2);
+
+let s3 = add(s2, 2);
+
+toArray(s0) == [||];
+
+toArray(s1) == [|1|];
+
+toArray(s2) == [|1, 2|];
+
+toArray(s3) == [|1, 2|];
+
+s2 === s3;</script>
+  <div class='type-error'>Type Error:
+File &quot;&quot;, line 3, characters 26-32:
+Error: Unbound module IntCmp</div>
+</div></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-mergeMany" id="value-mergeMany">mergeMany</a>: (<a href="#type-t">t</a>('value, 'id), array('value)) => <a href="#type-t">t</a>(
+  'value,
+  'id
+)</h4>
+
+<div class='body '><p><code>mergeMany s xs</code></p>
+<p>Adding each of <code>xs</code> to <code>s</code>, note unlike add, the reference of return value might be changed even if all values in <code>xs</code> exist <code>s</code></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-remove" id="value-remove">remove</a>: (<a href="#type-t">t</a>('value, 'id), 'value) => <a href="#type-t">t</a>('value, 'id)</h4>
+
+<div class='body '><p><code>mergeMany s xs</code></p>
+<p>Adding each of <code>xs</code> to <code>s</code>, note unlike add, the reference of return value might be changed even if all values in <code>xs</code> exist <code>s</code></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-removeMany" id="value-removeMany">removeMany</a>: (<a href="#type-t">t</a>('value, 'id), array('value)) => <a href="#type-t">t</a>(
+  'value,
+  'id
+)</h4>
+
+<div class='body '><p><code>removeMany s xs</code></p>
+<p>Removing each of <code>xs</code> to <code>s</code>, note unlike remove, the reference of return value might be changed even if none in <code>xs</code> exists <code>s</code></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-union" id="value-union">union</a>: (<a href="#type-t">t</a>('value, 'id), <a href="#type-t">t</a>('value, 'id)) => <a href="#type-t">t</a>(
+  'value,
+  'id
+)</h4>
+
+<div class='body '><p><code>union s0 s1</code></p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='50' id='block-50'><code>let s0 = fromArray ~id:(module IntCmp) [|5;2;3;5;6|]];;
+let s1 = fromArray ~id:(module IntCmp) [|5;2;3;1;5;4;|];;
+toArray (union s0 s1) =  [|1;2;3;4;5;6|]</code></pre>
+  
+  <script type='docre-source' data-block-id="50">#open Belt_Set
+let s0 = fromArray ~id:(module IntCmp) [|5;2;3;5;6|]];;
+let s1 = fromArray ~id:(module IntCmp) [|5;2;3;1;5;4;|];;
+toArray (union s0 s1) =  [|1;2;3;4;5;6|]
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 52-53:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='50-alt' id='block-50-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-intersect" id="value-intersect">intersect</a>: (<a href="#type-t">t</a>('value, 'id), <a href="#type-t">t</a>('value, 'id)) => <a href="#type-t">t</a>(
+  'value,
+  'id
+)</h4>
+
+<div class='body '><p><code>intersect s0 s1</code></p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='52' id='block-52'><code>let s0 = fromArray ~id:(module IntCmp) [|5;2;3;5;6|]];;
+let s1 = fromArray ~id:(module IntCmp) [|5;2;3;1;5;4;|];;
+toArray (intersect s0 s1) =  [|2;3;5|]</code></pre>
+  
+  <script type='docre-source' data-block-id="52">#open Belt_Set
+let s0 = fromArray ~id:(module IntCmp) [|5;2;3;5;6|]];;
+let s1 = fromArray ~id:(module IntCmp) [|5;2;3;1;5;4;|];;
+toArray (intersect s0 s1) =  [|2;3;5|]
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 52-53:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='52-alt' id='block-52-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-diff" id="value-diff">diff</a>: (<a href="#type-t">t</a>('value, 'id), <a href="#type-t">t</a>('value, 'id)) => <a href="#type-t">t</a>('value, 'id)</h4>
+
+<div class='body '><p><code>intersect s0 s1</code></p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='52' id='block-52'><code>let s0 = fromArray ~id:(module IntCmp) [|5;2;3;5;6|]];;
+let s1 = fromArray ~id:(module IntCmp) [|5;2;3;1;5;4;|];;
+toArray (intersect s0 s1) =  [|2;3;5|]</code></pre>
+  
+  <script type='docre-source' data-block-id="52">#open Belt_Set
+let s0 = fromArray ~id:(module IntCmp) [|5;2;3;5;6|]];;
+let s1 = fromArray ~id:(module IntCmp) [|5;2;3;1;5;4;|];;
+toArray (intersect s0 s1) =  [|2;3;5|]
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 52-53:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='52-alt' id='block-52-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-subset" id="value-subset">subset</a>: (<a href="#type-t">t</a>('value, 'id), <a href="#type-t">t</a>('value, 'id)) => bool</h4>
+
+<div class='body '><p><code>subset s0 s1</code></p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='53' id='block-53'><code>let s0 = fromArray ~id:(module IntCmp) [|5;2;3;5;6|]];;
+let s1 = fromArray ~id:(module IntCmp) [|5;2;3;1;5;4;|];;
+let s2 = intersect s0 s1;;
+subset s2 s0 = true;;
+subset s2 s1 = true;;
+subset s1 s0 = false;;</code></pre>
+  
+  <script type='docre-source' data-block-id="53">#open Belt_Set
+let s0 = fromArray ~id:(module IntCmp) [|5;2;3;5;6|]];;
+let s1 = fromArray ~id:(module IntCmp) [|5;2;3;1;5;4;|];;
+let s2 = intersect s0 s1;;
+subset s2 s0 = true;;
+subset s2 s1 = true;;
+subset s1 s0 = false;;
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 52-53:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='53-alt' id='block-53-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-cmp" id="value-cmp">cmp</a>: (<a href="#type-t">t</a>('value, 'id), <a href="#type-t">t</a>('value, 'id)) => int</h4>
+
+<div class='body '><p>Total ordering between sets. Can be used as the ordering function for doing sets of sets. It compare <code>size</code> first and then iterate over each element following the order of elements</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-eq" id="value-eq">eq</a>: (<a href="#type-t">t</a>('value, 'id), <a href="#type-t">t</a>('value, 'id)) => bool</h4>
+
+<div class='body '><p><code>eq s0 s1</code></p>
+<p>Returns: <p>true if <code>toArray s0 = toArray s1</code></p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-forEachU" id="value-forEachU">forEachU</a>: (
+  <a href="#type-t">t</a>('value, 'id),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_1 of 'value13 ], unit)
+) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-forEach" id="value-forEach">forEach</a>: (<a href="#type-t">t</a>('value, 'id), 'value => unit) => unit</h4>
+
+<div class='body '><p><code>forEach s f</code> applies <code>f</code> in turn to all elements of <code>s</code>. In increasing order</p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='54' id='block-54'><code>let s0 = fromArray ~id:(module IntCmp) [|5;2;3;5;6|]];;
+let acc = ref [] ;;
+forEach s0 (fun x -&gt; acc := x !acc);;
+!acc = [6;5;3;2];;</code></pre>
+  
+  <script type='docre-source' data-block-id="54">#open Belt_Set
+let s0 = fromArray ~id:(module IntCmp) [|5;2;3;5;6|]];;
+let acc = ref [] ;;
+forEach s0 (fun x -> acc := x !acc);;
+!acc = [6;5;3;2];;
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 52-53:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='54-alt' id='block-54-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-reduceU" id="value-reduceU">reduceU</a>: (
+  <a href="#type-t">t</a>('value, 'id),
+  'a,
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of 'a75 * 'value12 ], 'a)
+) => 'a</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-reduce" id="value-reduce">reduce</a>: (<a href="#type-t">t</a>('value, 'id), 'a, ('a, 'value) => 'a) => 'a</h4>
+
+<div class='body '><p>In increasing order.</p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='55' id='block-55'><code>let s0 = fromArray ~id:(module IntCmp) [|5;2;3;5;6|]];;
+reduce s0 [] Bs.List.add = [6;5;3;2];;</code></pre>
+  
+  <script type='docre-source' data-block-id="55">#open Belt_Set
+let s0 = fromArray ~id:(module IntCmp) [|5;2;3;5;6|]];;
+reduce s0 [] Bs.List.add = [6;5;3;2];;
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 52-53:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='55-alt' id='block-55-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-everyU" id="value-everyU">everyU</a>: (
+  <a href="#type-t">t</a>('value, 'id),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_1 of 'value11 ], bool)
+) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-every" id="value-every">every</a>: (<a href="#type-t">t</a>('value, 'id), 'value => bool) => bool</h4>
+
+<div class='body '><p><code>every p s</code> checks if all elements of the set satisfy the predicate <code>p</code>. Order unspecified.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-someU" id="value-someU">someU</a>: (
+  <a href="#type-t">t</a>('value, 'id),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_1 of 'value10 ], bool)
+) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-some" id="value-some">some</a>: (<a href="#type-t">t</a>('value, 'id), 'value => bool) => bool</h4>
+
+<div class='body '><p><code>some p s</code> checks if at least one element of the set satisfies the predicate <code>p</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-keepU" id="value-keepU">keepU</a>: (
+  <a href="#type-t">t</a>('value, 'id),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_1 of 'value9 ], bool)
+) => <a href="#type-t">t</a>('value, 'id)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-keep" id="value-keep">keep</a>: (<a href="#type-t">t</a>('value, 'id), 'value => bool) => <a href="#type-t">t</a>('value, 'id)</h4>
+
+<div class='body '><p><code>keep m p</code> returns the set of all elements in <code>s</code> that satisfy predicate <code>p</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-partitionU" id="value-partitionU">partitionU</a>: (
+  <a href="#type-t">t</a>('value, 'id),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_1 of 'value8 ], bool)
+) => (<a href="#type-t">t</a>('value, 'id), <a href="#type-t">t</a>('value, 'id))</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-partition" id="value-partition">partition</a>: (<a href="#type-t">t</a>('value, 'id), 'value => bool) => (
+  <a href="#type-t">t</a>('value, 'id),
+  <a href="#type-t">t</a>('value, 'id)
+)</h4>
+
+<div class='body '><p><code>partition m p</code> returns a pair of sets <code>(s1, s2)</code>, where <code>s1</code> is the set of all the elements of <code>s</code> that satisfy the predicate <code>p</code>, and <code>s2</code> is the set of all the elements of <code>s</code> that do not satisfy <code>p</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-size" id="value-size">size</a>: <a href="#type-t">t</a>('value, 'id) => int</h4>
+
+<div class='body '><p><code>size s</code></p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='56' id='block-56'><code>let s0 = fromArray ~id:(module IntCmp) [|5;2;3;5;6|]];;
+size s0 = 4;;</code></pre>
+  
+  <script type='docre-source' data-block-id="56">#open Belt_Set
+let s0 = fromArray ~id:(module IntCmp) [|5;2;3;5;6|]];;
+size s0 = 4;;
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 52-53:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='56-alt' id='block-56-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-toArray" id="value-toArray">toArray</a>: <a href="#type-t">t</a>('value, 'id) => array('value)</h4>
+
+<div class='body '><p><code>toArray s0</code></p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='57' id='block-57'><code>let s0 = fromArray ~id:(module IntCmp) [|5;2;3;5;6|]];;
+toArray s0 = [|2;3;5;6|];;</code></pre>
+  
+  <script type='docre-source' data-block-id="57">#open Belt_Set
+let s0 = fromArray ~id:(module IntCmp) [|5;2;3;5;6|]];;
+toArray s0 = [|2;3;5;6|];;
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 52-53:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='57-alt' id='block-57-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-toList" id="value-toList">toList</a>: <a href="#type-t">t</a>('value, 'id) => list('value)</h4>
+
+<div class='body '><p>In increasing order</p>
+<p><strong>See</strong> toArray</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-minimum" id="value-minimum">minimum</a>: <a href="#type-t">t</a>('value, 'id) => option('value)</h4>
+
+<div class='body '><p><code>minimum s0</code></p>
+<p>Returns: <p>the minimum element of the collection, <code>None</code> if it is empty</p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-minUndefined" id="value-minUndefined">minUndefined</a>: <a href="#type-t">t</a>('value, 'id) => <a href="Js.html#type-undefined" title="Js.undefined">undefined</a>('value)</h4>
+
+<div class='body '><p><code>minUndefined s0</code></p>
+<p>Returns: <p>the minimum element of the collection, <code>undefined</code> if it is empty</p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-maximum" id="value-maximum">maximum</a>: <a href="#type-t">t</a>('value, 'id) => option('value)</h4>
+
+<div class='body '><p><code>maximum s0</code></p>
+<p>Returns: <p>the maximum element of the collection, <code>None</code> if it is empty</p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-maxUndefined" id="value-maxUndefined">maxUndefined</a>: <a href="#type-t">t</a>('value, 'id) => <a href="Js.html#type-undefined" title="Js.undefined">undefined</a>('value)</h4>
+
+<div class='body '><p><code>maximum s0</code></p>
+<p>Returns: <p>the maximum element of the collection, <code>None</code> if it is empty</p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-get" id="value-get">get</a>: (<a href="#type-t">t</a>('value, 'id), 'value) => option('value)</h4>
+
+<div class='body '><p><code>get s0 k</code></p>
+<p>Returns: <p>the reference of the value <code>k&#39;</code> which is equivalent to <code>k</code> using the comparator specifiecd by this collection, <code>None</code> if it does not exist</p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getUndefined" id="value-getUndefined">getUndefined</a>: (<a href="#type-t">t</a>('value, 'id), 'value) => <a href="Js.html#type-undefined" title="Js.undefined">undefined</a>(
+  'value
+)</h4>
+
+<div class='body '><p><strong>See</strong> get</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getExn" id="value-getExn">getExn</a>: (<a href="#type-t">t</a>('value, 'id), 'value) => 'value</h4>
+
+<div class='body '><p><strong>See</strong> get</p>
+<p><strong>raise</strong> if not exist</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-split" id="value-split">split</a>: (<a href="#type-t">t</a>('value, 'id), 'value) => (
+  (<a href="#type-t">t</a>('value, 'id), <a href="#type-t">t</a>('value, 'id)),
+  bool
+)</h4>
+
+<div class='body '><p><code>split set ele</code></p>
+<p>Returns: <p>a tuple <code>((smaller, larger), present)</code>, <code>present</code> is true when <code>ele</code> exist in <code>set</code></p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-checkInvariantInternal" id="value-checkInvariantInternal">checkInvariantInternal</a>: <a href="#type-t">t</a>('a, 'a) => unit</h4>
+
+<div class='body '><p>/*</p>
+</div></div>
+
+<div class='doc-item'><p>Below are operations only when better performance needed, it is still safe API but more verbose. More API will be exposed by needs</p>
 </div>
-<div class="info ">
-                    <div class="not-examples">
-                    <code class="code">('value, 'identity) t</code>
-<p>
 
-    <code class="code">'value</code> is the element type
-<p>
+<div class='doc-item'><h4 class='item'>let <a href="#value-getData" id="value-getData">getData</a>: <a href="#type-t">t</a>('value, 'id) => <a href="Belt_SetDict.html">Belt_SetDict</a>.<a href="Belt_SetDict.html#type-t">t</a>('value, 'id)</h4>
 
-    <code class="code">'identity</code> the identity of the collection<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='body '><p><code>getData s0</code></p>
+<p><strong>Advanced usage only</strong></p>
+<p>Returns: <p>the raw data (detached from comparator), but its type is still manifested, so that user can pass identity directly without boxing</p></p>
+</div></div>
 
-                  
-<div class="type-declaration">
-<pre><span id="TYPEid"><span class="keyword">type</span> <code class="type">('value, 'id)</code> id</span> = <code class="type">('value, 'id) <a href="Belt_Id.html#TYPEcomparable">Belt_Id.comparable</a></code> </pre>
-</div>
-<div class="info ">
-                    <div class="not-examples">
-                    The identity needed for making a set from scratch<br>
- 
-                    </div>
-                    
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-getId" id="value-getId">getId</a>: <a href="#type-t">t</a>('value, 'id) => <a href="#type-id">id</a>('value, 'id)</h4>
 
-                  
+<div class='body '><p><code>getId s0</code></p>
+<p><strong>Advanced usage only</strong></p>
+<p>Returns: <p>the identity of <code>s0</code></p></p>
+</div></div>
 
-<pre><span id="VALmake"><span class="keyword">val</span> make</span> : <code class="type">id:('value, 'id) <a href="Belt_Set.html#TYPEid">id</a> -> ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">make ~id</code> creates a new set by taking in the comparator<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      let s = make ~id:(module IntCmp)
-    </code></pre>  </pre>
-                    </div>
-                    </div>
+<div class='doc-item'><h4 class='item'>let <a href="#value-packIdData" id="value-packIdData">packIdData</a>: (
+  ~id: <a href="#type-id">id</a>('value, 'id),
+  ~data: <a href="Belt_SetDict.html">Belt_SetDict</a>.<a href="Belt_SetDict.html#type-t">t</a>('value, 'id)
+) => <a href="#type-t">t</a>('value, 'id)</h4>
 
-                  
-<pre><span id="VALofArray"><span class="keyword">val</span> ofArray</span> : <code class="type">'value array -> id:('value, 'id) <a href="Belt_Set.html#TYPEid">id</a> -> ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a></code></pre>
-<pre><span id="VALfromArray"><span class="keyword">val</span> fromArray</span> : <code class="type">'value array -> id:('value, 'id) <a href="Belt_Set.html#TYPEid">id</a> -> ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">fromArray xs ~id</code><br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">     toArray (fromArray [1;3;2;4] (module IntCmp)) = [1;2;3;4]
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALofSortedArrayUnsafe"><span class="keyword">val</span> ofSortedArrayUnsafe</span> : <code class="type">'value array -> id:('value, 'id) <a href="Belt_Set.html#TYPEid">id</a> -> ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a></code></pre>
-<pre><span id="VALfromSortedArrayUnsafe"><span class="keyword">val</span> fromSortedArrayUnsafe</span> : <code class="type">'value array -> id:('value, 'id) <a href="Belt_Set.html#TYPEid">id</a> -> ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">fromSortedArrayUnsafe xs ~id</code>
-<p>
-
-    The same as <a href="Belt_Set.html#VALfromArray"><code class="code">Belt_Set.fromArray</code></a> except it is after assuming the input array <code class="code">x</code> is already sorted
-<p>
-
-    <b>Unsafe</b><br>
- 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALisEmpty"><span class="keyword">val</span> isEmpty</span> : <code class="type">('a, 'b) <a href="Belt_Set.html#TYPEt">t</a> -> bool</code></pre><div class="info ">
-                    <div class="not-examples">
-                     
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">     isEmpty (fromArray [||] ~id:(module IntCmp)) = true;;
-     isEmpty (fromArray [|1|] ~id:(module IntCmp)) = true;;
-   </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALhas"><span class="keyword">val</span> has</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> 'value -> bool</code></pre><div class="info ">
-                    <div class="not-examples">
-                     
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">     let v = fromArray [|1;4;2;5|] ~id:(module IntCmp);;
-     has v 3 = false;;
-     has v 1 = true;;
-   </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALadd"><span class="keyword">val</span> add</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> 'value -> ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">add s x</code> If <code class="code">x</code> was already in <code class="code">s</code>, <code class="code">s</code> is returned unchanged.<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">     let s0 = make ~id:(module IntCmp);;
-     let s1 = add s0 1 ;;
-     let s2 = add s1 2;;
-     let s3 = add s2 2;;
-     toArray s0 = [||];;
-     toArray s1 = [|1|];;
-     toArray s2 = [|1;2|];;
-     toArray s3 = [|1;2|];;
-     s2 == s3;;
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALmergeMany"><span class="keyword">val</span> mergeMany</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> 'value array -> ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">mergeMany s xs</code>
-<p>
-
-    Adding each of <code class="code">xs</code> to <code class="code">s</code>, note unlike <a href="Belt_Set.html#VALadd"><code class="code">Belt_Set.add</code></a>,
-    the reference of return value might be changed even if all values in <code class="code">xs</code>
-    exist <code class="code">s</code><br>
- 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALremove"><span class="keyword">val</span> remove</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> 'value -> ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">remove m x</code> If <code class="code">x</code> was not in <code class="code">m</code>, <code class="code">m</code> is returned reference unchanged.<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      let s0 = fromArray ~id:(module IntCmp) [|2;3;1;4;5|];;
-      let s1 = remove s0 1 ;;
-      let s2 = remove s1 3 ;;
-      let s3 = remove s2 3 ;;
-
-      toArray s1 = [|2;3;4;5|];;
-      toArray s2 = [|2;4;5|];;
-      s2 == s3;;
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALremoveMany"><span class="keyword">val</span> removeMany</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> 'value array -> ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">removeMany s xs</code>
-<p>
-
-    Removing each of <code class="code">xs</code> to <code class="code">s</code>, note unlike <a href="Belt_Set.html#VALremove"><code class="code">Belt_Set.remove</code></a>,
-    the reference of return value might be changed even if none in <code class="code">xs</code>
-    exists <code class="code">s</code><br>
- 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALunion"><span class="keyword">val</span> union</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -><br>       ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">union s0 s1</code><br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">     let s0 = fromArray ~id:(module IntCmp) [|5;2;3;5;6|]];;
-     let s1 = fromArray ~id:(module IntCmp) [|5;2;3;1;5;4;|];;
-     toArray (union s0 s1) =  [|1;2;3;4;5;6|]
-   </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALintersect"><span class="keyword">val</span> intersect</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -><br>       ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">intersect s0 s1</code><br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">     let s0 = fromArray ~id:(module IntCmp) [|5;2;3;5;6|]];;
-     let s1 = fromArray ~id:(module IntCmp) [|5;2;3;1;5;4;|];;
-     toArray (intersect s0 s1) =  [|2;3;5|]
-   </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALdiff"><span class="keyword">val</span> diff</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -><br>       ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">diff s0 s1</code><br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      let s0 = fromArray ~id:(module IntCmp) [|5;2;3;5;6|]];;
-      let s1 = fromArray ~id:(module IntCmp) [|5;2;3;1;5;4;|];;
-      toArray (diff s0 s1) = [|6|];;
-      toArray (diff s1 s0) = [|1;4|];;
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALsubset"><span class="keyword">val</span> subset</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> bool</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">subset s0 s1</code><br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      let s0 = fromArray ~id:(module IntCmp) [|5;2;3;5;6|]];;
-      let s1 = fromArray ~id:(module IntCmp) [|5;2;3;1;5;4;|];;
-      let s2 = intersect s0 s1;;
-      subset s2 s0 = true;;
-      subset s2 s1 = true;;
-      subset s1 s0 = false;;
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALcmp"><span class="keyword">val</span> cmp</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> int</code></pre><div class="info ">
-                    <div class="not-examples">
-                    Total ordering between sets. Can be used as the ordering function
-    for doing sets of sets.
-    It compare <code class="code">size</code> first and then iterate over
-    each element following the order of elements<br>
- 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALeq"><span class="keyword">val</span> eq</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> bool</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">eq s0 s1</code><br>
-<div class="tag"> <b>Returns</b> true if <code class="code">toArray s0 = toArray s1</code><br>
- </div> 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALforEachU"><span class="keyword">val</span> forEachU</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> ('value -> unit [@bs]) -> unit</code></pre>
-<pre><span id="VALforEach"><span class="keyword">val</span> forEach</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> ('value -> unit) -> unit</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">forEach s f</code> applies <code class="code">f</code> in turn to all elements of <code class="code">s</code>.
-    In increasing order<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      let s0 = fromArray ~id:(module IntCmp) [|5;2;3;5;6|]];;
-      let acc = ref [] ;;
-      forEach s0 (fun x -&gt; acc := x !acc);;
-      !acc = [6;5;3;2];;
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALreduceU"><span class="keyword">val</span> reduceU</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> 'a -> ('a -> 'value -> 'a [@bs]) -> 'a</code></pre>
-<pre><span id="VALreduce"><span class="keyword">val</span> reduce</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> 'a -> ('a -> 'value -> 'a) -> 'a</code></pre><div class="info ">
-                    <div class="not-examples">
-                    In increasing order.<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      let s0 = fromArray ~id:(module IntCmp) [|5;2;3;5;6|]];;
-      reduce s0 [] Bs.List.add = [6;5;3;2];;
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALeveryU"><span class="keyword">val</span> everyU</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> ('value -> bool [@bs]) -> bool</code></pre>
-<pre><span id="VALevery"><span class="keyword">val</span> every</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> ('value -> bool) -> bool</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">every p s</code> checks if all elements of the set
-    satisfy the predicate <code class="code">p</code>. Order unspecified.<br>
- 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALsomeU"><span class="keyword">val</span> someU</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> ('value -> bool [@bs]) -> bool</code></pre>
-<pre><span id="VALsome"><span class="keyword">val</span> some</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> ('value -> bool) -> bool</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">some p s</code> checks if at least one element of
-    the set satisfies the predicate <code class="code">p</code>.<br>
- 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALkeepU"><span class="keyword">val</span> keepU</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -><br>       ('value -> bool [@bs]) -> ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a></code></pre>
-<pre><span id="VALkeep"><span class="keyword">val</span> keep</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> ('value -> bool) -> ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">keep m p</code> returns the set of all elements in <code class="code">s</code>
-    that satisfy predicate <code class="code">p</code>.<br>
- 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALpartitionU"><span class="keyword">val</span> partitionU</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -><br>       ('value -> bool [@bs]) -> ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> * ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a></code></pre>
-<pre><span id="VALpartition"><span class="keyword">val</span> partition</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -><br>       ('value -> bool) -> ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> * ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">partition m p</code> returns a pair of sets <code class="code">(s1, s2)</code>, where
-    <code class="code">s1</code> is the set of all the elements of <code class="code">s</code> that satisfy the
-    predicate <code class="code">p</code>, and <code class="code">s2</code> is the set of all the elements of
-    <code class="code">s</code> that do not satisfy <code class="code">p</code>.<br>
- 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALsize"><span class="keyword">val</span> size</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> int</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">size s</code><br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      let s0 = fromArray ~id:(module IntCmp) [|5;2;3;5;6|]];;
-      size s0 = 4;;
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALtoArray"><span class="keyword">val</span> toArray</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> 'value array</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">toArray s0</code><br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      let s0 = fromArray ~id:(module IntCmp) [|5;2;3;5;6|]];;
-      toArray s0 = [|2;3;5;6|];;
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALtoList"><span class="keyword">val</span> toList</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> 'value list</code></pre><div class="info ">
-                    <div class="not-examples">
-                    In increasing order
-<p>
-
-    <b>See</b> <a href="Belt_Set.html#VALtoArray"><code class="code">Belt_Set.toArray</code></a><br>
- 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALminimum"><span class="keyword">val</span> minimum</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> 'value option</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">minimum s0</code><br>
-<div class="tag"> <b>Returns</b> the minimum element of the collection, <code class="code">None</code> if it is empty<br>
- </div> 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALminUndefined"><span class="keyword">val</span> minUndefined</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> 'value <a href="Js.html#TYPEundefined">Js.undefined</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">minUndefined s0</code><br>
-<div class="tag"> <b>Returns</b> the minimum element of the collection, <code class="code">undefined</code> if it is empty<br>
- </div> 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALmaximum"><span class="keyword">val</span> maximum</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> 'value option</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">maximum s0</code><br>
-<div class="tag"> <b>Returns</b> the maximum element of the collection, <code class="code">None</code> if it is empty<br>
- </div> 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALmaxUndefined"><span class="keyword">val</span> maxUndefined</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> 'value <a href="Js.html#TYPEundefined">Js.undefined</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">maxUndefined s0</code><br>
-<div class="tag"> <b>Returns</b> the maximum element of the collection, <code class="code">undefined</code> if it is empty<br>
- </div> 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALget"><span class="keyword">val</span> get</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> 'value -> 'value option</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">get s0 k</code><br>
-<div class="tag"> <b>Returns</b> the reference of the value <code class="code">k'</code> which is equivalent to <code class="code">k</code>
-    using  the comparator specifiecd by this collection, <code class="code">None</code>
-    if it does not exist<br>
- </div> 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALgetUndefined"><span class="keyword">val</span> getUndefined</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> 'value -> 'value <a href="Js.html#TYPEundefined">Js.undefined</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    <b>See</b> <a href="Belt_Set.html#VALget"><code class="code">Belt_Set.get</code></a><br>
- 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALgetExn"><span class="keyword">val</span> getExn</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> 'value -> 'value</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <b>See</b> <a href="Belt_Set.html#VALget"><code class="code">Belt_Set.get</code></a>
-<p>
-
-    <b>raise</b> if not exist<br>
- 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALsplit"><span class="keyword">val</span> split</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -><br>       'value -> (('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> * ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a>) * bool</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">split set ele</code><br>
-<div class="tag"> <b>Returns</b> a tuple <code class="code">((smaller, larger), present)</code>,
-    <code class="code">present</code> is true when <code class="code">ele</code> exist in <code class="code">set</code><br>
- </div> 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALgetData"><span class="keyword">val</span> getData</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> ('value, 'id) <a href="Belt_SetDict.html#TYPEt">Belt_SetDict.t</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">getData s0</code>
-<p>
-
-    <b>Advanced usage only</b><br>
-<div class="tag"> <b>Returns</b> the raw data (detached from comparator),
-    but its type is still manifested, so that user can pass identity directly
-    without boxing<br>
- </div> 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALgetId"><span class="keyword">val</span> getId</span> : <code class="type">('value, 'id) <a href="Belt_Set.html#TYPEt">t</a> -> ('value, 'id) <a href="Belt_Set.html#TYPEid">id</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">getId s0</code>
-<p>
-
-    <b>Advanced usage only</b><br>
-<div class="tag"> <b>Returns</b> the identity of <code class="code">s0</code><br>
- </div> 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALpackIdData"><span class="keyword">val</span> packIdData</span> : <code class="type">id:('value, 'id) <a href="Belt_Set.html#TYPEid">id</a> -><br>       data:('value, 'id) <a href="Belt_SetDict.html#TYPEt">Belt_SetDict.t</a> -> ('value, 'id) <a href="Belt_Set.html#TYPEt">t</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">packIdData ~id ~data</code>
-<p>
-
-    <b>Advanced usage only</b><br>
-<div class="tag"> <b>Returns</b> the packed collection<br>
- </div> 
-                    </div>
-                    
-                    </div>
-
-                  </body></html>
+<div class='body '><p><code>packIdData ~id ~data</code></p>
+<p><strong>Advanced usage only</strong></p>
+<p>Returns: <p>the packed collection</p></p>
+</div></div>
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

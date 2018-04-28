@@ -1,0 +1,353 @@
+
+    
+<!doctype html>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Map</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
+</div>
+
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#module-Make" class='level-0 module'>Make</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Js.html">Js</a>
+<a href="Arg.html">Arg</a>
+<a href="Array.html">Array</a>
+<a href="ArrayLabels.html">ArrayLabels</a>
+<a href="Bigarray.html">Bigarray</a>
+<a href="Buffer.html">Buffer</a>
+<a href="Bytes.html">Bytes</a>
+<a href="BytesLabels.html">BytesLabels</a>
+<a href="Callback.html">Callback</a>
+<a href="CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="CamlinternalMod.html">CamlinternalMod</a>
+<a href="CamlinternalOO.html">CamlinternalOO</a>
+<a href="Char.html">Char</a>
+<a href="Complex.html">Complex</a>
+<a href="Digest.html">Digest</a>
+<a href="Filename.html">Filename</a>
+<a href="Format.html">Format</a>
+<a href="Gc.html">Gc</a>
+<a href="Genlex.html">Genlex</a>
+<a href="Hashtbl.html">Hashtbl</a>
+<a href="Int32.html">Int32</a>
+<a href="Int64.html">Int64</a>
+<a href="Lazy.html">Lazy</a>
+<a href="Lexing.html">Lexing</a>
+<a href="List.html">List</a>
+<a href="ListLabels.html">ListLabels</a>
+<a href="Map.html">Map</a>
+<a href="Marshal.html">Marshal</a>
+<a href="MoreLabels.html">MoreLabels</a>
+<a href="Nativeint.html">Nativeint</a>
+<a href="Obj.html">Obj</a>
+<a href="Oo.html">Oo</a>
+<a href="Parsing.html">Parsing</a>
+<a href="Pervasives.html">Pervasives</a>
+<a href="Printexc.html">Printexc</a>
+<a href="Printf.html">Printf</a>
+<a href="Queue.html">Queue</a>
+<a href="Random.html">Random</a>
+<a href="Scanf.html">Scanf</a>
+<a href="Set.html">Set</a>
+<a href="Sort.html">Sort</a>
+<a href="Stack.html">Stack</a>
+<a href="Std_exit.html">Std_exit</a>
+<a href="StdLabels.html">StdLabels</a>
+<a href="Stream.html">Stream</a>
+<a href="String.html">String</a>
+<a href="StringLabels.html">StringLabels</a>
+<a href="Sys.html">Sys</a>
+<a href="Unix.html">Unix</a>
+<a href="UnixLabels.html">UnixLabels</a>
+<a href="Weak.html">Weak</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/stdlib/map.ml" class="edit-link">Edit</a>
+    <p>Association tables over ordered types.</p>
+<p>This module implements applicative association tables, also known as finite maps or dictionaries, given a total ordering function over the keys. All operations over maps are purely applicative (no side-effects). The implementation uses balanced binary trees, and therefore searching and insertion take time logarithmic in the size of the map.</p>
+<p>For instance:</p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='134' id='block-134'><code>module IntPairs =
+  struct
+    type t = <span class='type-constructor'>int</span> * <span class='type-constructor'>int</span>
+    let <span class='pattern-ident' data-type="(('a, 'a), ('a, 'a)) => int">compare</span> (<span class='pattern-ident' data-type="'a">x0</span>,<span class='pattern-ident' data-type="'a">y0</span>) (<span class='pattern-ident' data-type="'a">x1</span>,<span class='pattern-ident' data-type="'a">y1</span>) =
+      match <span class='ident' data-type="('a, 'a) => int">Pervasives.compare</span> <span class='ident' data-type="'a">x0</span> <span class='ident' data-type="'a">x1</span> with
+          <span class='int' data-type="int">0</span> -&gt; <span class='ident' data-type="('a, 'a) => int">Pervasives.compare</span> <span class='ident' data-type="'a">y0</span> <span class='ident' data-type="'a">y1</span>
+        | <span class='pattern-ident' data-type="int">c</span> -&gt; <span class='ident' data-type="int">c</span>
+  end
+
+module PairsMap = Map.Make(IntPairs)
+
+let <span class='pattern-ident' data-type="PairsMap.t(string)">m</span> = PairsMap.(<span class='ident' data-type="PairsMap.t(string)">empty</span> <span class='operator' data-type="(
+  PairsMap.t(string),
+  PairsMap.t(string) => PairsMap.t(string)
+) => PairsMap.t(string)">|&gt;</span> <span class='ident' data-type="(PairsMap.key, string, PairsMap.t(string)) => PairsMap.t(
+  string
+)">add</span> (<span class='int' data-type="int">0</span>,<span class='int' data-type="int">1</span>) <span class='string' data-type="string">&quot;hello&quot;</span> <span class='operator' data-type="(
+  PairsMap.t(string),
+  PairsMap.t(string) => PairsMap.t(string)
+) => PairsMap.t(string)">|&gt;</span> <span class='ident' data-type="(PairsMap.key, string, PairsMap.t(string)) => PairsMap.t(
+  string
+)">add</span> (<span class='int' data-type="int">1</span>,<span class='int' data-type="int">0</span>) <span class='string' data-type="string">&quot;world&quot;</span>)</code></pre>
+  
+  <script type='docre-source' data-block-id="134">#open Map
+module IntPairs =
+  struct
+    type t = int * int
+    let compare (x0,y0) (x1,y1) =
+      match Pervasives.compare x0 x1 with
+          0 -> Pervasives.compare y0 y1
+        | c -> c
+  end
+
+module PairsMap = Map.Make(IntPairs)
+
+let m = PairsMap.(empty |> add (0,1) "hello" |> add (1,0) "world")</script>
+  <div data-block-id='134' data-context="normal" data-block-syntax="ml" class='block-target'></div><script type='docre-bundle' data-block-id='134'>
+;(function() { // generated by pack.re
+let modules = {}
+let initializers = {
+    1: function(module, exports, require) {// Generated by BUCKLESCRIPT VERSION 2.2.3, PLEASE EDIT WITH CARE
+'use strict';
+
+var $$Map = window.packRequire("./lib/js/map.js");
+var Curry = window.packRequire("./lib/js/curry.js");
+var Caml_obj = window.packRequire("./lib/js/caml_obj.js");
+
+function compare(param, param$1) {
+  var c = Caml_obj.caml_compare(param[0], param$1[0]);
+  if (c !== 0) {
+    return c;
+  } else {
+    return Caml_obj.caml_compare(param[1], param$1[1]);
+  }
+}
+
+var IntPairs = /* module */[/* compare */compare];
+
+var PairsMap = $$Map.Make(IntPairs);
+
+var m = Curry._3(PairsMap[/* add */3], /* tuple */[
+      1,
+      0
+    ], "world", Curry._3(PairsMap[/* add */3], /* tuple */[
+          0,
+          1
+        ], "hello", PairsMap[/* empty */0]));
+
+exports.IntPairs = IntPairs;
+exports.PairsMap = PairsMap;
+exports.m = m;
+/* PairsMap Not a pure module */
+//# sourceURL=./node_modules/.docre/Bucklescript__Map_CODE_BLOCK_134.re_ppx.js
+}
+};
+let nameMap = {
+  "./node_modules/.docre/Bucklescript__Map_CODE_BLOCK_134.re_ppx.js": 1
+}
+let require = (id) => {
+  if (!modules[id]) {
+    modules[id] = {exports: {}}
+    initializers[id](modules[id], modules[id].exports, require)
+  }
+  return modules[id].exports
+};
+  require(1)})();</script>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='134-alt' id='block-134-alt'><code>open Map;
+
+module IntPairs = {
+  type t = (<span class='type-constructor'>int</span>, <span class='type-constructor'>int</span>);
+  let <span class='pattern-ident' data-type="(('a, 'a), ('a, 'a)) => int">compare</span> = ((<span class='pattern-ident' data-type="'a">x0</span>, <span class='pattern-ident' data-type="'a">y0</span>), (<span class='pattern-ident' data-type="'a">x1</span>, <span class='pattern-ident' data-type="'a">y1</span>)) =&gt;
+    switch (<span class='ident' data-type="('a, 'a) => int">Pervasives.compare</span>(<span class='ident' data-type="'a">x0</span>, <span class='ident' data-type="'a">x1</span>)) {
+    | <span class='int' data-type="int">0</span> =&gt; <span class='ident' data-type="('a, 'a) => int">Pervasives.compare</span>(<span class='ident' data-type="'a">y0</span>, <span class='ident' data-type="'a">y1</span>)
+    | <span class='pattern-ident' data-type="int">c</span> =&gt; <span class='ident' data-type="int">c</span>
+    };
+};
+
+module PairsMap = Map.Make(IntPairs);
+
+let <span class='pattern-ident' data-type="PairsMap.t(string)">m</span> = PairsMap.(<span class='ident' data-type="PairsMap.t(string)">empty</span> <span class='operator' data-type="(
+  PairsMap.t(string),
+  PairsMap.t(string) => PairsMap.t(string)
+) => PairsMap.t(string)">|&gt;</span> <span class='ident' data-type="(PairsMap.key, string, PairsMap.t(string)) => PairsMap.t(
+  string
+)">add</span>((<span class='int' data-type="int">0</span>, <span class='int' data-type="int">1</span>), <span class='string' data-type="string">&quot;hello&quot;</span>) <span class='operator' data-type="(
+  PairsMap.t(string),
+  PairsMap.t(string) => PairsMap.t(string)
+) => PairsMap.t(string)">|&gt;</span> <span class='ident' data-type="(PairsMap.key, string, PairsMap.t(string)) => PairsMap.t(
+  string
+)">add</span>((<span class='int' data-type="int">1</span>, <span class='int' data-type="int">0</span>), <span class='string' data-type="string">&quot;world&quot;</span>));</code></pre>
+  
+  <script type='docre-source' data-block-id="134-alt">open Map;
+
+module IntPairs = {
+  type t = (int, int);
+  let compare = ((x0, y0), (x1, y1)) =>
+    switch (Pervasives.compare(x0, x1)) {
+    | 0 => Pervasives.compare(y0, y1)
+    | c => c
+    };
+};
+
+module PairsMap = Map.Make(IntPairs);
+
+let m = PairsMap.(empty |> add((0, 1), "hello") |> add((1, 0), "world"));</script>
+  <div data-block-id='134-alt' data-context="normal" data-block-syntax="re" class='block-target'></div><script type='docre-bundle' data-block-id='134-alt'>
+;(function() { // generated by pack.re
+let modules = {}
+let initializers = {
+    1: function(module, exports, require) {// Generated by BUCKLESCRIPT VERSION 2.2.3, PLEASE EDIT WITH CARE
+'use strict';
+
+var $$Map = window.packRequire("./lib/js/map.js");
+var Curry = window.packRequire("./lib/js/curry.js");
+var Caml_obj = window.packRequire("./lib/js/caml_obj.js");
+
+function compare(param, param$1) {
+  var c = Caml_obj.caml_compare(param[0], param$1[0]);
+  if (c !== 0) {
+    return c;
+  } else {
+    return Caml_obj.caml_compare(param[1], param$1[1]);
+  }
+}
+
+var IntPairs = /* module */[/* compare */compare];
+
+var PairsMap = $$Map.Make(IntPairs);
+
+var m = Curry._3(PairsMap[/* add */3], /* tuple */[
+      1,
+      0
+    ], "world", Curry._3(PairsMap[/* add */3], /* tuple */[
+          0,
+          1
+        ], "hello", PairsMap[/* empty */0]));
+
+exports.IntPairs = IntPairs;
+exports.PairsMap = PairsMap;
+exports.m = m;
+/* PairsMap Not a pure module */
+//# sourceURL=./node_modules/.docre/Bucklescript__Map_CODE_BLOCK_134_alt.re_ppx.js
+}
+};
+let nameMap = {
+  "./node_modules/.docre/Bucklescript__Map_CODE_BLOCK_134_alt.re_ppx.js": 1
+}
+let require = (id) => {
+  if (!modules[id]) {
+    modules[id] = {exports: {}}
+    initializers[id](modules[id], modules[id].exports, require)
+  }
+  return modules[id].exports
+};
+  require(1)})();</script>
+</div><p>This creates a new module <code>PairsMap</code>, with a new type <code>&#39;a PairsMap.t</code> of maps from <code>int * int</code> to <code>&#39;a</code>. In this example, <code>m</code> contains <code>string</code> values so its type is <code>string PairsMap.t</code>.</p>
+<p>other items defined</p><div class='doc-item'><h4 class='item module'>module <a href="#module-Make" id="module-Make">Make</a> : S</h4><div class='body module-body'><p>Functor building an implementation of the map structure given a totally ordered type.</p>
+</div></div>
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

@@ -1,0 +1,1814 @@
+
+    
+<!doctype html>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Unix</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
+</div>
+
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#type-error" class='level-0 type'>error</a>
+<a href="#value-error_message" class='level-0 value'>error_message</a>
+<a href="#value-handle_unix_error" class='level-0 value'>handle_unix_error</a>
+<a href="#value-environment" class='level-0 value'>environment</a>
+<a href="#value-getenv" class='level-0 value'>getenv</a>
+<a href="#value-putenv" class='level-0 value'>putenv</a>
+<a href="#type-process_status" class='level-0 type'>process_status</a>
+<a href="#type-wait_flag" class='level-0 type'>wait_flag</a>
+<a href="#value-execv" class='level-0 value'>execv</a>
+<a href="#value-execve" class='level-0 value'>execve</a>
+<a href="#value-execvp" class='level-0 value'>execvp</a>
+<a href="#value-execvpe" class='level-0 value'>execvpe</a>
+<a href="#value-fork" class='level-0 value'>fork</a>
+<a href="#value-wait" class='level-0 value'>wait</a>
+<a href="#value-waitpid" class='level-0 value'>waitpid</a>
+<a href="#value-system" class='level-0 value'>system</a>
+<a href="#value-getpid" class='level-0 value'>getpid</a>
+<a href="#value-getppid" class='level-0 value'>getppid</a>
+<a href="#value-nice" class='level-0 value'>nice</a>
+<a href="#type-file_descr" class='level-0 type'>file_descr</a>
+<a href="#value-stdin" class='level-0 value'>stdin</a>
+<a href="#value-stdout" class='level-0 value'>stdout</a>
+<a href="#value-stderr" class='level-0 value'>stderr</a>
+<a href="#type-open_flag" class='level-0 type'>open_flag</a>
+<a href="#type-file_perm" class='level-0 type'>file_perm</a>
+<a href="#value-openfile" class='level-0 value'>openfile</a>
+<a href="#value-close" class='level-0 value'>close</a>
+<a href="#value-read" class='level-0 value'>read</a>
+<a href="#value-write" class='level-0 value'>write</a>
+<a href="#value-single_write" class='level-0 value'>single_write</a>
+<a href="#value-write_substring" class='level-0 value'>write_substring</a>
+<a href="#value-single_write_substring" class='level-0 value'>single_write_substring</a>
+<a href="#value-in_channel_of_descr" class='level-0 value'>in_channel_of_descr</a>
+<a href="#value-out_channel_of_descr" class='level-0 value'>out_channel_of_descr</a>
+<a href="#value-descr_of_in_channel" class='level-0 value'>descr_of_in_channel</a>
+<a href="#value-descr_of_out_channel" class='level-0 value'>descr_of_out_channel</a>
+<a href="#type-seek_command" class='level-0 type'>seek_command</a>
+<a href="#value-lseek" class='level-0 value'>lseek</a>
+<a href="#value-truncate" class='level-0 value'>truncate</a>
+<a href="#value-ftruncate" class='level-0 value'>ftruncate</a>
+<a href="#type-file_kind" class='level-0 type'>file_kind</a>
+<a href="#type-stats" class='level-0 type'>stats</a>
+<a href="#value-stat" class='level-0 value'>stat</a>
+<a href="#value-lstat" class='level-0 value'>lstat</a>
+<a href="#value-fstat" class='level-0 value'>fstat</a>
+<a href="#value-isatty" class='level-0 value'>isatty</a>
+<a href="#module-LargeFile" class='level-0 module'>LargeFile</a>
+<a href="#value-LargeFile.lseek" class='level-1 value'>lseek</a>
+<a href="#value-LargeFile.truncate" class='level-1 value'>truncate</a>
+<a href="#value-LargeFile.ftruncate" class='level-1 value'>ftruncate</a>
+<a href="#type-LargeFile.stats" class='level-1 type'>stats</a>
+<a href="#value-LargeFile.stat" class='level-1 value'>stat</a>
+<a href="#value-LargeFile.lstat" class='level-1 value'>lstat</a>
+<a href="#value-LargeFile.fstat" class='level-1 value'>fstat</a>
+<a href="#value-unlink" class='level-0 value'>unlink</a>
+<a href="#value-rename" class='level-0 value'>rename</a>
+<a href="#value-link" class='level-0 value'>link</a>
+<a href="#type-access_permission" class='level-0 type'>access_permission</a>
+<a href="#value-chmod" class='level-0 value'>chmod</a>
+<a href="#value-fchmod" class='level-0 value'>fchmod</a>
+<a href="#value-chown" class='level-0 value'>chown</a>
+<a href="#value-fchown" class='level-0 value'>fchown</a>
+<a href="#value-umask" class='level-0 value'>umask</a>
+<a href="#value-access" class='level-0 value'>access</a>
+<a href="#value-dup" class='level-0 value'>dup</a>
+<a href="#value-dup2" class='level-0 value'>dup2</a>
+<a href="#value-set_nonblock" class='level-0 value'>set_nonblock</a>
+<a href="#value-clear_nonblock" class='level-0 value'>clear_nonblock</a>
+<a href="#value-set_close_on_exec" class='level-0 value'>set_close_on_exec</a>
+<a href="#value-clear_close_on_exec" class='level-0 value'>clear_close_on_exec</a>
+<a href="#value-mkdir" class='level-0 value'>mkdir</a>
+<a href="#value-rmdir" class='level-0 value'>rmdir</a>
+<a href="#value-chdir" class='level-0 value'>chdir</a>
+<a href="#value-getcwd" class='level-0 value'>getcwd</a>
+<a href="#value-chroot" class='level-0 value'>chroot</a>
+<a href="#type-dir_handle" class='level-0 type'>dir_handle</a>
+<a href="#value-opendir" class='level-0 value'>opendir</a>
+<a href="#value-readdir" class='level-0 value'>readdir</a>
+<a href="#value-rewinddir" class='level-0 value'>rewinddir</a>
+<a href="#value-closedir" class='level-0 value'>closedir</a>
+<a href="#value-pipe" class='level-0 value'>pipe</a>
+<a href="#value-mkfifo" class='level-0 value'>mkfifo</a>
+<a href="#value-create_process" class='level-0 value'>create_process</a>
+<a href="#value-create_process_env" class='level-0 value'>create_process_env</a>
+<a href="#value-open_process_in" class='level-0 value'>open_process_in</a>
+<a href="#value-open_process_out" class='level-0 value'>open_process_out</a>
+<a href="#value-open_process" class='level-0 value'>open_process</a>
+<a href="#value-open_process_full" class='level-0 value'>open_process_full</a>
+<a href="#value-close_process_in" class='level-0 value'>close_process_in</a>
+<a href="#value-close_process_out" class='level-0 value'>close_process_out</a>
+<a href="#value-close_process" class='level-0 value'>close_process</a>
+<a href="#value-close_process_full" class='level-0 value'>close_process_full</a>
+<a href="#value-symlink" class='level-0 value'>symlink</a>
+<a href="#value-readlink" class='level-0 value'>readlink</a>
+<a href="#value-select" class='level-0 value'>select</a>
+<a href="#type-lock_command" class='level-0 type'>lock_command</a>
+<a href="#value-lockf" class='level-0 value'>lockf</a>
+<a href="#value-kill" class='level-0 value'>kill</a>
+<a href="#type-sigprocmask_command" class='level-0 type'>sigprocmask_command</a>
+<a href="#value-sigprocmask" class='level-0 value'>sigprocmask</a>
+<a href="#value-sigpending" class='level-0 value'>sigpending</a>
+<a href="#value-sigsuspend" class='level-0 value'>sigsuspend</a>
+<a href="#value-pause" class='level-0 value'>pause</a>
+<a href="#type-process_times" class='level-0 type'>process_times</a>
+<a href="#type-tm" class='level-0 type'>tm</a>
+<a href="#value-time" class='level-0 value'>time</a>
+<a href="#value-gettimeofday" class='level-0 value'>gettimeofday</a>
+<a href="#value-gmtime" class='level-0 value'>gmtime</a>
+<a href="#value-localtime" class='level-0 value'>localtime</a>
+<a href="#value-mktime" class='level-0 value'>mktime</a>
+<a href="#value-alarm" class='level-0 value'>alarm</a>
+<a href="#value-sleep" class='level-0 value'>sleep</a>
+<a href="#value-times" class='level-0 value'>times</a>
+<a href="#value-utimes" class='level-0 value'>utimes</a>
+<a href="#type-interval_timer" class='level-0 type'>interval_timer</a>
+<a href="#type-interval_timer_status" class='level-0 type'>interval_timer_status</a>
+<a href="#value-getitimer" class='level-0 value'>getitimer</a>
+<a href="#value-setitimer" class='level-0 value'>setitimer</a>
+<a href="#value-getuid" class='level-0 value'>getuid</a>
+<a href="#value-geteuid" class='level-0 value'>geteuid</a>
+<a href="#value-setuid" class='level-0 value'>setuid</a>
+<a href="#value-getgid" class='level-0 value'>getgid</a>
+<a href="#value-getegid" class='level-0 value'>getegid</a>
+<a href="#value-setgid" class='level-0 value'>setgid</a>
+<a href="#value-getgroups" class='level-0 value'>getgroups</a>
+<a href="#value-setgroups" class='level-0 value'>setgroups</a>
+<a href="#value-initgroups" class='level-0 value'>initgroups</a>
+<a href="#type-passwd_entry" class='level-0 type'>passwd_entry</a>
+<a href="#type-group_entry" class='level-0 type'>group_entry</a>
+<a href="#value-getlogin" class='level-0 value'>getlogin</a>
+<a href="#value-getpwnam" class='level-0 value'>getpwnam</a>
+<a href="#value-getgrnam" class='level-0 value'>getgrnam</a>
+<a href="#value-getpwuid" class='level-0 value'>getpwuid</a>
+<a href="#value-getgrgid" class='level-0 value'>getgrgid</a>
+<a href="#type-inet_addr" class='level-0 type'>inet_addr</a>
+<a href="#value-inet_addr_of_string" class='level-0 value'>inet_addr_of_string</a>
+<a href="#value-string_of_inet_addr" class='level-0 value'>string_of_inet_addr</a>
+<a href="#value-inet_addr_any" class='level-0 value'>inet_addr_any</a>
+<a href="#value-inet_addr_loopback" class='level-0 value'>inet_addr_loopback</a>
+<a href="#value-inet6_addr_any" class='level-0 value'>inet6_addr_any</a>
+<a href="#value-inet6_addr_loopback" class='level-0 value'>inet6_addr_loopback</a>
+<a href="#type-socket_domain" class='level-0 type'>socket_domain</a>
+<a href="#type-socket_type" class='level-0 type'>socket_type</a>
+<a href="#type-sockaddr" class='level-0 type'>sockaddr</a>
+<a href="#value-socket" class='level-0 value'>socket</a>
+<a href="#value-domain_of_sockaddr" class='level-0 value'>domain_of_sockaddr</a>
+<a href="#value-socketpair" class='level-0 value'>socketpair</a>
+<a href="#value-accept" class='level-0 value'>accept</a>
+<a href="#value-bind" class='level-0 value'>bind</a>
+<a href="#value-connect" class='level-0 value'>connect</a>
+<a href="#value-listen" class='level-0 value'>listen</a>
+<a href="#type-shutdown_command" class='level-0 type'>shutdown_command</a>
+<a href="#value-shutdown" class='level-0 value'>shutdown</a>
+<a href="#value-getsockname" class='level-0 value'>getsockname</a>
+<a href="#value-getpeername" class='level-0 value'>getpeername</a>
+<a href="#type-msg_flag" class='level-0 type'>msg_flag</a>
+<a href="#value-recv" class='level-0 value'>recv</a>
+<a href="#value-recvfrom" class='level-0 value'>recvfrom</a>
+<a href="#value-send" class='level-0 value'>send</a>
+<a href="#value-send_substring" class='level-0 value'>send_substring</a>
+<a href="#value-sendto" class='level-0 value'>sendto</a>
+<a href="#value-sendto_substring" class='level-0 value'>sendto_substring</a>
+<a href="#type-socket_bool_option" class='level-0 type'>socket_bool_option</a>
+<a href="#type-socket_int_option" class='level-0 type'>socket_int_option</a>
+<a href="#type-socket_optint_option" class='level-0 type'>socket_optint_option</a>
+<a href="#type-socket_float_option" class='level-0 type'>socket_float_option</a>
+<a href="#value-getsockopt" class='level-0 value'>getsockopt</a>
+<a href="#value-setsockopt" class='level-0 value'>setsockopt</a>
+<a href="#value-getsockopt_int" class='level-0 value'>getsockopt_int</a>
+<a href="#value-setsockopt_int" class='level-0 value'>setsockopt_int</a>
+<a href="#value-getsockopt_optint" class='level-0 value'>getsockopt_optint</a>
+<a href="#value-setsockopt_optint" class='level-0 value'>setsockopt_optint</a>
+<a href="#value-getsockopt_float" class='level-0 value'>getsockopt_float</a>
+<a href="#value-setsockopt_float" class='level-0 value'>setsockopt_float</a>
+<a href="#value-getsockopt_error" class='level-0 value'>getsockopt_error</a>
+<a href="#value-open_connection" class='level-0 value'>open_connection</a>
+<a href="#value-shutdown_connection" class='level-0 value'>shutdown_connection</a>
+<a href="#value-establish_server" class='level-0 value'>establish_server</a>
+<a href="#type-host_entry" class='level-0 type'>host_entry</a>
+<a href="#type-protocol_entry" class='level-0 type'>protocol_entry</a>
+<a href="#type-service_entry" class='level-0 type'>service_entry</a>
+<a href="#value-gethostname" class='level-0 value'>gethostname</a>
+<a href="#value-gethostbyname" class='level-0 value'>gethostbyname</a>
+<a href="#value-gethostbyaddr" class='level-0 value'>gethostbyaddr</a>
+<a href="#value-getprotobyname" class='level-0 value'>getprotobyname</a>
+<a href="#value-getprotobynumber" class='level-0 value'>getprotobynumber</a>
+<a href="#value-getservbyname" class='level-0 value'>getservbyname</a>
+<a href="#value-getservbyport" class='level-0 value'>getservbyport</a>
+<a href="#type-addr_info" class='level-0 type'>addr_info</a>
+<a href="#type-getaddrinfo_option" class='level-0 type'>getaddrinfo_option</a>
+<a href="#value-getaddrinfo" class='level-0 value'>getaddrinfo</a>
+<a href="#type-name_info" class='level-0 type'>name_info</a>
+<a href="#type-getnameinfo_option" class='level-0 type'>getnameinfo_option</a>
+<a href="#value-getnameinfo" class='level-0 value'>getnameinfo</a>
+<a href="#type-terminal_io" class='level-0 type'>terminal_io</a>
+<a href="#value-tcgetattr" class='level-0 value'>tcgetattr</a>
+<a href="#type-setattr_when" class='level-0 type'>setattr_when</a>
+<a href="#value-tcsetattr" class='level-0 value'>tcsetattr</a>
+<a href="#value-tcsendbreak" class='level-0 value'>tcsendbreak</a>
+<a href="#value-tcdrain" class='level-0 value'>tcdrain</a>
+<a href="#type-flush_queue" class='level-0 type'>flush_queue</a>
+<a href="#value-tcflush" class='level-0 value'>tcflush</a>
+<a href="#type-flow_action" class='level-0 type'>flow_action</a>
+<a href="#value-tcflow" class='level-0 value'>tcflow</a>
+<a href="#value-setsid" class='level-0 value'>setsid</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Js.html">Js</a>
+<a href="Arg.html">Arg</a>
+<a href="Array.html">Array</a>
+<a href="ArrayLabels.html">ArrayLabels</a>
+<a href="Bigarray.html">Bigarray</a>
+<a href="Buffer.html">Buffer</a>
+<a href="Bytes.html">Bytes</a>
+<a href="BytesLabels.html">BytesLabels</a>
+<a href="Callback.html">Callback</a>
+<a href="CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="CamlinternalMod.html">CamlinternalMod</a>
+<a href="CamlinternalOO.html">CamlinternalOO</a>
+<a href="Char.html">Char</a>
+<a href="Complex.html">Complex</a>
+<a href="Digest.html">Digest</a>
+<a href="Filename.html">Filename</a>
+<a href="Format.html">Format</a>
+<a href="Gc.html">Gc</a>
+<a href="Genlex.html">Genlex</a>
+<a href="Hashtbl.html">Hashtbl</a>
+<a href="Int32.html">Int32</a>
+<a href="Int64.html">Int64</a>
+<a href="Lazy.html">Lazy</a>
+<a href="Lexing.html">Lexing</a>
+<a href="List.html">List</a>
+<a href="ListLabels.html">ListLabels</a>
+<a href="Map.html">Map</a>
+<a href="Marshal.html">Marshal</a>
+<a href="MoreLabels.html">MoreLabels</a>
+<a href="Nativeint.html">Nativeint</a>
+<a href="Obj.html">Obj</a>
+<a href="Oo.html">Oo</a>
+<a href="Parsing.html">Parsing</a>
+<a href="Pervasives.html">Pervasives</a>
+<a href="Printexc.html">Printexc</a>
+<a href="Printf.html">Printf</a>
+<a href="Queue.html">Queue</a>
+<a href="Random.html">Random</a>
+<a href="Scanf.html">Scanf</a>
+<a href="Set.html">Set</a>
+<a href="Sort.html">Sort</a>
+<a href="Stack.html">Stack</a>
+<a href="Std_exit.html">Std_exit</a>
+<a href="StdLabels.html">StdLabels</a>
+<a href="Stream.html">Stream</a>
+<a href="String.html">String</a>
+<a href="StringLabels.html">StringLabels</a>
+<a href="Sys.html">Sys</a>
+<a href="Unix.html">Unix</a>
+<a href="UnixLabels.html">UnixLabels</a>
+<a href="Weak.html">Weak</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/stdlib/unix.ml" class="edit-link">Edit</a>
+    <p>Interface to the Unix system.</p>
+<p>Note: all the functions of this module (except <code>error_message</code> and <code>handle_unix_error</code>) are liable to raise the <code>Unix_error</code> exception whenever the underlying system call signals an error.</p>
+<p>other items defined</p><div class='doc-item'><h4 id="Error-report">Error report</h4></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-error" id="type-error">error</a> = 
+  | E2BIG
+  | EACCES
+  | EAGAIN
+  | EBADF
+  | EBUSY
+  | ECHILD
+  | EDEADLK
+  | EDOM
+  | EEXIST
+  | EFAULT
+  | EFBIG
+  | EINTR
+  | EINVAL
+  | EIO
+  | EISDIR
+  | EMFILE
+  | EMLINK
+  | ENAMETOOLONG
+  | ENFILE
+  | ENODEV
+  | ENOENT
+  | ENOEXEC
+  | ENOLCK
+  | ENOMEM
+  | ENOSPC
+  | ENOSYS
+  | ENOTDIR
+  | ENOTEMPTY
+  | ENOTTY
+  | ENXIO
+  | EPERM
+  | EPIPE
+  | ERANGE
+  | EROFS
+  | ESPIPE
+  | ESRCH
+  | EXDEV
+  | EWOULDBLOCK
+  | EINPROGRESS
+  | EALREADY
+  | ENOTSOCK
+  | EDESTADDRREQ
+  | EMSGSIZE
+  | EPROTOTYPE
+  | ENOPROTOOPT
+  | EPROTONOSUPPORT
+  | ESOCKTNOSUPPORT
+  | EOPNOTSUPP
+  | EPFNOSUPPORT
+  | EAFNOSUPPORT
+  | EADDRINUSE
+  | EADDRNOTAVAIL
+  | ENETDOWN
+  | ENETUNREACH
+  | ENETRESET
+  | ECONNABORTED
+  | ECONNRESET
+  | ENOBUFS
+  | EISCONN
+  | ENOTCONN
+  | ESHUTDOWN
+  | ETOOMANYREFS
+  | ETIMEDOUT
+  | ECONNREFUSED
+  | EHOSTDOWN
+  | EHOSTUNREACH
+  | ELOOP
+  | EOVERFLOW
+  | EUNKNOWNERR(int)</h4>
+
+<div class='body '><p>The type of error codes. Errors defined in the POSIX standard and additional errors from UNIX98 and BSD. All other errors are mapped to EUNKNOWNERR.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-error_message" id="value-error_message">error_message</a>: <a href="#type-error">error</a> => string</h4>
+
+<div class='body '><p>Return a string describing the given error code.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-handle_unix_error" id="value-handle_unix_error">handle_unix_error</a>: ('a => 'b, 'a) => 'b</h4>
+
+<div class='body '><p><code>handle_unix_error f x</code> applies <code>f</code> to <code>x</code> and returns the result. If the exception <code>Unix_error</code> is raised, it prints a message describing the error and exits with code 2.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Access-to-the-process-environment">Access to the process environment</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-environment" id="value-environment">environment</a>: unit => array(string)</h4>
+
+<div class='body '><p>Return the process environment, as an array of strings with the format ``variable=value&#39;&#39;.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getenv" id="value-getenv">getenv</a>: string => string</h4>
+
+<div class='body '><p>Return the value associated to a variable in the process environment. Raise <code>Not_found</code> if the variable is unbound. (This function is identical to getenv.)</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-putenv" id="value-putenv">putenv</a>: (string, string) => unit</h4>
+
+<div class='body '><p><code>Unix.putenv name value</code> sets the value associated to a variable in the process environment. <code>name</code> is the name of the environment variable, and <code>value</code> its new associated value.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Process-handling">Process handling</h4></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-process_status" id="type-process_status">process_status</a> = 
+  | WEXITED(int)
+  | WSIGNALED(int)
+  | WSTOPPED(int)</h4>
+
+<div class='body '><p>The termination status of a process. See module Sys for the definitions of the standard signal numbers. Note that they are not the numbers used by the OS.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-wait_flag" id="type-wait_flag">wait_flag</a> = | WNOHANG | WUNTRACED</h4>
+
+<div class='body '><p>Flags for waitpid.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-execv" id="value-execv">execv</a>: (string, array(string)) => 'a</h4>
+
+<div class='body '><p><code>execv prog args</code> execute the program in file <code>prog</code>, with the arguments <code>args</code>, and the current process environment. These <code>execv*</code> functions never return: on success, the current program is replaced by the new one; on failure, a Unix_error exception is raised.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-execve" id="value-execve">execve</a>: (string, array(string), array(string)) => 'a</h4>
+
+<div class='body '><p>Same as execv, except that the third argument provides the environment to the program executed.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-execvp" id="value-execvp">execvp</a>: (string, array(string)) => 'a</h4>
+
+<div class='body '><p>Same as execv, except that the program is searched in the path.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-execvpe" id="value-execvpe">execvpe</a>: (string, array(string), array(string)) => 'a</h4>
+
+<div class='body '><p>Same as execve, except that the program is searched in the path.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fork" id="value-fork">fork</a>: unit => int</h4>
+
+<div class='body '><p>Fork a new process. The returned integer is 0 for the child process, the pid of the child process for the parent process.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-wait" id="value-wait">wait</a>: unit => (int, <a href="#type-process_status">process_status</a>)</h4>
+
+<div class='body '><p>Wait until one of the children processes die, and return its pid and termination status.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-waitpid" id="value-waitpid">waitpid</a>: (list(<a href="#type-wait_flag">wait_flag</a>), int) => (int, <a href="#type-process_status">process_status</a>)</h4>
+
+<div class='body '><p>Same as wait, but waits for the child process whose pid is given. A pid of <code>-1</code> means wait for any child. A pid of <code>0</code> means wait for any child in the same process group as the current process. Negative pid arguments represent process groups. The list of options indicates whether <code>waitpid</code> should return immediately without waiting, and whether it should report stopped children.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-system" id="value-system">system</a>: string => <a href="#type-process_status">process_status</a></h4>
+
+<div class='body '><p>Execute the given command, wait until it terminates, and return its termination status. The string is interpreted by the shell <code>/bin/sh</code> and therefore can contain redirections, quotes, variables, etc. The result <code>WEXITED 127</code> indicates that the shell couldn&#39;t be executed.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getpid" id="value-getpid">getpid</a>: unit => int</h4>
+
+<div class='body '><p>Return the pid of the process.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getppid" id="value-getppid">getppid</a>: unit => int</h4>
+
+<div class='body '><p>Return the pid of the parent process.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-nice" id="value-nice">nice</a>: int => int</h4>
+
+<div class='body '><p>Change the process priority. The integer argument is added to the ``nice&#39;&#39; value. (Higher values of the ``nice&#39;&#39; value mean lower priorities.) Return the new nice value.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Basic-file-input-output">Basic file input/output</h4></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-file_descr" id="type-file_descr">file_descr</a></h4>
+
+<div class='body '><p>The abstract type of file descriptors.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-stdin" id="value-stdin">stdin</a>: <a href="#type-file_descr">file_descr</a></h4>
+
+<div class='body '><p>File descriptor for standard input.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-stdout" id="value-stdout">stdout</a>: <a href="#type-file_descr">file_descr</a></h4>
+
+<div class='body '><p>File descriptor for standard output.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-stderr" id="value-stderr">stderr</a>: <a href="#type-file_descr">file_descr</a></h4>
+
+<div class='body '><p>File descriptor for standard error.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-open_flag" id="type-open_flag">open_flag</a> = 
+  | O_RDONLY
+  | O_WRONLY
+  | O_RDWR
+  | O_NONBLOCK
+  | O_APPEND
+  | O_CREAT
+  | O_TRUNC
+  | O_EXCL
+  | O_NOCTTY
+  | O_DSYNC
+  | O_SYNC
+  | O_RSYNC
+  | O_SHARE_DELETE
+  | O_CLOEXEC</h4>
+
+<div class='body '><p>The flags to openfile.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-file_perm" id="type-file_perm">file_perm</a> = int</h4>
+
+<div class='body '><p>The type of file access rights, e.g. <code>0o640</code> is read and write for user, read for group, none for others</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-openfile" id="value-openfile">openfile</a>: (
+  string,
+  list(<a href="#type-open_flag">open_flag</a>),
+  <a href="#type-file_perm">file_perm</a>
+) => <a href="#type-file_descr">file_descr</a></h4>
+
+<div class='body '><p>Open the named file with the given flags. Third argument is the permissions to give to the file if it is created (see umask). Return a file descriptor on the named file.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-close" id="value-close">close</a>: <a href="#type-file_descr">file_descr</a> => unit</h4>
+
+<div class='body '><p>Close a file descriptor.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-read" id="value-read">read</a>: (<a href="#type-file_descr">file_descr</a>, bytes, int, int) => int</h4>
+
+<div class='body '><p><code>read fd buff ofs len</code> reads <code>len</code> bytes from descriptor <code>fd</code>, storing them in byte sequence <code>buff</code>, starting at position <code>ofs</code> in <code>buff</code>. Return the number of bytes actually read.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-write" id="value-write">write</a>: (<a href="#type-file_descr">file_descr</a>, bytes, int, int) => int</h4>
+
+<div class='body '><p><code>write fd buff ofs len</code> writes <code>len</code> bytes to descriptor <code>fd</code>, taking them from byte sequence <code>buff</code>, starting at position <code>ofs</code> in <code>buff</code>. Return the number of bytes actually written. <code>write</code> repeats the writing operation until all bytes have been written or an error occurs.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-single_write" id="value-single_write">single_write</a>: (<a href="#type-file_descr">file_descr</a>, bytes, int, int) => int</h4>
+
+<div class='body '><p>Same as <code>write</code>, but attempts to write only once. Thus, if an error occurs, <code>single_write</code> guarantees that no data has been written.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-write_substring" id="value-write_substring">write_substring</a>: (<a href="#type-file_descr">file_descr</a>, string, int, int) => int</h4>
+
+<div class='body '><p>Same as <code>write</code>, but take the data from a string instead of a byte sequence.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-single_write_substring" id="value-single_write_substring">single_write_substring</a>: (
+  <a href="#type-file_descr">file_descr</a>,
+  string,
+  int,
+  int
+) => int</h4>
+
+<div class='body '><p>Same as <code>single_write</code>, but take the data from a string instead of a byte sequence.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Interfacing-with-the-standard-input-output-library">Interfacing with the standard input/output library</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-in_channel_of_descr" id="value-in_channel_of_descr">in_channel_of_descr</a>: <a href="#type-file_descr">file_descr</a> => <a href="Pervasives.html#type-in_channel" title="Pervasives.in_channel">in_channel</a></h4>
+
+<div class='body '><p>Create an input channel reading from the given descriptor. The channel is initially in binary mode; use <code>set_binary_mode_in ic false</code> if text mode is desired.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-out_channel_of_descr" id="value-out_channel_of_descr">out_channel_of_descr</a>: <a href="#type-file_descr">file_descr</a> => <a href="Pervasives.html#type-out_channel" title="Pervasives.out_channel">out_channel</a></h4>
+
+<div class='body '><p>Create an output channel writing on the given descriptor. The channel is initially in binary mode; use <code>set_binary_mode_out oc false</code> if text mode is desired.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-descr_of_in_channel" id="value-descr_of_in_channel">descr_of_in_channel</a>: <a href="Pervasives.html#type-in_channel" title="Pervasives.in_channel">in_channel</a> => <a href="#type-file_descr">file_descr</a></h4>
+
+<div class='body '><p>Return the descriptor corresponding to an input channel.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-descr_of_out_channel" id="value-descr_of_out_channel">descr_of_out_channel</a>: <a href="Pervasives.html#type-out_channel" title="Pervasives.out_channel">out_channel</a> => <a href="#type-file_descr">file_descr</a></h4>
+
+<div class='body '><p>Return the descriptor corresponding to an output channel.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Seeking-and-truncating">Seeking and truncating</h4></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-seek_command" id="type-seek_command">seek_command</a> = | SEEK_SET | SEEK_CUR | SEEK_END</h4>
+
+<div class='body '><p>Positioning modes for lseek.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-lseek" id="value-lseek">lseek</a>: (<a href="#type-file_descr">file_descr</a>, int, <a href="#type-seek_command">seek_command</a>) => int</h4>
+
+<div class='body '><p>Set the current position for a file descriptor, and return the resulting offset (from the beginning of the file).</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-truncate" id="value-truncate">truncate</a>: (string, int) => unit</h4>
+
+<div class='body '><p>Truncates the named file to the given size.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-ftruncate" id="value-ftruncate">ftruncate</a>: (<a href="#type-file_descr">file_descr</a>, int) => unit</h4>
+
+<div class='body '><p>Truncates the file corresponding to the given descriptor to the given size.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="File-status">File status</h4></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-file_kind" id="type-file_kind">file_kind</a> = 
+  | S_REG
+  | S_DIR
+  | S_CHR
+  | S_BLK
+  | S_LNK
+  | S_FIFO
+  | S_SOCK</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-stats" id="type-stats">stats</a> = {
+  st_dev: int,
+  st_ino: int,
+  st_kind: <a href="#type-file_kind">file_kind</a>,
+  st_perm: <a href="#type-file_perm">file_perm</a>,
+  st_nlink: int,
+  st_uid: int,
+  st_gid: int,
+  st_rdev: int,
+  st_size: int,
+  st_atime: float,
+  st_mtime: float,
+  st_ctime: float
+}</h4>
+
+<div class='body '><p>The information returned by the stat calls.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-stat" id="value-stat">stat</a>: string => <a href="#type-stats">stats</a></h4>
+
+<div class='body '><p>Return the information for the named file.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-lstat" id="value-lstat">lstat</a>: string => <a href="#type-stats">stats</a></h4>
+
+<div class='body '><p>Same as stat, but in case the file is a symbolic link, return the information for the link itself.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fstat" id="value-fstat">fstat</a>: <a href="#type-file_descr">file_descr</a> => <a href="#type-stats">stats</a></h4>
+
+<div class='body '><p>Return the information for the file associated with the given descriptor.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-isatty" id="value-isatty">isatty</a>: <a href="#type-file_descr">file_descr</a> => bool</h4>
+
+<div class='body '><p>Return <code>true</code> if the given file descriptor refers to a terminal or console window, <code>false</code> otherwise.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="File-operations-on-large-files">File operations on large files</h4></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-LargeFile" id="module-LargeFile">LargeFile</a></h4><div class='body module-body'><p>File operations on large files. This sub-module provides 64-bit variants of the functions lseek (for positioning a file descriptor), truncate and ftruncate (for changing the size of a file), and stat, lstat and fstat (for obtaining information on files). These alternate functions represent positions and sizes by 64-bit integers (type <code>int64</code>) instead of regular integers (type <code>int</code>), thus allowing operating on files whose sizes are greater than <code>max_int</code>.</p>
+<p>other items defined</p><div class='doc-item'><h4 class='item'>let <a href="#value-LargeFile.lseek" id="value-LargeFile.lseek">lseek</a>: (<a href="#type-file_descr">file_descr</a>, int64, <a href="#type-seek_command">seek_command</a>) => int64</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-LargeFile.truncate" id="value-LargeFile.truncate">truncate</a>: (string, int64) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-LargeFile.ftruncate" id="value-LargeFile.ftruncate">ftruncate</a>: (<a href="#type-file_descr">file_descr</a>, int64) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-LargeFile.stats" id="type-LargeFile.stats">stats</a> = {
+  st_dev: int,
+  st_ino: int,
+  st_kind: <a href="#type-file_kind">file_kind</a>,
+  st_perm: <a href="#type-file_perm">file_perm</a>,
+  st_nlink: int,
+  st_uid: int,
+  st_gid: int,
+  st_rdev: int,
+  st_size: int64,
+  st_atime: float,
+  st_mtime: float,
+  st_ctime: float
+}</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-LargeFile.stat" id="value-LargeFile.stat">stat</a>: string => <a href="#type-LargeFile.stats">stats</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-LargeFile.lstat" id="value-LargeFile.lstat">lstat</a>: string => <a href="#type-LargeFile.stats">stats</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-LargeFile.fstat" id="value-LargeFile.fstat">fstat</a>: <a href="#type-file_descr">file_descr</a> => <a href="#type-LargeFile.stats">stats</a></h4>
+
+<div class='body body-empty'></div></div></div></div>
+
+<div class='doc-item'><h4 id="Operations-on-file-names">Operations on file names</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-unlink" id="value-unlink">unlink</a>: string => unit</h4>
+
+<div class='body '><p>Removes the named file</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-rename" id="value-rename">rename</a>: (string, string) => unit</h4>
+
+<div class='body '><p><code>rename old new</code> changes the name of a file from <code>old</code> to <code>new</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-link" id="value-link">link</a>: (string, string) => unit</h4>
+
+<div class='body '><p><code>link source dest</code> creates a hard link named <code>dest</code> to the file named <code>source</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="File-permissions-and-ownership">File permissions and ownership</h4></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-access_permission" id="type-access_permission">access_permission</a> = | R_OK | W_OK | X_OK | F_OK</h4>
+
+<div class='body '><p>Flags for the access call.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-chmod" id="value-chmod">chmod</a>: (string, <a href="#type-file_perm">file_perm</a>) => unit</h4>
+
+<div class='body '><p>Change the permissions of the named file.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fchmod" id="value-fchmod">fchmod</a>: (<a href="#type-file_descr">file_descr</a>, <a href="#type-file_perm">file_perm</a>) => unit</h4>
+
+<div class='body '><p>Change the permissions of an opened file.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-chown" id="value-chown">chown</a>: (string, int, int) => unit</h4>
+
+<div class='body '><p>Change the owner uid and owner gid of the named file.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fchown" id="value-fchown">fchown</a>: (<a href="#type-file_descr">file_descr</a>, int, int) => unit</h4>
+
+<div class='body '><p>Change the owner uid and owner gid of an opened file.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-umask" id="value-umask">umask</a>: int => int</h4>
+
+<div class='body '><p>Set the process&#39;s file mode creation mask, and return the previous mask.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-access" id="value-access">access</a>: (string, list(<a href="#type-access_permission">access_permission</a>)) => unit</h4>
+
+<div class='body '><p>Check that the process has the given permissions over the named file. Raise <code>Unix_error</code> otherwise.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Operations-on-file-descriptors">Operations on file descriptors</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-dup" id="value-dup">dup</a>: <a href="#type-file_descr">file_descr</a> => <a href="#type-file_descr">file_descr</a></h4>
+
+<div class='body '><p>Return a new file descriptor referencing the same file as the given descriptor.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-dup2" id="value-dup2">dup2</a>: (<a href="#type-file_descr">file_descr</a>, <a href="#type-file_descr">file_descr</a>) => unit</h4>
+
+<div class='body '><p><code>dup2 fd1 fd2</code> duplicates <code>fd1</code> to <code>fd2</code>, closing <code>fd2</code> if already opened.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-set_nonblock" id="value-set_nonblock">set_nonblock</a>: <a href="#type-file_descr">file_descr</a> => unit</h4>
+
+<div class='body '><p>Set the ``non-blocking&#39;&#39; flag on the given descriptor. When the non-blocking flag is set, reading on a descriptor on which there is temporarily no data available raises the <code>EAGAIN</code> or <code>EWOULDBLOCK</code> error instead of blocking; writing on a descriptor on which there is temporarily no room for writing also raises <code>EAGAIN</code> or <code>EWOULDBLOCK</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-clear_nonblock" id="value-clear_nonblock">clear_nonblock</a>: <a href="#type-file_descr">file_descr</a> => unit</h4>
+
+<div class='body '><p>Clear the ``non-blocking&#39;&#39; flag on the given descriptor. See set_nonblock.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-set_close_on_exec" id="value-set_close_on_exec">set_close_on_exec</a>: <a href="#type-file_descr">file_descr</a> => unit</h4>
+
+<div class='body '><p>Set the ``close-on-exec&#39;&#39; flag on the given descriptor. A descriptor with the close-on-exec flag is automatically closed when the current process starts another program with one of the <code>exec</code> functions.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-clear_close_on_exec" id="value-clear_close_on_exec">clear_close_on_exec</a>: <a href="#type-file_descr">file_descr</a> => unit</h4>
+
+<div class='body '><p>Clear the ``close-on-exec&#39;&#39; flag on the given descriptor. See set_close_on_exec.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Directories">Directories</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-mkdir" id="value-mkdir">mkdir</a>: (string, <a href="#type-file_perm">file_perm</a>) => unit</h4>
+
+<div class='body '><p>Create a directory with the given permissions (see umask).</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-rmdir" id="value-rmdir">rmdir</a>: string => unit</h4>
+
+<div class='body '><p>Remove an empty directory.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-chdir" id="value-chdir">chdir</a>: string => unit</h4>
+
+<div class='body '><p>Change the process working directory.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getcwd" id="value-getcwd">getcwd</a>: unit => string</h4>
+
+<div class='body '><p>Return the name of the current working directory.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-chroot" id="value-chroot">chroot</a>: string => unit</h4>
+
+<div class='body '><p>Change the process root directory.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-dir_handle" id="type-dir_handle">dir_handle</a></h4>
+
+<div class='body '><p>The type of descriptors over opened directories.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-opendir" id="value-opendir">opendir</a>: string => <a href="#type-dir_handle">dir_handle</a></h4>
+
+<div class='body '><p>Open a descriptor on a directory</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-readdir" id="value-readdir">readdir</a>: <a href="#type-dir_handle">dir_handle</a> => string</h4>
+
+<div class='body '><p>Return the next entry in a directory.</p>
+<p>Raises: End_of_file<p>when the end of the directory has been reached.</p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-rewinddir" id="value-rewinddir">rewinddir</a>: <a href="#type-dir_handle">dir_handle</a> => unit</h4>
+
+<div class='body '><p>Reposition the descriptor to the beginning of the directory</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-closedir" id="value-closedir">closedir</a>: <a href="#type-dir_handle">dir_handle</a> => unit</h4>
+
+<div class='body '><p>Close a directory descriptor.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Pipes-and-redirections">Pipes and redirections</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pipe" id="value-pipe">pipe</a>: unit => (<a href="#type-file_descr">file_descr</a>, <a href="#type-file_descr">file_descr</a>)</h4>
+
+<div class='body '><p>Create a pipe. The first component of the result is opened for reading, that&#39;s the exit to the pipe. The second component is opened for writing, that&#39;s the entrance to the pipe.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-mkfifo" id="value-mkfifo">mkfifo</a>: (string, <a href="#type-file_perm">file_perm</a>) => unit</h4>
+
+<div class='body '><p>Create a named pipe with the given permissions (see umask).</p>
+</div></div>
+
+<div class='doc-item'><h4 id="High-level-process-and-redirection-management">High-level process and redirection management</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-create_process" id="value-create_process">create_process</a>: (
+  string,
+  array(string),
+  <a href="#type-file_descr">file_descr</a>,
+  <a href="#type-file_descr">file_descr</a>,
+  <a href="#type-file_descr">file_descr</a>
+) => int</h4>
+
+<div class='body '><p><code>create_process prog args new_stdin new_stdout new_stderr</code> forks a new process that executes the program in file <code>prog</code>, with arguments <code>args</code>. The pid of the new process is returned immediately; the new process executes concurrently with the current process. The standard input and outputs of the new process are connected to the descriptors <code>new_stdin</code>, <code>new_stdout</code> and <code>new_stderr</code>. Passing e.g. <code>stdout</code> for <code>new_stdout</code> prevents the redirection and causes the new process to have the same standard output as the current process. The executable file <code>prog</code> is searched in the path. The new process has the same environment as the current process.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-create_process_env" id="value-create_process_env">create_process_env</a>: (
+  string,
+  array(string),
+  array(string),
+  <a href="#type-file_descr">file_descr</a>,
+  <a href="#type-file_descr">file_descr</a>,
+  <a href="#type-file_descr">file_descr</a>
+) => int</h4>
+
+<div class='body '><p><code>create_process_env prog args env new_stdin new_stdout new_stderr</code> works as create_process, except that the extra argument <code>env</code> specifies the environment passed to the program.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-open_process_in" id="value-open_process_in">open_process_in</a>: string => <a href="Pervasives.html#type-in_channel" title="Pervasives.in_channel">in_channel</a></h4>
+
+<div class='body '><p>High-level pipe and process management. This function runs the given command in parallel with the program. The standard output of the command is redirected to a pipe, which can be read via the returned input channel. The command is interpreted by the shell <code>/bin/sh</code> (cf. <code>system</code>).</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-open_process_out" id="value-open_process_out">open_process_out</a>: string => <a href="Pervasives.html#type-out_channel" title="Pervasives.out_channel">out_channel</a></h4>
+
+<div class='body '><p>Same as open_process_in, but redirect the standard input of the command to a pipe. Data written to the returned output channel is sent to the standard input of the command. Warning: writes on output channels are buffered, hence be careful to call flush at the right times to ensure correct synchronization.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-open_process" id="value-open_process">open_process</a>: string => (<a href="Pervasives.html#type-in_channel" title="Pervasives.in_channel">in_channel</a>, <a href="Pervasives.html#type-out_channel" title="Pervasives.out_channel">out_channel</a>)</h4>
+
+<div class='body '><p>Same as open_process_out, but redirects both the standard input and standard output of the command to pipes connected to the two returned channels. The input channel is connected to the output of the command, and the output channel to the input of the command.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-open_process_full" id="value-open_process_full">open_process_full</a>: (string, array(string)) => (
+  <a href="Pervasives.html#type-in_channel" title="Pervasives.in_channel">in_channel</a>,
+  <a href="Pervasives.html#type-out_channel" title="Pervasives.out_channel">out_channel</a>,
+  <a href="Pervasives.html#type-in_channel" title="Pervasives.in_channel">in_channel</a>
+)</h4>
+
+<div class='body '><p>Similar to open_process, but the second argument specifies the environment passed to the command. The result is a triple of channels connected respectively to the standard output, standard input, and standard error of the command.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-close_process_in" id="value-close_process_in">close_process_in</a>: <a href="Pervasives.html#type-in_channel" title="Pervasives.in_channel">in_channel</a> => <a href="#type-process_status">process_status</a></h4>
+
+<div class='body '><p>Close channels opened by open_process_in, wait for the associated command to terminate, and return its termination status.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-close_process_out" id="value-close_process_out">close_process_out</a>: <a href="Pervasives.html#type-out_channel" title="Pervasives.out_channel">out_channel</a> => <a href="#type-process_status">process_status</a></h4>
+
+<div class='body '><p>Close channels opened by open_process_out, wait for the associated command to terminate, and return its termination status.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-close_process" id="value-close_process">close_process</a>: (
+  <a href="Pervasives.html#type-in_channel" title="Pervasives.in_channel">in_channel</a>,
+  <a href="Pervasives.html#type-out_channel" title="Pervasives.out_channel">out_channel</a>
+) => <a href="#type-process_status">process_status</a></h4>
+
+<div class='body '><p>Close channels opened by open_process, wait for the associated command to terminate, and return its termination status.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-close_process_full" id="value-close_process_full">close_process_full</a>: (
+  <a href="Pervasives.html#type-in_channel" title="Pervasives.in_channel">in_channel</a>,
+  <a href="Pervasives.html#type-out_channel" title="Pervasives.out_channel">out_channel</a>,
+  <a href="Pervasives.html#type-in_channel" title="Pervasives.in_channel">in_channel</a>
+) => <a href="#type-process_status">process_status</a></h4>
+
+<div class='body '><p>Close channels opened by open_process_full, wait for the associated command to terminate, and return its termination status.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Symbolic-links">Symbolic links</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-symlink" id="value-symlink">symlink</a>: (string, string) => unit</h4>
+
+<div class='body '><p><code>symlink source dest</code> creates the file <code>dest</code> as a symbolic link to the file <code>source</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-readlink" id="value-readlink">readlink</a>: string => string</h4>
+
+<div class='body '><p>Read the contents of a link.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Polling">Polling</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-select" id="value-select">select</a>: (
+  list(<a href="#type-file_descr">file_descr</a>),
+  list(<a href="#type-file_descr">file_descr</a>),
+  list(<a href="#type-file_descr">file_descr</a>),
+  float
+) => (list(<a href="#type-file_descr">file_descr</a>), list(<a href="#type-file_descr">file_descr</a>), list(<a href="#type-file_descr">file_descr</a>))</h4>
+
+<div class='body '><p>Wait until some input/output operations become possible on some channels. The three list arguments are, respectively, a set of descriptors to check for reading (first argument), for writing (second argument), or for exceptional conditions (third argument). The fourth argument is the maximal timeout, in seconds; a negative fourth argument means no timeout (unbounded wait). The result is composed of three sets of descriptors: those ready for reading (first component), ready for writing (second component), and over which an exceptional condition is pending (third component).</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Locking">Locking</h4></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-lock_command" id="type-lock_command">lock_command</a> = 
+  | F_ULOCK
+  | F_LOCK
+  | F_TLOCK
+  | F_TEST
+  | F_RLOCK
+  | F_TRLOCK</h4>
+
+<div class='body '><p>Commands for lockf.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-lockf" id="value-lockf">lockf</a>: (<a href="#type-file_descr">file_descr</a>, <a href="#type-lock_command">lock_command</a>, int) => unit</h4>
+
+<div class='body '><p><code>lockf fd cmd size</code> puts a lock on a region of the file opened as <code>fd</code>. The region starts at the current read/write position for <code>fd</code> (as set by lseek), and extends <code>size</code> bytes forward if <code>size</code> is positive, <code>size</code> bytes backwards if <code>size</code> is negative, or to the end of the file if <code>size</code> is zero. A write lock prevents any other process from acquiring a read or write lock on the region. A read lock prevents any other process from acquiring a write lock on the region, but lets other processes acquire read locks on it.</p>
+<p>The <code>F_LOCK</code> and <code>F_TLOCK</code> commands attempts to put a write lock on the specified region. The <code>F_RLOCK</code> and <code>F_TRLOCK</code> commands attempts to put a read lock on the specified region. If one or several locks put by another process prevent the current process from acquiring the lock, <code>F_LOCK</code> and <code>F_RLOCK</code> block until these locks are removed, while <code>F_TLOCK</code> and <code>F_TRLOCK</code> fail immediately with an exception. The <code>F_ULOCK</code> removes whatever locks the current process has on the specified region. Finally, the <code>F_TEST</code> command tests whether a write lock can be acquired on the specified region, without actually putting a lock. It returns immediately if successful, or fails otherwise.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Signals">Signals</h4><p>Note: installation of signal handlers is performed via the functions signal and set_signal.</p>
+</div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-kill" id="value-kill">kill</a>: (int, int) => unit</h4>
+
+<div class='body '><p><code>kill pid sig</code> sends signal number <code>sig</code> to the process with id <code>pid</code>. Under Windows, only the <code>Sys.sigkill</code> signal is emulated.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-sigprocmask_command" id="type-sigprocmask_command">sigprocmask_command</a> = 
+  | SIG_SETMASK
+  | SIG_BLOCK
+  | SIG_UNBLOCK</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sigprocmask" id="value-sigprocmask">sigprocmask</a>: (<a href="#type-sigprocmask_command">sigprocmask_command</a>, list(int)) => list(
+  int
+)</h4>
+
+<div class='body '><p><code>sigprocmask cmd sigs</code> changes the set of blocked signals. If <code>cmd</code> is <code>SIG_SETMASK</code>, blocked signals are set to those in the list <code>sigs</code>. If <code>cmd</code> is <code>SIG_BLOCK</code>, the signals in <code>sigs</code> are added to the set of blocked signals. If <code>cmd</code> is <code>SIG_UNBLOCK</code>, the signals in <code>sigs</code> are removed from the set of blocked signals. <code>sigprocmask</code> returns the set of previously blocked signals.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sigpending" id="value-sigpending">sigpending</a>: unit => list(int)</h4>
+
+<div class='body '><p>Return the set of blocked signals that are currently pending.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sigsuspend" id="value-sigsuspend">sigsuspend</a>: list(int) => unit</h4>
+
+<div class='body '><p><code>sigsuspend sigs</code> atomically sets the blocked signals to <code>sigs</code> and waits for a non-ignored, non-blocked signal to be delivered. On return, the blocked signals are reset to their initial value.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-pause" id="value-pause">pause</a>: unit => unit</h4>
+
+<div class='body '><p>Wait until a non-ignored, non-blocked signal is delivered.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Time-functions">Time functions</h4></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-process_times" id="type-process_times">process_times</a> = {
+  tms_utime: float,
+  tms_stime: float,
+  tms_cutime: float,
+  tms_cstime: float
+}</h4>
+
+<div class='body '><p>The execution times (CPU times) of a process.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-tm" id="type-tm">tm</a> = {
+  tm_sec: int,
+  tm_min: int,
+  tm_hour: int,
+  tm_mday: int,
+  tm_mon: int,
+  tm_year: int,
+  tm_wday: int,
+  tm_yday: int,
+  tm_isdst: bool
+}</h4>
+
+<div class='body '><p>The type representing wallclock time and calendar date.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-time" id="value-time">time</a>: unit => float</h4>
+
+<div class='body '><p>Return the current time since 00:00:00 GMT, Jan. 1, 1970, in seconds.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-gettimeofday" id="value-gettimeofday">gettimeofday</a>: unit => float</h4>
+
+<div class='body '><p>Same as time, but with resolution better than 1 second.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-gmtime" id="value-gmtime">gmtime</a>: float => <a href="#type-tm">tm</a></h4>
+
+<div class='body '><p>Convert a time in seconds, as returned by time, into a date and a time. Assumes UTC (Coordinated Universal Time), also known as GMT.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-localtime" id="value-localtime">localtime</a>: float => <a href="#type-tm">tm</a></h4>
+
+<div class='body '><p>Convert a time in seconds, as returned by time, into a date and a time. Assumes the local time zone.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-mktime" id="value-mktime">mktime</a>: <a href="#type-tm">tm</a> => (float, <a href="#type-tm">tm</a>)</h4>
+
+<div class='body '><p>Convert a date and time, specified by the <code>tm</code> argument, into a time in seconds, as returned by time. The <code>tm_isdst</code>, <code>tm_wday</code> and <code>tm_yday</code> fields of <code>tm</code> are ignored. Also return a normalized copy of the given <code>tm</code> record, with the <code>tm_wday</code>, <code>tm_yday</code>, and <code>tm_isdst</code> fields recomputed from the other fields, and the other fields normalized (so that, e.g., 40 October is changed into 9 November). The <code>tm</code> argument is interpreted in the local time zone.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-alarm" id="value-alarm">alarm</a>: int => int</h4>
+
+<div class='body '><p>Schedule a <code>SIGALRM</code> signal after the given number of seconds.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sleep" id="value-sleep">sleep</a>: int => unit</h4>
+
+<div class='body '><p>Stop execution for the given number of seconds.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-times" id="value-times">times</a>: unit => <a href="#type-process_times">process_times</a></h4>
+
+<div class='body '><p>Return the execution times of the process.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-utimes" id="value-utimes">utimes</a>: (string, float, float) => unit</h4>
+
+<div class='body '><p>Set the last access time (second arg) and last modification time (third arg) for a file. Times are expressed in seconds from 00:00:00 GMT, Jan. 1, 1970. A time of <code>0.0</code> is interpreted as the current time.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-interval_timer" id="type-interval_timer">interval_timer</a> = 
+  | ITIMER_REAL
+  | ITIMER_VIRTUAL
+  | ITIMER_PROF</h4>
+
+<div class='body '><p>The three kinds of interval timers.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-interval_timer_status" id="type-interval_timer_status">interval_timer_status</a> = {
+  it_interval: float,
+  it_value: float
+}</h4>
+
+<div class='body '><p>The type describing the status of an interval timer</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getitimer" id="value-getitimer">getitimer</a>: <a href="#type-interval_timer">interval_timer</a> => <a href="#type-interval_timer_status">interval_timer_status</a></h4>
+
+<div class='body '><p>Return the current status of the given interval timer.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-setitimer" id="value-setitimer">setitimer</a>: (
+  <a href="#type-interval_timer">interval_timer</a>,
+  <a href="#type-interval_timer_status">interval_timer_status</a>
+) => <a href="#type-interval_timer_status">interval_timer_status</a></h4>
+
+<div class='body '><p><code>setitimer t s</code> sets the interval timer <code>t</code> and returns its previous status. The <code>s</code> argument is interpreted as follows: <code>s.it_value</code>, if nonzero, is the time to the next timer expiration; <code>s.it_interval</code>, if nonzero, specifies a value to be used in reloading <code>it_value</code> when the timer expires. Setting <code>s.it_value</code> to zero disables the timer. Setting <code>s.it_interval</code> to zero causes the timer to be disabled after its next expiration.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="User-id-group-id">User id, group id</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getuid" id="value-getuid">getuid</a>: unit => int</h4>
+
+<div class='body '><p>Return the user id of the user executing the process.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-geteuid" id="value-geteuid">geteuid</a>: unit => int</h4>
+
+<div class='body '><p>Return the effective user id under which the process runs.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-setuid" id="value-setuid">setuid</a>: int => unit</h4>
+
+<div class='body '><p>Set the real user id and effective user id for the process.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getgid" id="value-getgid">getgid</a>: unit => int</h4>
+
+<div class='body '><p>Return the group id of the user executing the process.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getegid" id="value-getegid">getegid</a>: unit => int</h4>
+
+<div class='body '><p>Return the effective group id under which the process runs.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-setgid" id="value-setgid">setgid</a>: int => unit</h4>
+
+<div class='body '><p>Set the real group id and effective group id for the process.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getgroups" id="value-getgroups">getgroups</a>: unit => array(int)</h4>
+
+<div class='body '><p>Return the list of groups to which the user executing the process belongs.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-setgroups" id="value-setgroups">setgroups</a>: array(int) => unit</h4>
+
+<div class='body '><p><code>setgroups groups</code> sets the supplementary group IDs for the calling process. Appropriate privileges are required.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-initgroups" id="value-initgroups">initgroups</a>: (string, int) => unit</h4>
+
+<div class='body '><p><code>initgroups user group</code> initializes the group access list by reading the group database /etc/group and using all groups of which <code>user</code> is a member. The additional group <code>group</code> is also added to the list.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-passwd_entry" id="type-passwd_entry">passwd_entry</a> = {
+  pw_name: string,
+  pw_passwd: string,
+  pw_uid: int,
+  pw_gid: int,
+  pw_gecos: string,
+  pw_dir: string,
+  pw_shell: string
+}</h4>
+
+<div class='body '><p>Structure of entries in the <code>passwd</code> database.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-group_entry" id="type-group_entry">group_entry</a> = {
+  gr_name: string,
+  gr_passwd: string,
+  gr_gid: int,
+  gr_mem: array(string)
+}</h4>
+
+<div class='body '><p>Structure of entries in the <code>groups</code> database.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getlogin" id="value-getlogin">getlogin</a>: unit => string</h4>
+
+<div class='body '><p>Return the login name of the user executing the process.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getpwnam" id="value-getpwnam">getpwnam</a>: string => <a href="#type-passwd_entry">passwd_entry</a></h4>
+
+<div class='body '><p>Find an entry in <code>passwd</code> with the given name, or raise <code>Not_found</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getgrnam" id="value-getgrnam">getgrnam</a>: string => <a href="#type-group_entry">group_entry</a></h4>
+
+<div class='body '><p>Find an entry in <code>group</code> with the given name, or raise <code>Not_found</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getpwuid" id="value-getpwuid">getpwuid</a>: int => <a href="#type-passwd_entry">passwd_entry</a></h4>
+
+<div class='body '><p>Find an entry in <code>passwd</code> with the given user id, or raise <code>Not_found</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getgrgid" id="value-getgrgid">getgrgid</a>: int => <a href="#type-group_entry">group_entry</a></h4>
+
+<div class='body '><p>Find an entry in <code>group</code> with the given group id, or raise <code>Not_found</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Internet-addresses">Internet addresses</h4></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-inet_addr" id="type-inet_addr">inet_addr</a></h4>
+
+<div class='body '><p>The abstract type of Internet addresses.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-inet_addr_of_string" id="value-inet_addr_of_string">inet_addr_of_string</a>: string => <a href="#type-inet_addr">inet_addr</a></h4>
+
+<div class='body '><p>Conversion from the printable representation of an Internet address to its internal representation. The argument string consists of 4 numbers separated by periods (<code>XXX.YYY.ZZZ.TTT</code>) for IPv4 addresses, and up to 8 numbers separated by colons for IPv6 addresses. Raise <code>Failure</code> when given a string that does not match these formats.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-string_of_inet_addr" id="value-string_of_inet_addr">string_of_inet_addr</a>: <a href="#type-inet_addr">inet_addr</a> => string</h4>
+
+<div class='body '><p>Return the printable representation of the given Internet address. See inet_addr_of_string for a description of the printable representation.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-inet_addr_any" id="value-inet_addr_any">inet_addr_any</a>: <a href="#type-inet_addr">inet_addr</a></h4>
+
+<div class='body '><p>A special IPv4 address, for use only with <code>bind</code>, representing all the Internet addresses that the host machine possesses.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-inet_addr_loopback" id="value-inet_addr_loopback">inet_addr_loopback</a>: <a href="#type-inet_addr">inet_addr</a></h4>
+
+<div class='body '><p>A special IPv4 address representing the host machine (<code>127.0.0.1</code>).</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-inet6_addr_any" id="value-inet6_addr_any">inet6_addr_any</a>: <a href="#type-inet_addr">inet_addr</a></h4>
+
+<div class='body '><p>A special IPv6 address, for use only with <code>bind</code>, representing all the Internet addresses that the host machine possesses.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-inet6_addr_loopback" id="value-inet6_addr_loopback">inet6_addr_loopback</a>: <a href="#type-inet_addr">inet_addr</a></h4>
+
+<div class='body '><p>A special IPv6 address representing the host machine (<code>::1</code>).</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Sockets">Sockets</h4></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-socket_domain" id="type-socket_domain">socket_domain</a> = | PF_UNIX | PF_INET | PF_INET6</h4>
+
+<div class='body '><p>The type of socket domains. Not all platforms support IPv6 sockets (type <code>PF_INET6</code>).</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-socket_type" id="type-socket_type">socket_type</a> = 
+  | SOCK_STREAM
+  | SOCK_DGRAM
+  | SOCK_RAW
+  | SOCK_SEQPACKET</h4>
+
+<div class='body '><p>The type of socket kinds, specifying the semantics of communications.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-sockaddr" id="type-sockaddr">sockaddr</a> = 
+  | ADDR_UNIX(string)
+  | ADDR_INET(<a href="#type-inet_addr">inet_addr</a>, int)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-socket" id="value-socket">socket</a>: (<a href="#type-socket_domain">socket_domain</a>, <a href="#type-socket_type">socket_type</a>, int) => <a href="#type-file_descr">file_descr</a></h4>
+
+<div class='body '><p>Create a new socket in the given domain, and with the given kind. The third argument is the protocol type; 0 selects the default protocol for that kind of sockets.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-domain_of_sockaddr" id="value-domain_of_sockaddr">domain_of_sockaddr</a>: <a href="#type-sockaddr">sockaddr</a> => <a href="#type-socket_domain">socket_domain</a></h4>
+
+<div class='body '><p>Return the socket domain adequate for the given socket address.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-socketpair" id="value-socketpair">socketpair</a>: (<a href="#type-socket_domain">socket_domain</a>, <a href="#type-socket_type">socket_type</a>, int) => (
+  <a href="#type-file_descr">file_descr</a>,
+  <a href="#type-file_descr">file_descr</a>
+)</h4>
+
+<div class='body '><p>Create a pair of unnamed sockets, connected together.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-accept" id="value-accept">accept</a>: <a href="#type-file_descr">file_descr</a> => (<a href="#type-file_descr">file_descr</a>, <a href="#type-sockaddr">sockaddr</a>)</h4>
+
+<div class='body '><p>Accept connections on the given socket. The returned descriptor is a socket connected to the client; the returned address is the address of the connecting client.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-bind" id="value-bind">bind</a>: (<a href="#type-file_descr">file_descr</a>, <a href="#type-sockaddr">sockaddr</a>) => unit</h4>
+
+<div class='body '><p>Bind a socket to an address.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-connect" id="value-connect">connect</a>: (<a href="#type-file_descr">file_descr</a>, <a href="#type-sockaddr">sockaddr</a>) => unit</h4>
+
+<div class='body '><p>Connect a socket to an address.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-listen" id="value-listen">listen</a>: (<a href="#type-file_descr">file_descr</a>, int) => unit</h4>
+
+<div class='body '><p>Set up a socket for receiving connection requests. The integer argument is the maximal number of pending requests.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-shutdown_command" id="type-shutdown_command">shutdown_command</a> = 
+  | SHUTDOWN_RECEIVE
+  | SHUTDOWN_SEND
+  | SHUTDOWN_ALL</h4>
+
+<div class='body '><p>The type of commands for <code>shutdown</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-shutdown" id="value-shutdown">shutdown</a>: (<a href="#type-file_descr">file_descr</a>, <a href="#type-shutdown_command">shutdown_command</a>) => unit</h4>
+
+<div class='body '><p>Shutdown a socket connection. <code>SHUTDOWN_SEND</code> as second argument causes reads on the other end of the connection to return an end-of-file condition. <code>SHUTDOWN_RECEIVE</code> causes writes on the other end of the connection to return a closed pipe condition (<code>SIGPIPE</code> signal).</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getsockname" id="value-getsockname">getsockname</a>: <a href="#type-file_descr">file_descr</a> => <a href="#type-sockaddr">sockaddr</a></h4>
+
+<div class='body '><p>Return the address of the given socket.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getpeername" id="value-getpeername">getpeername</a>: <a href="#type-file_descr">file_descr</a> => <a href="#type-sockaddr">sockaddr</a></h4>
+
+<div class='body '><p>Return the address of the host connected to the given socket.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-msg_flag" id="type-msg_flag">msg_flag</a> = | MSG_OOB | MSG_DONTROUTE | MSG_PEEK</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-recv" id="value-recv">recv</a>: (
+  <a href="#type-file_descr">file_descr</a>,
+  bytes,
+  int,
+  int,
+  list(<a href="#type-msg_flag">msg_flag</a>)
+) => int</h4>
+
+<div class='body '><p>Receive data from a connected socket.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-recvfrom" id="value-recvfrom">recvfrom</a>: (
+  <a href="#type-file_descr">file_descr</a>,
+  bytes,
+  int,
+  int,
+  list(<a href="#type-msg_flag">msg_flag</a>)
+) => (int, <a href="#type-sockaddr">sockaddr</a>)</h4>
+
+<div class='body '><p>Receive data from an unconnected socket.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-send" id="value-send">send</a>: (
+  <a href="#type-file_descr">file_descr</a>,
+  bytes,
+  int,
+  int,
+  list(<a href="#type-msg_flag">msg_flag</a>)
+) => int</h4>
+
+<div class='body '><p>Send data over a connected socket.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-send_substring" id="value-send_substring">send_substring</a>: (
+  <a href="#type-file_descr">file_descr</a>,
+  string,
+  int,
+  int,
+  list(<a href="#type-msg_flag">msg_flag</a>)
+) => int</h4>
+
+<div class='body '><p>Same as <code>send</code>, but take the data from a string instead of a byte sequence.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sendto" id="value-sendto">sendto</a>: (
+  <a href="#type-file_descr">file_descr</a>,
+  bytes,
+  int,
+  int,
+  list(<a href="#type-msg_flag">msg_flag</a>),
+  <a href="#type-sockaddr">sockaddr</a>
+) => int</h4>
+
+<div class='body '><p>Send data over an unconnected socket.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sendto_substring" id="value-sendto_substring">sendto_substring</a>: (
+  <a href="#type-file_descr">file_descr</a>,
+  string,
+  int,
+  int,
+  list(<a href="#type-msg_flag">msg_flag</a>),
+  <a href="#type-sockaddr">sockaddr</a>
+) => int</h4>
+
+<div class='body '><p>Same as <code>sendto</code>, but take the data from a string instead of a byte sequence.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Socket-options">Socket options</h4></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-socket_bool_option" id="type-socket_bool_option">socket_bool_option</a> = 
+  | SO_DEBUG
+  | SO_BROADCAST
+  | SO_REUSEADDR
+  | SO_KEEPALIVE
+  | SO_DONTROUTE
+  | SO_OOBINLINE
+  | SO_ACCEPTCONN
+  | TCP_NODELAY
+  | IPV6_ONLY</h4>
+
+<div class='body '><p>The socket options that can be consulted with getsockopt and modified with setsockopt. These options have a boolean (<code>true</code>/<code>false</code>) value.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-socket_int_option" id="type-socket_int_option">socket_int_option</a> = 
+  | SO_SNDBUF
+  | SO_RCVBUF
+  | SO_ERROR
+  | SO_TYPE
+  | SO_RCVLOWAT
+  | SO_SNDLOWAT</h4>
+
+<div class='body '><p>The socket options that can be consulted with getsockopt_int and modified with setsockopt_int. These options have an integer value.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-socket_optint_option" id="type-socket_optint_option">socket_optint_option</a> = | SO_LINGER</h4>
+
+<div class='body '><p>The socket options that can be consulted with getsockopt_optint and modified with setsockopt_optint. These options have a value of type <code>int option</code>, with <code>None</code> meaning ``disabled&#39;&#39;.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-socket_float_option" id="type-socket_float_option">socket_float_option</a> = | SO_RCVTIMEO | SO_SNDTIMEO</h4>
+
+<div class='body '><p>The socket options that can be consulted with getsockopt_float and modified with setsockopt_float. These options have a floating-point value representing a time in seconds. The value 0 means infinite timeout.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getsockopt" id="value-getsockopt">getsockopt</a>: (<a href="#type-file_descr">file_descr</a>, <a href="#type-socket_bool_option">socket_bool_option</a>) => bool</h4>
+
+<div class='body '><p>Return the current status of a boolean-valued option in the given socket.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-setsockopt" id="value-setsockopt">setsockopt</a>: (
+  <a href="#type-file_descr">file_descr</a>,
+  <a href="#type-socket_bool_option">socket_bool_option</a>,
+  bool
+) => unit</h4>
+
+<div class='body '><p>Set or clear a boolean-valued option in the given socket.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getsockopt_int" id="value-getsockopt_int">getsockopt_int</a>: (<a href="#type-file_descr">file_descr</a>, <a href="#type-socket_int_option">socket_int_option</a>) => int</h4>
+
+<div class='body '><p>Same as getsockopt for an integer-valued socket option.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-setsockopt_int" id="value-setsockopt_int">setsockopt_int</a>: (
+  <a href="#type-file_descr">file_descr</a>,
+  <a href="#type-socket_int_option">socket_int_option</a>,
+  int
+) => unit</h4>
+
+<div class='body '><p>Same as setsockopt for an integer-valued socket option.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getsockopt_optint" id="value-getsockopt_optint">getsockopt_optint</a>: (
+  <a href="#type-file_descr">file_descr</a>,
+  <a href="#type-socket_optint_option">socket_optint_option</a>
+) => option(int)</h4>
+
+<div class='body '><p>Same as getsockopt for a socket option whose value is an <code>int option</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-setsockopt_optint" id="value-setsockopt_optint">setsockopt_optint</a>: (
+  <a href="#type-file_descr">file_descr</a>,
+  <a href="#type-socket_optint_option">socket_optint_option</a>,
+  option(int)
+) => unit</h4>
+
+<div class='body '><p>Same as setsockopt for a socket option whose value is an <code>int option</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getsockopt_float" id="value-getsockopt_float">getsockopt_float</a>: (
+  <a href="#type-file_descr">file_descr</a>,
+  <a href="#type-socket_float_option">socket_float_option</a>
+) => float</h4>
+
+<div class='body '><p>Same as getsockopt for a socket option whose value is a floating-point number.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-setsockopt_float" id="value-setsockopt_float">setsockopt_float</a>: (
+  <a href="#type-file_descr">file_descr</a>,
+  <a href="#type-socket_float_option">socket_float_option</a>,
+  float
+) => unit</h4>
+
+<div class='body '><p>Same as setsockopt for a socket option whose value is a floating-point number.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getsockopt_error" id="value-getsockopt_error">getsockopt_error</a>: <a href="#type-file_descr">file_descr</a> => option(<a href="#type-error">error</a>)</h4>
+
+<div class='body '><p>Return the error condition associated with the given socket, and clear it.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="High-level-network-connection-functions">High-level network connection functions</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-open_connection" id="value-open_connection">open_connection</a>: <a href="#type-sockaddr">sockaddr</a> => (<a href="Pervasives.html#type-in_channel" title="Pervasives.in_channel">in_channel</a>, <a href="Pervasives.html#type-out_channel" title="Pervasives.out_channel">out_channel</a>)</h4>
+
+<div class='body '><p>Connect to a server at the given address. Return a pair of buffered channels connected to the server. Remember to call flush on the output channel at the right times to ensure correct synchronization.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-shutdown_connection" id="value-shutdown_connection">shutdown_connection</a>: <a href="Pervasives.html#type-in_channel" title="Pervasives.in_channel">in_channel</a> => unit</h4>
+
+<div class='body '><p>``Shut down&#39;&#39; a connection established with open_connection; that is, transmit an end-of-file condition to the server reading on the other side of the connection. This does not fully close the file descriptor associated with the channel, which you must remember to free via close_in.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-establish_server" id="value-establish_server">establish_server</a>: (
+  (<a href="Pervasives.html#type-in_channel" title="Pervasives.in_channel">in_channel</a>, <a href="Pervasives.html#type-out_channel" title="Pervasives.out_channel">out_channel</a>) => unit,
+  <a href="#type-sockaddr">sockaddr</a>
+) => unit</h4>
+
+<div class='body '><p>Establish a server on the given address. The function given as first argument is called for each connection with two buffered channels connected to the client. A new process is created for each connection. The function establish_server never returns normally.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Host-and-protocol-databases">Host and protocol databases</h4></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-host_entry" id="type-host_entry">host_entry</a> = {
+  h_name: string,
+  h_aliases: array(string),
+  h_addrtype: <a href="#type-socket_domain">socket_domain</a>,
+  h_addr_list: array(<a href="#type-inet_addr">inet_addr</a>)
+}</h4>
+
+<div class='body '><p>Structure of entries in the <code>hosts</code> database.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-protocol_entry" id="type-protocol_entry">protocol_entry</a> = {
+  p_name: string,
+  p_aliases: array(string),
+  p_proto: int
+}</h4>
+
+<div class='body '><p>Structure of entries in the <code>protocols</code> database.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-service_entry" id="type-service_entry">service_entry</a> = {
+  s_name: string,
+  s_aliases: array(string),
+  s_port: int,
+  s_proto: string
+}</h4>
+
+<div class='body '><p>Structure of entries in the <code>services</code> database.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-gethostname" id="value-gethostname">gethostname</a>: unit => string</h4>
+
+<div class='body '><p>Return the name of the local host.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-gethostbyname" id="value-gethostbyname">gethostbyname</a>: string => <a href="#type-host_entry">host_entry</a></h4>
+
+<div class='body '><p>Find an entry in <code>hosts</code> with the given name, or raise <code>Not_found</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-gethostbyaddr" id="value-gethostbyaddr">gethostbyaddr</a>: <a href="#type-inet_addr">inet_addr</a> => <a href="#type-host_entry">host_entry</a></h4>
+
+<div class='body '><p>Find an entry in <code>hosts</code> with the given address, or raise <code>Not_found</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getprotobyname" id="value-getprotobyname">getprotobyname</a>: string => <a href="#type-protocol_entry">protocol_entry</a></h4>
+
+<div class='body '><p>Find an entry in <code>protocols</code> with the given name, or raise <code>Not_found</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getprotobynumber" id="value-getprotobynumber">getprotobynumber</a>: int => <a href="#type-protocol_entry">protocol_entry</a></h4>
+
+<div class='body '><p>Find an entry in <code>protocols</code> with the given protocol number, or raise <code>Not_found</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getservbyname" id="value-getservbyname">getservbyname</a>: (string, string) => <a href="#type-service_entry">service_entry</a></h4>
+
+<div class='body '><p>Find an entry in <code>services</code> with the given name, or raise <code>Not_found</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getservbyport" id="value-getservbyport">getservbyport</a>: (int, string) => <a href="#type-service_entry">service_entry</a></h4>
+
+<div class='body '><p>Find an entry in <code>services</code> with the given service number, or raise <code>Not_found</code>.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-addr_info" id="type-addr_info">addr_info</a> = {
+  ai_family: <a href="#type-socket_domain">socket_domain</a>,
+  ai_socktype: <a href="#type-socket_type">socket_type</a>,
+  ai_protocol: int,
+  ai_addr: <a href="#type-sockaddr">sockaddr</a>,
+  ai_canonname: string
+}</h4>
+
+<div class='body '><p>Address information returned by getaddrinfo.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-getaddrinfo_option" id="type-getaddrinfo_option">getaddrinfo_option</a> = 
+  | AI_FAMILY(<a href="#type-socket_domain">socket_domain</a>)
+  | AI_SOCKTYPE(<a href="#type-socket_type">socket_type</a>)
+  | AI_PROTOCOL(int)
+  | AI_NUMERICHOST
+  | AI_CANONNAME
+  | AI_PASSIVE</h4>
+
+<div class='body '><p>Options to getaddrinfo.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getaddrinfo" id="value-getaddrinfo">getaddrinfo</a>: (
+  string,
+  string,
+  list(<a href="#type-getaddrinfo_option">getaddrinfo_option</a>)
+) => list(<a href="#type-addr_info">addr_info</a>)</h4>
+
+<div class='body '><p><code>getaddrinfo host service opts</code> returns a list of addr_info records describing socket parameters and addresses suitable for communicating with the given host and service. The empty list is returned if the host or service names are unknown, or the constraints expressed in <code>opts</code> cannot be satisfied.</p>
+<p><code>host</code> is either a host name or the string representation of an IP address. <code>host</code> can be given as the empty string; in this case, the ``any&#39;&#39; address or the ``loopback&#39;&#39; address are used, depending whether <code>opts</code> contains <code>AI_PASSIVE</code>. <code>service</code> is either a service name or the string representation of a port number. <code>service</code> can be given as the empty string; in this case, the port field of the returned addresses is set to 0. <code>opts</code> is a possibly empty list of options that allows the caller to force a particular socket domain (e.g. IPv6 only or IPv4 only) or a particular socket type (e.g. TCP only or UDP only).</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-name_info" id="type-name_info">name_info</a> = {ni_hostname: string, ni_service: string}</h4>
+
+<div class='body '><p>Name of service or port number</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-getnameinfo_option" id="type-getnameinfo_option">getnameinfo_option</a> = 
+  | NI_NOFQDN
+  | NI_NUMERICHOST
+  | NI_NAMEREQD
+  | NI_NUMERICSERV
+  | NI_DGRAM</h4>
+
+<div class='body '><p>Options to getnameinfo.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getnameinfo" id="value-getnameinfo">getnameinfo</a>: (
+  <a href="#type-sockaddr">sockaddr</a>,
+  list(<a href="#type-getnameinfo_option">getnameinfo_option</a>)
+) => <a href="#type-name_info">name_info</a></h4>
+
+<div class='body '><p><code>getnameinfo addr opts</code> returns the host name and service name corresponding to the socket address <code>addr</code>. <code>opts</code> is a possibly empty list of options that governs how these names are obtained. Raise <code>Not_found</code> if an error occurs.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Terminal-interface">Terminal interface</h4></div>
+
+<div class='doc-item'><p>The following functions implement the POSIX standard terminal interface. They provide control over asynchronous communication ports and pseudo-terminals. Refer to the <code>termios</code> man page for a complete description.</p>
+</div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-terminal_io" id="type-terminal_io">terminal_io</a> = {
+  mut c_ignbrk: bool,
+  mut c_brkint: bool,
+  mut c_ignpar: bool,
+  mut c_parmrk: bool,
+  mut c_inpck: bool,
+  mut c_istrip: bool,
+  mut c_inlcr: bool,
+  mut c_igncr: bool,
+  mut c_icrnl: bool,
+  mut c_ixon: bool,
+  mut c_ixoff: bool,
+  mut c_opost: bool,
+  mut c_obaud: int,
+  mut c_ibaud: int,
+  mut c_csize: int,
+  mut c_cstopb: int,
+  mut c_cread: bool,
+  mut c_parenb: bool,
+  mut c_parodd: bool,
+  mut c_hupcl: bool,
+  mut c_clocal: bool,
+  mut c_isig: bool,
+  mut c_icanon: bool,
+  mut c_noflsh: bool,
+  mut c_echo: bool,
+  mut c_echoe: bool,
+  mut c_echok: bool,
+  mut c_echonl: bool,
+  mut c_vintr: char,
+  mut c_vquit: char,
+  mut c_verase: char,
+  mut c_vkill: char,
+  mut c_veof: char,
+  mut c_veol: char,
+  mut c_vmin: int,
+  mut c_vtime: int,
+  mut c_vstart: char,
+  mut c_vstop: char
+}</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-tcgetattr" id="value-tcgetattr">tcgetattr</a>: <a href="#type-file_descr">file_descr</a> => <a href="#type-terminal_io">terminal_io</a></h4>
+
+<div class='body '><p>Return the status of the terminal referred to by the given file descriptor.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-setattr_when" id="type-setattr_when">setattr_when</a> = | TCSANOW | TCSADRAIN | TCSAFLUSH</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-tcsetattr" id="value-tcsetattr">tcsetattr</a>: (
+  <a href="#type-file_descr">file_descr</a>,
+  <a href="#type-setattr_when">setattr_when</a>,
+  <a href="#type-terminal_io">terminal_io</a>
+) => unit</h4>
+
+<div class='body '><p>Set the status of the terminal referred to by the given file descriptor. The second argument indicates when the status change takes place: immediately (<code>TCSANOW</code>), when all pending output has been transmitted (<code>TCSADRAIN</code>), or after flushing all input that has been received but not read (<code>TCSAFLUSH</code>). <code>TCSADRAIN</code> is recommended when changing the output parameters; <code>TCSAFLUSH</code>, when changing the input parameters.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-tcsendbreak" id="value-tcsendbreak">tcsendbreak</a>: (<a href="#type-file_descr">file_descr</a>, int) => unit</h4>
+
+<div class='body '><p>Send a break condition on the given file descriptor. The second argument is the duration of the break, in 0.1s units; 0 means standard duration (0.25s).</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-tcdrain" id="value-tcdrain">tcdrain</a>: <a href="#type-file_descr">file_descr</a> => unit</h4>
+
+<div class='body '><p>Waits until all output written on the given file descriptor has been transmitted.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-flush_queue" id="type-flush_queue">flush_queue</a> = | TCIFLUSH | TCOFLUSH | TCIOFLUSH</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-tcflush" id="value-tcflush">tcflush</a>: (<a href="#type-file_descr">file_descr</a>, <a href="#type-flush_queue">flush_queue</a>) => unit</h4>
+
+<div class='body '><p>Discard data written on the given file descriptor but not yet transmitted, or data received but not yet read, depending on the second argument: <code>TCIFLUSH</code> flushes data received but not read, <code>TCOFLUSH</code> flushes data written but not transmitted, and <code>TCIOFLUSH</code> flushes both.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-flow_action" id="type-flow_action">flow_action</a> = | TCOOFF | TCOON | TCIOFF | TCION</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-tcflow" id="value-tcflow">tcflow</a>: (<a href="#type-file_descr">file_descr</a>, <a href="#type-flow_action">flow_action</a>) => unit</h4>
+
+<div class='body '><p>Suspend or restart reception or transmission of data on the given file descriptor, depending on the second argument: <code>TCOOFF</code> suspends output, <code>TCOON</code> restarts output, <code>TCIOFF</code> transmits a STOP character to suspend input, and <code>TCION</code> transmits a START character to restart input.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-setsid" id="value-setsid">setsid</a>: unit => int</h4>
+
+<div class='body '><p>Put the calling process in a new session and detach it from its controlling terminal.</p>
+</div></div>
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

@@ -1,604 +1,786 @@
+
+    
 <!doctype html>
-<html>
-<head>
-                 <link rel="stylesheet" href="../api_static/tomorrow-night.css">
-                 <link rel="stylesheet" href="../api_static/style.css" type="text/css">
-                 <script src="../api_static//highlight.pack.js"></script>
-                 <script src="../api_static//script.js"></script>
-                 <script>hljs.initHighlightingOnLoad();</script> 
-                 <meta charset="utf8">
-                 <link rel="previous" href="Belt_internalSetString.html"><link rel="next" href="Dom_storage.html">
-                 <title> Dom </title></head> 
-               <body>
-<nav class="module-index"><ul><li><a href="Belt.html">Belt</a></li>
-<li><a href="Belt_Array.html">Belt_Array</a></li>
-<li><a href="Belt_HashMap.html">Belt_HashMap</a></li>
-<li><a href="Belt_HashMapInt.html">Belt_HashMapInt</a></li>
-<li><a href="Belt_HashMapString.html">Belt_HashMapString</a></li>
-<li><a href="Belt_HashSet.html">Belt_HashSet</a></li>
-<li><a href="Belt_HashSetInt.html">Belt_HashSetInt</a></li>
-<li><a href="Belt_HashSetString.html">Belt_HashSetString</a></li>
-<li><a href="Belt_Id.html">Belt_Id</a></li>
-<li><a href="Belt_List.html">Belt_List</a></li>
-<li><a href="Belt_Map.html">Belt_Map</a></li>
-<li><a href="Belt_MapDict.html">Belt_MapDict</a></li>
-<li><a href="Belt_MapInt.html">Belt_MapInt</a></li>
-<li><a href="Belt_MapString.html">Belt_MapString</a></li>
-<li><a href="Belt_MutableMap.html">Belt_MutableMap</a></li>
-<li><a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a></li>
-<li><a href="Belt_MutableMapString.html">Belt_MutableMapString</a></li>
-<li><a href="Belt_MutableQueue.html">Belt_MutableQueue</a></li>
-<li><a href="Belt_MutableSet.html">Belt_MutableSet</a></li>
-<li><a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a></li>
-<li><a href="Belt_MutableSetString.html">Belt_MutableSetString</a></li>
-<li><a href="Belt_MutableStack.html">Belt_MutableStack</a></li>
-<li><a href="Belt_Option.html">Belt_Option</a></li>
-<li><a href="Belt_Range.html">Belt_Range</a></li>
-<li><a href="Belt_Set.html">Belt_Set</a></li>
-<li><a href="Belt_SetDict.html">Belt_SetDict</a></li>
-<li><a href="Belt_SetInt.html">Belt_SetInt</a></li>
-<li><a href="Belt_SetString.html">Belt_SetString</a></li>
-<li><a href="Belt_SortArray.html">Belt_SortArray</a></li>
-<li><a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a></li>
-<li><a href="Belt_SortArrayString.html">Belt_SortArrayString</a></li>
-<li><a href="Belt_internalAVLset.html">Belt_internalAVLset</a></li>
-<li><a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a></li>
-<li><a href="Belt_internalBuckets.html">Belt_internalBuckets</a></li>
-<li><a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a></li>
-<li><a href="Belt_internalMapInt.html">Belt_internalMapInt</a></li>
-<li><a href="Belt_internalMapString.html">Belt_internalMapString</a></li>
-<li><a href="Belt_internalMutableAVLMap.html">Belt_internalMutableAVLMap</a></li>
-<li><a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a></li>
-<li><a href="Belt_internalSetInt.html">Belt_internalSetInt</a></li>
-<li><a href="Belt_internalSetString.html">Belt_internalSetString</a></li>
-<li><a href="Dom.html">Dom</a></li>
-<li><a href="Dom_storage.html">Dom_storage</a></li>
-<li><a href="Js.html">Js</a></li>
-<li><a href="Js_array.html">Js_array</a></li>
-<li><a href="Js_boolean.html">Js_boolean</a></li>
-<li><a href="Js_cast.html">Js_cast</a></li>
-<li><a href="Js_console.html">Js_console</a></li>
-<li><a href="Js_date.html">Js_date</a></li>
-<li><a href="Js_dict.html">Js_dict</a></li>
-<li><a href="Js_exn.html">Js_exn</a></li>
-<li><a href="Js_float.html">Js_float</a></li>
-<li><a href="Js_global.html">Js_global</a></li>
-<li><a href="Js_int.html">Js_int</a></li>
-<li><a href="Js_int64.html">Js_int64</a></li>
-<li><a href="Js_internal.html">Js_internal</a></li>
-<li><a href="Js_json.html">Js_json</a></li>
-<li><a href="Js_list.html">Js_list</a></li>
-<li><a href="Js_mapperRt.html">Js_mapperRt</a></li>
-<li><a href="Js_math.html">Js_math</a></li>
-<li><a href="Js_nativeint.html">Js_nativeint</a></li>
-<li><a href="Js_null.html">Js_null</a></li>
-<li><a href="Js_null_undefined.html">Js_null_undefined</a></li>
-<li><a href="Js_obj.html">Js_obj</a></li>
-<li><a href="Js_option.html">Js_option</a></li>
-<li><a href="Js_primitive.html">Js_primitive</a></li>
-<li><a href="Js_promise.html">Js_promise</a></li>
-<li><a href="Js_re.html">Js_re</a></li>
-<li><a href="Js_result.html">Js_result</a></li>
-<li><a href="Js_string.html">Js_string</a></li>
-<li><a href="Js_typed_array.html">Js_typed_array</a></li>
-<li><a href="Js_types.html">Js_types</a></li>
-<li><a href="Js_undefined.html">Js_undefined</a></li>
-<li><a href="Js_unsafe.html">Js_unsafe</a></li>
-<li><a href="Js_vector.html">Js_vector</a></li>
-<li><a href="Node.html">Node</a></li>
-<li><a href="Node_buffer.html">Node_buffer</a></li>
-<li><a href="Node_child_process.html">Node_child_process</a></li>
-<li><a href="Node_fs.html">Node_fs</a></li>
-<li><a href="Node_module.html">Node_module</a></li>
-<li><a href="Node_path.html">Node_path</a></li>
-<li><a href="Node_process.html">Node_process</a></li></ul></nav>
-<div class="navbar"><a class="pre" href="Belt_internalSetString.html" title="Belt_internalSetString">Previous</a>
-&nbsp;<a class="up" href="index.html" title="Index">Up</a>
-&nbsp;<a class="post" href="Dom_storage.html" title="Dom_storage">Next</a>
-</div>
-<h1>Module <a href="type_Dom.html">Dom</a></h1>
-
-<pre><span class="keyword">module</span> Dom: <code class="code">sig</code> <a href="Dom.html">..</a> <code class="code">end</code></pre><hr width="100%">
-<div class="type-declaration">
-<pre><span id="TYPE_baseClass"><span class="keyword">type</span> <code class="type"></code>_baseClass</span> </pre>
-</div>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Dom</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
+</div>
+
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#Dom" class='level-1 header'>Dom</a>
+<a href="#type-_baseClass" class='level-2 type'>_baseClass</a>
+<a href="#type-animation" class='level-2 type'>animation</a>
+<a href="#type-cssStyleDeclaration" class='level-2 type'>cssStyleDeclaration</a>
+<a href="#type-cssStyleSheet" class='level-2 type'>cssStyleSheet</a>
+<a href="#type-eventTarget_like" class='level-2 type'>eventTarget_like</a>
+<a href="#type-eventTarget" class='level-2 type'>eventTarget</a>
+<a href="#type-_node" class='level-2 type'>_node</a>
+<a href="#type-node_like" class='level-2 type'>node_like</a>
+<a href="#type-node" class='level-2 type'>node</a>
+<a href="#type-_attr" class='level-2 type'>_attr</a>
+<a href="#type-attr" class='level-2 type'>attr</a>
+<a href="#type-_characterData" class='level-2 type'>_characterData</a>
+<a href="#type-characterData_like" class='level-2 type'>characterData_like</a>
+<a href="#type-characterData" class='level-2 type'>characterData</a>
+<a href="#type-_cdataSection" class='level-2 type'>_cdataSection</a>
+<a href="#type-cdataSection" class='level-2 type'>cdataSection</a>
+<a href="#type-_comment" class='level-2 type'>_comment</a>
+<a href="#type-comment" class='level-2 type'>comment</a>
+<a href="#type-_document" class='level-2 type'>_document</a>
+<a href="#type-document_like" class='level-2 type'>document_like</a>
+<a href="#type-document" class='level-2 type'>document</a>
+<a href="#type-_documentFragment" class='level-2 type'>_documentFragment</a>
+<a href="#type-documentFragment" class='level-2 type'>documentFragment</a>
+<a href="#type-_documentType" class='level-2 type'>_documentType</a>
+<a href="#type-documentType" class='level-2 type'>documentType</a>
+<a href="#type-domImplementation" class='level-2 type'>domImplementation</a>
+<a href="#type-_element" class='level-2 type'>_element</a>
+<a href="#type-element_like" class='level-2 type'>element_like</a>
+<a href="#type-element" class='level-2 type'>element</a>
+<a href="#type-htmlCollection" class='level-2 type'>htmlCollection</a>
+<a href="#type-mutationObserver" class='level-2 type'>mutationObserver</a>
+<a href="#type-mutationRecord" class='level-2 type'>mutationRecord</a>
+<a href="#type-namedNodeMap" class='level-2 type'>namedNodeMap</a>
+<a href="#type-nodeList" class='level-2 type'>nodeList</a>
+<a href="#type-processingInstruction" class='level-2 type'>processingInstruction</a>
+<a href="#type-_shadowRoot" class='level-2 type'>_shadowRoot</a>
+<a href="#type-shadowRoot" class='level-2 type'>shadowRoot</a>
+<a href="#type-_text" class='level-2 type'>_text</a>
+<a href="#type-text" class='level-2 type'>text</a>
+<a href="#type-domRect" class='level-2 type'>domRect</a>
+<a href="#type-dataTransfer" class='level-2 type'>dataTransfer</a>
+<a href="#type-domStringMap" class='level-2 type'>domStringMap</a>
+<a href="#type-history" class='level-2 type'>history</a>
+<a href="#type-_htmlDocument" class='level-2 type'>_htmlDocument</a>
+<a href="#type-htmlDocument" class='level-2 type'>htmlDocument</a>
+<a href="#type-_htmlElement" class='level-2 type'>_htmlElement</a>
+<a href="#type-htmlElement_like" class='level-2 type'>htmlElement_like</a>
+<a href="#type-htmlElement" class='level-2 type'>htmlElement</a>
+<a href="#type-_htmlSlotElement" class='level-2 type'>_htmlSlotElement</a>
+<a href="#type-htmlSlotElement" class='level-2 type'>htmlSlotElement</a>
+<a href="#type-location" class='level-2 type'>location</a>
+<a href="#type-window" class='level-2 type'>window</a>
+<a href="#type-_xmlDocument" class='level-2 type'>_xmlDocument</a>
+<a href="#type-xmlDocument" class='level-2 type'>xmlDocument</a>
+<a href="#type-event_like" class='level-2 type'>event_like</a>
+<a href="#type-event" class='level-2 type'>event</a>
+<a href="#type-_uiEvent" class='level-2 type'>_uiEvent</a>
+<a href="#type-uiEvent_like" class='level-2 type'>uiEvent_like</a>
+<a href="#type-uiEvent" class='level-2 type'>uiEvent</a>
+<a href="#type-_animationEvent" class='level-2 type'>_animationEvent</a>
+<a href="#type-animationEvent" class='level-2 type'>animationEvent</a>
+<a href="#type-_beforeUnloadEvent" class='level-2 type'>_beforeUnloadEvent</a>
+<a href="#type-beforeUnloadEvent" class='level-2 type'>beforeUnloadEvent</a>
+<a href="#type-_clipboardEvent" class='level-2 type'>_clipboardEvent</a>
+<a href="#type-clipboardEvent" class='level-2 type'>clipboardEvent</a>
+<a href="#type-_closeEvent" class='level-2 type'>_closeEvent</a>
+<a href="#type-closeEvent" class='level-2 type'>closeEvent</a>
+<a href="#type-_compositionEvent" class='level-2 type'>_compositionEvent</a>
+<a href="#type-compositionEvent" class='level-2 type'>compositionEvent</a>
+<a href="#type-_customEvent" class='level-2 type'>_customEvent</a>
+<a href="#type-customEvent" class='level-2 type'>customEvent</a>
+<a href="#type-_dragEvent" class='level-2 type'>_dragEvent</a>
+<a href="#type-dragEvent" class='level-2 type'>dragEvent</a>
+<a href="#type-_errorEvent" class='level-2 type'>_errorEvent</a>
+<a href="#type-errorEvent" class='level-2 type'>errorEvent</a>
+<a href="#type-_focusEvent" class='level-2 type'>_focusEvent</a>
+<a href="#type-focusEvent" class='level-2 type'>focusEvent</a>
+<a href="#type-_idbVersionChangeEvent" class='level-2 type'>_idbVersionChangeEvent</a>
+<a href="#type-idbVersionChangeEvent" class='level-2 type'>idbVersionChangeEvent</a>
+<a href="#type-_inputEvent" class='level-2 type'>_inputEvent</a>
+<a href="#type-inputEvent" class='level-2 type'>inputEvent</a>
+<a href="#type-_keyboardEvent" class='level-2 type'>_keyboardEvent</a>
+<a href="#type-keyboardEvent" class='level-2 type'>keyboardEvent</a>
+<a href="#type-_mouseEvent" class='level-2 type'>_mouseEvent</a>
+<a href="#type-mouseEvent_like" class='level-2 type'>mouseEvent_like</a>
+<a href="#type-mouseEvent" class='level-2 type'>mouseEvent</a>
+<a href="#type-_pageTransitionEvent" class='level-2 type'>_pageTransitionEvent</a>
+<a href="#type-pageTransitionEvent" class='level-2 type'>pageTransitionEvent</a>
+<a href="#type-_pointerEvent" class='level-2 type'>_pointerEvent</a>
+<a href="#type-pointerEvent" class='level-2 type'>pointerEvent</a>
+<a href="#type-_popStateEvent" class='level-2 type'>_popStateEvent</a>
+<a href="#type-popStateEvent" class='level-2 type'>popStateEvent</a>
+<a href="#type-_progressEvent" class='level-2 type'>_progressEvent</a>
+<a href="#type-progressEvent" class='level-2 type'>progressEvent</a>
+<a href="#type-_relatedEvent" class='level-2 type'>_relatedEvent</a>
+<a href="#type-relatedEvent" class='level-2 type'>relatedEvent</a>
+<a href="#type-_storageEvent" class='level-2 type'>_storageEvent</a>
+<a href="#type-storageEvent" class='level-2 type'>storageEvent</a>
+<a href="#type-_svgZoomEvent" class='level-2 type'>_svgZoomEvent</a>
+<a href="#type-svgZoomEvent" class='level-2 type'>svgZoomEvent</a>
+<a href="#type-_timeEvent" class='level-2 type'>_timeEvent</a>
+<a href="#type-timeEvent" class='level-2 type'>timeEvent</a>
+<a href="#type-_touchEvent" class='level-2 type'>_touchEvent</a>
+<a href="#type-touchEvent" class='level-2 type'>touchEvent</a>
+<a href="#type-_trackEvent" class='level-2 type'>_trackEvent</a>
+<a href="#type-trackEvent" class='level-2 type'>trackEvent</a>
+<a href="#type-_transitionEvent" class='level-2 type'>_transitionEvent</a>
+<a href="#type-transitionEvent" class='level-2 type'>transitionEvent</a>
+<a href="#type-_webGlContextEvent" class='level-2 type'>_webGlContextEvent</a>
+<a href="#type-webGlContextEvent" class='level-2 type'>webGlContextEvent</a>
+<a href="#type-_wheelEvent" class='level-2 type'>_wheelEvent</a>
+<a href="#type-wheelEvent" class='level-2 type'>wheelEvent</a>
+<a href="#type-range" class='level-2 type'>range</a>
+<a href="#type-selection" class='level-2 type'>selection</a>
+<a href="#type-domTokenList" class='level-2 type'>domTokenList</a>
+<a href="#type-domSettableTokenList" class='level-2 type'>domSettableTokenList</a>
+<a href="#type-nodeFilter" class='level-2 type'>nodeFilter</a>
+<a href="#type-nodeIterator" class='level-2 type'>nodeIterator</a>
+<a href="#type-treeWalker" class='level-2 type'>treeWalker</a>
+<a href="#type-svgRect" class='level-2 type'>svgRect</a>
+<a href="#type-svgPoint" class='level-2 type'>svgPoint</a>
+<a href="#type-eventPointerId" class='level-2 type'>eventPointerId</a>
+<a href="#module-Storage" class='level-2 module'>Storage</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Js.html">Js</a>
+<a href="Arg.html">Arg</a>
+<a href="Array.html">Array</a>
+<a href="ArrayLabels.html">ArrayLabels</a>
+<a href="Bigarray.html">Bigarray</a>
+<a href="Buffer.html">Buffer</a>
+<a href="Bytes.html">Bytes</a>
+<a href="BytesLabels.html">BytesLabels</a>
+<a href="Callback.html">Callback</a>
+<a href="CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="CamlinternalMod.html">CamlinternalMod</a>
+<a href="CamlinternalOO.html">CamlinternalOO</a>
+<a href="Char.html">Char</a>
+<a href="Complex.html">Complex</a>
+<a href="Digest.html">Digest</a>
+<a href="Filename.html">Filename</a>
+<a href="Format.html">Format</a>
+<a href="Gc.html">Gc</a>
+<a href="Genlex.html">Genlex</a>
+<a href="Hashtbl.html">Hashtbl</a>
+<a href="Int32.html">Int32</a>
+<a href="Int64.html">Int64</a>
+<a href="Lazy.html">Lazy</a>
+<a href="Lexing.html">Lexing</a>
+<a href="List.html">List</a>
+<a href="ListLabels.html">ListLabels</a>
+<a href="Map.html">Map</a>
+<a href="Marshal.html">Marshal</a>
+<a href="MoreLabels.html">MoreLabels</a>
+<a href="Nativeint.html">Nativeint</a>
+<a href="Obj.html">Obj</a>
+<a href="Oo.html">Oo</a>
+<a href="Parsing.html">Parsing</a>
+<a href="Pervasives.html">Pervasives</a>
+<a href="Printexc.html">Printexc</a>
+<a href="Printf.html">Printf</a>
+<a href="Queue.html">Queue</a>
+<a href="Random.html">Random</a>
+<a href="Scanf.html">Scanf</a>
+<a href="Set.html">Set</a>
+<a href="Sort.html">Sort</a>
+<a href="Stack.html">Stack</a>
+<a href="Std_exit.html">Std_exit</a>
+<a href="StdLabels.html">StdLabels</a>
+<a href="Stream.html">Stream</a>
+<a href="String.html">String</a>
+<a href="StringLabels.html">StringLabels</a>
+<a href="Sys.html">Sys</a>
+<a href="Unix.html">Unix</a>
+<a href="UnixLabels.html">UnixLabels</a>
+<a href="Weak.html">Weak</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/others/dom.ml" class="edit-link">Edit</a>
+    <a href="#Dom" id="Dom"><h1>Dom</h1></a>
+
+<p><span class='missing'>This module does not have a toplevel documentation block.</span></p>
+<div class='doc-item'><h4 class='item'>type <a href="#type-_baseClass" id="type-_baseClass">_baseClass</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-animation" id="type-animation">animation</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-cssStyleDeclaration" id="type-cssStyleDeclaration">cssStyleDeclaration</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-cssStyleSheet" id="type-cssStyleSheet">cssStyleSheet</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-eventTarget_like" id="type-eventTarget_like">eventTarget_like</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-eventTarget" id="type-eventTarget">eventTarget</a> = <a href="#type-eventTarget_like">eventTarget_like</a>(<a href="#type-_baseClass">_baseClass</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-_node" id="type-_node">_node</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-node_like" id="type-node_like">node_like</a>('a) = <a href="#type-eventTarget_like">eventTarget_like</a>(<a href="#type-_node">_node</a>('a))</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-node" id="type-node">node</a> = <a href="#type-node_like">node_like</a>(<a href="#type-_baseClass">_baseClass</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-_attr" id="type-_attr">_attr</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-attr" id="type-attr">attr</a> = <a href="#type-node_like">node_like</a>(<a href="#type-_attr">_attr</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-_characterData" id="type-_characterData">_characterData</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-characterData_like" id="type-characterData_like">characterData_like</a>('a) = <a href="#type-node_like">node_like</a>(<a href="#type-_characterData">_characterData</a>('a))</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-characterData" id="type-characterData">characterData</a> = <a href="#type-characterData_like">characterData_like</a>(<a href="#type-_baseClass">_baseClass</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-_cdataSection" id="type-_cdataSection">_cdataSection</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-cdataSection" id="type-cdataSection">cdataSection</a> = <a href="#type-characterData_like">characterData_like</a>(<a href="#type-_cdataSection">_cdataSection</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-_comment" id="type-_comment">_comment</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-comment" id="type-comment">comment</a> = <a href="#type-characterData_like">characterData_like</a>(<a href="#type-_comment">_comment</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-_document" id="type-_document">_document</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-document_like" id="type-document_like">document_like</a>('a) = <a href="#type-node_like">node_like</a>(<a href="#type-_document">_document</a>('a))</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-document" id="type-document">document</a> = <a href="#type-document_like">document_like</a>(<a href="#type-_baseClass">_baseClass</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-_documentFragment" id="type-_documentFragment">_documentFragment</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEanimation"><span class="keyword">type</span> <code class="type"></code>animation</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEcssStyleDeclaration"><span class="keyword">type</span> <code class="type"></code>cssStyleDeclaration</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-documentFragment" id="type-documentFragment">documentFragment</a> = <a href="#type-node_like">node_like</a>(<a href="#type-_documentFragment">_documentFragment</a>)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEcssStyleSheet"><span class="keyword">type</span> <code class="type"></code>cssStyleSheet</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEeventTarget_like"><span class="keyword">type</span> <code class="type">'a</code> eventTarget_like</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-_documentType" id="type-_documentType">_documentType</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEeventTarget"><span class="keyword">type</span> <code class="type"></code>eventTarget</span> = <code class="type">Dom._baseClass <a href="Dom.html#TYPEeventTarget_like">eventTarget_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPE_node"><span class="keyword">type</span> <code class="type">'a</code> _node</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-documentType" id="type-documentType">documentType</a> = <a href="#type-node_like">node_like</a>(<a href="#type-_documentType">_documentType</a>)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEnode_like"><span class="keyword">type</span> <code class="type">'a</code> node_like</span> = <code class="type">'a Dom._node <a href="Dom.html#TYPEeventTarget_like">eventTarget_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEnode"><span class="keyword">type</span> <code class="type"></code>node</span> = <code class="type">Dom._baseClass <a href="Dom.html#TYPEnode_like">node_like</a></code> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-domImplementation" id="type-domImplementation">domImplementation</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPE_attr"><span class="keyword">type</span> <code class="type"></code>_attr</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEattr"><span class="keyword">type</span> <code class="type"></code>attr</span> = <code class="type">Dom._attr <a href="Dom.html#TYPEnode_like">node_like</a></code> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-_element" id="type-_element">_element</a>('a)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPE_characterData"><span class="keyword">type</span> <code class="type">'a</code> _characterData</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEcharacterData_like"><span class="keyword">type</span> <code class="type">'a</code> characterData_like</span> = <code class="type">'a Dom._characterData <a href="Dom.html#TYPEnode_like">node_like</a></code> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-element_like" id="type-element_like">element_like</a>('a) = <a href="#type-node_like">node_like</a>(<a href="#type-_element">_element</a>('a))</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEcharacterData"><span class="keyword">type</span> <code class="type"></code>characterData</span> = <code class="type">Dom._baseClass <a href="Dom.html#TYPEcharacterData_like">characterData_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPE_cdataSection"><span class="keyword">type</span> <code class="type"></code>_cdataSection</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-element" id="type-element">element</a> = <a href="#type-element_like">element_like</a>(<a href="#type-_baseClass">_baseClass</a>)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEcdataSection"><span class="keyword">type</span> <code class="type"></code>cdataSection</span> = <code class="type">Dom._cdataSection <a href="Dom.html#TYPEcharacterData_like">characterData_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPE_comment"><span class="keyword">type</span> <code class="type"></code>_comment</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-htmlCollection" id="type-htmlCollection">htmlCollection</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEcomment"><span class="keyword">type</span> <code class="type"></code>comment</span> = <code class="type">Dom._comment <a href="Dom.html#TYPEcharacterData_like">characterData_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPE_document"><span class="keyword">type</span> <code class="type">'a</code> _document</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-mutationObserver" id="type-mutationObserver">mutationObserver</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEdocument_like"><span class="keyword">type</span> <code class="type">'a</code> document_like</span> = <code class="type">'a Dom._document <a href="Dom.html#TYPEnode_like">node_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEdocument"><span class="keyword">type</span> <code class="type"></code>document</span> = <code class="type">Dom._baseClass <a href="Dom.html#TYPEdocument_like">document_like</a></code> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-mutationRecord" id="type-mutationRecord">mutationRecord</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPE_documentFragment"><span class="keyword">type</span> <code class="type"></code>_documentFragment</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEdocumentFragment"><span class="keyword">type</span> <code class="type"></code>documentFragment</span> = <code class="type">Dom._documentFragment <a href="Dom.html#TYPEnode_like">node_like</a></code> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-namedNodeMap" id="type-namedNodeMap">namedNodeMap</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPE_documentType"><span class="keyword">type</span> <code class="type"></code>_documentType</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEdocumentType"><span class="keyword">type</span> <code class="type"></code>documentType</span> = <code class="type">Dom._documentType <a href="Dom.html#TYPEnode_like">node_like</a></code> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-nodeList" id="type-nodeList">nodeList</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEdomImplementation"><span class="keyword">type</span> <code class="type"></code>domImplementation</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPE_element"><span class="keyword">type</span> <code class="type">'a</code> _element</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-processingInstruction" id="type-processingInstruction">processingInstruction</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEelement_like"><span class="keyword">type</span> <code class="type">'a</code> element_like</span> = <code class="type">'a Dom._element <a href="Dom.html#TYPEnode_like">node_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEelement"><span class="keyword">type</span> <code class="type"></code>element</span> = <code class="type">Dom._baseClass <a href="Dom.html#TYPEelement_like">element_like</a></code> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-_shadowRoot" id="type-_shadowRoot">_shadowRoot</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEhtmlCollection"><span class="keyword">type</span> <code class="type"></code>htmlCollection</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEmutationObserver"><span class="keyword">type</span> <code class="type"></code>mutationObserver</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-shadowRoot" id="type-shadowRoot">shadowRoot</a> = <a href="#type-node_like">node_like</a>(<a href="#type-_shadowRoot">_shadowRoot</a>)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEmutationRecord"><span class="keyword">type</span> <code class="type"></code>mutationRecord</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEnamedNodeMap"><span class="keyword">type</span> <code class="type"></code>namedNodeMap</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-_text" id="type-_text">_text</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEnodeList"><span class="keyword">type</span> <code class="type"></code>nodeList</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEprocessingInstruction"><span class="keyword">type</span> <code class="type"></code>processingInstruction</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-text" id="type-text">text</a> = <a href="#type-characterData_like">characterData_like</a>(<a href="#type-_text">_text</a>)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPE_shadowRoot"><span class="keyword">type</span> <code class="type"></code>_shadowRoot</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEshadowRoot"><span class="keyword">type</span> <code class="type"></code>shadowRoot</span> = <code class="type">Dom._shadowRoot <a href="Dom.html#TYPEnode_like">node_like</a></code> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-domRect" id="type-domRect">domRect</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPE_text"><span class="keyword">type</span> <code class="type"></code>_text</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEtext"><span class="keyword">type</span> <code class="type"></code>text</span> = <code class="type">Dom._text <a href="Dom.html#TYPEcharacterData_like">characterData_like</a></code> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-dataTransfer" id="type-dataTransfer">dataTransfer</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEdomRect"><span class="keyword">type</span> <code class="type"></code>domRect</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEdataTransfer"><span class="keyword">type</span> <code class="type"></code>dataTransfer</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-domStringMap" id="type-domStringMap">domStringMap</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEdomStringMap"><span class="keyword">type</span> <code class="type"></code>domStringMap</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEhistory"><span class="keyword">type</span> <code class="type"></code>history</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-history" id="type-history">history</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPE_htmlDocument"><span class="keyword">type</span> <code class="type"></code>_htmlDocument</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEhtmlDocument"><span class="keyword">type</span> <code class="type"></code>htmlDocument</span> = <code class="type">Dom._htmlDocument <a href="Dom.html#TYPEdocument_like">document_like</a></code> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-_htmlDocument" id="type-_htmlDocument">_htmlDocument</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPE_htmlElement"><span class="keyword">type</span> <code class="type">'a</code> _htmlElement</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEhtmlElement_like"><span class="keyword">type</span> <code class="type">'a</code> htmlElement_like</span> = <code class="type">'a Dom._htmlElement <a href="Dom.html#TYPEelement_like">element_like</a></code> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-htmlDocument" id="type-htmlDocument">htmlDocument</a> = <a href="#type-document_like">document_like</a>(<a href="#type-_htmlDocument">_htmlDocument</a>)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEhtmlElement"><span class="keyword">type</span> <code class="type"></code>htmlElement</span> = <code class="type">Dom._baseClass <a href="Dom.html#TYPEhtmlElement_like">htmlElement_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPE_htmlSlotElement"><span class="keyword">type</span> <code class="type"></code>_htmlSlotElement</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-_htmlElement" id="type-_htmlElement">_htmlElement</a>('a)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEhtmlSlotElement"><span class="keyword">type</span> <code class="type"></code>htmlSlotElement</span> = <code class="type">Dom._htmlSlotElement <a href="Dom.html#TYPEhtmlElement_like">htmlElement_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPElocation"><span class="keyword">type</span> <code class="type"></code>location</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-htmlElement_like" id="type-htmlElement_like">htmlElement_like</a>('a) = <a href="#type-element_like">element_like</a>(<a href="#type-_htmlElement">_htmlElement</a>('a))</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEwindow"><span class="keyword">type</span> <code class="type"></code>window</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPE_xmlDocument"><span class="keyword">type</span> <code class="type"></code>_xmlDocument</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-htmlElement" id="type-htmlElement">htmlElement</a> = <a href="#type-htmlElement_like">htmlElement_like</a>(<a href="#type-_baseClass">_baseClass</a>)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPExmlDocument"><span class="keyword">type</span> <code class="type"></code>xmlDocument</span> = <code class="type">Dom._xmlDocument <a href="Dom.html#TYPEdocument_like">document_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEevent_like"><span class="keyword">type</span> <code class="type">'a</code> event_like</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-_htmlSlotElement" id="type-_htmlSlotElement">_htmlSlotElement</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEevent"><span class="keyword">type</span> <code class="type"></code>event</span> = <code class="type">Dom._baseClass <a href="Dom.html#TYPEevent_like">event_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPE_uiEvent"><span class="keyword">type</span> <code class="type">'a</code> _uiEvent</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-htmlSlotElement" id="type-htmlSlotElement">htmlSlotElement</a> = <a href="#type-htmlElement_like">htmlElement_like</a>(<a href="#type-_htmlSlotElement">_htmlSlotElement</a>)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEuiEvent_like"><span class="keyword">type</span> <code class="type">'a</code> uiEvent_like</span> = <code class="type">'a Dom._uiEvent <a href="Dom.html#TYPEevent_like">event_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEuiEvent"><span class="keyword">type</span> <code class="type"></code>uiEvent</span> = <code class="type">Dom._baseClass <a href="Dom.html#TYPEuiEvent_like">uiEvent_like</a></code> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-location" id="type-location">location</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPE_animationEvent"><span class="keyword">type</span> <code class="type"></code>_animationEvent</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEanimationEvent"><span class="keyword">type</span> <code class="type"></code>animationEvent</span> = <code class="type">Dom._animationEvent <a href="Dom.html#TYPEevent_like">event_like</a></code> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-window" id="type-window">window</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPE_beforeUnloadEvent"><span class="keyword">type</span> <code class="type"></code>_beforeUnloadEvent</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEbeforeUnloadEvent"><span class="keyword">type</span> <code class="type"></code>beforeUnloadEvent</span> = <code class="type">Dom._beforeUnloadEvent <a href="Dom.html#TYPEevent_like">event_like</a></code> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-_xmlDocument" id="type-_xmlDocument">_xmlDocument</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPE_clipboardEvent"><span class="keyword">type</span> <code class="type"></code>_clipboardEvent</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEclipboardEvent"><span class="keyword">type</span> <code class="type"></code>clipboardEvent</span> = <code class="type">Dom._clipboardEvent <a href="Dom.html#TYPEevent_like">event_like</a></code> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-xmlDocument" id="type-xmlDocument">xmlDocument</a> = <a href="#type-document_like">document_like</a>(<a href="#type-_xmlDocument">_xmlDocument</a>)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPE_closeEvent"><span class="keyword">type</span> <code class="type"></code>_closeEvent</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEcloseEvent"><span class="keyword">type</span> <code class="type"></code>closeEvent</span> = <code class="type">Dom._closeEvent <a href="Dom.html#TYPEevent_like">event_like</a></code> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-event_like" id="type-event_like">event_like</a>('a)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPE_compositionEvent"><span class="keyword">type</span> <code class="type"></code>_compositionEvent</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEcompositionEvent"><span class="keyword">type</span> <code class="type"></code>compositionEvent</span> = <code class="type">Dom._compositionEvent <a href="Dom.html#TYPEuiEvent_like">uiEvent_like</a></code> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-event" id="type-event">event</a> = <a href="#type-event_like">event_like</a>(<a href="#type-_baseClass">_baseClass</a>)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPE_customEvent"><span class="keyword">type</span> <code class="type"></code>_customEvent</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEcustomEvent"><span class="keyword">type</span> <code class="type"></code>customEvent</span> = <code class="type">Dom._customEvent <a href="Dom.html#TYPEevent_like">event_like</a></code> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-_uiEvent" id="type-_uiEvent">_uiEvent</a>('a)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPE_dragEvent"><span class="keyword">type</span> <code class="type"></code>_dragEvent</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEdragEvent"><span class="keyword">type</span> <code class="type"></code>dragEvent</span> = <code class="type">Dom._dragEvent <a href="Dom.html#TYPEevent_like">event_like</a></code> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-uiEvent_like" id="type-uiEvent_like">uiEvent_like</a>('a) = <a href="#type-event_like">event_like</a>(<a href="#type-_uiEvent">_uiEvent</a>('a))</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPE_errorEvent"><span class="keyword">type</span> <code class="type"></code>_errorEvent</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEerrorEvent"><span class="keyword">type</span> <code class="type"></code>errorEvent</span> = <code class="type">Dom._errorEvent <a href="Dom.html#TYPEevent_like">event_like</a></code> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-uiEvent" id="type-uiEvent">uiEvent</a> = <a href="#type-uiEvent_like">uiEvent_like</a>(<a href="#type-_baseClass">_baseClass</a>)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPE_focusEvent"><span class="keyword">type</span> <code class="type"></code>_focusEvent</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEfocusEvent"><span class="keyword">type</span> <code class="type"></code>focusEvent</span> = <code class="type">Dom._focusEvent <a href="Dom.html#TYPEuiEvent_like">uiEvent_like</a></code> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-_animationEvent" id="type-_animationEvent">_animationEvent</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPE_idbVersionChangeEvent"><span class="keyword">type</span> <code class="type"></code>_idbVersionChangeEvent</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEidbVersionChangeEvent"><span class="keyword">type</span> <code class="type"></code>idbVersionChangeEvent</span> = <code class="type">Dom._idbVersionChangeEvent <a href="Dom.html#TYPEevent_like">event_like</a></code> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-animationEvent" id="type-animationEvent">animationEvent</a> = <a href="#type-event_like">event_like</a>(<a href="#type-_animationEvent">_animationEvent</a>)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPE_inputEvent"><span class="keyword">type</span> <code class="type"></code>_inputEvent</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEinputEvent"><span class="keyword">type</span> <code class="type"></code>inputEvent</span> = <code class="type">Dom._inputEvent <a href="Dom.html#TYPEuiEvent_like">uiEvent_like</a></code> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-_beforeUnloadEvent" id="type-_beforeUnloadEvent">_beforeUnloadEvent</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPE_keyboardEvent"><span class="keyword">type</span> <code class="type"></code>_keyboardEvent</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEkeyboardEvent"><span class="keyword">type</span> <code class="type"></code>keyboardEvent</span> = <code class="type">Dom._keyboardEvent <a href="Dom.html#TYPEuiEvent_like">uiEvent_like</a></code> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-beforeUnloadEvent" id="type-beforeUnloadEvent">beforeUnloadEvent</a> = <a href="#type-event_like">event_like</a>(<a href="#type-_beforeUnloadEvent">_beforeUnloadEvent</a>)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPE_mouseEvent"><span class="keyword">type</span> <code class="type">'a</code> _mouseEvent</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEmouseEvent_like"><span class="keyword">type</span> <code class="type">'a</code> mouseEvent_like</span> = <code class="type">'a Dom._mouseEvent <a href="Dom.html#TYPEuiEvent_like">uiEvent_like</a></code> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-_clipboardEvent" id="type-_clipboardEvent">_clipboardEvent</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEmouseEvent"><span class="keyword">type</span> <code class="type"></code>mouseEvent</span> = <code class="type">Dom._baseClass <a href="Dom.html#TYPEmouseEvent_like">mouseEvent_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPE_pageTransitionEvent"><span class="keyword">type</span> <code class="type"></code>_pageTransitionEvent</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-clipboardEvent" id="type-clipboardEvent">clipboardEvent</a> = <a href="#type-event_like">event_like</a>(<a href="#type-_clipboardEvent">_clipboardEvent</a>)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEpageTransitionEvent"><span class="keyword">type</span> <code class="type"></code>pageTransitionEvent</span> = <code class="type">Dom._pageTransitionEvent <a href="Dom.html#TYPEevent_like">event_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPE_pointerEvent"><span class="keyword">type</span> <code class="type"></code>_pointerEvent</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-_closeEvent" id="type-_closeEvent">_closeEvent</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEpointerEvent"><span class="keyword">type</span> <code class="type"></code>pointerEvent</span> = <code class="type">Dom._pointerEvent <a href="Dom.html#TYPEmouseEvent_like">mouseEvent_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPE_popStateEvent"><span class="keyword">type</span> <code class="type"></code>_popStateEvent</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-closeEvent" id="type-closeEvent">closeEvent</a> = <a href="#type-event_like">event_like</a>(<a href="#type-_closeEvent">_closeEvent</a>)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEpopStateEvent"><span class="keyword">type</span> <code class="type"></code>popStateEvent</span> = <code class="type">Dom._popStateEvent <a href="Dom.html#TYPEevent_like">event_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPE_progressEvent"><span class="keyword">type</span> <code class="type"></code>_progressEvent</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-_compositionEvent" id="type-_compositionEvent">_compositionEvent</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEprogressEvent"><span class="keyword">type</span> <code class="type"></code>progressEvent</span> = <code class="type">Dom._progressEvent <a href="Dom.html#TYPEevent_like">event_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPE_relatedEvent"><span class="keyword">type</span> <code class="type"></code>_relatedEvent</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-compositionEvent" id="type-compositionEvent">compositionEvent</a> = <a href="#type-uiEvent_like">uiEvent_like</a>(<a href="#type-_compositionEvent">_compositionEvent</a>)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPErelatedEvent"><span class="keyword">type</span> <code class="type"></code>relatedEvent</span> = <code class="type">Dom._relatedEvent <a href="Dom.html#TYPEevent_like">event_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPE_storageEvent"><span class="keyword">type</span> <code class="type"></code>_storageEvent</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-_customEvent" id="type-_customEvent">_customEvent</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEstorageEvent"><span class="keyword">type</span> <code class="type"></code>storageEvent</span> = <code class="type">Dom._storageEvent <a href="Dom.html#TYPEevent_like">event_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPE_svgZoomEvent"><span class="keyword">type</span> <code class="type"></code>_svgZoomEvent</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-customEvent" id="type-customEvent">customEvent</a> = <a href="#type-event_like">event_like</a>(<a href="#type-_customEvent">_customEvent</a>)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEsvgZoomEvent"><span class="keyword">type</span> <code class="type"></code>svgZoomEvent</span> = <code class="type">Dom._svgZoomEvent <a href="Dom.html#TYPEevent_like">event_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPE_timeEvent"><span class="keyword">type</span> <code class="type"></code>_timeEvent</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-_dragEvent" id="type-_dragEvent">_dragEvent</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEtimeEvent"><span class="keyword">type</span> <code class="type"></code>timeEvent</span> = <code class="type">Dom._timeEvent <a href="Dom.html#TYPEevent_like">event_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPE_touchEvent"><span class="keyword">type</span> <code class="type"></code>_touchEvent</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-dragEvent" id="type-dragEvent">dragEvent</a> = <a href="#type-event_like">event_like</a>(<a href="#type-_dragEvent">_dragEvent</a>)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEtouchEvent"><span class="keyword">type</span> <code class="type"></code>touchEvent</span> = <code class="type">Dom._touchEvent <a href="Dom.html#TYPEuiEvent_like">uiEvent_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPE_trackEvent"><span class="keyword">type</span> <code class="type"></code>_trackEvent</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-_errorEvent" id="type-_errorEvent">_errorEvent</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEtrackEvent"><span class="keyword">type</span> <code class="type"></code>trackEvent</span> = <code class="type">Dom._trackEvent <a href="Dom.html#TYPEevent_like">event_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPE_transitionEvent"><span class="keyword">type</span> <code class="type"></code>_transitionEvent</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-errorEvent" id="type-errorEvent">errorEvent</a> = <a href="#type-event_like">event_like</a>(<a href="#type-_errorEvent">_errorEvent</a>)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEtransitionEvent"><span class="keyword">type</span> <code class="type"></code>transitionEvent</span> = <code class="type">Dom._transitionEvent <a href="Dom.html#TYPEevent_like">event_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPE_webGlContextEvent"><span class="keyword">type</span> <code class="type"></code>_webGlContextEvent</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-_focusEvent" id="type-_focusEvent">_focusEvent</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEwebGlContextEvent"><span class="keyword">type</span> <code class="type"></code>webGlContextEvent</span> = <code class="type">Dom._webGlContextEvent <a href="Dom.html#TYPEevent_like">event_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPE_wheelEvent"><span class="keyword">type</span> <code class="type"></code>_wheelEvent</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-focusEvent" id="type-focusEvent">focusEvent</a> = <a href="#type-uiEvent_like">uiEvent_like</a>(<a href="#type-_focusEvent">_focusEvent</a>)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEwheelEvent"><span class="keyword">type</span> <code class="type"></code>wheelEvent</span> = <code class="type">Dom._wheelEvent <a href="Dom.html#TYPEuiEvent_like">uiEvent_like</a></code> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPErange"><span class="keyword">type</span> <code class="type"></code>range</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-_idbVersionChangeEvent" id="type-_idbVersionChangeEvent">_idbVersionChangeEvent</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEselection"><span class="keyword">type</span> <code class="type"></code>selection</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEdomTokenList"><span class="keyword">type</span> <code class="type"></code>domTokenList</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-idbVersionChangeEvent" id="type-idbVersionChangeEvent">idbVersionChangeEvent</a> = <a href="#type-event_like">event_like</a>(
+  <a href="#type-_idbVersionChangeEvent">_idbVersionChangeEvent</a>
+)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEdomSettableTokenList"><span class="keyword">type</span> <code class="type"></code>domSettableTokenList</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><code><span id="TYPEnodeFilter"><span class="keyword">type</span> <code class="type"></code>nodeFilter</span> = {</code></pre><table class="typetable">
-<tr>
-<td align="left" valign="top" >
-<code>&nbsp;&nbsp;</code></td>
-<td align="left" valign="top" >
-<code><span id="TYPEELTnodeFilter.acceptNode">acceptNode</span>&nbsp;: <code class="type"><a href="Dom.html#TYPEelement">element</a> -> int</code>;</code></td>
+<div class='doc-item'><h4 class='item'>type <a href="#type-_inputEvent" id="type-_inputEvent">_inputEvent</a></h4>
 
-</tr></table>
-}
+<div class='body body-empty'></div></div>
 
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-inputEvent" id="type-inputEvent">inputEvent</a> = <a href="#type-uiEvent_like">uiEvent_like</a>(<a href="#type-_inputEvent">_inputEvent</a>)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEnodeIterator"><span class="keyword">type</span> <code class="type"></code>nodeIterator</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEtreeWalker"><span class="keyword">type</span> <code class="type"></code>treeWalker</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-_keyboardEvent" id="type-_keyboardEvent">_keyboardEvent</a></h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEsvgRect"><span class="keyword">type</span> <code class="type"></code>svgRect</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
 
-<div class="type-declaration">
-<pre><span id="TYPEsvgPoint"><span class="keyword">type</span> <code class="type"></code>svgPoint</span> </pre>
-</div>
+<div class='doc-item'><h4 class='item'>type <a href="#type-keyboardEvent" id="type-keyboardEvent">keyboardEvent</a> = <a href="#type-uiEvent_like">uiEvent_like</a>(<a href="#type-_keyboardEvent">_keyboardEvent</a>)</h4>
 
-<div class="type-declaration">
-<pre><span id="TYPEeventPointerId"><span class="keyword">type</span> <code class="type"></code>eventPointerId</span> </pre>
-</div>
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-_mouseEvent" id="type-_mouseEvent">_mouseEvent</a>('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-mouseEvent_like" id="type-mouseEvent_like">mouseEvent_like</a>('a) = <a href="#type-uiEvent_like">uiEvent_like</a>(<a href="#type-_mouseEvent">_mouseEvent</a>('a))</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-mouseEvent" id="type-mouseEvent">mouseEvent</a> = <a href="#type-mouseEvent_like">mouseEvent_like</a>(<a href="#type-_baseClass">_baseClass</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-_pageTransitionEvent" id="type-_pageTransitionEvent">_pageTransitionEvent</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-pageTransitionEvent" id="type-pageTransitionEvent">pageTransitionEvent</a> = <a href="#type-event_like">event_like</a>(<a href="#type-_pageTransitionEvent">_pageTransitionEvent</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-_pointerEvent" id="type-_pointerEvent">_pointerEvent</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-pointerEvent" id="type-pointerEvent">pointerEvent</a> = <a href="#type-mouseEvent_like">mouseEvent_like</a>(<a href="#type-_pointerEvent">_pointerEvent</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-_popStateEvent" id="type-_popStateEvent">_popStateEvent</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-popStateEvent" id="type-popStateEvent">popStateEvent</a> = <a href="#type-event_like">event_like</a>(<a href="#type-_popStateEvent">_popStateEvent</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-_progressEvent" id="type-_progressEvent">_progressEvent</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-progressEvent" id="type-progressEvent">progressEvent</a> = <a href="#type-event_like">event_like</a>(<a href="#type-_progressEvent">_progressEvent</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-_relatedEvent" id="type-_relatedEvent">_relatedEvent</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-relatedEvent" id="type-relatedEvent">relatedEvent</a> = <a href="#type-event_like">event_like</a>(<a href="#type-_relatedEvent">_relatedEvent</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-_storageEvent" id="type-_storageEvent">_storageEvent</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-storageEvent" id="type-storageEvent">storageEvent</a> = <a href="#type-event_like">event_like</a>(<a href="#type-_storageEvent">_storageEvent</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-_svgZoomEvent" id="type-_svgZoomEvent">_svgZoomEvent</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-svgZoomEvent" id="type-svgZoomEvent">svgZoomEvent</a> = <a href="#type-event_like">event_like</a>(<a href="#type-_svgZoomEvent">_svgZoomEvent</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-_timeEvent" id="type-_timeEvent">_timeEvent</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-timeEvent" id="type-timeEvent">timeEvent</a> = <a href="#type-event_like">event_like</a>(<a href="#type-_timeEvent">_timeEvent</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-_touchEvent" id="type-_touchEvent">_touchEvent</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-touchEvent" id="type-touchEvent">touchEvent</a> = <a href="#type-uiEvent_like">uiEvent_like</a>(<a href="#type-_touchEvent">_touchEvent</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-_trackEvent" id="type-_trackEvent">_trackEvent</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-trackEvent" id="type-trackEvent">trackEvent</a> = <a href="#type-event_like">event_like</a>(<a href="#type-_trackEvent">_trackEvent</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-_transitionEvent" id="type-_transitionEvent">_transitionEvent</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-transitionEvent" id="type-transitionEvent">transitionEvent</a> = <a href="#type-event_like">event_like</a>(<a href="#type-_transitionEvent">_transitionEvent</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-_webGlContextEvent" id="type-_webGlContextEvent">_webGlContextEvent</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-webGlContextEvent" id="type-webGlContextEvent">webGlContextEvent</a> = <a href="#type-event_like">event_like</a>(<a href="#type-_webGlContextEvent">_webGlContextEvent</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-_wheelEvent" id="type-_wheelEvent">_wheelEvent</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-wheelEvent" id="type-wheelEvent">wheelEvent</a> = <a href="#type-uiEvent_like">uiEvent_like</a>(<a href="#type-_wheelEvent">_wheelEvent</a>)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-range" id="type-range">range</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-selection" id="type-selection">selection</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-domTokenList" id="type-domTokenList">domTokenList</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-domSettableTokenList" id="type-domSettableTokenList">domSettableTokenList</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-nodeFilter" id="type-nodeFilter">nodeFilter</a> = {acceptNode: <a href="#type-element">element</a> => int}</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-nodeIterator" id="type-nodeIterator">nodeIterator</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-treeWalker" id="type-treeWalker">treeWalker</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-svgRect" id="type-svgRect">svgRect</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-svgPoint" id="type-svgPoint">svgPoint</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-eventPointerId" id="type-eventPointerId">eventPointerId</a></h4>
+
+<div class='body body-empty'></div></div>
 
+<div class='doc-item'><h4 class='item module'>module <a href="#module-Storage" id="module-Storage">Storage</a> : <a href="Dom_storage.html">Dom_storage</a></h4></div>
 
-<pre><span class="keyword">module</span> <a href="Dom.Storage.html">Storage</a>: <code class="type"><a href="Dom_storage.html">Dom_storage</a></code></pre> <div class="info">                     
-                <div class="not-examples">
-                     
-                </div>
-                </div> </body></html>
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

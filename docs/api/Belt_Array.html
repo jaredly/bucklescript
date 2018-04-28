@@ -1,836 +1,944 @@
+
+    
 <!doctype html>
-<html>
-<head>
-                 <link rel="stylesheet" href="../api_static/tomorrow-night.css">
-                 <link rel="stylesheet" href="../api_static/style.css" type="text/css">
-                 <script src="../api_static//highlight.pack.js"></script>
-                 <script src="../api_static//script.js"></script>
-                 <script>hljs.initHighlightingOnLoad();</script> 
-                 <meta charset="utf8">
-                 <link rel="previous" href="Belt.html"><link rel="next" href="Belt_HashMap.html">
-                 <title> Belt_Array </title></head> 
-               <body>
-<nav class="module-index"><ul><li><a href="Belt.html">Belt</a></li>
-<li><a href="Belt_Array.html">Belt_Array</a></li>
-<li><a href="Belt_HashMap.html">Belt_HashMap</a></li>
-<li><a href="Belt_HashMapInt.html">Belt_HashMapInt</a></li>
-<li><a href="Belt_HashMapString.html">Belt_HashMapString</a></li>
-<li><a href="Belt_HashSet.html">Belt_HashSet</a></li>
-<li><a href="Belt_HashSetInt.html">Belt_HashSetInt</a></li>
-<li><a href="Belt_HashSetString.html">Belt_HashSetString</a></li>
-<li><a href="Belt_Id.html">Belt_Id</a></li>
-<li><a href="Belt_List.html">Belt_List</a></li>
-<li><a href="Belt_Map.html">Belt_Map</a></li>
-<li><a href="Belt_MapDict.html">Belt_MapDict</a></li>
-<li><a href="Belt_MapInt.html">Belt_MapInt</a></li>
-<li><a href="Belt_MapString.html">Belt_MapString</a></li>
-<li><a href="Belt_MutableMap.html">Belt_MutableMap</a></li>
-<li><a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a></li>
-<li><a href="Belt_MutableMapString.html">Belt_MutableMapString</a></li>
-<li><a href="Belt_MutableQueue.html">Belt_MutableQueue</a></li>
-<li><a href="Belt_MutableSet.html">Belt_MutableSet</a></li>
-<li><a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a></li>
-<li><a href="Belt_MutableSetString.html">Belt_MutableSetString</a></li>
-<li><a href="Belt_MutableStack.html">Belt_MutableStack</a></li>
-<li><a href="Belt_Option.html">Belt_Option</a></li>
-<li><a href="Belt_Range.html">Belt_Range</a></li>
-<li><a href="Belt_Set.html">Belt_Set</a></li>
-<li><a href="Belt_SetDict.html">Belt_SetDict</a></li>
-<li><a href="Belt_SetInt.html">Belt_SetInt</a></li>
-<li><a href="Belt_SetString.html">Belt_SetString</a></li>
-<li><a href="Belt_SortArray.html">Belt_SortArray</a></li>
-<li><a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a></li>
-<li><a href="Belt_SortArrayString.html">Belt_SortArrayString</a></li>
-<li><a href="Belt_internalAVLset.html">Belt_internalAVLset</a></li>
-<li><a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a></li>
-<li><a href="Belt_internalBuckets.html">Belt_internalBuckets</a></li>
-<li><a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a></li>
-<li><a href="Belt_internalMapInt.html">Belt_internalMapInt</a></li>
-<li><a href="Belt_internalMapString.html">Belt_internalMapString</a></li>
-<li><a href="Belt_internalMutableAVLMap.html">Belt_internalMutableAVLMap</a></li>
-<li><a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a></li>
-<li><a href="Belt_internalSetInt.html">Belt_internalSetInt</a></li>
-<li><a href="Belt_internalSetString.html">Belt_internalSetString</a></li>
-<li><a href="Dom.html">Dom</a></li>
-<li><a href="Dom_storage.html">Dom_storage</a></li>
-<li><a href="Js.html">Js</a></li>
-<li><a href="Js_array.html">Js_array</a></li>
-<li><a href="Js_boolean.html">Js_boolean</a></li>
-<li><a href="Js_cast.html">Js_cast</a></li>
-<li><a href="Js_console.html">Js_console</a></li>
-<li><a href="Js_date.html">Js_date</a></li>
-<li><a href="Js_dict.html">Js_dict</a></li>
-<li><a href="Js_exn.html">Js_exn</a></li>
-<li><a href="Js_float.html">Js_float</a></li>
-<li><a href="Js_global.html">Js_global</a></li>
-<li><a href="Js_int.html">Js_int</a></li>
-<li><a href="Js_int64.html">Js_int64</a></li>
-<li><a href="Js_internal.html">Js_internal</a></li>
-<li><a href="Js_json.html">Js_json</a></li>
-<li><a href="Js_list.html">Js_list</a></li>
-<li><a href="Js_mapperRt.html">Js_mapperRt</a></li>
-<li><a href="Js_math.html">Js_math</a></li>
-<li><a href="Js_nativeint.html">Js_nativeint</a></li>
-<li><a href="Js_null.html">Js_null</a></li>
-<li><a href="Js_null_undefined.html">Js_null_undefined</a></li>
-<li><a href="Js_obj.html">Js_obj</a></li>
-<li><a href="Js_option.html">Js_option</a></li>
-<li><a href="Js_primitive.html">Js_primitive</a></li>
-<li><a href="Js_promise.html">Js_promise</a></li>
-<li><a href="Js_re.html">Js_re</a></li>
-<li><a href="Js_result.html">Js_result</a></li>
-<li><a href="Js_string.html">Js_string</a></li>
-<li><a href="Js_typed_array.html">Js_typed_array</a></li>
-<li><a href="Js_types.html">Js_types</a></li>
-<li><a href="Js_undefined.html">Js_undefined</a></li>
-<li><a href="Js_unsafe.html">Js_unsafe</a></li>
-<li><a href="Js_vector.html">Js_vector</a></li>
-<li><a href="Node.html">Node</a></li>
-<li><a href="Node_buffer.html">Node_buffer</a></li>
-<li><a href="Node_child_process.html">Node_child_process</a></li>
-<li><a href="Node_fs.html">Node_fs</a></li>
-<li><a href="Node_module.html">Node_module</a></li>
-<li><a href="Node_path.html">Node_path</a></li>
-<li><a href="Node_process.html">Node_process</a></li></ul></nav>
-<div class="navbar"><a class="pre" href="Belt.html" title="Belt">Previous</a>
-&nbsp;<a class="up" href="index.html" title="Index">Up</a>
-&nbsp;<a class="post" href="Belt_HashMap.html" title="Belt_HashMap">Next</a>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Belt_Array</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
 </div>
-<h1>Module <a href="type_Belt_Array.html">Belt_Array</a></h1>
-
-<pre><span class="keyword">module</span> Belt_Array: <code class="code">sig</code> <a href="Belt_Array.html">..</a> <code class="code">end</code></pre><div class="info module top">
-                    <div class="not-examples">
-                    <a href="Belt.Array.html"><code class="code">Belt.Array</code></a>    
-    Utililites for Array functions<br>
- 
-                    </div>
-                    
-                    </div>
-
-                  <hr width="100%">
-
-<pre><span id="VALlength"><span class="keyword">val</span> length</span> : <code class="type">'a array -> int</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">length xs</code> return the size of the array<br>
- 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALsize"><span class="keyword">val</span> size</span> : <code class="type">'a array -> int</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <b>See</b> <a href="Belt_Array.html#VALlength"><code class="code">Belt_Array.length</code></a><br>
- 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALget"><span class="keyword">val</span> get</span> : <code class="type">'a array -> int -> 'a option</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">get arr i</code>
-<p>
-
-  If <code class="code">i &lt;= 0 &lt;= length arr</code>;returns <code class="code">Some value</code> where <code class="code">value</code> is the item at index <code class="code">i</code> 
-  If <code class="code">i</code> is out of range;returns <code class="code">None</code><br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">    Belt.Array.get [|"a";"b";"c"|] 0 = Some "a";;
-    Belt.Array.get [|"a";"b";"c"|] 3 = None;;
-    Belt.Array.get [|"a";"b";"c"|] (-1) = None;;
-  </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALgetExn"><span class="keyword">val</span> getExn</span> : <code class="type">'a array -> int -> 'a</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">getExn arr i</code>
-<p>
-
-    <b>raise</b> an exception if <code class="code">i</code> is out of range;otherwise return the value at index <code class="code">i</code> in <code class="code">arr</code><br>
- 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALgetUnsafe"><span class="keyword">val</span> getUnsafe</span> : <code class="type">'a array -> int -> 'a</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">getUnasfe arr i</code>
-<p>
-
-    <b>Unsafe</b>
-<p>
-
-    no  bounds checking;this would cause type error
-    if <code class="code">i</code> does not stay within range<br>
- 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALgetUndefined"><span class="keyword">val</span> getUndefined</span> : <code class="type">'a array -> int -> 'a <a href="Js.html#TYPEundefined">Js.undefined</a></code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">getUndefined arr i</code>
-<p>
-
-    It does the samething in the runtime as <a href="Belt_Array.html#VALgetUnsafe"><code class="code">Belt_Array.getUnsafe</code></a>;
-    it is <i>type safe</i> since the return type still track whether it is 
-    in range or not<br>
- 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALset"><span class="keyword">val</span> set</span> : <code class="type">'a array -> int -> 'a -> bool</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">set arr n x</code> modifies <code class="code">arr</code> in place;
-    it replaces the nth element of <code class="code">arr</code> with <code class="code">x</code><br>
-<div class="tag"> <b>Returns</b> false means not updated due to out of range<br>
- </div> 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALsetExn"><span class="keyword">val</span> setExn</span> : <code class="type">'a array -> int -> 'a -> unit</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">setExn arr i x</code>
-    <b>raise</b> an exception if <code class="code">i</code> is out of range<br>
- 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALsetUnsafe"><span class="keyword">val</span> setUnsafe</span> : <code class="type">'a array -> int -> 'a -> unit</code></pre>
-<pre><span id="VALshuffleInPlace"><span class="keyword">val</span> shuffleInPlace</span> : <code class="type">'a array -> unit</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">shuffleInPlace arr</code> randomly re-orders the items in <code class="code">arr</code><br>
- 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALshuffle"><span class="keyword">val</span> shuffle</span> : <code class="type">'a array -> 'a array</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">shuffle xs</code><br>
-<div class="tag"> <b>Returns</b> a fresh array with items in original array randomly shuffled<br>
- </div> 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALreverseInPlace"><span class="keyword">val</span> reverseInPlace</span> : <code class="type">'a array -> unit</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">reverseInPlace arr</code> reverses items in <code class="code">arr</code> in place<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">    let arr = [|10;11;12;13;14|];;
-    let () = reverseInPlace arr;;
-    arr = [|14;13;12;11;10|];;
-  </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALreverse"><span class="keyword">val</span> reverse</span> : <code class="type">'a array -> 'a array</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">reverse arr</code><br>
-<div class="tag"> <b>Returns</b> a fresh array with items in <code class="code">arr</code> in reverse order<br>
- </div> 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      reverse [|10;11;12;13;14|] = [|14;13;12;11;10|];;
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALmakeUninitialized"><span class="keyword">val</span> makeUninitialized</span> : <code class="type">int -> 'a <a href="Js.html#TYPEundefined">Js.undefined</a> array</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">makeUninitialized n</code> creates an array of length <code class="code">n</code> filled with the undefined value.
-  You must specify the type of data that will eventually fill the array.<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">    let arr: string Js.undefined array = makeUninitialized 5;;
-    getExn arr 0 = Js.undefined;;
-  </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALmakeUninitializedUnsafe"><span class="keyword">val</span> makeUninitializedUnsafe</span> : <code class="type">int -> 'a array</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">makeUninitializedUnsafe n</code>
-<p>
-
-    <b>Unsafe</b><br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">    let arr = Belt.Array.makeUninitializedUnsafe 5;;
-    let () = Js.log(Belt.Array.getExn arr 0);; (* undefined *)
-    Belt.Array.setExn arr 0 "example";;
-    let () = Js.log(Belt.Array.getExn arr 0 = "example");;
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALmake"><span class="keyword">val</span> make</span> : <code class="type">int -> 'a -> 'a array</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">make n e</code> 
-    return an array of size <code class="code">n</code> filled  with value <code class="code">e</code><br>
-<div class="tag"> <b>Returns</b> an empty array when <code class="code">n</code> is negative.<br>
- </div> 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALrange"><span class="keyword">val</span> range</span> : <code class="type">int -> int -> int array</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">range start finish</code> create an inclusive array<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      range 0 3 =  [|0;1;2;3|];;
-      range 3 0 =  [||] ;;
-      range 3 3 = [|3|];;
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALrangeBy"><span class="keyword">val</span> rangeBy</span> : <code class="type">int -> int -> step:int -> int array</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">rangeBy start finish ~step</code><br>
-<div class="tag"> <b>Returns</b> empty array when step is 0 or negative
-    it also return empty array when <code class="code">start &gt; finish</code><br>
- </div> 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">     rangeBy 0 10 ~step:3 = [|0;3;6;9|];;
-     rangeBy 0 12 ~step:3 = [|0;3;6;9;12|];;
-     rangeBy 33 0 ~step:1 =  [||];;
-     rangeBy 33 0 ~step:(-1) = [||];;
-     rangeBy 3 12 ~step:(-1) = [||];;
-     rangeBy 3 3 ~step:0 = [||] ;;     
-     rangeBy 3 3 ~step:(1) = [|3|] ;;
-   </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALmakeByU"><span class="keyword">val</span> makeByU</span> : <code class="type">int -> (int -> 'a [@bs]) -> 'a array</code></pre>
-<pre><span id="VALmakeBy"><span class="keyword">val</span> makeBy</span> : <code class="type">int -> (int -> 'a) -> 'a array</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">makeBy n f</code> 
-<p>
-
-    return an empty array when <code class="code">n</code> is negative 
-    return an array of size <code class="code">n</code> populated by <code class="code">f i</code> start from <code class="code">0</code> to <code class="code">n - 1</code><br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      makeBy 5 (fun i -&gt; i) = [|0;1;2;3;4|];;
-      makeBy 5 (fun i -&gt; i * i) = [|0;1;4;9;16|]
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALmakeByAndShuffleU"><span class="keyword">val</span> makeByAndShuffleU</span> : <code class="type">int -> (int -> 'a [@bs]) -> 'a array</code></pre>
-<pre><span id="VALmakeByAndShuffle"><span class="keyword">val</span> makeByAndShuffle</span> : <code class="type">int -> (int -> 'a) -> 'a array</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">makeByAndShuffle n f</code>
-<p>
-
-    Equivalent to <code class="code">shuffle (makeBy n f)</code><br>
- 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALzip"><span class="keyword">val</span> zip</span> : <code class="type">'a array -> 'b array -> ('a * 'b) array</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">zip a b</code> 
-<p>
-
-    Create an array of pairs from corresponding elements of <code class="code">a</code> and <code class="code">b</code>.
-    Stop with the shorter array<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      zip [|1;2] [|3;4;5|] = [| (1,3); (2;4) |]
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALzipByU"><span class="keyword">val</span> zipByU</span> : <code class="type">'a array -> 'b array -> ('a -> 'b -> 'c [@bs]) -> 'c array</code></pre>
-<pre><span id="VALzipBy"><span class="keyword">val</span> zipBy</span> : <code class="type">'a array -> 'b array -> ('a -> 'b -> 'c) -> 'c array</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">zipBy xs ys f</code>
-<p>
-
-    Create an array by applying <code class="code">f</code> to corresponding elements of <code class="code">xs</code> and <code class="code">ys</code>
-    Stops with shorter array
-<p>
-
-    Equivalent to <code class="code">map (zip xs ys) (fun (a,b) -&gt; f a b) </code><br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      zipBy [|1;2;3|] [|4;5|] (fun a b -&gt; 2 * a + b) = [|6;9|];;
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALconcat"><span class="keyword">val</span> concat</span> : <code class="type">'a array -> 'a array -> 'a array</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">concat xs ys</code><br>
-<div class="tag"> <b>Returns</b> a fresh array containing the
-    concatenation of the arrays <code class="code">v1</code> and <code class="code">v2</code>;so even if <code class="code">v1</code> or <code class="code">v2</code>
-    is empty;it can not be shared<br>
- </div> 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      concat [|1;2;3|] [|4;5|] = [|1;2;3;4;5|];;
-      concat [| |] [|"a";"b";"c"|] = [|"a";"b";"c"|];;
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALconcatMany"><span class="keyword">val</span> concatMany</span> : <code class="type">'a array array -> 'a array</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">concatMany xss</code><br>
-<div class="tag"> <b>Returns</b> a fresh array as the concatenation of <code class="code">xss</code> (an array of arrays)<br>
- </div> 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      concatMany [| [|1;2;3|]; [|4;5;6|]; [|7;8|] |] = [|1;2;3;4;5;6;7;8|];;
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALslice"><span class="keyword">val</span> slice</span> : <code class="type">'a array -> offset:int -> len:int -> 'a array</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">slice xs offset len</code> creates a new array with the <code class="code">len</code> elements of <code class="code">xs</code> starting at <code class="code">offset</code> for
-<p>
-
-    <code class="code">offset</code> can be negative;and is evaluated as <code class="code">length xs - offset</code>
-    <code class="code">slice xs -1 1</code> means get the last element as a singleton array
-<p>
-
-    <code class="code">slice xs (-len) len</code> will return a copy of the array
-<p>
-
-    if the array does not have enough data;<code class="code">slice</code> extracts through
-    the end of sequence.
-<p>
-
-    if <code class="code">len</code> is negative;returns the empty array.<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      slice [|10;11;12;13;14;15;16|] ~offset: 2 ~len: 3 = [|12;13;14|];;
-      slice [|10;11;12;13;14;15;16|] ~offset: (-4) ~len: 3 = [|13;14;15|];;
-      slice [|10;11;12;13;14;15;16|] ~offset:4  ~len:9 = [|14;15;16|];;
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALcopy"><span class="keyword">val</span> copy</span> : <code class="type">'a array -> 'a array</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">copy a</code><br>
-<div class="tag"> <b>Returns</b> a copy of <code class="code">a</code>;that is;a fresh array
-   containing the same elements as <code class="code">a</code>.<br>
- </div> 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALfill"><span class="keyword">val</span> fill</span> : <code class="type">'a array -> offset:int -> len:int -> 'a -> unit</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">fill arr ~offset ~len x</code> 
-<p>
-
-    Modifies <code class="code">arr</code> in place,
-    storing <code class="code">x</code> in elements number <code class="code">offset</code> to <code class="code">offset + len - 1</code>.
-<p>
-
-    <code class="code">offset</code> can be negative;and is evaluated as <code class="code">length arr - offset</code>
-<p>
-
-    <code class="code">fill arr offset:(-1) len:1 </code> means fill the last element,
-    if the array does not have enough data;<code class="code">fill</code> will ignore it<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      let arr = makeBy 5 (fun i -&gt; i) ;;
-      fill arr ~offset:2 ~len:2 9 ;;
-      arr = [|0;1;9;9;4|];;
-      fill arr ~offset:7 ~len:2 8;;
-      arr = [|0;1;9;9;4|];;
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALblit"><span class="keyword">val</span> blit</span> : <code class="type">src:'a array -><br>       srcOffset:int -> dst:'a array -> dstOffset:int -> len:int -> unit</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">blit ~src:v1 ~srcOffset:o1 ~dst:v2 ~dstOffset:o2 ~len</code> 
-<p>
-
-    copies <code class="code">len</code> elements
-   from array <code class="code">v1</code>;starting at element number <code class="code">o1</code>;to array <code class="code">v2</code>,
-   starting at element number <code class="code">o2</code>. 
-<p>
-
-    It works correctly even if
-    <code class="code">v1</code> and <code class="code">v2</code> are the same array;and the source and
-    destination chunks overlap.
-<p>
-
-    <code class="code">offset</code> can be negative;<code class="code">-1</code> means <code class="code">len - 1</code>;if <code class="code">len + offset</code>  is still 
-    negative;it will be set as 0
-<p>
-
-    For each of the examples;presume that <code class="code">v1 = [|10;11;12;13;14;15;16;17|]</code> and
-    <code class="code">v2 = [|20;21;22;23;24;25;26;27|]</code>. The result shown is the content of the destination array.<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      Belt.Array.blit ~src: v1 ~srcOffset: 4 ~dst: v2 ~dstOffset: 2 ~len: 3 -&gt;
-        [|20;21;14;15;16;25;26;27|]
-      Belt.Array.blit ~src: v1 ~srcOffset: 4 ~dst: v1 ~dstOffset: 2 ~len: 3 -&gt;
-        [|10;11;14;15;16;15;16;17|]
-      </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALblitUnsafe"><span class="keyword">val</span> blitUnsafe</span> : <code class="type">src:'a array -><br>       srcOffset:int -> dst:'a array -> dstOffset:int -> len:int -> unit</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <b>Unsafe</b> blit without bounds checking<br>
- 
-                    </div>
-                    
-                    </div>
-
-                  
-<pre><span id="VALforEachU"><span class="keyword">val</span> forEachU</span> : <code class="type">'a array -> ('a -> unit [@bs]) -> unit</code></pre>
-<pre><span id="VALforEach"><span class="keyword">val</span> forEach</span> : <code class="type">'a array -> ('a -> unit) -> unit</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">forEach xs f</code>
-<p>
-
-    Call <code class="code">f</code> on each element of <code class="code">xs</code> from the beginning to end. <code class="code">f</code> returns <code class="code">unit</code>;so no
-    new array is created. Use <code class="code">foreach</code> when you are primarily concerned with repetitively
-    creating side effects.<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      forEach [|"a";"b";"c"|] (fun x -&gt; Js.log("Item: " ^ x));;
-      (*  prints:
-        Item: a
-        Item: b
-        Item: c
-      *)
-      
-      let total = ref 0;;
-      forEach [|1;2;3;4|] (fun x -&gt; total := !total + x);;
-      !total  = 1 + 2 + 3 + 4;;
-
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALmapU"><span class="keyword">val</span> mapU</span> : <code class="type">'a array -> ('a -> 'b [@bs]) -> 'b array</code></pre>
-<pre><span id="VALmap"><span class="keyword">val</span> map</span> : <code class="type">'a array -> ('a -> 'b) -> 'b array</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">map xs f </code><br>
-<div class="tag"> <b>Returns</b> a new array by calling <code class="code">f</code> for each element of <code class="code">xs</code> from
-    the beginning to end<br>
- </div> 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">     map [|1;2|] (fun x-&gt; x + 1) = [|3;4|]
-   </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALkeepU"><span class="keyword">val</span> keepU</span> : <code class="type">'a array -> ('a -> bool [@bs]) -> 'a array</code></pre>
-<pre><span id="VALkeep"><span class="keyword">val</span> keep</span> : <code class="type">'a array -> ('a -> bool) -> 'a array</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">keep xs p </code><br>
-<div class="tag"> <b>Returns</b> a new array that keep all elements satisfy <code class="code">p</code><br>
- </div> 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      keep [|1;2;3|] (fun x -&gt; x mod  2 = 0) = [|2|]
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALkeepMapU"><span class="keyword">val</span> keepMapU</span> : <code class="type">'a array -> ('a -> 'b option [@bs]) -> 'b array</code></pre>
-<pre><span id="VALkeepMap"><span class="keyword">val</span> keepMap</span> : <code class="type">'a array -> ('a -> 'b option) -> 'b array</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">keepMap xs p</code><br>
-<div class="tag"> <b>Returns</b> a new array that keep all elements that return a non-None applied <code class="code">p</code><br>
- </div> 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      keepMap [|1;2;3|] (fun x -&gt; if x mod 2 then Some x else None)
-      = [| 2 |]
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALforEachWithIndexU"><span class="keyword">val</span> forEachWithIndexU</span> : <code class="type">'a array -> (int -> 'a -> unit [@bs]) -> unit</code></pre>
-<pre><span id="VALforEachWithIndex"><span class="keyword">val</span> forEachWithIndex</span> : <code class="type">'a array -> (int -> 'a -> unit) -> unit</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">forEachWithIndex xs f</code>
-<p>
-
-    The same as <a href="Belt_Array.html#VALforEach"><code class="code">Belt_Array.forEach</code></a>;except that <code class="code">f</code> is supplied two arguments:
-    the index starting from 0 and the element from <code class="code">xs</code><br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">    
-      forEach [|"a";"b";"c"|] (fun i x -&gt; Js.log("Item " ^ (string_of_int i) ^ " is " ^ x));;
-      (*  prints:
-        Item 0 is a
-        Item 1 is b
-        Item 2 is cc
-      *)
-
-      let total = ref 0 ;;
-      forEachWithIndex [|10;11;12;13|] (fun i x -&gt; total := !total + x + i);;
-      !total  = 0 + 10 + 1 +  11 + 2 + 12 + 3 + 13;;
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALmapWithIndexU"><span class="keyword">val</span> mapWithIndexU</span> : <code class="type">'a array -> (int -> 'a -> 'b [@bs]) -> 'b array</code></pre>
-<pre><span id="VALmapWithIndex"><span class="keyword">val</span> mapWithIndex</span> : <code class="type">'a array -> (int -> 'a -> 'b) -> 'b array</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">mapWithIndex xs f </code>
-<p>
-
-    <code class="code">mapWithIndex xs f</code> applies <code class="code">f</code> to each element of <code class="code">xs</code>. Function <code class="code">f</code> takes two arguments:
-  the index starting from 0 and the element from <code class="code">xs</code>.<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      mapWithIndex [|1;2;3|] (fun i x -&gt; i + x) =
-      [|0 + 1; 1 + 2; 2 + 3|]
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALreduceU"><span class="keyword">val</span> reduceU</span> : <code class="type">'b array -> 'a -> ('a -> 'b -> 'a [@bs]) -> 'a</code></pre>
-<pre><span id="VALreduce"><span class="keyword">val</span> reduce</span> : <code class="type">'b array -> 'a -> ('a -> 'b -> 'a) -> 'a</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">reduce xs init f</code>
-<p>
-
-    Applies <code class="code">f</code> to each element of <code class="code">xs</code> from beginning to end.  Function <code class="code">f</code> has two parameters: the item
-    from the list and an “accumulator”;which starts with a value of <code class="code">init</code>. <code class="code">reduce</code>
-    returns the final value of the accumulator.<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      reduce [|2;3;4|] 1 (+) = 10;;
-      reduce [|"a";"b";"c";"d"|] "" (^) = "abcd";;
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALreduceReverseU"><span class="keyword">val</span> reduceReverseU</span> : <code class="type">'b array -> 'a -> ('a -> 'b -> 'a [@bs]) -> 'a</code></pre>
-<pre><span id="VALreduceReverse"><span class="keyword">val</span> reduceReverse</span> : <code class="type">'b array -> 'a -> ('a -> 'b -> 'a) -> 'a</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">reduceReverse xs init f</code>
-<p>
-
-    Works like <a href="Belt_Array.html#VALreduce"><code class="code">Belt_Array.reduce</code></a>;except that function <code class="code">f</code> is applied to each item of <code class="code">xs</code> from the last
-    back to the first.<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      reduceReverse [|"a";"b";"c";"d"|] "" (^) = "dcba";;
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALreduceReverse2U"><span class="keyword">val</span> reduceReverse2U</span> : <code class="type">'a array -> 'b array -> 'c -> ('c -> 'a -> 'b -> 'c [@bs]) -> 'c</code></pre>
-<pre><span id="VALreduceReverse2"><span class="keyword">val</span> reduceReverse2</span> : <code class="type">'a array -> 'b array -> 'c -> ('c -> 'a -> 'b -> 'c) -> 'c</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">reduceReverse2 xs ys init f</code>
-   Reduces two arrays <code class="code">xs</code> and <code class="code">ys</code>;taking items starting at <code class="code">min (length xs) (length ys)</code>
-   down to and including zero.<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">     reduceReverse2 [|1;2;3|] [|1;2|] 0 (fun acc x y -&gt; acc + x + y) = 6
-   </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALsomeU"><span class="keyword">val</span> someU</span> : <code class="type">'a array -> ('a -> bool [@bs]) -> bool</code></pre>
-<pre><span id="VALsome"><span class="keyword">val</span> some</span> : <code class="type">'a array -> ('a -> bool) -> bool</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">some xs p</code><br>
-<div class="tag"> <b>Returns</b> true if at least one of the elements in <code class="code">xs</code> satifies <code class="code">p</code>;where <code class="code">p</code> is a <i>predicate</i>: a function taking
-    an element and returning a <code class="code">bool</code>.<br>
- </div> 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      some [|2; 3; 4|] (fun x -&gt; x mod 2 = 1) = true;;
-      some [|-1; -3; -5|] (fun x -&gt; x &gt; 0) = false;;
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALeveryU"><span class="keyword">val</span> everyU</span> : <code class="type">'a array -> ('a -> bool [@bs]) -> bool</code></pre>
-<pre><span id="VALevery"><span class="keyword">val</span> every</span> : <code class="type">'a array -> ('a -> bool) -> bool</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">every xs p</code><br>
-<div class="tag"> <b>Returns</b> true if all elements satisfy <code class="code">p</code>;where <code class="code">p</code> is a <i>predicate</i>: a function taking
-    an element and returning a <code class="code">bool</code>.<br>
- </div> 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      every [|1; 3; 5|] (fun x -&gt; x mod 2 = 1) = true;;
-      every [|1; -3; 5|] (fun x -&gt; x &gt; 0) = false;;
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALevery2U"><span class="keyword">val</span> every2U</span> : <code class="type">'a array -> 'b array -> ('a -> 'b -> bool [@bs]) -> bool</code></pre>
-<pre><span id="VALevery2"><span class="keyword">val</span> every2</span> : <code class="type">'a array -> 'b array -> ('a -> 'b -> bool) -> bool</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">every2 xs ys p</code> returns true if <code class="code">p xi yi</code> is true for all pairs of elements
-  up to the shorter length (i.e. <code class="code">min (length xs) (length ys)</code>)<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      every2 [|1;2;3|] [|0;1|] (&gt;) = true;;
-      every2 [||] [|1|] (fun  x y -&gt; x &gt; y) = true;;
-      every2 [|2;3|] [|1|] (fun  x y -&gt; x &gt; y) = true;;
-      every2 [|0;1|] [|5;0|] (fun x y -&gt; x &gt; y) = false;
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALsome2U"><span class="keyword">val</span> some2U</span> : <code class="type">'a array -> 'b array -> ('a -> 'b -> bool [@bs]) -> bool</code></pre>
-<pre><span id="VALsome2"><span class="keyword">val</span> some2</span> : <code class="type">'a array -> 'b array -> ('a -> 'b -> bool) -> bool</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">some2 xs ys p</code> returns true if <code class="code">p xi yi</code> is true for any pair of elements
-  up to the shorter length (i.e. <code class="code">min (length xs) (length ys)</code>)<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      some2 [|0;2|] [|1;0;3|] (&gt;) = true ;;
-      (some2 [||] [|1|] (fun   x y -&gt; x &gt; y)) =  false;;
-      (some2 [|2;3|] [|1;4|] (fun   x y -&gt; x &gt; y)) = true;;
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALcmpU"><span class="keyword">val</span> cmpU</span> : <code class="type">'a array -> 'a array -> ('a -> 'a -> int [@bs]) -> int</code></pre>
-<pre><span id="VALcmp"><span class="keyword">val</span> cmp</span> : <code class="type">'a array -> 'a array -> ('a -> 'a -> int) -> int</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">cmp xs ys f</code>
-<p>
-<ul>
-<li>Compared by length if <code class="code">length xs &lt;&gt; length ys</code>;returning -1 if<code class="code">length xs &lt; length ys</code> or 1 if <code class="code">length xs &gt; length ys</code></li>
-<li>Otherwise compare one by one <code class="code">f x y</code>. <code class="code">f</code> returns</li>
-<li>a negative number if <code class="code">x</code> is “less than” <code class="code">y</code></li>
-<li>zero if <code class="code">x</code> is “equal to” <code class="code">y</code></li>
-<li>a positive number if <code class="code">x</code> is “greater than” <code class="code">y</code></li>
-<li>The comparison returns the first non-zero result of <code class="code">f</code>;or zero if <code class="code">f</code> returns zero for all <code class="code">x</code> and <code class="code">y</code>.</li>
-</ul>
-<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      cmp [|1; 3; 5|] [|1; 4; 2|] (fun a b -&gt; compare a b) = -1;;
-      cmp [|1; 3; 5|] [|1; 2; 3|] (fun a b -&gt; compare a b) = 1;;
-      cmp [|1; 3; 5|] [|1; 3; 5|] (fun a b -&gt; compare a b) = 0;;
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALeqU"><span class="keyword">val</span> eqU</span> : <code class="type">'a array -> 'a array -> ('a -> 'a -> bool [@bs]) -> bool</code></pre>
-<pre><span id="VALeq"><span class="keyword">val</span> eq</span> : <code class="type">'a array -> 'a array -> ('a -> 'a -> bool) -> bool</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <code class="code">eq xs ys</code>
-<p>
-<ul>
-<li>return false if length is not the same</li>
-<li>otherwise compare items one by one using <code class="code">f xi yi</code>;and return true if all results are true;false otherwise</li>
-</ul>
-<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">      eq [|1; 2; 3|] [|-1; -2; -3|] (fun a b -&gt; abs a = abs b) = true
-    </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  
-<pre><span id="VALtruncateToLengthUnsafe"><span class="keyword">val</span> truncateToLengthUnsafe</span> : <code class="type">'a array -> int -> unit</code></pre><div class="info ">
-                    <div class="not-examples">
-                    <b>Unsafe</b>
-  <code class="code">truncateToLengthUnsafe xs n</code> sets length of array <code class="code">xs</code> to <code class="code">n</code>.
-<p>
-
-  If <code class="code">n</code> is greater than the length of <code class="code">xs</code>;the extra elements are set to <code class="code">Js.Null_undefined.null</code>
-<p>
-
-  If <code class="code">n</code> is less than zero;raises a <code class="code">RangeError</code>.<br>
- 
-                    </div>
-                     <div class="examples">
-                    <pre class="example"> <pre class="codepre"><code class="code">    let arr = [|"ant";"bee";"cat";"dog";"elk"|] in
-    let () = truncateToLengthUnsafe arr 3 in
-    arr = [|"ant";"bee";"cat"|] = true;;
-  </code></pre>  </pre>
-                    </div>
-                    </div>
-
-                  </body></html>
+
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#value-length" class='level-0 value'>length</a>
+<a href="#value-size" class='level-0 value'>size</a>
+<a href="#value-get" class='level-0 value'>get</a>
+<a href="#value-getExn" class='level-0 value'>getExn</a>
+<a href="#value-getUnsafe" class='level-0 value'>getUnsafe</a>
+<a href="#value-getUndefined" class='level-0 value'>getUndefined</a>
+<a href="#value-set" class='level-0 value'>set</a>
+<a href="#value-setExn" class='level-0 value'>setExn</a>
+<a href="#value-setUnsafe" class='level-0 value'>setUnsafe</a>
+<a href="#value-shuffleInPlace" class='level-0 value'>shuffleInPlace</a>
+<a href="#value-shuffle" class='level-0 value'>shuffle</a>
+<a href="#value-reverseInPlace" class='level-0 value'>reverseInPlace</a>
+<a href="#value-reverse" class='level-0 value'>reverse</a>
+<a href="#value-makeUninitialized" class='level-0 value'>makeUninitialized</a>
+<a href="#value-makeUninitializedUnsafe" class='level-0 value'>makeUninitializedUnsafe</a>
+<a href="#value-make" class='level-0 value'>make</a>
+<a href="#value-range" class='level-0 value'>range</a>
+<a href="#value-rangeBy" class='level-0 value'>rangeBy</a>
+<a href="#value-makeByU" class='level-0 value'>makeByU</a>
+<a href="#value-makeBy" class='level-0 value'>makeBy</a>
+<a href="#value-makeByAndShuffleU" class='level-0 value'>makeByAndShuffleU</a>
+<a href="#value-makeByAndShuffle" class='level-0 value'>makeByAndShuffle</a>
+<a href="#value-zip" class='level-0 value'>zip</a>
+<a href="#value-zipByU" class='level-0 value'>zipByU</a>
+<a href="#value-zipBy" class='level-0 value'>zipBy</a>
+<a href="#value-concat" class='level-0 value'>concat</a>
+<a href="#value-concatMany" class='level-0 value'>concatMany</a>
+<a href="#value-slice" class='level-0 value'>slice</a>
+<a href="#value-copy" class='level-0 value'>copy</a>
+<a href="#value-fill" class='level-0 value'>fill</a>
+<a href="#value-blit" class='level-0 value'>blit</a>
+<a href="#value-blitUnsafe" class='level-0 value'>blitUnsafe</a>
+<a href="#value-forEachU" class='level-0 value'>forEachU</a>
+<a href="#value-forEach" class='level-0 value'>forEach</a>
+<a href="#value-mapU" class='level-0 value'>mapU</a>
+<a href="#value-map" class='level-0 value'>map</a>
+<a href="#value-keepU" class='level-0 value'>keepU</a>
+<a href="#value-keep" class='level-0 value'>keep</a>
+<a href="#value-keepMapU" class='level-0 value'>keepMapU</a>
+<a href="#value-keepMap" class='level-0 value'>keepMap</a>
+<a href="#value-forEachWithIndexU" class='level-0 value'>forEachWithIndexU</a>
+<a href="#value-forEachWithIndex" class='level-0 value'>forEachWithIndex</a>
+<a href="#value-mapWithIndexU" class='level-0 value'>mapWithIndexU</a>
+<a href="#value-mapWithIndex" class='level-0 value'>mapWithIndex</a>
+<a href="#value-reduceU" class='level-0 value'>reduceU</a>
+<a href="#value-reduce" class='level-0 value'>reduce</a>
+<a href="#value-reduceReverseU" class='level-0 value'>reduceReverseU</a>
+<a href="#value-reduceReverse" class='level-0 value'>reduceReverse</a>
+<a href="#value-reduceReverse2U" class='level-0 value'>reduceReverse2U</a>
+<a href="#value-reduceReverse2" class='level-0 value'>reduceReverse2</a>
+<a href="#value-someU" class='level-0 value'>someU</a>
+<a href="#value-some" class='level-0 value'>some</a>
+<a href="#value-everyU" class='level-0 value'>everyU</a>
+<a href="#value-every" class='level-0 value'>every</a>
+<a href="#value-every2U" class='level-0 value'>every2U</a>
+<a href="#value-every2" class='level-0 value'>every2</a>
+<a href="#value-some2U" class='level-0 value'>some2U</a>
+<a href="#value-some2" class='level-0 value'>some2</a>
+<a href="#value-cmpU" class='level-0 value'>cmpU</a>
+<a href="#value-cmp" class='level-0 value'>cmp</a>
+<a href="#value-eqU" class='level-0 value'>eqU</a>
+<a href="#value-eq" class='level-0 value'>eq</a>
+<a href="#value-truncateToLengthUnsafe" class='level-0 value'>truncateToLengthUnsafe</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Js.html">Js</a>
+<a href="Arg.html">Arg</a>
+<a href="Array.html">Array</a>
+<a href="ArrayLabels.html">ArrayLabels</a>
+<a href="Bigarray.html">Bigarray</a>
+<a href="Buffer.html">Buffer</a>
+<a href="Bytes.html">Bytes</a>
+<a href="BytesLabels.html">BytesLabels</a>
+<a href="Callback.html">Callback</a>
+<a href="CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="CamlinternalMod.html">CamlinternalMod</a>
+<a href="CamlinternalOO.html">CamlinternalOO</a>
+<a href="Char.html">Char</a>
+<a href="Complex.html">Complex</a>
+<a href="Digest.html">Digest</a>
+<a href="Filename.html">Filename</a>
+<a href="Format.html">Format</a>
+<a href="Gc.html">Gc</a>
+<a href="Genlex.html">Genlex</a>
+<a href="Hashtbl.html">Hashtbl</a>
+<a href="Int32.html">Int32</a>
+<a href="Int64.html">Int64</a>
+<a href="Lazy.html">Lazy</a>
+<a href="Lexing.html">Lexing</a>
+<a href="List.html">List</a>
+<a href="ListLabels.html">ListLabels</a>
+<a href="Map.html">Map</a>
+<a href="Marshal.html">Marshal</a>
+<a href="MoreLabels.html">MoreLabels</a>
+<a href="Nativeint.html">Nativeint</a>
+<a href="Obj.html">Obj</a>
+<a href="Oo.html">Oo</a>
+<a href="Parsing.html">Parsing</a>
+<a href="Pervasives.html">Pervasives</a>
+<a href="Printexc.html">Printexc</a>
+<a href="Printf.html">Printf</a>
+<a href="Queue.html">Queue</a>
+<a href="Random.html">Random</a>
+<a href="Scanf.html">Scanf</a>
+<a href="Set.html">Set</a>
+<a href="Sort.html">Sort</a>
+<a href="Stack.html">Stack</a>
+<a href="Std_exit.html">Std_exit</a>
+<a href="StdLabels.html">StdLabels</a>
+<a href="Stream.html">Stream</a>
+<a href="String.html">String</a>
+<a href="StringLabels.html">StringLabels</a>
+<a href="Sys.html">Sys</a>
+<a href="Unix.html">Unix</a>
+<a href="UnixLabels.html">UnixLabels</a>
+<a href="Weak.html">Weak</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/others/belt_Array.ml" class="edit-link">Edit</a>
+    <p>Array Utililites for Array functions</p>
+<p>other items defined</p><div class='doc-item'><h4 class='item'>let <a href="#value-length" id="value-length">length</a>: array('a) => int</h4>
+
+<div class='body '><p><code>length xs</code> return the size of the array</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-size" id="value-size">size</a>: array('a) => int</h4>
+
+<div class='body '><p><strong>See</strong> length</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-get" id="value-get">get</a>: (array('a), int) => option('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getExn" id="value-getExn">getExn</a>: (array('a), int) => 'a</h4>
+
+<div class='body '><p><code>getExn arr i</code></p>
+<p><strong>raise</strong> an exception if <code>i</code> is out of range</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getUnsafe" id="value-getUnsafe">getUnsafe</a>: (array('a), int) => 'a</h4>
+
+<div class='body '><p><code>getUnasfe arr i</code></p>
+<p><strong>Unsafe</strong></p>
+<p>no bounds checking, this would cause type error if <code>i</code> does not stay within range</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getUndefined" id="value-getUndefined">getUndefined</a>: (array('a), int) => <a href="Js.html#type-undefined" title="Js.undefined">undefined</a>('a)</h4>
+
+<div class='body '><p><code>getUndefined arr i</code></p>
+<p>It does the samething in the runtime as getUnsafe, it is <em>type safe</em> since the return type still track whether it is in range or not</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-set" id="value-set">set</a>: (array('a), int, 'a) => bool</h4>
+
+<div class='body '><p><code>set arr n x</code> modifies <code>arr</code> in place, it replaces the nth element of <code>arr</code> with <code>x</code></p>
+<p>Returns: <p>false means not updated due to out of range</p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-setExn" id="value-setExn">setExn</a>: (array('a), int, 'a) => unit</h4>
+
+<div class='body '><p><code>setExn arr i x</code> <strong>raise</strong> an exception if <code>i</code> is out of range</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-setUnsafe" id="value-setUnsafe">setUnsafe</a>: (array('a), int, 'a) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-shuffleInPlace" id="value-shuffleInPlace">shuffleInPlace</a>: array('a) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-shuffle" id="value-shuffle">shuffle</a>: array('a) => array('a)</h4>
+
+<div class='body '><p><code>shuffle xs</code></p>
+<p>Returns: <p>a fresh array</p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-reverseInPlace" id="value-reverseInPlace">reverseInPlace</a>: array('a) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-reverse" id="value-reverse">reverse</a>: array('a) => array('a)</h4>
+
+<div class='body '><p><code>reverse x</code></p>
+<p>Returns: <p>a fresh array</p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-makeUninitialized" id="value-makeUninitialized">makeUninitialized</a>: int => array(<a href="Js.html#type-undefined" title="Js.undefined">undefined</a>('a))</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-makeUninitializedUnsafe" id="value-makeUninitializedUnsafe">makeUninitializedUnsafe</a>: int => array('a)</h4>
+
+<div class='body '><p><code>makeUninitializedUnsafe n</code></p>
+<p><strong>Unsafe</strong></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-make" id="value-make">make</a>: (int, 'a) => array('a)</h4>
+
+<div class='body '><p><code>make n e</code> return an array of size <code>n</code> filled with value <code>e</code></p>
+<p>Returns: <p>an empty array when <code>n</code> is negative.</p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-range" id="value-range">range</a>: (int, int) => array(int)</h4>
+
+<div class='body '><p><code>range start finish</code> create an inclusive array</p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='122' id='block-122'><code>range 0 3 =  [|0;1;2;3|];;
+range 3 0 =  [||] ;;
+range 3 3 = [|3|];;</code></pre>
+  
+  <script type='docre-source' data-block-id="122">#open Belt_Array
+range 0 3 =  [|0;1;2;3|];;
+range 3 0 =  [||] ;;
+range 3 3 = [|3|];;
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 0-5:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='122-alt' id='block-122-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-rangeBy" id="value-rangeBy">rangeBy</a>: (int, int, ~step: int) => array(int)</h4>
+
+<div class='body '><p><code>range start finish</code> create an inclusive array</p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='122' id='block-122'><code>range 0 3 =  [|0;1;2;3|];;
+range 3 0 =  [||] ;;
+range 3 3 = [|3|];;</code></pre>
+  
+  <script type='docre-source' data-block-id="122">#open Belt_Array
+range 0 3 =  [|0;1;2;3|];;
+range 3 0 =  [||] ;;
+range 3 3 = [|3|];;
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 0-5:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='122-alt' id='block-122-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-makeByU" id="value-makeByU">makeByU</a>: (int, <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_1 of int ], 'a)) => array('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-makeBy" id="value-makeBy">makeBy</a>: (int, int => 'a) => array('a)</h4>
+
+<div class='body '><p><code>makeBy n f</code></p>
+<p>return an empty array when <code>n</code> is negative return an array of size <code>n</code> populated by <code>f i</code> start from <code>0</code> to <code>n - 1</code></p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='123' id='block-123'><code>makeBy 5 (fun i -&gt; i) = [|0;1;2;3;4|]</code></pre>
+  
+  <script type='docre-source' data-block-id="123">#open Belt_Array
+makeBy 5 (fun i -> i) = [|0;1;2;3;4|]
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 0-6:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='123-alt' id='block-123-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-makeByAndShuffleU" id="value-makeByAndShuffleU">makeByAndShuffleU</a>: (
+  int,
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_1 of int ], 'a)
+) => array('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-makeByAndShuffle" id="value-makeByAndShuffle">makeByAndShuffle</a>: (int, int => 'a) => array('a)</h4>
+
+<div class='body '><p><code>makeByAndShuffle n f</code></p>
+<p>Equivalent to <code>shuffle (makeBy n f)</code></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-zip" id="value-zip">zip</a>: (array('a), array('b)) => array(('a, 'b))</h4>
+
+<div class='body '><p><code>zip a b</code></p>
+<p>Stop with the shorter array</p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='124' id='block-124'><code>zip [|1;2] [|1;2;3|] = [| (1,2); (2;2)|]</code></pre>
+  
+  <script type='docre-source' data-block-id="124">#open Belt_Array
+zip [|1;2] [|1;2;3|] = [| (1,2); (2;2)|]
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 0-3:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='124-alt' id='block-124-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-zipByU" id="value-zipByU">zipByU</a>: (
+  array('a),
+  array('b),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of 'a135 * 'b36 ], 'c)
+) => array('c)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-zipBy" id="value-zipBy">zipBy</a>: (array('a), array('b), ('a, 'b) => 'c) => array(
+  'c
+)</h4>
+
+<div class='body '><p><code>zipBy xs ys f</code></p>
+<p>Stops with shorter array</p>
+<p>Equivalent to <code>map (zip xs ys) (fun (a,b) -&gt; f a b) </code></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-concat" id="value-concat">concat</a>: (array('a), array('a)) => array('a)</h4>
+
+<div class='body '><p><code>concat xs ys</code></p>
+<p>Returns: <p>a fresh array containing the concatenation of the arrays <code>v1</code> and <code>v2</code>, so even if <code>v1</code> or <code>v2</code> is empty, it can not be shared</p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-concatMany" id="value-concatMany">concatMany</a>: array(array('a)) => array('a)</h4>
+
+<div class='body '><p><code>concatMany xss</code></p>
+<p>Returns: <p>a fresh array as the concatenation of <code>xss</code></p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-slice" id="value-slice">slice</a>: (array('a), ~offset: int, ~len: int) => array('a)</h4>
+
+<div class='body '><p><code>slice arr offset len</code></p>
+<p><code>offset</code> can be negative, <code>slice arr -1 1</code> means get the last element as a singleton array</p>
+<p><code>slice arr -(very_large_index) len</code> will do a copy of the array</p>
+<p>if the array does not have enough data, <code>slice</code> extracts through the end of sequence</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-copy" id="value-copy">copy</a>: array('a) => array('a)</h4>
+
+<div class='body '><p><code>copy a</code></p>
+<p>Returns: <p>a copy of <code>a</code>, that is, a fresh array containing the same elements as <code>a</code>.</p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-fill" id="value-fill">fill</a>: (array('a), ~offset: int, ~len: int, 'a) => unit</h4>
+
+<div class='body '><p><code>fill arr ~offset ~len x</code></p>
+<p>Modifies <code>arr</code> in place, storing <code>x</code> in elements number <code>offset</code> to <code>offset + len - 1</code>.</p>
+<p><code>offset</code> can be negative</p>
+<p><code>fill arr offset:(-1) len:1 </code> means fill the last element, if the array does not have enough data, <code>fill</code> will ignore it</p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='125' id='block-125'><code>
+let <span class='pattern-ident' data-type="array(int)">arr</span> = <span class='ident' data-type="(int, int => int) => array(int)">makeBy</span> <span class='int' data-type="int">5</span> (fun <span class='pattern-ident' data-type="int">i</span> -&gt; <span class='ident' data-type="int">i</span>) ;;
+<span class='ident' data-type="(array(int), ~offset: int, ~len: int, int) => unit">fill</span> <span class='ident' data-type="array(int)">arr</span> ~offset:<span class='int' data-type="int">2</span> ~len:<span class='int' data-type="int">2</span> <span class='int' data-type="int">0</span> ;;
+<span class='ident' data-type="array(int)">arr</span> <span class='operator' data-type="(array(int), array(int)) => bool">=</span> [|<span class='int' data-type="int">0</span>;<span class='int' data-type="int">1</span>;<span class='int' data-type="int">0</span>;<span class='int' data-type="int">0</span>;<span class='int' data-type="int">4</span>|];;</code></pre>
+  
+  <script type='docre-source' data-block-id="125">#open Belt_Array
+
+let arr = makeBy 5 (fun i -> i) ;;
+fill arr ~offset:2 ~len:2 0 ;;
+arr = [|0;1;0;0;4|];;
+</script>
+  <div data-block-id='125' data-context="normal" data-block-syntax="ml" class='block-target'></div><script type='docre-bundle' data-block-id='125'>
+;(function() { // generated by pack.re
+let modules = {}
+let initializers = {
+    1: function(module, exports, require) {// Generated by BUCKLESCRIPT VERSION 2.2.3, PLEASE EDIT WITH CARE
+'use strict';
+
+var Caml_obj = window.packRequire("./lib/js/caml_obj.js");
+var Belt_Array = window.packRequire("./lib/js/belt_Array.js");
+
+var arr = Belt_Array.makeBy(5, (function (i) {
+        return i;
+      }));
+
+Belt_Array.fill(arr, 2, 2, 0);
+
+Caml_obj.caml_equal(arr, /* array */[
+      0,
+      1,
+      0,
+      0,
+      4
+    ]);
+
+exports.arr = arr;
+/* arr Not a pure module */
+//# sourceURL=./node_modules/.docre/Bucklescript__Belt_Array_CODE_BLOCK_125.re_ppx.js
+}
+};
+let nameMap = {
+  "./node_modules/.docre/Bucklescript__Belt_Array_CODE_BLOCK_125.re_ppx.js": 1
+}
+let require = (id) => {
+  if (!modules[id]) {
+    modules[id] = {exports: {}}
+    initializers[id](modules[id], modules[id].exports, require)
+  }
+  return modules[id].exports
+};
+  require(1)})();</script>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='125-alt' id='block-125-alt'><code>open Belt_Array;
+
+let <span class='pattern-ident' data-type="array(int)">arr</span> = <span class='ident' data-type="(int, int => int) => array(int)">makeBy</span>(<span class='int' data-type="int">5</span>, <span class='pattern-ident' data-type="int">i</span> =&gt; <span class='ident' data-type="int">i</span>);
+
+<span class='ident' data-type="(array(int), ~offset: int, ~len: int, int) => unit">fill</span>(<span class='ident' data-type="array(int)">arr</span>, ~offset=<span class='int' data-type="int">2</span>, ~len=<span class='int' data-type="int">2</span>, <span class='int' data-type="int">0</span>);
+
+<span class='ident' data-type="array(int)">arr</span> <span class='operator' data-type="(array(int), array(int)) => bool">==</span> [|<span class='int' data-type="int">0</span>, <span class='int' data-type="int">1</span>, <span class='int' data-type="int">0</span>, <span class='int' data-type="int">0</span>, <span class='int' data-type="int">4</span>|];</code></pre>
+  
+  <script type='docre-source' data-block-id="125-alt">open Belt_Array;
+
+let arr = makeBy(5, i => i);
+
+fill(arr, ~offset=2, ~len=2, 0);
+
+arr == [|0, 1, 0, 0, 4|];</script>
+  <div data-block-id='125-alt' data-context="normal" data-block-syntax="re" class='block-target'></div><script type='docre-bundle' data-block-id='125-alt'>
+;(function() { // generated by pack.re
+let modules = {}
+let initializers = {
+    1: function(module, exports, require) {// Generated by BUCKLESCRIPT VERSION 2.2.3, PLEASE EDIT WITH CARE
+'use strict';
+
+var Caml_obj = window.packRequire("./lib/js/caml_obj.js");
+var Belt_Array = window.packRequire("./lib/js/belt_Array.js");
+
+var arr = Belt_Array.makeBy(5, (function (i) {
+        return i;
+      }));
+
+Belt_Array.fill(arr, 2, 2, 0);
+
+Caml_obj.caml_equal(arr, /* array */[
+      0,
+      1,
+      0,
+      0,
+      4
+    ]);
+
+exports.arr = arr;
+/* arr Not a pure module */
+//# sourceURL=./node_modules/.docre/Bucklescript__Belt_Array_CODE_BLOCK_125_alt.re_ppx.js
+}
+};
+let nameMap = {
+  "./node_modules/.docre/Bucklescript__Belt_Array_CODE_BLOCK_125_alt.re_ppx.js": 1
+}
+let require = (id) => {
+  if (!modules[id]) {
+    modules[id] = {exports: {}}
+    initializers[id](modules[id], modules[id].exports, require)
+  }
+  return modules[id].exports
+};
+  require(1)})();</script>
+</div></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-blit" id="value-blit">blit</a>: (
+  ~src: array('a),
+  ~srcOffset: int,
+  ~dst: array('a),
+  ~dstOffset: int,
+  ~len: int
+) => unit</h4>
+
+<div class='body '><p><code>blit ~src:v1 ~srcOffset:o1 ~dst:v2 ~dstOffset:o2 ~len</code></p>
+<p>copies <code>len</code> elements from array <code>v1</code>, starting at element number <code>o1</code>, to array <code>v2</code>, starting at element number <code>o2</code>.</p>
+<p>It works correctly even if <code>v1</code> and <code>v2</code> are the same array, and the source and destination chunks overlap.</p>
+<p><code>offset</code> can be negative, <code>-1</code> means <code>len - 1</code>, if <code>len + offset</code> is still negative, it will be set as 0</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-blitUnsafe" id="value-blitUnsafe">blitUnsafe</a>: (
+  ~src: array('a),
+  ~srcOffset: int,
+  ~dst: array('a),
+  ~dstOffset: int,
+  ~len: int
+) => unit</h4>
+
+<div class='body '><p><strong>Unsafe</strong> blit without bounds checking</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-forEachU" id="value-forEachU">forEachU</a>: (
+  array('a),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_1 of 'a134 ], unit)
+) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-forEach" id="value-forEach">forEach</a>: (array('a), 'a => unit) => unit</h4>
+
+<div class='body '><p><code>forEach xs f</code></p>
+<p>Call f on each element of <code>xs</code> from the beginning to end</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-mapU" id="value-mapU">mapU</a>: (
+  array('a),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_1 of 'a133 ], 'b)
+) => array('b)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-map" id="value-map">map</a>: (array('a), 'a => 'b) => array('b)</h4>
+
+<div class='body '><p><code>map xs f </code></p>
+<p>Returns: <p>a new array by calling <code>f</code> to element of <code>xs</code> from the beginning to end</p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-keepU" id="value-keepU">keepU</a>: (
+  array('a),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_1 of 'a132 ], bool)
+) => array('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-keep" id="value-keep">keep</a>: (array('a), 'a => bool) => array('a)</h4>
+
+<div class='body '><p><code>keep xs p </code></p>
+<p>Returns: <p>a new array that keep all elements satisfy <code>p</code></p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='126' id='block-126'><code>keep [|1;2;3|] (fun x -&gt; x mod  2 = 0) = [|2|]</code></pre>
+  
+  <script type='docre-source' data-block-id="126">#open Belt_Array
+keep [|1;2;3|] (fun x -> x mod  2 = 0) = [|2|]
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 0-4:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='126-alt' id='block-126-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-keepMapU" id="value-keepMapU">keepMapU</a>: (
+  array('a),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_1 of 'a131 ], option('b))
+) => array('b)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-keepMap" id="value-keepMap">keepMap</a>: (array('a), 'a => option('b)) => array('b)</h4>
+
+<div class='body '><p><code>keepMap xs p</code></p>
+<p>Returns: <p>a new array that keep all elements that return a non-None applied <code>p</code></p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='127' id='block-127'><code>keepMap [|1;2;3|] (fun x -&gt; if x mod 2 then Some x else None)
+= [| 2 |]</code></pre>
+  
+  <script type='docre-source' data-block-id="127">#open Belt_Array
+keepMap [|1;2;3|] (fun x -> if x mod 2 then Some x else None)
+= [| 2 |]
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 0-7:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='127-alt' id='block-127-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-forEachWithIndexU" id="value-forEachWithIndexU">forEachWithIndexU</a>: (
+  array('a),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of int * 'a130 ], unit)
+) => unit</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-forEachWithIndex" id="value-forEachWithIndex">forEachWithIndex</a>: (array('a), (int, 'a) => unit) => unit</h4>
+
+<div class='body '><p><code>forEachWithIndex xs f</code></p>
+<p>The same with forEach, except that <code>f</code> is supplied with one more argument: the index starting from 0</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-mapWithIndexU" id="value-mapWithIndexU">mapWithIndexU</a>: (
+  array('a),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of int * 'a129 ], 'b)
+) => array('b)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-mapWithIndex" id="value-mapWithIndex">mapWithIndex</a>: (array('a), (int, 'a) => 'b) => array('b)</h4>
+
+<div class='body '><p><code>mapWithIndex xs f </code></p>
+<p>The same with map except that <code>f</code> is supplied with one more argument: the index starting from 0</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-reduceU" id="value-reduceU">reduceU</a>: (
+  array('b),
+  'a,
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of 'a128 * 'b35 ], 'a)
+) => 'a</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-reduce" id="value-reduce">reduce</a>: (array('b), 'a, ('a, 'b) => 'a) => 'a</h4>
+
+<div class='body '><p><code>reduce xs init f</code></p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='128' id='block-128'><code>reduce [|2;3;4|] 1 (+) = 10</code></pre>
+  
+  <script type='docre-source' data-block-id="128">#open Belt_Array
+reduce [|2;3;4|] 1 (+) = 10
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 0-6:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='128-alt' id='block-128-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-reduceReverseU" id="value-reduceReverseU">reduceReverseU</a>: (
+  array('b),
+  'a,
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of 'a127 * 'b34 ], 'a)
+) => 'a</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-reduceReverse" id="value-reduceReverse">reduceReverse</a>: (array('b), 'a, ('a, 'b) => 'a) => 'a</h4>
+
+<div class='body '><p><code>reduceReverse xs init f</code></p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='129' id='block-129'><code>reduceReverse [|1;2;3;4|] 100 (-) = 90 </code></pre>
+  
+  <script type='docre-source' data-block-id="129">#open Belt_Array
+reduceReverse [|1;2;3;4|] 100 (-) = 90 
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 0-13:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='129-alt' id='block-129-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-reduceReverse2U" id="value-reduceReverse2U">reduceReverse2U</a>: (
+  array('a),
+  array('b),
+  'c,
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_3 of 'c9 * 'a126 * 'b33 ], 'c)
+) => 'c</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-reduceReverse2" id="value-reduceReverse2">reduceReverse2</a>: (
+  array('a),
+  array('b),
+  'c,
+  ('c, 'a, 'b) => 'c
+) => 'c</h4>
+
+<div class='body '><div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='130' id='block-130'><code>reduceReverse2 [|1;2;3|] [|1;2|] 0 (fun acc x y -&gt; acc + x + y) = 6</code></pre>
+  
+  <script type='docre-source' data-block-id="130">#open Belt_Array
+reduceReverse2 [|1;2;3|] [|1;2|] 0 (fun acc x y -> acc + x + y) = 6
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 0-14:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='130-alt' id='block-130-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-someU" id="value-someU">someU</a>: (
+  array('a),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_1 of 'a125 ], bool)
+) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-some" id="value-some">some</a>: (array('a), 'a => bool) => bool</h4>
+
+<div class='body '><p><code>some xs p</code></p>
+<p>Returns: <p>true if one of element satifies <code>p</code></p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-everyU" id="value-everyU">everyU</a>: (
+  array('a),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_1 of 'a124 ], bool)
+) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-every" id="value-every">every</a>: (array('a), 'a => bool) => bool</h4>
+
+<div class='body '><p><code>every xs p</code></p>
+<p>Returns: <p>true if all elements satisfy <code>p</code></p></p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-every2U" id="value-every2U">every2U</a>: (
+  array('a),
+  array('b),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of 'a123 * 'b32 ], bool)
+) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-every2" id="value-every2">every2</a>: (array('a), array('b), ('a, 'b) => bool) => bool</h4>
+
+<div class='body '><p><code>every2 xs ys p</code> only tests the length of shorter</p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='131' id='block-131'><code>every2 [|1;2;3|] [|0;1|] (&gt;) = true;;
+(every2 [||] [|1|] (fun   x y -&gt; x &gt; y)) = true;;
+(every2 [|2;3|] [|1|] (fun   x y -&gt; x &gt; y)) = true;; </code></pre>
+  
+  <script type='docre-source' data-block-id="131">#open Belt_Array
+every2 [|1;2;3|] [|0;1|] (>) = true;;
+(every2 [||] [|1|] (fun   x y -> x > y)) = true;;
+(every2 [|2;3|] [|1|] (fun   x y -> x > y)) = true;; 
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 0-6:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='131-alt' id='block-131-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-some2U" id="value-some2U">some2U</a>: (
+  array('a),
+  array('b),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of 'a122 * 'b31 ], bool)
+) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-some2" id="value-some2">some2</a>: (array('a), array('b), ('a, 'b) => bool) => bool</h4>
+
+<div class='body '><p><code>some2 xs ys p</code> only tests the length of shorter</p>
+<div class='code-block' data-block-syntax="ml">
+  
+  <pre class='code' data-block-id='132' id='block-132'><code>some2 [|0;2|] [|1;0;3|] (&gt;) = true ;;
+(some2 [||] [|1|] (fun   x y -&gt; x &gt; y)) =  false;;
+(some2 [|2;3|] [|1;4|] (fun   x y -&gt; x &gt; y)) = true;;</code></pre>
+  
+  <script type='docre-source' data-block-id="132">#open Belt_Array
+some2 [|0;2|] [|1;0;3|] (>) = true ;;
+(some2 [||] [|1|] (fun   x y -> x > y)) =  false;;
+(some2 [|2;3|] [|1;4|] (fun   x y -> x > y)) = true;;
+</script>
+  <div class='parse-error'>Parse Error:
+File &quot;&quot;, line 2, characters 0-5:
+Error: Syntax error</div>
+</div><div class='code-block' data-block-syntax="re">
+  
+  <pre class='code' data-block-id='132-alt' id='block-132-alt'><code>Unable to refmt code with a syntax error</code></pre>
+  
+  
+  
+</div></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-cmpU" id="value-cmpU">cmpU</a>: (
+  array('a),
+  array('a),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of 'a121 * 'a121 ], int)
+) => int</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-cmp" id="value-cmp">cmp</a>: (array('a), array('a), ('a, 'a) => int) => int</h4>
+
+<div class='body '><p><code>cmp a b</code></p>
+<ul><li><p>Compared by length if <code>length a &lt;&gt; length b</code></p>
+</li><li><p>Otherwise compare one by one <code>f ai bi</code></p>
+</li></ul></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-eqU" id="value-eqU">eqU</a>: (
+  array('a),
+  array('a),
+  <a href="Js.html#type-Internal.fn" title="Js.Internal.fn">fn</a>([ `Arity_2 of 'a120 * 'a120 ], bool)
+) => bool</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-eq" id="value-eq">eq</a>: (array('a), array('a), ('a, 'a) => bool) => bool</h4>
+
+<div class='body '><p><code>eq a b</code></p>
+<ul><li><p>return false if length is not the same</p>
+</li><li><p>equal one by one using <code>f ai bi</code></p>
+</li></ul></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-truncateToLengthUnsafe" id="value-truncateToLengthUnsafe">truncateToLengthUnsafe</a>: (array('a), int) => unit</h4>
+
+<div class='body '><p><strong>Unsafe</strong></p>
+</div></div>
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

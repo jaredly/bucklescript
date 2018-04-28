@@ -1,0 +1,337 @@
+
+    
+<!doctype html>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Lexing</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<script defer src="../block-script.js"></script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
+</div>
+
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <a href="../playground.html" style="display: block; padding: 0 8px;">Playground</a>
+      <div class='docs-listing'><a href="../docson/index.html">docson</a>
+<a href="../fonts/LICENSE.html">LICENSE</a>
+<a href="../index.html">docs</a>
+<a href="../slides/Buckle_meetup.html">Buckle_meetup</a>
+<a href="../slides/Haskell_meetup.html">Haskell_meetup</a>
+<a href="../slides/preview/CONTRIBUTING.html">CONTRIBUTING</a>
+<a href="../slides/preview/reveal-js/css/theme/index.html">theme</a>
+<a href="../slides/preview/reveal-js/plugin/markdown/example.html">example</a>
+<a href="../slides/preview/reveal-js/REVEAL_JS.html">REVEAL_JS</a>
+<a href="../slides/preview/Slides/bb-reveal-example/overview.html">overview</a></div>
+      <div class='toc-header'>Page Contents</div>
+      <div class='table-of-contents'>
+      <a href="#type-position" class='level-0 type'>position</a>
+<a href="#value-dummy_pos" class='level-0 value'>dummy_pos</a>
+<a href="#type-lexbuf" class='level-0 type'>lexbuf</a>
+<a href="#value-from_channel" class='level-0 value'>from_channel</a>
+<a href="#value-from_string" class='level-0 value'>from_string</a>
+<a href="#value-from_function" class='level-0 value'>from_function</a>
+<a href="#value-lexeme" class='level-0 value'>lexeme</a>
+<a href="#value-lexeme_char" class='level-0 value'>lexeme_char</a>
+<a href="#value-lexeme_start" class='level-0 value'>lexeme_start</a>
+<a href="#value-lexeme_end" class='level-0 value'>lexeme_end</a>
+<a href="#value-lexeme_start_p" class='level-0 value'>lexeme_start_p</a>
+<a href="#value-lexeme_end_p" class='level-0 value'>lexeme_end_p</a>
+<a href="#value-new_line" class='level-0 value'>new_line</a>
+<a href="#value-flush_input" class='level-0 value'>flush_input</a>
+<a href="#value-sub_lexeme" class='level-0 value'>sub_lexeme</a>
+<a href="#value-sub_lexeme_opt" class='level-0 value'>sub_lexeme_opt</a>
+<a href="#value-sub_lexeme_char" class='level-0 value'>sub_lexeme_char</a>
+<a href="#value-sub_lexeme_char_opt" class='level-0 value'>sub_lexeme_char_opt</a>
+<a href="#type-lex_tables" class='level-0 type'>lex_tables</a>
+<a href="#value-engine" class='level-0 value'>engine</a>
+<a href="#value-new_engine" class='level-0 value'>new_engine</a>
+      </div>
+      <div class='project-title'>Package modules</div><div class='project-listing'><a href="Js.html">Js</a>
+<a href="Arg.html">Arg</a>
+<a href="Array.html">Array</a>
+<a href="ArrayLabels.html">ArrayLabels</a>
+<a href="Bigarray.html">Bigarray</a>
+<a href="Buffer.html">Buffer</a>
+<a href="Bytes.html">Bytes</a>
+<a href="BytesLabels.html">BytesLabels</a>
+<a href="Callback.html">Callback</a>
+<a href="CamlinternalFormat.html">CamlinternalFormat</a>
+<a href="CamlinternalFormatBasics.html">CamlinternalFormatBasics</a>
+<a href="CamlinternalLazy.html">CamlinternalLazy</a>
+<a href="CamlinternalMod.html">CamlinternalMod</a>
+<a href="CamlinternalOO.html">CamlinternalOO</a>
+<a href="Char.html">Char</a>
+<a href="Complex.html">Complex</a>
+<a href="Digest.html">Digest</a>
+<a href="Filename.html">Filename</a>
+<a href="Format.html">Format</a>
+<a href="Gc.html">Gc</a>
+<a href="Genlex.html">Genlex</a>
+<a href="Hashtbl.html">Hashtbl</a>
+<a href="Int32.html">Int32</a>
+<a href="Int64.html">Int64</a>
+<a href="Lazy.html">Lazy</a>
+<a href="Lexing.html">Lexing</a>
+<a href="List.html">List</a>
+<a href="ListLabels.html">ListLabels</a>
+<a href="Map.html">Map</a>
+<a href="Marshal.html">Marshal</a>
+<a href="MoreLabels.html">MoreLabels</a>
+<a href="Nativeint.html">Nativeint</a>
+<a href="Obj.html">Obj</a>
+<a href="Oo.html">Oo</a>
+<a href="Parsing.html">Parsing</a>
+<a href="Pervasives.html">Pervasives</a>
+<a href="Printexc.html">Printexc</a>
+<a href="Printf.html">Printf</a>
+<a href="Queue.html">Queue</a>
+<a href="Random.html">Random</a>
+<a href="Scanf.html">Scanf</a>
+<a href="Set.html">Set</a>
+<a href="Sort.html">Sort</a>
+<a href="Stack.html">Stack</a>
+<a href="Std_exit.html">Std_exit</a>
+<a href="StdLabels.html">StdLabels</a>
+<a href="Stream.html">Stream</a>
+<a href="String.html">String</a>
+<a href="StringLabels.html">StringLabels</a>
+<a href="Sys.html">Sys</a>
+<a href="Unix.html">Unix</a>
+<a href="UnixLabels.html">UnixLabels</a>
+<a href="Weak.html">Weak</a>
+<a href="Belt.html">Belt</a>
+<a href="Belt_Array.html">Belt_Array</a>
+<a href="Belt_HashMap.html">Belt_HashMap</a>
+<a href="Belt_HashMapInt.html">Belt_HashMapInt</a>
+<a href="Belt_HashMapString.html">Belt_HashMapString</a>
+<a href="Belt_HashSet.html">Belt_HashSet</a>
+<a href="Belt_HashSetInt.html">Belt_HashSetInt</a>
+<a href="Belt_HashSetString.html">Belt_HashSetString</a>
+<a href="Belt_Id.html">Belt_Id</a>
+<a href="Belt_internalAVLset.html">Belt_internalAVLset</a>
+<a href="Belt_internalAVLtree.html">Belt_internalAVLtree</a>
+<a href="Belt_internalBuckets.html">Belt_internalBuckets</a>
+<a href="Belt_internalBucketsType.html">Belt_internalBucketsType</a>
+<a href="Belt_internalMapInt.html">Belt_internalMapInt</a>
+<a href="Belt_internalMapString.html">Belt_internalMapString</a>
+<a href="Belt_internalSetBuckets.html">Belt_internalSetBuckets</a>
+<a href="Belt_internalSetInt.html">Belt_internalSetInt</a>
+<a href="Belt_internalSetString.html">Belt_internalSetString</a>
+<a href="Belt_List.html">Belt_List</a>
+<a href="Belt_Map.html">Belt_Map</a>
+<a href="Belt_MapDict.html">Belt_MapDict</a>
+<a href="Belt_MapInt.html">Belt_MapInt</a>
+<a href="Belt_MapString.html">Belt_MapString</a>
+<a href="Belt_MutableMap.html">Belt_MutableMap</a>
+<a href="Belt_MutableMapInt.html">Belt_MutableMapInt</a>
+<a href="Belt_MutableMapString.html">Belt_MutableMapString</a>
+<a href="Belt_MutableQueue.html">Belt_MutableQueue</a>
+<a href="Belt_MutableSet.html">Belt_MutableSet</a>
+<a href="Belt_MutableSetInt.html">Belt_MutableSetInt</a>
+<a href="Belt_MutableSetString.html">Belt_MutableSetString</a>
+<a href="Belt_MutableStack.html">Belt_MutableStack</a>
+<a href="Belt_Option.html">Belt_Option</a>
+<a href="Belt_Range.html">Belt_Range</a>
+<a href="Belt_Set.html">Belt_Set</a>
+<a href="Belt_SetDict.html">Belt_SetDict</a>
+<a href="Belt_SetInt.html">Belt_SetInt</a>
+<a href="Belt_SetString.html">Belt_SetString</a>
+<a href="Belt_SortArray.html">Belt_SortArray</a>
+<a href="Belt_SortArrayInt.html">Belt_SortArrayInt</a>
+<a href="Belt_SortArrayString.html">Belt_SortArrayString</a>
+<a href="Dom.html">Dom</a>
+<a href="Dom_storage.html">Dom_storage</a>
+<a href="Js_array.html">Js_array</a>
+<a href="Js_boolean.html">Js_boolean</a>
+<a href="Js_cast.html">Js_cast</a>
+<a href="Js_console.html">Js_console</a>
+<a href="Js_date.html">Js_date</a>
+<a href="Js_dict.html">Js_dict</a>
+<a href="Js_global.html">Js_global</a>
+<a href="Js_json.html">Js_json</a>
+<a href="Js_list.html">Js_list</a>
+<a href="Js_mapperRt.html">Js_mapperRt</a>
+<a href="Js_math.html">Js_math</a>
+<a href="Js_null_undefined.html">Js_null_undefined</a>
+<a href="Js_obj.html">Js_obj</a>
+<a href="Js_option.html">Js_option</a>
+<a href="Js_promise.html">Js_promise</a>
+<a href="Js_re.html">Js_re</a>
+<a href="Js_result.html">Js_result</a>
+<a href="Js_string.html">Js_string</a>
+<a href="Js_types.html">Js_types</a>
+<a href="Js_vector.html">Js_vector</a>
+<a href="Node.html">Node</a>
+<a href="Node_buffer.html">Node_buffer</a>
+<a href="Node_child_process.html">Node_child_process</a>
+<a href="Node_fs.html">Node_fs</a>
+<a href="Node_module.html">Node_module</a>
+<a href="Node_path.html">Node_path</a>
+<a href="Node_process.html">Node_process</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/bucklescript/bucklescript/blob/master/jscomp/stdlib/lexing.ml" class="edit-link">Edit</a>
+    <p>The run-time library for lexers generated by <code>ocamllex</code>.</p>
+<p>other items defined</p><div class='doc-item'><h4 id="Positions">Positions</h4></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-position" id="type-position">position</a> = {
+  pos_fname: string,
+  pos_lnum: int,
+  pos_bol: int,
+  pos_cnum: int
+}</h4>
+
+<div class='body '><p>A value of type <code>position</code> describes a point in a source file. <code>pos_fname</code> is the file name; <code>pos_lnum</code> is the line number; <code>pos_bol</code> is the offset of the beginning of the line (number of characters between the beginning of the lexbuf and the beginning of the line); <code>pos_cnum</code> is the offset of the position (number of characters between the beginning of the lexbuf and the position). The difference between <code>pos_cnum</code> and <code>pos_bol</code> is the character offset within the line (i.e. the column number, assuming each character is one column wide).</p>
+<p>See the documentation of type <code>lexbuf</code> for information about how the lexing engine will manage positions.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-dummy_pos" id="value-dummy_pos">dummy_pos</a>: <a href="#type-position">position</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 id="Lexer-buffers">Lexer buffers</h4></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-lexbuf" id="type-lexbuf">lexbuf</a> = {
+  refill_buff: <a href="#type-lexbuf">lexbuf</a> => unit,
+  mut lex_buffer: bytes,
+  mut lex_buffer_len: int,
+  mut lex_abs_pos: int,
+  mut lex_start_pos: int,
+  mut lex_curr_pos: int,
+  mut lex_last_pos: int,
+  mut lex_last_action: int,
+  mut lex_eof_reached: bool,
+  mut lex_mem: array(int),
+  mut lex_start_p: <a href="#type-position">position</a>,
+  mut lex_curr_p: <a href="#type-position">position</a>
+}</h4>
+
+<div class='body '><p>The type of lexer buffers. A lexer buffer is the argument passed to the scanning functions defined by the generated scanners. The lexer buffer holds the current state of the scanner, plus a function to refill the buffer from the input.</p>
+<p>At each token, the lexing engine will copy <code>lex_curr_p</code> to <code>lex_start_p</code>, then change the <code>pos_cnum</code> field of <code>lex_curr_p</code> by updating it with the number of characters read since the start of the <code>lexbuf</code>. The other fields are left unchanged by the lexing engine. In order to keep them accurate, they must be initialised before the first use of the lexbuf, and updated by the relevant lexer actions (i.e. at each end of line -- see also <code>new_line</code>).</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-from_channel" id="value-from_channel">from_channel</a>: <a href="Pervasives.html#type-in_channel" title="Pervasives.in_channel">in_channel</a> => <a href="#type-lexbuf">lexbuf</a></h4>
+
+<div class='body '><p>Create a lexer buffer on the given input channel. <code>Lexing.from_channel inchan</code> returns a lexer buffer which reads from the input channel <code>inchan</code>, at the current reading position.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-from_string" id="value-from_string">from_string</a>: string => <a href="#type-lexbuf">lexbuf</a></h4>
+
+<div class='body '><p>Create a lexer buffer which reads from the given string. Reading starts from the first character in the string. An end-of-input condition is generated when the end of the string is reached.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-from_function" id="value-from_function">from_function</a>: (bytes, int) => int => <a href="#type-lexbuf">lexbuf</a></h4>
+
+<div class='body '><p>Create a lexer buffer with the given function as its reading method. When the scanner needs more characters, it will call the given function, giving it a byte sequence <code>s</code> and a byte count <code>n</code>. The function should put <code>n</code> bytes or fewer in <code>s</code>, starting at index 0, and return the number of bytes provided. A return value of 0 means end of input.</p>
+</div></div>
+
+<div class='doc-item'><h4 id="Functions-for-lexer-semantic-actions">Functions for lexer semantic actions</h4></div>
+
+<div class='doc-item'><p>The following functions can be called from the semantic actions of lexer definitions (the ML code enclosed in braces that computes the value returned by lexing functions). They give access to the character string matched by the regular expression associated with the semantic action. These functions must be applied to the argument <code>lexbuf</code>, which, in the code generated by <code>ocamllex</code>, is bound to the lexer buffer passed to the parsing function.</p>
+</div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-lexeme" id="value-lexeme">lexeme</a>: <a href="#type-lexbuf">lexbuf</a> => string</h4>
+
+<div class='body '><p><code>Lexing.lexeme lexbuf</code> returns the string matched by the regular expression.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-lexeme_char" id="value-lexeme_char">lexeme_char</a>: (<a href="#type-lexbuf">lexbuf</a>, int) => char</h4>
+
+<div class='body '><p><code>Lexing.lexeme_char lexbuf i</code> returns character number <code>i</code> in the matched string.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-lexeme_start" id="value-lexeme_start">lexeme_start</a>: <a href="#type-lexbuf">lexbuf</a> => int</h4>
+
+<div class='body '><p><code>Lexing.lexeme_start lexbuf</code> returns the offset in the input stream of the first character of the matched string. The first character of the stream has offset 0.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-lexeme_end" id="value-lexeme_end">lexeme_end</a>: <a href="#type-lexbuf">lexbuf</a> => int</h4>
+
+<div class='body '><p><code>Lexing.lexeme_end lexbuf</code> returns the offset in the input stream of the character following the last character of the matched string. The first character of the stream has offset 0.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-lexeme_start_p" id="value-lexeme_start_p">lexeme_start_p</a>: <a href="#type-lexbuf">lexbuf</a> => <a href="#type-position">position</a></h4>
+
+<div class='body '><p>Like <code>lexeme_start</code>, but return a complete <code>position</code> instead of an offset.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-lexeme_end_p" id="value-lexeme_end_p">lexeme_end_p</a>: <a href="#type-lexbuf">lexbuf</a> => <a href="#type-position">position</a></h4>
+
+<div class='body '><p>Like <code>lexeme_end</code>, but return a complete <code>position</code> instead of an offset.</p>
+</div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-new_line" id="value-new_line">new_line</a>: <a href="#type-lexbuf">lexbuf</a> => unit</h4>
+
+<div class='body '><p>Update the <code>lex_curr_p</code> field of the lexbuf to reflect the start of a new line. You can call this function in the semantic action of the rule that matches the end-of-line character.</p>
+Since: 3.11.0</div></div>
+
+<div class='doc-item'><h4 id="Miscellaneous-functions">Miscellaneous functions</h4></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-flush_input" id="value-flush_input">flush_input</a>: <a href="#type-lexbuf">lexbuf</a> => unit</h4>
+
+<div class='body '><p>Discard the contents of the buffer and reset the current position to 0. The next use of the lexbuf will trigger a refill.</p>
+</div></div>
+
+<div class='doc-item'><p>/*</p>
+</div>
+
+<div class='doc-item'>failed to parse: File &quot;&quot;, line 0, characters 0-2:
+&#39;{6 ...}&#39; (section heading) cannot be empty</div>
+
+<div class='doc-item'><p>The following definitions are used by the generated scanners only. They are not intended to be used directly by user programs.</p>
+</div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sub_lexeme" id="value-sub_lexeme">sub_lexeme</a>: (<a href="#type-lexbuf">lexbuf</a>, int, int) => string</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sub_lexeme_opt" id="value-sub_lexeme_opt">sub_lexeme_opt</a>: (<a href="#type-lexbuf">lexbuf</a>, int, int) => option(string)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sub_lexeme_char" id="value-sub_lexeme_char">sub_lexeme_char</a>: (<a href="#type-lexbuf">lexbuf</a>, int) => char</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-sub_lexeme_char_opt" id="value-sub_lexeme_char_opt">sub_lexeme_char_opt</a>: (<a href="#type-lexbuf">lexbuf</a>, int) => option(char)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-lex_tables" id="type-lex_tables">lex_tables</a> = {
+  lex_base: string,
+  lex_backtrk: string,
+  lex_default: string,
+  lex_trans: string,
+  lex_check: string,
+  lex_base_code: string,
+  lex_backtrk_code: string,
+  lex_default_code: string,
+  lex_trans_code: string,
+  lex_check_code: string,
+  lex_code: string
+}</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-engine" id="value-engine">engine</a>: (<a href="#type-lex_tables">lex_tables</a>, int, <a href="#type-lexbuf">lexbuf</a>) => int</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-new_engine" id="value-new_engine">new_engine</a>: (<a href="#type-lex_tables">lex_tables</a>, int, <a href="#type-lexbuf">lexbuf</a>) => int</h4>
+
+<div class='body body-empty'></div></div>
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  
