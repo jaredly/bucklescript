@@ -92,7 +92,6 @@ function bspack() {
   -I "${reasonTargetDir}/_build/default/src/reason-parser/vendor/easy_format/"  \
   -I "${reasonTargetDir}/_build/default/src/reason-parser/vendor/cmdliner/"     \
   -I "${reasonTargetDir}/_build/default/src/reason-parser-tests/"               \
-  -I "${reasonTargetDir}/_build/default/src/reasonbuild/"                       \
   -I "${reasonTargetDir}/_build/default/src/refmt/"                             \
   -I "${reasonTargetDir}/_build/default/src/refmttype/"                         \
   -I "${ocamlMigrateParseTreeTargetDir}" \
@@ -114,7 +113,7 @@ function build() {
             // `lazy`,
             `js`, `js_unsafe`, `js_re`, `js_array`, `js_null`, `js_undefined`, `js_internal`,
             `js_types`, `js_null_undefined`, `js_dict`, `js_exn`, `js_string`, `js_vector`,
-            `js_boolean`, `js_date`, `js_global`, `js_math`, `js_obj`, `js_int`,
+            `js_date`, `js_global`, `js_math`, `js_obj`, `js_int`,
             `js_result`, `js_list`, `js_typed_array`, `dom`,
             `js_promise`, `js_option`, `js_float`, `js_json`,
             `arrayLabels`, `bytesLabels`, `complex`, `gc`, `genlex`, `listLabels`,
