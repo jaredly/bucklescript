@@ -451,7 +451,7 @@ val no_assert_false : bool ref
 
 type color_setting = Auto | Always | Never
 val parse_color_setting : string -> color_setting option
-val color : color_setting ref
+val color : color_setting option ref
 
 
 end = struct
@@ -594,7 +594,7 @@ let parse_color_setting = function
   | "always" -> Some Always
   | "never" -> Some Never
   | _ -> None
-let color = ref Auto ;; (* -color *)
+let color = ref None ;; (* -color *)
 
 
 end
@@ -807,7 +807,7 @@ module Color : sig
   val get_styles: unit -> styles
   val set_styles: styles -> unit
 
-  val setup : Clflags.color_setting -> unit
+  val setup : Clflags.color_setting option -> unit
   (* [setup opt] will enable or disable color handling on standard formatters
      according to the value of color setting [opt].
      Only the first call to this function has an effect. *)
@@ -1301,9 +1301,10 @@ module Color = struct
         Format.set_mark_tags true;
         List.iter set_color_tag_handling formatter_l;
         color_enabled := (match o with
-          | Clflags.Always -> true
-          | Clflags.Auto -> should_enable_color ()
-          | Clflags.Never -> false
+          | Some Clflags.Always -> true
+          | Some Clflags.Auto -> should_enable_color ()
+          | Some Clflags.Never -> false
+          | None -> should_enable_color ()
         )
       );
       ()
@@ -20811,7 +20812,7 @@ let read_OCAMLPARAM ppf position =
               (Warnings.Bad_env_variable ("OCAMLPARAM",
                "bad value for \"color\", \
                 (expected \"auto\", \"always\" or \"never\")"))
-          | Some setting -> color := setting
+          | Some setting -> color := Some setting
           end
 
       | "intf-suffix" -> Config.interface_suffix := v
@@ -36736,7 +36737,7 @@ let handle_exp_apply
           ("", {pexp_desc = Pexp_ident {txt = Lident name;_ } ; _} )
           
         ])
-      ->  (* f##paint 1 2 *)
+      ->  (* f#@paint 1 2 *)
       {e with pexp_desc = Ast_util.property_apply loc self obj name args  }
     | Pexp_ident {txt = Lident "|."} ->
       (*
@@ -37797,19 +37798,19 @@ end = struct
 
 
 
-
-
-external string_unsafe_set : string -> int -> char -> unit
-                           = "%string_unsafe_set"
-
-external string_create: int -> string = "caml_create_string"
-
-external unsafe_chr: int -> char = "%identity"
-
 (** {!Char.escaped} is locale sensitive in 4.02.3, fixed in the trunk,
     backport it here
  *)
-let escaped = function
+
+module Unsafe = struct 
+    external bytes_unsafe_set : string -> int -> char -> unit
+                           = "%string_unsafe_set"
+    external string_create: int -> string = "caml_create_string"
+    external unsafe_chr: int -> char = "%identity"
+end 
+let escaped ch = 
+  let open Unsafe in 
+  match ch with 
   | '\'' -> "\\'"
   | '\\' -> "\\\\"
   | '\n' -> "\\n"
@@ -37818,15 +37819,15 @@ let escaped = function
   | '\b' -> "\\b"
   | ' ' .. '~' as c ->
       let s = string_create 1 in
-      string_unsafe_set s 0 c;
+      bytes_unsafe_set s 0 c;
       s
   | c ->
       let n = Char.code c in
       let s = string_create 4 in
-      string_unsafe_set s 0 '\\';
-      string_unsafe_set s 1 (unsafe_chr (48 + n / 100));
-      string_unsafe_set s 2 (unsafe_chr (48 + (n / 10) mod 10));
-      string_unsafe_set s 3 (unsafe_chr (48 + n mod 10));
+      bytes_unsafe_set s 0 '\\';
+      bytes_unsafe_set s 1 (unsafe_chr (48 + n / 100));
+      bytes_unsafe_set s 2 (unsafe_chr (48 + (n / 10) mod 10));
+      bytes_unsafe_set s 3 (unsafe_chr (48 + n mod 10));
       s
 
 
@@ -38883,7 +38884,7 @@ let rec unsafe_mapper : Bs_ast_mapper.mapper =
                     pcsig_fields = Ast_core_type_class_type.handle_class_type_fields self pcsig_fields
                   };
                 pcty_attributes
-               }
+               }               
 
              | Pcty_constr _
              | Pcty_extension _

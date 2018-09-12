@@ -268,17 +268,23 @@ DEPENDS_SRCS= bs_exception ast_extract binary_ast
 DEPENDS_CMXS=$(addprefix depends/, $(addsuffix .cmx, $(DEPENDS_SRCS)))
 CORE_SRCS= js_runtime_modules \
 	config_util \
+	primitive_compat \
 	js_packages_info\
 	js_packages_state\
 	ocaml_types  \
 	bs_conditional_initial \
 	ocaml_options \
 	ocaml_parse\
+	lam_pointer_info\
 	lam_tag_info\
+	lam_constant\
 	js_op\
 	lam_module_ident\
+	lam_compat\
 	lam_arity\
+	lam_primitive\
 	lam\
+	lam_convert\
 	lam_print lam_beta_reduce_util lam_inline_util lam_analysis\
 	lam_closure\
 	js_cmj_format \

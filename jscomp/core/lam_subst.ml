@@ -39,8 +39,8 @@
     | Lconst sc as l -> l
     | Lapply{fn; args; loc; status} -> 
       Lam.apply (subst_aux fn) (Ext_list.map subst_aux args) loc status
-    | Lfunction {arity; function_kind; params; body} -> 
-      Lam.function_ ~arity ~function_kind  ~params ~body:(subst_aux body)
+    | Lfunction {arity; params; body} -> 
+      Lam.function_ ~arity  ~params ~body:(subst_aux body)
     | Llet(str, id, arg, body) -> 
       Lam.let_ str id (subst_aux arg) (subst_aux body)
     | Lletrec(decl, body) -> 
@@ -74,7 +74,6 @@
       Lam.assign id (subst_aux e)
     | Lsend (k, met, obj, args, loc) ->
       Lam.send k (subst_aux met) (subst_aux obj) (Ext_list.map subst_aux args) loc
-    | Lifused (v, e) -> Lam.ifused v (subst_aux e)
   and subst_decl (id, exp) = (id, subst_aux exp)
   and subst_case (key, case) = (key, subst_aux case)
   and subst_strcase (key, case) = (key, subst_aux case)
